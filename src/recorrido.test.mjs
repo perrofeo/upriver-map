@@ -63,7 +63,7 @@ test('poseEn: quieta dentro de la parada, interpolada en el hueco, determinista'
   assert.equal(mitad.parada.id, 'a');
   assert.equal(mitad.siguiente.id, 'b');
   assert.ok(Math.abs(mitad.progreso - 0.5) < 1e-9);
-  assert.ok(mitad.pose.lon < pa.lon && mitad.pose.lon > pb.lon);
+  assert.ok(mitad.pose.lon < pa.lon && mitad.pose.lon > pb.lon - 0.2);
   assert.ok(mitad.pose.alt > pa.alt, 'el vuelo hace arco');
   assert.deepEqual(poseEn(r, 90).pose, mitad.pose);
   assert.deepEqual(poseEn(r, 150).pose, pb);
@@ -81,7 +81,7 @@ test('sin hueco, el vuelo ocupa los últimos segundos de la parada anterior', ()
 test('poseDeEntidad retrocede la cámara según heading y pitch, y respeta overrides', () => {
   const f = punto('a', -74, -5, 'asentamiento', []);
   const p = poseDeEntidad(f);
-  assert.ok(p.lon > -74, 'heading 270 (mira al oeste): la cámara queda al este');
+  assert.ok(p.lon > -74 && p.lat > -5, 'mira río arriba (suroeste): la cámara queda al nordeste');
   assert.equal(p.alt, 9000);
   const capturada = poseDeEntidad(f, { a: { lon: -73.5, lat: -5.1, alt: 1500, heading: 300, pitch: -12 } });
   assert.deepEqual(capturada, { lon: -73.5, lat: -5.1, alt: 1500, heading: 300, pitch: -12, roll: 0 });

@@ -30,38 +30,69 @@ const px = (lon, lat) => {
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
+/** Polilínea → trazo suave (Catmull-Rom a Bézier) en coordenadas de píxel. */
+function trazoSuave(coords) {
+  const p = coords.map(([lon, lat]) => coordenadaAPixel(lon, lat, ANCHO, ALTO));
+  if (p.length < 3) return `M ${p.map((q) => `${q.px.toFixed(1)} ${q.py.toFixed(1)}`).join(' L ')}`;
+  let d = `M ${p[0].px.toFixed(1)} ${p[0].py.toFixed(1)}`;
+  for (let i = 0; i < p.length - 1; i++) {
+    const p0 = p[Math.max(i - 1, 0)], p1 = p[i], p2 = p[i + 1], p3 = p[Math.min(i + 2, p.length - 1)];
+    const c1x = p1.px + (p2.px - p0.px) / 6, c1y = p1.py + (p2.py - p0.py) / 6;
+    const c2x = p2.px - (p3.px - p1.px) / 6, c2y = p2.py - (p3.py - p1.py) / 6;
+    d += ` C ${c1x.toFixed(1)} ${c1y.toFixed(1)}, ${c2x.toFixed(1)} ${c2y.toFixed(1)}, ${p2.px.toFixed(1)} ${p2.py.toFixed(1)}`;
+  }
+  return d;
+}
+
+const poligono = (anillo) => anillo.map(([lon, lat]) => px(lon, lat)).join(' ');
+
 export async function generarPlaceholder(estacion, salida) {
-  const [asent, rutas, imperio, accidentes, locs] = await Promise.all([
+  const [asent, rutas, imperio, accidentes, locs, hidro] = await Promise.all([
     leerGeojson('asentamientos.geojson'), leerGeojson('rutas.geojson'), leerGeojson('imperio.geojson'),
-    leerGeojson('accidentes.geojson'), leerGeojson('localizaciones.geojson'),
+    leerGeojson('accidentes.geojson'), leerGeojson('localizaciones.geojson'), leerGeojson('hidrografia.geojson'),
   ]);
   const creciente = estacion === 'creciente';
   const fondo = creciente ? '#1e2a1f' : '#26331f';
   const agua = creciente ? '#7fa9b1' : '#5d8b95';
-  const territorio = imperio.features.find((f) => f.id === 'territorio-imperio');
-  const terrPuntos = territorio.geometry.coordinates[0].map(([lon, lat]) => px(lon, lat)).join(' ');
-  const rutasDibujables = rutas.features.filter((f) => f.geometry.type === 'LineString' && f.geometry.coordinates.length);
-  const anchoRuta = (rango) => ({ principal: 46, secundario: 18, oculto: 10 }[rango] || 12);
+  const aguaNegra = creciente ? '#56818d' : '#3e5c66';
+  const visible = (f) => f.properties.estacion === 'ambas' || f.properties.estacion === estacion;
 
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${ANCHO}" height="${ALTO}" viewBox="0 0 ${ANCHO} ${ALTO}">`;
   svg += `<rect width="100%" height="100%" fill="${fondo}"/>`;
-  // Territorio local del imperio: trama.
-  svg += `<polygon points="${terrPuntos}" fill="#9a5b2f" fill-opacity="0.28" stroke="#c99a3e" stroke-width="6" stroke-dasharray="24 14"/>`;
-  // Red fluvial: el río grande es la autopista; los caños y desvíos, más finos; los ocultos, discontinuos.
-  for (const r of rutasDibujables) {
-    const puntos = r.geometry.coordinates.map(([lon, lat]) => px(lon, lat)).join(' ');
+  // Colinas y territorio local del imperio.
+  for (const f of accidentes.features.filter((x) => x.properties.subtipo === 'colinas')) {
+    svg += `<polygon points="${poligono(f.geometry.coordinates[0])}" fill="#6b5b3e" fill-opacity="0.5" stroke="#8a7550" stroke-width="4"/>`;
+  }
+  for (const f of imperio.features.filter((x) => x.properties.tipo === 'territorio' && x.properties.escala === 'local')) {
+    svg += `<polygon points="${poligono(f.geometry.coordinates[0])}" fill="#9a5b2f" fill-opacity="0.22" stroke="#c99a3e" stroke-width="6" stroke-dasharray="24 14"/>`;
+  }
+  // Bosque inundado (solo creciente por su estación), cochas, playas e islas.
+  for (const f of hidro.features.filter(visible)) {
+    const st = f.properties.subtipo;
+    const pts = poligono(f.geometry.coordinates[0]);
+    if (st === 'tahuampa') svg += `<polygon points="${pts}" fill="${agua}" fill-opacity="0.38"/>`;
+    else if (st === 'cocha') svg += `<polygon points="${pts}" fill="${aguaNegra}"/>`;
+  }
+  // Red fluvial: el río de la frontera y el río grande anchos; caños y desvíos finos; ocultos discontinuos.
+  const anchoRuta = (rango) => ({ principal: 44, secundario: 16, oculto: 9 }[rango] || 12);
+  for (const f of imperio.features.filter((x) => x.properties.tipo === 'frontera')) {
+    svg += `<path d="${trazoSuave(f.geometry.coordinates)}" fill="none" stroke="${agua}" stroke-width="${creciente ? 120 : 64}" stroke-linejoin="round" stroke-linecap="round"/>`;
+  }
+  for (const r of rutas.features.filter((f) => f.geometry.type === 'LineString' && f.geometry.coordinates.length)) {
     const rango = r.properties.rango;
-    const w = anchoRuta(rango) * (creciente ? 2.2 : 1);
-    if (creciente && rango === 'principal') {
-      svg += `<polyline points="${puntos}" fill="none" stroke="${agua}" stroke-opacity="0.45" stroke-width="360" stroke-linejoin="round" stroke-linecap="round"/>`;
-    }
-    const dash = rango === 'oculto' ? ' stroke-dasharray="28 22"' : '';
-    svg += `<polyline points="${puntos}" fill="none" stroke="${agua}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"${dash}/>`;
+    const w = anchoRuta(rango) * (creciente ? 2 : 1);
+    const dash = rango === 'oculto' ? ' stroke-dasharray="26 20"' : '';
+    svg += `<path d="${trazoSuave(r.geometry.coordinates)}" fill="none" stroke="${agua}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"${dash}/>`;
+  }
+  for (const f of hidro.features.filter(visible)) {
+    const st = f.properties.subtipo;
+    const pts = poligono(f.geometry.coordinates[0]);
+    if (st === 'isla') svg += `<polygon points="${pts}" fill="#4a5a34" stroke="#6a7a4a" stroke-width="3"/>`;
+    else if (st === 'playa') svg += `<polygon points="${pts}" fill="#cbb98a"/>`;
   }
   // La frontera del imperio: tumbaga, discontinua.
   for (const f of imperio.features.filter((x) => x.properties.tipo === 'frontera')) {
-    const puntos = f.geometry.coordinates.map(([lon, lat]) => px(lon, lat)).join(' ');
-    svg += `<polyline points="${puntos}" fill="none" stroke="#c99a3e" stroke-width="10" stroke-dasharray="40 26" stroke-linecap="round"/>`;
+    svg += `<path d="${trazoSuave(f.geometry.coordinates)}" fill="none" stroke="#c99a3e" stroke-width="8" stroke-dasharray="40 26" stroke-linecap="round"/>`;
   }
   // Retícula 0,25°.
   for (let lon = MUNDO.oeste; lon <= MUNDO.este + 1e-9; lon += 0.25) {
@@ -76,7 +107,7 @@ export async function generarPlaceholder(estacion, salida) {
   }
   // Entidades puntuales.
   const puntos = [...asent.features, ...imperio.features, ...accidentes.features, ...locs.features]
-    .filter((f) => f.geometry.type === 'Point');
+    .filter((f) => f.geometry.type === 'Point' && f.properties.etiqueta !== false);
   for (const f of puntos) {
     const [lon, lat] = f.geometry.coordinates;
     const p = coordenadaAPixel(lon, lat, ANCHO, ALTO);

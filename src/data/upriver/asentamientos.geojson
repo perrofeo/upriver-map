@@ -8,8 +8,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.98,
-          -5.235
+          -74.0,
+          -4.78
         ]
       },
       "properties": {
@@ -49,8 +49,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.93,
-          -5.19
+          -74.06,
+          -4.71
         ]
       },
       "properties": {
@@ -80,8 +80,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.95,
-          -4.82
+          -75.98,
+          -5.49
         ]
       },
       "properties": {
@@ -92,7 +92,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Asentamiento de desplazados amazónicos, río arriba de Las Tres Gargantas.",
+        "descripcion": "Asentamiento de desplazados amazónicos en la orilla del río grande, río arriba de Las Tres Gargantas, donde el río ya es más estrecho y turbio.",
         "apariciones": [
           {
             "episodio": 7
@@ -118,8 +118,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.3,
-          -4.7
+          -76.95,
+          -6.05
         ]
       },
       "properties": {
@@ -130,7 +130,7 @@
           "qu": "Chimor Yaku"
         },
         "lengua": "qu",
-        "descripcion": "Capital inca-industrial, ciudad-puerto en tres estratos. Destino del viaje.",
+        "descripcion": "Capital inca-industrial, ciudad-puerto en tres estratos donde el río grande sale de las colinas de los Andes. Destino del viaje, en el corazón del imperio.",
         "apariciones": [
           {
             "episodio": 8
@@ -156,8 +156,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.33,
-          -4.675
+          -77.0,
+          -6.1
         ]
       },
       "properties": {
@@ -188,8 +188,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.3,
-          -4.7
+          -76.95,
+          -6.05
         ]
       },
       "properties": {
@@ -220,8 +220,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.265,
-          -4.725
+          -76.89,
+          -6.01
         ]
       },
       "properties": {

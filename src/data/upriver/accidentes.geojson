@@ -8,8 +8,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.7,
-          -5.03
+          -75.5,
+          -5.76
         ]
       },
       "properties": {
@@ -20,7 +20,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Tres cascadas y la maloca de Ayahumo, al final de un caño escondido. El único lugar con nombre en toda la obra. No se ve desde el río grande.",
+        "descripcion": "Tres cascadas y la maloca de Ayahumo, al final de un caño escondido que sube a las colinas. El único lugar con nombre en toda la obra. No se ve desde el río grande.",
         "apariciones": [
           {
             "episodio": 3,
@@ -46,6 +46,79 @@
         "notas": "EN: the Three Gorges. EU: Hiru Arroiletan.",
         "fuente": "GUION_EPISODIO_05_LAS_TRES_GARGANTAS.md; srt/UPRIVER_PELICULA_v2.srt cues 6, 17, 19",
         "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "colinas",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.85,
+              -5.62
+            ],
+            [
+              -75.55,
+              -5.58
+            ],
+            [
+              -75.25,
+              -5.7
+            ],
+            [
+              -75.15,
+              -5.95
+            ],
+            [
+              -75.35,
+              -6.25
+            ],
+            [
+              -75.75,
+              -6.3
+            ],
+            [
+              -76.0,
+              -6.05
+            ],
+            [
+              -75.95,
+              -5.8
+            ],
+            [
+              -75.85,
+              -5.62
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "ambas",
+        "placeholder": true,
+        "tipo": "accidente",
+        "subtipo": "colinas",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Las colinas de las Gargantas",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "El único relieve de la llanura: las colinas de donde caen las tres cascadas.",
+        "apariciones": [
+          {
+            "episodio": 5,
+            "camara": false
+          },
+          {
+            "episodio": 6,
+            "camara": false
+          }
+        ],
+        "notas": "Placeholder. Una cascada necesita desnivel; la llanura no lo tiene. Nombre descriptivo.",
+        "fuente": "GUION_EPISODIO_05 (tres cascadas majestuosas); Igor (2026-09-09)"
       }
     }
   ]

@@ -6,20 +6,22 @@ Todo sale de `src/mundo.js`:
 
 | | valor |
 |---|---|
-| oeste | −75,7° |
-| este | −73,7° |
-| sur | −5,4° |
+| oeste | −77,5° |
+| este | −73,5° |
+| sur | −6,4° |
 | norte | −4,4° |
-| anchura | 2,0° ≈ 222 km |
-| altura | 1,0° ≈ 111 km |
+| anchura | 4,0° ≈ 444 km |
+| altura | 2,0° ≈ 222 km |
 | relación | 2:1 |
 
 Referencia real: Reserva Nacional Pacaya Samiria (Loreto, Perú), tratada con libertad. El bbox
 se coloca sobre ella para que el globo tenga detrás una silueta de Tierra reconocible. Fuera del
 bbox no hay teselas y el globo pinta su color base.
 
-El río fluye de oeste a este. «Río arriba» es hacia el oeste, hacia la ciudad del imperio; el
-palafito del abuelo queda al este.
+El río grande baja de los Andes hacia el nordeste y desemboca en el río de la frontera (el
+Marañón, que corre por el borde norte del mundo) junto al poblado de Jeshuco. «Río arriba» es
+hacia el suroeste, hacia el corazón del imperio; la ciudad queda al fondo, al pie de las colinas
+andinas. El mundo mide unos 444 × 222 km, así que el viaje de ida ronda los 350 km de río.
 
 ## Cómo se corresponde la imagen con las coordenadas
 
@@ -28,23 +30,23 @@ La imagen del mapa es **equirrectangular** sobre el bbox: la esquina superior iz
 `W × H`:
 
 ```
-lon = oeste + (px / W) · 2,0
-lat = norte − (py / H) · 1,0
+lon = oeste + (px / W) · 4,0
+lat = norte − (py / H) · 2,0
 ```
 
 Y al revés, para situar una entidad de coordenadas conocidas sobre la imagen:
 
 ```
-px = (lon − oeste) / 2,0 · W
-py = (norte − lat) / 1,0 · H
+px = (lon − oeste) / 4,0 · W
+py = (norte − lat) / 2,0 · H
 ```
 
 Las funciones `pixelACoordenada` y `coordenadaAPixel` de `src/mundo.js` hacen exactamente esto.
 
 **La imagen debe tener relación 2:1.** Si difiere en más de un 1 %, el cortador avisa y la
-estira igualmente. Resoluciones recomendadas: 4096×2048 (nivel máximo 3, ~54 m/px) u
-8192×4096 (nivel máximo 4, ~27 m/px). En la latitud del mundo, un grado son ~111 km, así que
-un píxel de una imagen de 8192 de ancho mide ~27 m.
+estira igualmente. Resoluciones recomendadas: 8192×4096 (nivel máximo 4, ~54 m/px) o
+16384×8192 (nivel máximo 5, ~27 m/px, unas 2.700 teselas por estación). En la latitud del mundo,
+un grado son ~111 km.
 
 ## Teselas
 
@@ -53,10 +55,11 @@ un píxel de una imagen de 8192 de ancho mide ~27 m.
 teselas de 256 px. El proveedor de Cesium (`src/basemap.js`) usa un `GeographicTilingScheme`
 restringido al bbox con esa misma rejilla, así que no hay reproyección.
 
-| imagen | niveles | teselas por estación |
-|---|---|---|
-| 4096×2048 | 0–3 | 170 |
-| 8192×4096 | 0–4 | 682 |
+| imagen | niveles | teselas por estación | metros por píxel |
+|---|---|---|---|
+| 4096×2048 (placeholder) | 0–3 | 170 | 108 |
+| 8192×4096 | 0–4 | 682 | 54 |
+| 16384×8192 | 0–5 | 2.730 | 27 |
 
 Si `mapas/<estación>.png` no existe se genera un placeholder (retícula, río y nodos con nombre)
 en `mapas/placeholder_<estación>.png`. Los placeholders no se versionan; los definitivos sí.

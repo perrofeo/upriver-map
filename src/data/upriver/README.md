@@ -11,6 +11,7 @@ lleva `placeholder: true` hasta que Igor sitúe cada entidad sobre el mapa defin
 | `imperio.geojson` | territorio del imperio y avanzadas | Polygon, Point |
 | `accidentes.geojson` | accidentes geográficos con nombre propio | Point |
 | `localizaciones.geojson` | lugares de escena que no son asentamiento ni accidente | Point |
+| `hidrografia.geojson` | textura del río sin nombre: cochas, islas, playas, bosque inundado (`subtipo`) | Polygon |
 | `episodios.json` | entrada y salida de cada episodio en la película (segundos) | — |
 
 ## Propiedades de cada Feature
@@ -18,7 +19,9 @@ lleva `placeholder: true` hasta que Igor sitúe cada entidad sobre el mapa defin
 | Campo | Tipo | Significado |
 |---|---|---|
 | `id` (raíz del Feature) | slug | identificador estable; se usa en `sel=` del enlace y en `paradas` |
-| `tipo` | `asentamiento · ruta · territorio · frontera · avanzada · accidente · localizacion` | `frontera`: la raya del imperio (LineString) |
+| `tipo` | `asentamiento · ruta · territorio · frontera · avanzada · accidente · localizacion · hidrografia` | `frontera`: el río de la raya del imperio (LineString) |
+| `subtipo` | `cocha · isla · playa · tahuampa · colinas` | solo hidrografía y relieve |
+| `etiqueta` | bool | `false` = no se rotula en el globo (texturas sin nombre) |
 | `faccion` | `kukama · imperio · comerciantes · ninguna · null` | `comerciantes` = hispanohablantes ajenos al imperio que comercian con él (el barco). `null` = sin determinar |
 | `nombre` | `{ es, qu }` | topónimo en castellano y en quechua imperial (cuzco-collao, MINEDU 2013). `qu: null` si no existe |
 | `lengua` | `es · qu` | cuál se muestra como principal. Regla de la obra: el quechua es la lengua del imperio y no se traduce, así que los lugares imperiales con nombre quechua llevan `qu` |
@@ -34,11 +37,14 @@ lleva `placeholder: true` hasta que Igor sitúe cada entidad sobre el mapa defin
 
 ## La red fluvial (Igor, 2026-09-09)
 
-El viaje no es lineal por un solo río. El río grande, contaminado, es la autopista del imperio, pero
-Jeshuco se desvía: el palafito está en un caño a las afueras del poblado; los túneles naturales lo
-llevan al río grande (EP1); un cruce baja con la corriente hasta los rápidos y el campamento (EP4);
-Las Tres Gargantas están al final de un caño escondido, invisibles desde el río grande (EP5). Todo
-ello está trazado como placeholder en `rutas.geojson`.
+El viaje no es lineal por un solo río. El río grande, contaminado, baja de los Andes hacia el
+nordeste y es la autopista del imperio; desemboca en el río de la frontera (el Marañón), en cuya
+orilla vive Jeshuco. Subirlo es adentrarse en el imperio. Jeshuco se desvía: el palafito está en un
+caño a las afueras del poblado; los túneles naturales lo llevan al río grande (EP1); un brazo baja
+con la corriente hasta los rápidos y el campamento (EP4); Las Tres Gargantas están al final de un
+caño escondido que sube a las únicas colinas de la llanura (EP5). La ciudad queda al fondo, al pie
+de los Andes. Cochas, islas, playas y bosque inundado dan textura y cambian con la estación. Todo
+ello está trazado como placeholder.
 
 ## Lo que la obra no da
 

@@ -11,17 +11,20 @@
  * tenga una silueta de Tierra reconocible detrás. Fuera del bbox no hay
  * teselas: el globo pinta su color base («territorio no cartografiado»).
  *
- * Convención: el río fluye de oeste a este. «Río arriba» es hacia el oeste,
- * hacia la ciudad del imperio; el palafito del abuelo queda al este.
+ * Convención: el río grande baja de los Andes hacia el nordeste y desemboca
+ * en el río de la frontera (el Marañón), junto al poblado de Jeshuco. «Río
+ * arriba» es hacia el suroeste, hacia el corazón del imperio y la ciudad.
  */
 
 export const MUNDO = Object.freeze({
   nombre: 'Upriver',
-  /** Bounding box en grados WGS84. Relación 2:1 (2,0° × 1,0°). */
-  oeste: -75.7,
-  este: -73.7,
-  sur: -5.4,
+  /** Bounding box en grados WGS84. Relación 2:1 (4,0° × 2,0°, unos 444 × 222 km). */
+  oeste: -77.5,
+  este: -73.5,
+  sur: -6.4,
   norte: -4.4,
+  /** Rumbo (grados) de «río arriba»: hacia el suroeste. La cámara mira así por defecto. */
+  rumboRioArriba: 232,
   /**
    * Rejilla del nivel 0 de la pirámide. Con 2×1 cada tesela del nivel 0 cubre
    * 1,0° × 1,0°; el nivel z tiene 2·2^z × 1·2^z teselas.

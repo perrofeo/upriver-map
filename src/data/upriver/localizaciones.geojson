@@ -8,8 +8,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.15,
-          -5.05
+          -74.46,
+          -4.9
         ]
       },
       "properties": {
@@ -45,8 +45,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.44,
-          -5.07
+          -75.02,
+          -5.08
         ]
       },
       "properties": {
@@ -57,7 +57,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Aguas bravas en el desvío que baja del río grande. Tras ellos, orillas deforestadas.",
+        "descripcion": "Aguas bravas en el brazo que baja del río grande. Tras ellos, orillas deforestadas.",
         "apariciones": [
           {
             "episodio": 4,
@@ -78,8 +78,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.15,
-          -4.76
+          -76.56,
+          -5.76
         ]
       },
       "properties": {
@@ -109,8 +109,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.6,
-          -4.5
+          -74.6,
+          -5.12
         ]
       },
       "properties": {
@@ -121,7 +121,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Las columnas de humo del plano final: el imperio tiene más ciudades.",
+        "descripcion": "Las columnas de humo del plano final, al suroeste, tierra adentro: el imperio tiene más chimeneas que las de la ciudad.",
         "apariciones": [
           {
             "episodio": 10,
@@ -133,15 +133,15 @@
         ],
         "estacion": "ambas",
         "orden": 8,
-        "notas": "No es un lugar visitado: es lo que se ve desde el palafito. La cámara se coloca sobre el palafito mirando al noroeste, como el plano final.",
+        "notas": "No es un lugar visitado: es lo que se ve desde el palafito mirando hacia el interior del imperio. La cámara se coloca sobre el palafito mirando al suroeste. Qué humea ahí no lo dice la obra.",
         "fuente": "pelicula/DOSSIER_UPRIVER.md (nota del director)",
         "placeholder": true,
         "camara": {
-          "lon": -73.955,
-          "lat": -5.25,
-          "alt": 1200,
-          "heading": 300,
-          "pitch": -8
+          "lon": -73.97,
+          "lat": -4.76,
+          "alt": 900,
+          "heading": 232,
+          "pitch": -6
         }
       }
     }

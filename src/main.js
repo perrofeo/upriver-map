@@ -24,10 +24,12 @@ import rutasRaw from './data/upriver/rutas.geojson?raw';
 import imperioRaw from './data/upriver/imperio.geojson?raw';
 import accidentesRaw from './data/upriver/accidentes.geojson?raw';
 import localizacionesRaw from './data/upriver/localizaciones.geojson?raw';
+import hidrografiaRaw from './data/upriver/hidrografia.geojson?raw';
 
 /** Capas de ficción, en el orden del panel. */
 const CAPAS_FICCION = [
-  { id: 'rutas', nombre: 'El río', icono: '〜', geojson: rutasRaw, color: '#7fb6c9' },
+  { id: 'hidrografia', nombre: 'Cochas, islas y bosque inundado', icono: '≈', geojson: hidrografiaRaw },
+  { id: 'rutas', nombre: 'El río', icono: '〜', geojson: rutasRaw },
   { id: 'imperio', nombre: 'El imperio', icono: '▲', geojson: imperioRaw },
   { id: 'asentamientos', nombre: 'Asentamientos', icono: '⌂', geojson: asentamientosRaw },
   { id: 'accidentes', nombre: 'Accidentes geográficos', icono: '≋', geojson: accidentesRaw },

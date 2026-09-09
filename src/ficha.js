@@ -15,6 +15,7 @@ const ETIQUETA_TIPO = {
   avanzada: 'Avanzada',
   territorio: 'Territorio',
   frontera: 'Frontera',
+  hidrografia: 'Agua',
   accidente: 'Accidente geográfico',
   localizacion: 'Localización',
   ruta: 'Ruta fluvial',

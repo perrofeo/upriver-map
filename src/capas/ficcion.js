@@ -33,6 +33,10 @@ const COLOR_FACCION = {
   null: '#b9ad9a',
 };
 const COLOR_AGUA = '#6f9ea8';
+const COLOR_AGUA_NEGRA = '#3e5c66';
+const COLOR_ARENA = '#cbb98a';
+const COLOR_MONTE = '#4a5a34';
+const COLOR_COLINA = '#6b5b3e';
 const COLOR_PIEDRA = '#14110d';
 const FUENTE = 'Alegreya, Georgia, serif';
 
@@ -108,6 +112,12 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
         // La raya del imperio: tumbaga, discontinua, siempre visible de cerca.
         const positions = Cesium.Cartesian3.fromDegreesArray(g.coordinates.flat());
         const condicion = new Cesium.DistanceDisplayCondition(0, 900_000);
+        // Primero el agua del gran río, encima la raya del imperio.
+        dataSource.entities.add({
+          id: `${id}:${f.id}:agua`,
+          properties: { capa: id, fid: f.id },
+          polyline: { positions, width: 6, material: Cesium.Color.fromCssColorString(COLOR_AGUA).withAlpha(0.95), clampToGround: true, distanceDisplayCondition: condicion },
+        });
         entidad = dataSource.entities.add({
           ...base,
           polyline: {
@@ -152,6 +162,31 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
             clampToGround: true,
           },
         });
+      } else if (g.type === 'Polygon' && (props.tipo === 'hidrografia' || props.subtipo === 'colinas')) {
+        // Textura del río: agua negra de las cochas, bosque inundado, islas, playas, colinas. Sin etiqueta.
+        const anillo = Cesium.Cartesian3.fromDegreesArray(g.coordinates[0].flat());
+        const relleno = {
+          cocha: Cesium.Color.fromCssColorString(COLOR_AGUA_NEGRA).withAlpha(0.9),
+          tahuampa: Cesium.Color.fromCssColorString(COLOR_AGUA).withAlpha(0.28),
+          isla: Cesium.Color.fromCssColorString(COLOR_MONTE).withAlpha(0.95),
+          playa: Cesium.Color.fromCssColorString(COLOR_ARENA).withAlpha(0.9),
+          colinas: Cesium.Color.fromCssColorString(COLOR_COLINA).withAlpha(0.22),
+        }[props.subtipo] || c.withAlpha(0.3);
+        entidad = dataSource.entities.add({
+          ...base,
+          polygon: {
+            hierarchy: new Cesium.PolygonHierarchy(anillo),
+            material: relleno,
+            distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 700_000),
+          },
+        });
+        if (props.subtipo === 'colinas') {
+          dataSource.entities.add({
+            id: `${id}:${f.id}:borde`,
+            properties: { capa: id, fid: f.id },
+            polyline: { positions: anillo, width: 1.5, material: Cesium.Color.fromCssColorString(COLOR_COLINA).withAlpha(0.7), clampToGround: true, distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 700_000) },
+          });
+        }
       } else if (g.type === 'Polygon') {
         const anillo = Cesium.Cartesian3.fromDegreesArray(g.coordinates[0].flat());
         // El territorio continental solo se ve de lejos; el local, solo de cerca.

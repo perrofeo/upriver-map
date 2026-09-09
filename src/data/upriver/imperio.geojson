@@ -10,36 +10,28 @@
         "coordinates": [
           [
             [
-              -75.7,
-              -4.4
+              -77.5,
+              -5.55
             ],
             [
-              -74.85,
-              -4.4
+              -76.75,
+              -5.55
             ],
             [
-              -74.95,
-              -4.62
+              -76.35,
+              -5.85
             ],
             [
-              -75.1,
-              -4.72
+              -76.45,
+              -6.4
             ],
             [
-              -75.2,
-              -4.85
+              -77.5,
+              -6.4
             ],
             [
-              -75.45,
-              -4.95
-            ],
-            [
-              -75.7,
-              -5.0
-            ],
-            [
-              -75.7,
-              -4.4
+              -77.5,
+              -5.55
             ]
           ]
         ]
@@ -52,7 +44,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Zona bajo control directo del imperio en este tramo del río: la ciudad y su entorno.",
+        "descripcion": "Zona bajo control directo del imperio en este tramo: la ciudad y su comarca, al pie de los Andes.",
         "apariciones": [
           {
             "episodio": 8
@@ -77,8 +69,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.35,
-          -5.09
+          -74.9,
+          -5.01
         ]
       },
       "properties": {
@@ -126,22 +118,26 @@
             ],
             [
               -77.5,
-              -4.7
+              -4.78
             ],
             [
-              -76.5,
+              -76.7,
               -4.6
             ],
             [
-              -75.5,
-              -4.55
+              -75.9,
+              -4.56
             ],
             [
-              -74.5,
+              -75.1,
+              -4.6
+            ],
+            [
+              -74.3,
               -4.5
             ],
             [
-              -73.6,
+              -73.5,
               -4.5
             ],
             [
@@ -223,27 +219,51 @@
         "type": "LineString",
         "coordinates": [
           [
-            -75.7,
+            -77.5,
+            -4.78
+          ],
+          [
+            -77.1,
+            -4.66
+          ],
+          [
+            -76.7,
+            -4.6
+          ],
+          [
+            -76.3,
+            -4.63
+          ],
+          [
+            -75.9,
             -4.56
           ],
           [
-            -75.3,
+            -75.5,
+            -4.55
+          ],
+          [
+            -75.1,
+            -4.6
+          ],
+          [
+            -74.7,
             -4.52
           ],
           [
-            -74.9,
-            -4.58
-          ],
-          [
-            -74.5,
+            -74.3,
             -4.5
           ],
           [
-            -74.1,
-            -4.47
+            -74.15,
+            -4.55
           ],
           [
-            -73.7,
+            -73.9,
+            -4.55
+          ],
+          [
+            -73.5,
             -4.5
           ]
         ]
@@ -257,7 +277,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "El río grande que cierra el mundo por el norte es la raya del imperio: al otro lado empiezan las tierras de los hispanohablantes. El poblado de Jeshuco queda a un día de canoa de la frontera, y por su río pasan los barcos que comercian con el imperio.",
+        "descripcion": "El gran río que cierra el mundo por el norte es la raya del imperio: en la otra orilla empiezan las tierras de los hispanohablantes. El poblado de Jeshuco está en su misma orilla, junto a la desembocadura del río grande, y por ahí entran los barcos que comercian con el imperio.",
         "apariciones": [
           {
             "episodio": 1,
@@ -269,9 +289,10 @@
           }
         ],
         "estacion": "ambas",
-        "notas": "Trazado PLACEHOLDER sobre el curso real del Marañón, que bordea Pacaya Samiria por el norte. Igor (2026-09-09): «la frontera puede ser el río Marañón en Perú, así la reserva entra dentro del imperio». Nombre en pantalla por decidir.",
+        "notas": "Trazado PLACEHOLDER sobre el curso real del Marañón. Igor (2026-09-09): «la frontera puede ser el río Marañón, así la reserva entra dentro del imperio». Nombre en pantalla por decidir.",
         "fuente": "Igor (2026-09-09); UCRONIA_INTEGRACION.md §Premisa",
-        "placeholder": true
+        "placeholder": true,
+        "rango": "principal"
       }
     }
   ]

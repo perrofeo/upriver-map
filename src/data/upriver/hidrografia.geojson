@@ -1,0 +1,2174 @@
+{
+  "type": "FeatureCollection",
+  "_esquema": "ver README.md",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "cocha-1",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -74.5829,
+              -5.1346
+            ],
+            [
+              -74.589,
+              -5.1305
+            ],
+            [
+              -74.5988,
+              -5.1299
+            ],
+            [
+              -74.6112,
+              -5.133
+            ],
+            [
+              -74.6247,
+              -5.1393
+            ],
+            [
+              -74.6376,
+              -5.1482
+            ],
+            [
+              -74.6483,
+              -5.1584
+            ],
+            [
+              -74.6557,
+              -5.1689
+            ],
+            [
+              -74.6588,
+              -5.1782
+            ],
+            [
+              -74.6571,
+              -5.1854
+            ],
+            [
+              -74.651,
+              -5.1895
+            ],
+            [
+              -74.6412,
+              -5.1901
+            ],
+            [
+              -74.6288,
+              -5.187
+            ],
+            [
+              -74.6153,
+              -5.1807
+            ],
+            [
+              -74.6024,
+              -5.1718
+            ],
+            [
+              -74.5917,
+              -5.1616
+            ],
+            [
+              -74.5843,
+              -5.1511
+            ],
+            [
+              -74.5812,
+              -5.1418
+            ],
+            [
+              -74.5829,
+              -5.1346
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "ambas",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "cocha",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cocha-2",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -74.9339,
+              -5.3795
+            ],
+            [
+              -74.9338,
+              -5.3714
+            ],
+            [
+              -74.9392,
+              -5.3619
+            ],
+            [
+              -74.9496,
+              -5.3522
+            ],
+            [
+              -74.9636,
+              -5.3434
+            ],
+            [
+              -74.9796,
+              -5.3367
+            ],
+            [
+              -74.9956,
+              -5.3327
+            ],
+            [
+              -75.0098,
+              -5.3321
+            ],
+            [
+              -75.0203,
+              -5.3348
+            ],
+            [
+              -75.0261,
+              -5.3405
+            ],
+            [
+              -75.0262,
+              -5.3486
+            ],
+            [
+              -75.0208,
+              -5.3581
+            ],
+            [
+              -75.0104,
+              -5.3678
+            ],
+            [
+              -74.9964,
+              -5.3766
+            ],
+            [
+              -74.9804,
+              -5.3833
+            ],
+            [
+              -74.9644,
+              -5.3873
+            ],
+            [
+              -74.9502,
+              -5.3879
+            ],
+            [
+              -74.9397,
+              -5.3852
+            ],
+            [
+              -74.9339,
+              -5.3795
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "ambas",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "cocha",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cocha-3",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.3008,
+              -5.1521
+            ],
+            [
+              -75.3044,
+              -5.1465
+            ],
+            [
+              -75.3123,
+              -5.1426
+            ],
+            [
+              -75.3235,
+              -5.1407
+            ],
+            [
+              -75.3367,
+              -5.1412
+            ],
+            [
+              -75.3503,
+              -5.144
+            ],
+            [
+              -75.3627,
+              -5.1487
+            ],
+            [
+              -75.3723,
+              -5.1547
+            ],
+            [
+              -75.3781,
+              -5.1614
+            ],
+            [
+              -75.3792,
+              -5.1679
+            ],
+            [
+              -75.3756,
+              -5.1735
+            ],
+            [
+              -75.3677,
+              -5.1774
+            ],
+            [
+              -75.3565,
+              -5.1793
+            ],
+            [
+              -75.3433,
+              -5.1788
+            ],
+            [
+              -75.3297,
+              -5.176
+            ],
+            [
+              -75.3173,
+              -5.1713
+            ],
+            [
+              -75.3077,
+              -5.1653
+            ],
+            [
+              -75.3019,
+              -5.1586
+            ],
+            [
+              -75.3008,
+              -5.1521
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "ambas",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "cocha",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cocha-4",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.7289,
+              -5.2608
+            ],
+            [
+              -75.7362,
+              -5.2589
+            ],
+            [
+              -75.7463,
+              -5.262
+            ],
+            [
+              -75.758,
+              -5.2697
+            ],
+            [
+              -75.77,
+              -5.281
+            ],
+            [
+              -75.7808,
+              -5.2946
+            ],
+            [
+              -75.7891,
+              -5.3088
+            ],
+            [
+              -75.7939,
+              -5.322
+            ],
+            [
+              -75.7946,
+              -5.3326
+            ],
+            [
+              -75.7911,
+              -5.3392
+            ],
+            [
+              -75.7838,
+              -5.3411
+            ],
+            [
+              -75.7737,
+              -5.338
+            ],
+            [
+              -75.762,
+              -5.3303
+            ],
+            [
+              -75.75,
+              -5.319
+            ],
+            [
+              -75.7392,
+              -5.3054
+            ],
+            [
+              -75.7309,
+              -5.2912
+            ],
+            [
+              -75.7261,
+              -5.278
+            ],
+            [
+              -75.7254,
+              -5.2674
+            ],
+            [
+              -75.7289,
+              -5.2608
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "ambas",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "cocha",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cocha-5",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.1256,
+              -5.729
+            ],
+            [
+              -76.1233,
+              -5.722
+            ],
+            [
+              -76.1254,
+              -5.7124
+            ],
+            [
+              -76.1316,
+              -5.7012
+            ],
+            [
+              -76.1413,
+              -5.69
+            ],
+            [
+              -76.1533,
+              -5.6799
+            ],
+            [
+              -76.1661,
+              -5.6723
+            ],
+            [
+              -76.1781,
+              -5.668
+            ],
+            [
+              -76.1879,
+              -5.6675
+            ],
+            [
+              -76.1944,
+              -5.671
+            ],
+            [
+              -76.1967,
+              -5.678
+            ],
+            [
+              -76.1946,
+              -5.6876
+            ],
+            [
+              -76.1884,
+              -5.6988
+            ],
+            [
+              -76.1787,
+              -5.71
+            ],
+            [
+              -76.1667,
+              -5.7201
+            ],
+            [
+              -76.1539,
+              -5.7277
+            ],
+            [
+              -76.1419,
+              -5.732
+            ],
+            [
+              -76.1321,
+              -5.7325
+            ],
+            [
+              -76.1256,
+              -5.729
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "ambas",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "cocha",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cocha-6",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.4618,
+              -5.5382
+            ],
+            [
+              -76.4659,
+              -5.533
+            ],
+            [
+              -76.4741,
+              -5.5299
+            ],
+            [
+              -76.4855,
+              -5.5292
+            ],
+            [
+              -76.4986,
+              -5.531
+            ],
+            [
+              -76.5119,
+              -5.5351
+            ],
+            [
+              -76.5237,
+              -5.541
+            ],
+            [
+              -76.5327,
+              -5.548
+            ],
+            [
+              -76.5377,
+              -5.5552
+            ],
+            [
+              -76.5382,
+              -5.5618
+            ],
+            [
+              -76.5341,
+              -5.567
+            ],
+            [
+              -76.5259,
+              -5.5701
+            ],
+            [
+              -76.5145,
+              -5.5708
+            ],
+            [
+              -76.5014,
+              -5.569
+            ],
+            [
+              -76.4881,
+              -5.5649
+            ],
+            [
+              -76.4763,
+              -5.559
+            ],
+            [
+              -76.4673,
+              -5.552
+            ],
+            [
+              -76.4623,
+              -5.5448
+            ],
+            [
+              -76.4618,
+              -5.5382
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "ambas",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "cocha",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cocha-7",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -74.2841,
+              -4.9488
+            ],
+            [
+              -74.29,
+              -4.9482
+            ],
+            [
+              -74.297,
+              -4.9514
+            ],
+            [
+              -74.3044,
+              -4.9581
+            ],
+            [
+              -74.3113,
+              -4.9674
+            ],
+            [
+              -74.3168,
+              -4.9783
+            ],
+            [
+              -74.3203,
+              -4.9893
+            ],
+            [
+              -74.3213,
+              -4.9992
+            ],
+            [
+              -74.3198,
+              -5.0068
+            ],
+            [
+              -74.3159,
+              -5.0112
+            ],
+            [
+              -74.31,
+              -5.0118
+            ],
+            [
+              -74.303,
+              -5.0086
+            ],
+            [
+              -74.2956,
+              -5.0019
+            ],
+            [
+              -74.2887,
+              -4.9926
+            ],
+            [
+              -74.2832,
+              -4.9817
+            ],
+            [
+              -74.2797,
+              -4.9707
+            ],
+            [
+              -74.2787,
+              -4.9608
+            ],
+            [
+              -74.2802,
+              -4.9532
+            ],
+            [
+              -74.2841,
+              -4.9488
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "ambas",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "cocha",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cocha-8",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.5737,
+              -5.5056
+            ],
+            [
+              -75.5776,
+              -5.5023
+            ],
+            [
+              -75.5841,
+              -5.5011
+            ],
+            [
+              -75.5926,
+              -5.5022
+            ],
+            [
+              -75.602,
+              -5.5054
+            ],
+            [
+              -75.6112,
+              -5.5104
+            ],
+            [
+              -75.619,
+              -5.5166
+            ],
+            [
+              -75.6245,
+              -5.5231
+            ],
+            [
+              -75.627,
+              -5.5293
+            ],
+            [
+              -75.6263,
+              -5.5344
+            ],
+            [
+              -75.6224,
+              -5.5377
+            ],
+            [
+              -75.6159,
+              -5.5389
+            ],
+            [
+              -75.6074,
+              -5.5378
+            ],
+            [
+              -75.598,
+              -5.5346
+            ],
+            [
+              -75.5888,
+              -5.5296
+            ],
+            [
+              -75.581,
+              -5.5234
+            ],
+            [
+              -75.5755,
+              -5.5169
+            ],
+            [
+              -75.573,
+              -5.5107
+            ],
+            [
+              -75.5737,
+              -5.5056
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "ambas",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "cocha",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "isla-1",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -74.5244,
+              -4.9611
+            ],
+            [
+              -74.528,
+              -4.9603
+            ],
+            [
+              -74.5343,
+              -4.9625
+            ],
+            [
+              -74.5425,
+              -4.9674
+            ],
+            [
+              -74.5516,
+              -4.9744
+            ],
+            [
+              -74.5605,
+              -4.9827
+            ],
+            [
+              -74.5681,
+              -4.9912
+            ],
+            [
+              -74.5736,
+              -4.999
+            ],
+            [
+              -74.5762,
+              -5.0052
+            ],
+            [
+              -74.5756,
+              -5.0089
+            ],
+            [
+              -74.572,
+              -5.0097
+            ],
+            [
+              -74.5657,
+              -5.0075
+            ],
+            [
+              -74.5575,
+              -5.0026
+            ],
+            [
+              -74.5484,
+              -4.9956
+            ],
+            [
+              -74.5395,
+              -4.9873
+            ],
+            [
+              -74.5319,
+              -4.9788
+            ],
+            [
+              -74.5264,
+              -4.971
+            ],
+            [
+              -74.5238,
+              -4.9648
+            ],
+            [
+              -74.5244,
+              -4.9611
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "vaciante",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "isla",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una isla del río grande",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una isla del río grande",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "isla-2",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -74.8552,
+              -5.0831
+            ],
+            [
+              -74.8583,
+              -5.0818
+            ],
+            [
+              -74.8639,
+              -5.0828
+            ],
+            [
+              -74.8715,
+              -5.0858
+            ],
+            [
+              -74.8801,
+              -5.0906
+            ],
+            [
+              -74.8887,
+              -5.0964
+            ],
+            [
+              -74.8963,
+              -5.1028
+            ],
+            [
+              -74.9019,
+              -5.1087
+            ],
+            [
+              -74.9048,
+              -5.1137
+            ],
+            [
+              -74.9048,
+              -5.1169
+            ],
+            [
+              -74.9017,
+              -5.1182
+            ],
+            [
+              -74.8961,
+              -5.1172
+            ],
+            [
+              -74.8885,
+              -5.1142
+            ],
+            [
+              -74.8799,
+              -5.1094
+            ],
+            [
+              -74.8713,
+              -5.1036
+            ],
+            [
+              -74.8637,
+              -5.0972
+            ],
+            [
+              -74.8581,
+              -5.0913
+            ],
+            [
+              -74.8552,
+              -5.0863
+            ],
+            [
+              -74.8552,
+              -5.0831
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "vaciante",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "isla",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una isla del río grande",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una isla del río grande",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "isla-3",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.2223,
+              -5.2408
+            ],
+            [
+              -75.2243,
+              -5.2387
+            ],
+            [
+              -75.2295,
+              -5.2373
+            ],
+            [
+              -75.2371,
+              -5.2369
+            ],
+            [
+              -75.2462,
+              -5.2375
+            ],
+            [
+              -75.2558,
+              -5.2389
+            ],
+            [
+              -75.2647,
+              -5.2411
+            ],
+            [
+              -75.2719,
+              -5.2438
+            ],
+            [
+              -75.2764,
+              -5.2466
+            ],
+            [
+              -75.2777,
+              -5.2492
+            ],
+            [
+              -75.2757,
+              -5.2513
+            ],
+            [
+              -75.2705,
+              -5.2527
+            ],
+            [
+              -75.2629,
+              -5.2531
+            ],
+            [
+              -75.2538,
+              -5.2525
+            ],
+            [
+              -75.2442,
+              -5.2511
+            ],
+            [
+              -75.2353,
+              -5.2489
+            ],
+            [
+              -75.2281,
+              -5.2462
+            ],
+            [
+              -75.2236,
+              -5.2434
+            ],
+            [
+              -75.2223,
+              -5.2408
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "vaciante",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "isla",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una isla del río grande",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una isla del río grande",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "isla-4",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -74.2065,
+              -4.609
+            ],
+            [
+              -74.2093,
+              -4.6089
+            ],
+            [
+              -74.2134,
+              -4.6115
+            ],
+            [
+              -74.2183,
+              -4.6162
+            ],
+            [
+              -74.2235,
+              -4.6226
+            ],
+            [
+              -74.2281,
+              -4.6299
+            ],
+            [
+              -74.2319,
+              -4.6372
+            ],
+            [
+              -74.2341,
+              -4.6437
+            ],
+            [
+              -74.2347,
+              -4.6485
+            ],
+            [
+              -74.2335,
+              -4.651
+            ],
+            [
+              -74.2307,
+              -4.6511
+            ],
+            [
+              -74.2266,
+              -4.6485
+            ],
+            [
+              -74.2217,
+              -4.6438
+            ],
+            [
+              -74.2165,
+              -4.6374
+            ],
+            [
+              -74.2119,
+              -4.6301
+            ],
+            [
+              -74.2081,
+              -4.6228
+            ],
+            [
+              -74.2059,
+              -4.6163
+            ],
+            [
+              -74.2053,
+              -4.6115
+            ],
+            [
+              -74.2065,
+              -4.609
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "vaciante",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "isla",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una isla del río grande",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una isla del río grande",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "playa-1",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -74.4047,
+              -4.8571
+            ],
+            [
+              -74.4069,
+              -4.8563
+            ],
+            [
+              -74.4108,
+              -4.8572
+            ],
+            [
+              -74.4157,
+              -4.8596
+            ],
+            [
+              -74.4212,
+              -4.8632
+            ],
+            [
+              -74.4265,
+              -4.8677
+            ],
+            [
+              -74.431,
+              -4.8725
+            ],
+            [
+              -74.4342,
+              -4.8769
+            ],
+            [
+              -74.4357,
+              -4.8805
+            ],
+            [
+              -74.4353,
+              -4.8829
+            ],
+            [
+              -74.4331,
+              -4.8837
+            ],
+            [
+              -74.4292,
+              -4.8828
+            ],
+            [
+              -74.4243,
+              -4.8804
+            ],
+            [
+              -74.4188,
+              -4.8768
+            ],
+            [
+              -74.4135,
+              -4.8723
+            ],
+            [
+              -74.409,
+              -4.8675
+            ],
+            [
+              -74.4058,
+              -4.8631
+            ],
+            [
+              -74.4043,
+              -4.8595
+            ],
+            [
+              -74.4047,
+              -4.8571
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "vaciante",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "playa",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una playa de arena que la creciente cubre",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una playa de arena que la creciente cubre",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "playa-2",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.1009,
+              -5.2959
+            ],
+            [
+              -75.1014,
+              -5.2936
+            ],
+            [
+              -75.1042,
+              -5.2908
+            ],
+            [
+              -75.1089,
+              -5.288
+            ],
+            [
+              -75.1149,
+              -5.2854
+            ],
+            [
+              -75.1216,
+              -5.2833
+            ],
+            [
+              -75.128,
+              -5.2821
+            ],
+            [
+              -75.1335,
+              -5.2818
+            ],
+            [
+              -75.1373,
+              -5.2825
+            ],
+            [
+              -75.1391,
+              -5.2841
+            ],
+            [
+              -75.1386,
+              -5.2864
+            ],
+            [
+              -75.1358,
+              -5.2892
+            ],
+            [
+              -75.1311,
+              -5.292
+            ],
+            [
+              -75.1251,
+              -5.2946
+            ],
+            [
+              -75.1184,
+              -5.2967
+            ],
+            [
+              -75.112,
+              -5.2979
+            ],
+            [
+              -75.1065,
+              -5.2982
+            ],
+            [
+              -75.1027,
+              -5.2975
+            ],
+            [
+              -75.1009,
+              -5.2959
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "vaciante",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "playa",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una playa de arena que la creciente cubre",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una playa de arena que la creciente cubre",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "playa-3",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.8321,
+              -5.4082
+            ],
+            [
+              -75.8334,
+              -5.4063
+            ],
+            [
+              -75.8367,
+              -5.4048
+            ],
+            [
+              -75.8416,
+              -5.4039
+            ],
+            [
+              -75.8475,
+              -5.4038
+            ],
+            [
+              -75.8537,
+              -5.4044
+            ],
+            [
+              -75.8595,
+              -5.4057
+            ],
+            [
+              -75.8641,
+              -5.4075
+            ],
+            [
+              -75.867,
+              -5.4096
+            ],
+            [
+              -75.8679,
+              -5.4118
+            ],
+            [
+              -75.8666,
+              -5.4137
+            ],
+            [
+              -75.8633,
+              -5.4152
+            ],
+            [
+              -75.8584,
+              -5.4161
+            ],
+            [
+              -75.8525,
+              -5.4162
+            ],
+            [
+              -75.8463,
+              -5.4156
+            ],
+            [
+              -75.8405,
+              -5.4143
+            ],
+            [
+              -75.8359,
+              -5.4125
+            ],
+            [
+              -75.833,
+              -5.4104
+            ],
+            [
+              -75.8321,
+              -5.4082
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "vaciante",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "playa",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una playa de arena que la creciente cubre",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una playa de arena que la creciente cubre",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "playa-4",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.3451,
+              -5.5398
+            ],
+            [
+              -76.3472,
+              -5.5388
+            ],
+            [
+              -76.3508,
+              -5.539
+            ],
+            [
+              -76.3555,
+              -5.5406
+            ],
+            [
+              -76.3608,
+              -5.5434
+            ],
+            [
+              -76.3659,
+              -5.5469
+            ],
+            [
+              -76.3704,
+              -5.5508
+            ],
+            [
+              -76.3736,
+              -5.5546
+            ],
+            [
+              -76.3751,
+              -5.5579
+            ],
+            [
+              -76.3749,
+              -5.5602
+            ],
+            [
+              -76.3728,
+              -5.5612
+            ],
+            [
+              -76.3692,
+              -5.561
+            ],
+            [
+              -76.3645,
+              -5.5594
+            ],
+            [
+              -76.3592,
+              -5.5566
+            ],
+            [
+              -76.3541,
+              -5.5531
+            ],
+            [
+              -76.3496,
+              -5.5492
+            ],
+            [
+              -76.3464,
+              -5.5454
+            ],
+            [
+              -76.3449,
+              -5.5421
+            ],
+            [
+              -76.3451,
+              -5.5398
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "vaciante",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "playa",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Una playa de arena que la creciente cubre",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Una playa de arena que la creciente cubre",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tahuampa-baja",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.4292,
+              -5.1716
+            ],
+            [
+              -75.2619,
+              -5.1115
+            ],
+            [
+              -75.1652,
+              -5.1956
+            ],
+            [
+              -75.1348,
+              -5.1756
+            ],
+            [
+              -75.1216,
+              -5.1665
+            ],
+            [
+              -75.0333,
+              -5.078
+            ],
+            [
+              -74.9223,
+              -4.9894
+            ],
+            [
+              -74.8,
+              -4.94
+            ],
+            [
+              -74.7163,
+              -4.9712
+            ],
+            [
+              -74.6631,
+              -4.9299
+            ],
+            [
+              -74.5731,
+              -4.8578
+            ],
+            [
+              -74.4978,
+              -4.7822
+            ],
+            [
+              -74.4222,
+              -4.7069
+            ],
+            [
+              -74.3459,
+              -4.6113
+            ],
+            [
+              -74.264,
+              -4.5089
+            ],
+            [
+              -74.2278,
+              -4.4722
+            ],
+            [
+              -74.0722,
+              -4.6278
+            ],
+            [
+              -74.096,
+              -4.6511
+            ],
+            [
+              -74.1741,
+              -4.7487
+            ],
+            [
+              -74.2578,
+              -4.8531
+            ],
+            [
+              -74.3422,
+              -4.9378
+            ],
+            [
+              -74.4269,
+              -5.0222
+            ],
+            [
+              -74.5369,
+              -5.1101
+            ],
+            [
+              -74.6837,
+              -5.1888
+            ],
+            [
+              -74.8,
+              -5.16
+            ],
+            [
+              -74.7977,
+              -5.1706
+            ],
+            [
+              -74.8867,
+              -5.242
+            ],
+            [
+              -74.9784,
+              -5.3335
+            ],
+            [
+              -75.0652,
+              -5.3844
+            ],
+            [
+              -75.2348,
+              -5.4044
+            ],
+            [
+              -75.2981,
+              -5.3285
+            ],
+            [
+              -75.3308,
+              -5.3684
+            ],
+            [
+              -75.4292,
+              -5.1716
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "creciente",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "tahuampa",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Bosque inundado: en creciente el río grande se sale al monte",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Bosque inundado: en creciente el río grande se sale al monte",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tahuampa-alta",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.6095,
+              -5.7105
+            ],
+            [
+              -76.5147,
+              -5.6163
+            ],
+            [
+              -76.4461,
+              -5.5073
+            ],
+            [
+              -76.2848,
+              -5.4517
+            ],
+            [
+              -76.1999,
+              -5.533
+            ],
+            [
+              -76.1313,
+              -5.5174
+            ],
+            [
+              -76.063,
+              -5.4447
+            ],
+            [
+              -75.949,
+              -5.3763
+            ],
+            [
+              -75.793,
+              -5.3303
+            ],
+            [
+              -75.713,
+              -5.3903
+            ],
+            [
+              -75.6313,
+              -5.3574
+            ],
+            [
+              -75.5394,
+              -5.2922
+            ],
+            [
+              -75.4188,
+              -5.2118
+            ],
+            [
+              -75.3412,
+              -5.3282
+            ],
+            [
+              -75.4606,
+              -5.4078
+            ],
+            [
+              -75.5687,
+              -5.4826
+            ],
+            [
+              -75.727,
+              -5.5297
+            ],
+            [
+              -75.807,
+              -5.4697
+            ],
+            [
+              -75.891,
+              -5.5037
+            ],
+            [
+              -75.977,
+              -5.5553
+            ],
+            [
+              -76.0687,
+              -5.6426
+            ],
+            [
+              -76.2401,
+              -5.667
+            ],
+            [
+              -76.3152,
+              -5.5883
+            ],
+            [
+              -76.3539,
+              -5.6127
+            ],
+            [
+              -76.4053,
+              -5.7037
+            ],
+            [
+              -76.5105,
+              -5.8095
+            ],
+            [
+              -76.6095,
+              -5.7105
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "creciente",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "tahuampa",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Bosque inundado del tramo alto",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "Bosque inundado del tramo alto",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tahuampa-frontera",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.5259,
+              -4.6938
+            ],
+            [
+              -77.1198,
+              -4.5722
+            ],
+            [
+              -76.7034,
+              -4.5101
+            ],
+            [
+              -76.3045,
+              -4.5401
+            ],
+            [
+              -75.909,
+              -4.4704
+            ],
+            [
+              -75.4955,
+              -4.4601
+            ],
+            [
+              -75.1034,
+              -4.5101
+            ],
+            [
+              -74.7112,
+              -4.4307
+            ],
+            [
+              -74.2951,
+              -4.4101
+            ],
+            [
+              -74.1388,
+              -4.4607
+            ],
+            [
+              -73.9069,
+              -4.4603
+            ],
+            [
+              -73.5112,
+              -4.4107
+            ],
+            [
+              -73.4888,
+              -4.5893
+            ],
+            [
+              -73.8931,
+              -4.6397
+            ],
+            [
+              -74.1612,
+              -4.6393
+            ],
+            [
+              -74.3049,
+              -4.5899
+            ],
+            [
+              -74.6888,
+              -4.6093
+            ],
+            [
+              -75.0966,
+              -4.6899
+            ],
+            [
+              -75.5045,
+              -4.6399
+            ],
+            [
+              -75.891,
+              -4.6496
+            ],
+            [
+              -76.2955,
+              -4.7199
+            ],
+            [
+              -76.6966,
+              -4.6899
+            ],
+            [
+              -77.0802,
+              -4.7478
+            ],
+            [
+              -77.4741,
+              -4.8662
+            ],
+            [
+              -77.5259,
+              -4.6938
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "creciente",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "tahuampa",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "La orilla inundada del río de la frontera",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "La orilla inundada del río de la frontera",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tahuampa-poblado",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -73.9932,
+              -4.8537
+            ],
+            [
+              -74.081,
+              -4.8969
+            ],
+            [
+              -74.1828,
+              -4.9175
+            ],
+            [
+              -74.2828,
+              -4.9575
+            ],
+            [
+              -74.4,
+              -4.98
+            ],
+            [
+              -74.479,
+              -4.9569
+            ],
+            [
+              -74.441,
+              -4.8431
+            ],
+            [
+              -74.4,
+              -4.86
+            ],
+            [
+              -74.3172,
+              -4.8425
+            ],
+            [
+              -74.2172,
+              -4.8025
+            ],
+            [
+              -74.119,
+              -4.7831
+            ],
+            [
+              -74.0468,
+              -4.7463
+            ],
+            [
+              -73.9932,
+              -4.8537
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lengua": "es",
+        "estacion": "creciente",
+        "placeholder": true,
+        "tipo": "hidrografia",
+        "subtipo": "tahuampa",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "El bosque inundado por donde corren los túneles",
+          "qu": null
+        },
+        "etiqueta": false,
+        "descripcion": "El bosque inundado por donde corren los túneles",
+        "apariciones": [],
+        "notas": "Placeholder sin nombre: textura del río.",
+        "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»"
+      }
+    }
+  ]
+}
