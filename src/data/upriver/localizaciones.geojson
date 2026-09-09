@@ -161,8 +161,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.65,
-          -5.25
+          -73.72,
+          -5.85
         ]
       },
       "properties": {
@@ -173,7 +173,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Las columnas de humo del plano final, al sudeste, en tierras que Jeshuco no conoce: el imperio tiene más chimeneas que las de la ciudad, y en la dirección contraria a su viaje.",
+        "descripcion": "Las columnas de humo del plano final, muy al sur, en tierras que Jeshuco no conoce: el imperio tiene más chimeneas que las de la ciudad, y en la dirección contraria a su viaje.",
         "apariciones": [
           {
             "episodio": 10,
@@ -192,8 +192,8 @@
           "lon": -73.97,
           "lat": -4.76,
           "alt": 900,
-          "heading": 138,
-          "pitch": -6
+          "heading": 166,
+          "pitch": -5
         }
       }
     }
