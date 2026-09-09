@@ -129,13 +129,12 @@ export class LineaTiempo {
     this._progreso.style.width = `${pct}%`;
   }
 
-  /** Rehace el recorrido tras editar datos (modo autor) y recoloca la cámara. */
+  /** Rehace el recorrido tras editar datos (modo autor) sin mover la cámara. */
   reconstruir({ features, poses } = {}) {
     if (features) this._features = features;
     if (poses) this.poses = poses;
     this.recorrido = construirRecorrido(this._features, this.episodios);
-    this._paradaId = null;
-    this.setTiempo(this.t);
+    this.setTiempo(this.t, { moverCamara: false });
   }
 
   /** Un gesto sobre el globo pausa la reproducción: exploración libre. */

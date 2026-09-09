@@ -142,9 +142,8 @@ export function montarAutor({ viewer, capas, interfaz, estilos, episodios, poses
     const fid = ent?.properties?.fid?.getValue?.(Cesium.JulianDate.now());
     const h = fid ? capas.buscar(fid) : null;
     if (h && h.feature.geometry.type === 'Point') {
-      arrastrando = { fid, capa: h.capa };
+      arrastrando = { fid, capa: h.capa, origen: { x: e.position.x, y: e.position.y }, movido: false };
       control.enableInputs = false;
-      interfaz.seleccionar(fid);
     }
   }, Cesium.ScreenSpaceEventType.LEFT_DOWN);
   handler.setInputAction((m) => {
@@ -156,6 +155,9 @@ export function montarAutor({ viewer, capas, interfaz, estilos, episodios, poses
       }
       return;
     }
+    // Un clic con el pulso normal no es un arrastre: hacen falta unos píxeles.
+    if (!arrastrando.movido && Math.hypot(m.endPosition.x - arrastrando.origen.x, m.endPosition.y - arrastrando.origen.y) < 4) return;
+    arrastrando.movido = true;
     const c = viewer.camera.pickEllipsoid(m.endPosition, viewer.scene.globe.ellipsoid);
     if (!c) return;
     const g = Cesium.Cartographic.fromCartesian(c);
@@ -163,13 +165,15 @@ export function montarAutor({ viewer, capas, interfaz, estilos, episodios, poses
   }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
   handler.setInputAction(() => {
     if (!arrastrando) return;
-    const f = arrastrando.capa.buscar(arrastrando.fid);
-    cambios.geometrias[arrastrando.fid] = f.geometry.coordinates;
+    control.enableInputs = true;
+    const { fid, capa, movido } = arrastrando;
+    arrastrando = null;
+    if (!movido) return; // fue un clic: la selección normal ya se ha ocupado
+    const f = capa.buscar(fid);
+    cambios.geometrias[fid] = f.geometry.coordinates;
     guardar();
     interfaz.lineaTiempo.reconstruir({ features: capas.todasLasFeatures(), poses });
-    aviso(`${arrastrando.fid} movido a ${f.geometry.coordinates.join(', ')}.`);
-    arrastrando = null;
-    control.enableInputs = true;
+    aviso(`${fid} movido a ${f.geometry.coordinates.join(', ')}.`);
   }, Cesium.ScreenSpaceEventType.LEFT_UP);
 
   // Copiar coordenada del puntero.
