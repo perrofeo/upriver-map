@@ -245,7 +245,8 @@
               -5.53
             ],
             "nota": "río abajo con la mujer rescatada",
-            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
+            "estacion": "creciente"
           },
           {
             "episodio": 10,
@@ -257,7 +258,8 @@
               -5.24
             ],
             "nota": "noche en el río",
-            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
+            "estacion": "creciente"
           }
         ],
         "notas": "Trazado placeholder con meandros. Río arriba de Las Tres Gargantas es más estrecho y turbio (EP7).",

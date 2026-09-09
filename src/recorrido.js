@@ -79,6 +79,8 @@ export function tramosDeEntidad(feature, episodios) {
       nota: ap.nota || null,
       camara: ap.camara !== false,
       camaraExplicita: ap.camara === true,
+      // Una aparición puede decir en qué estación está el mundo mientras dura (la crecida del EP10).
+      estacion: ap.estacion === 'creciente' || ap.estacion === 'vaciante' ? ap.estacion : null,
       // Una aparición puede anclar la cámara en otro punto (un tramo de río).
       posicion: Array.isArray(ap.posicion) && ap.posicion.length === 2 ? { lon: ap.posicion[0], lat: ap.posicion[1] } : null,
     });

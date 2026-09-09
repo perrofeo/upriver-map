@@ -60,6 +60,9 @@ ello está trazado como placeholder.
   algo que ocurre en otro lugar): cuenta para la ficha pero no para el recorrido.
 - `apariciones[].provisional: true` marca un tramo con `desde`/`hasta` estimados dentro del
   episodio. `medido` dice de dónde sale un tramo comprobado (hoja de fotogramas del episodio).
+- `apariciones[].estacion: creciente | vaciante` dice en qué estación está el mundo mientras dura
+  esa parada: el deslizador de estación se mueve solo al llegar (la crecida del EP10).
+- `apariciones[].posicion: [lon, lat]` ancla la cámara de esa parada en otro punto (un tramo de río).
 - `properties.camara` fija la pose de cámara de una entidad (`lon`, `lat`, `alt`, `heading`,
   `pitch`); sin ella se usa una pose por defecto según el tipo. Las poses capturadas con el
   director (`?autor`, CAPTURAR PLANO → EXPORTAR) van a `poses.json`, indexadas por id, y

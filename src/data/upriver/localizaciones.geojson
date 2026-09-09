@@ -145,7 +145,8 @@
             "desde": 0,
             "hasta": 40,
             "nota": "el amanecer solo; el collar dibujado en la arena",
-            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
+            "estacion": "vaciante"
           }
         ],
         "estacion": "ambas",

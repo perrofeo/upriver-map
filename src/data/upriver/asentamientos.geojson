@@ -41,7 +41,8 @@
             "desde": 175,
             "hasta": 240,
             "nota": "la vuelta al palafito vacío",
-            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
+            "estacion": "vaciante"
           }
         ],
         "estacion": "ambas",
@@ -125,7 +126,8 @@
             "desde": 138,
             "hasta": 152,
             "nota": "la niña con un pez vivo al atardecer",
-            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
+            "estacion": "creciente"
           }
         ],
         "estacion": "ambas",
@@ -172,7 +174,8 @@
             "desde": 40,
             "hasta": 125,
             "nota": "la ciudad inundada; el rescate en el Fango",
-            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
+            "estacion": "creciente"
           }
         ],
         "estacion": "ambas",

@@ -33,6 +33,21 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
       enlace.programar();
     },
     setTiempo(t, opciones) { lineaTiempo.setTiempo(t, opciones); },
+    /** Funde la estación hasta `valor` en unos segundos (la crecida del EP10). */
+    setEstacionAnimada(valor, { duracion = 2500 } = {}) {
+      cancelAnimationFrame(interfaz._animEstacion);
+      const desde = basemap.estacion;
+      const hasta = Math.max(0, Math.min(1, valor));
+      if (Math.abs(hasta - desde) < 0.001) return;
+      const t0 = performance.now();
+      const paso = (ahora) => {
+        const x = Math.min(1, (ahora - t0) / duracion);
+        const e = x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+        interfaz.setEstacion(desde + (hasta - desde) * e);
+        if (x < 1) interfaz._animEstacion = requestAnimationFrame(paso);
+      };
+      interfaz._animEstacion = requestAnimationFrame(paso);
+    },
     seleccionar(fid, { volar = false } = {}) {
       const hallazgo = fid ? capas.buscar(fid) : null;
       if (!hallazgo) { deseleccionar(); return false; }
@@ -174,6 +189,8 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
     duracion,
     poses,
     alCambiarParada: (parada) => {
+      // Si la parada declara estación, el mundo cambia con ella: la crecida del EP10.
+      if (parada?.estacion) interfaz.setEstacionAnimada(parada.estacion === 'creciente' ? 1 : 0);
       // La parada vigente abre su ficha, salvo que el usuario haya elegido otra.
       if (parada && (!interfaz.seleccion || interfaz.seleccionAutomatica)) {
         interfaz.seleccionAutomatica = true;
