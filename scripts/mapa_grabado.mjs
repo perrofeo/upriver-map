@@ -114,16 +114,34 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
     if (st === 'tahuampa') s.push(`<polygon points="${pts}" fill="url(#tahuampa)"/>`);
     else if (st === 'cocha') s.push(`<polygon points="${pts}" fill="${PALETA.aguaNegra}" stroke="${PALETA.tumbaga}" stroke-width="${1.5 * k}" stroke-opacity="0.55"/>`);
   }
-  // Ríos: orilla de tumbaga fina bajo el agua.
+  // Ríos: orilla de tumbaga fina bajo el agua. El río grande se estrecha río
+  // arriba: se dibuja por tramos con anchura decreciente desde la desembocadura.
+  const tramosRioGrande = (f) => {
+    const c = f.geometry.coordinates; // de la cabecera (SO) a la desembocadura (NE)
+    const wMax = anchoRuta('principal'), wMin = wMax * 0.32;
+    const out = [];
+    for (let i = 0; i < c.length - 1; i++) {
+      const t = i / (c.length - 2);
+      const w = wMin + (wMax - wMin) * Math.pow(t, 0.8);
+      const desde = Math.max(0, i - 1), hasta = Math.min(c.length, i + 3);
+      out.push({ d: trazo(c.slice(desde, hasta)), w, dash: '', tramo: true });
+    }
+    return out;
+  };
   const rios = [
     ...imperio.features.filter((x) => x.properties.tipo === 'frontera').map((f) => ({ d: trazo(f.geometry.coordinates), w: (creciente ? 118 : 62) * k, dash: '' })),
-    ...rutas.features.filter((f) => f.geometry.type === 'LineString' && f.geometry.coordinates.length)
+    ...rutas.features.filter((f) => f.geometry.type === 'LineString' && f.geometry.coordinates.length && f.properties.rango !== 'principal')
       .map((f) => ({ d: trazo(f.geometry.coordinates), w: anchoRuta(f.properties.rango), dash: f.properties.rango === 'oculto' ? ` stroke-dasharray="${26 * k} ${18 * k}"` : '' })),
+    ...rutas.features.filter((f) => f.properties.rango === 'principal').flatMap(tramosRioGrande),
   ];
   for (const r of rios) s.push(`<path d="${r.d}" fill="none" stroke="${PALETA.tumbaga}" stroke-opacity="0.55" stroke-width="${r.w + 3 * k}" stroke-linejoin="round" stroke-linecap="round"${r.dash}/>`);
   for (const r of rios) s.push(`<path d="${r.d}" fill="none" stroke="${agua}" stroke-width="${r.w}" stroke-linejoin="round" stroke-linecap="round"${r.dash}/>`);
-  // Línea de corriente en el río grande y en la frontera.
-  for (const r of rios.slice(0, 2)) s.push(`<path d="${r.d}" fill="none" stroke="${PALETA.hueso}" stroke-opacity="0.18" stroke-width="${1.2 * k}" stroke-dasharray="${40 * k} ${28 * k}"/>`);
+  // Línea de corriente en el río de la frontera y en el río grande.
+  const corrientes = [
+    ...imperio.features.filter((x) => x.properties.tipo === 'frontera').map((f) => trazo(f.geometry.coordinates)),
+    ...rutas.features.filter((f) => f.properties.rango === 'principal').map((f) => trazo(f.geometry.coordinates)),
+  ];
+  for (const d of corrientes) s.push(`<path d="${d}" fill="none" stroke="${PALETA.hueso}" stroke-opacity="0.18" stroke-width="${1.2 * k}" stroke-dasharray="${40 * k} ${28 * k}"/>`);
   // Islas y playas.
   for (const f of hidro.features.filter(visible)) {
     const st = f.properties.subtipo, pts = poligono(f.geometry.coordinates[0]);
