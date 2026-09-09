@@ -239,11 +239,15 @@
           "es": "El caño del poblado",
           "qu": null
         },
-        "descripcion": "Agua limpia y quieta entre el palafito, el poblado y la desembocadura. Aquí pescan Jeshuco y el bufeo.",
+        "descripcion": "Agua limpia y quieta entre el palafito, el poblado y la desembocadura. Aquí Jeshuco se encuentra con el bufeo y cazan el paiche gigante.",
         "apariciones": [
           {
             "episodio": 1,
-            "camara": false
+            "desde": 26,
+            "hasta": 70,
+            "camara": true,
+            "nota": "encuentro con el bufeo y caza del paiche",
+            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)"
           },
           {
             "episodio": 2,
@@ -273,24 +277,24 @@
             -4.745
           ],
           [
-            -74.08,
-            -4.78
+            -74.09,
+            -4.775
           ],
           [
-            -74.16,
-            -4.82
+            -74.17,
+            -4.805
           ],
           [
             -74.26,
-            -4.86
+            -4.83
           ],
           [
-            -74.36,
-            -4.9
+            -74.33,
+            -4.845
           ],
           [
-            -74.46,
-            -4.9
+            -74.37,
+            -4.845
           ]
         ]
       },
@@ -305,15 +309,15 @@
           "es": "Los túneles naturales",
           "qu": null
         },
-        "descripcion": "Galerías de agua bajo el bosque inundado. Empiezan en el caño, entre el poblado y el palafito, donde Jeshuco y el bufeo cazan el paiche gigante; el pez lo arrastra por ellas hasta el río grande, ya contaminado, donde ve por primera vez el barco.",
+        "descripcion": "Galerías de agua bajo el bosque inundado. Empiezan en el caño, entre el poblado y el palafito, donde Jeshuco y el bufeo cazan el paiche gigante; el pez lo arrastra por ellas hasta el río grande, ya contaminado.",
         "apariciones": [
           {
             "episodio": 1,
-            "desde": 30,
-            "hasta": 110,
+            "desde": 70,
+            "hasta": 96,
             "camara": true,
-            "provisional": true,
-            "nota": "la caza del paiche y el arrastre"
+            "nota": "el paiche lo arrastra por las galerías",
+            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)"
           }
         ],
         "notas": "Placeholder. Igor (2026-09-09): «el paiche lo caza entre el poblado y el palafito, ahí encuentra los túneles». El guion completo sitúa la caza en 0:30–2:30 del EP1.",
@@ -447,7 +451,9 @@
         "descripcion": "Del palafito, en la frontera, río arriba hacia el corazón del imperio; y la vuelta.",
         "paradas": [
           "poblado",
+          "cano-del-poblado",
           "tuneles-naturales",
+          "peces-muertos",
           "barco",
           "palafito",
           "desvio-rapidos",

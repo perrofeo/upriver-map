@@ -8,8 +8,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.46,
-          -4.9
+          -74.52,
+          -4.95
         ]
       },
       "properties": {
@@ -24,9 +24,10 @@
         "apariciones": [
           {
             "episodio": 1,
-            "desde": 110,
-            "provisional": true,
-            "nota": "Jeshuco lo ve al salir de los túneles"
+            "desde": 130,
+            "hasta": 148.267,
+            "nota": "Jeshuco lo ve humear a lo lejos",
+            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)"
           },
           {
             "episodio": 2
@@ -39,9 +40,44 @@
           }
         ],
         "estacion": "ambas",
-        "orden": 3,
+        "orden": 4,
         "notas": "Sin nombre en la obra. Igor (2026-09-09): «uno de los barcos que comercia con el imperio, pero ellos hablan español, no son del imperio». La biblia los describe como inmigrantes hispanohablantes contratados.",
         "fuente": "GUION_EPISODIO_02_EL_OTRO_MUNDO.md; UCRONIA_INTEGRACION.md; Igor",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "peces-muertos",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.39,
+          -4.85
+        ]
+      },
+      "properties": {
+        "tipo": "localizacion",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Los peces muertos",
+          "qu": null
+        },
+        "lengua": "es",
+        "descripcion": "La salida de los túneles al río grande. Jeshuco emerge en agua turbia, ve los peces muertos en la orilla, se reencuentra con el bufeo y sigue nadando río arriba.",
+        "apariciones": [
+          {
+            "episodio": 1,
+            "desde": 96,
+            "hasta": 130,
+            "nota": "sale al río grande, peces muertos, reencuentro con el bufeo",
+            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)"
+          }
+        ],
+        "estacion": "ambas",
+        "orden": 3,
+        "notas": "Sin nombre en la obra: nombre descriptivo. Primera prueba de que el río está envenenado.",
+        "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md (EP1: descubre peces muertos, agua contaminada); fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
         "placeholder": true
       }
     },

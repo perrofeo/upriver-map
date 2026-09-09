@@ -68,9 +68,9 @@
           {
             "episodio": 1,
             "desde": 0,
-            "hasta": 30,
-            "provisional": true,
-            "nota": "arranca la historia"
+            "hasta": 26,
+            "nota": "el bufeo al alba, el poblado, Jeshuco corre al agua",
+            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)"
           }
         ],
         "estacion": "ambas",
