@@ -47,13 +47,17 @@
         "descripcion": "Zona bajo control directo del imperio en este tramo: la ciudad y su comarca, al pie de los Andes.",
         "apariciones": [
           {
-            "episodio": 8
+            "episodio": 7,
+            "camara": false,
+            "nota": "banderas del sol en el recuerdo de la comunidad"
           },
           {
-            "episodio": 9
+            "episodio": 8,
+            "camara": false
           },
           {
-            "episodio": 10
+            "episodio": 10,
+            "camara": false
           }
         ],
         "estacion": "ambas",
@@ -86,7 +90,16 @@
           {
             "episodio": 4,
             "desde": 100,
-            "provisional": true
+            "hasta": 220,
+            "nota": "las máquinas, los barriles, el desagüe; libera al mono",
+            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)"
+          },
+          {
+            "episodio": 10,
+            "desde": 158,
+            "hasta": 175,
+            "nota": "las máquinas abandonadas; taricayas sobre los troncos",
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
           }
         ],
         "estacion": "ambas",

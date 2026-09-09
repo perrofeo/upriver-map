@@ -103,9 +103,10 @@
         "apariciones": [
           {
             "episodio": 4,
-            "desde": 0,
+            "desde": 75,
             "hasta": 100,
-            "provisional": true
+            "nota": "agua blanca; a la salida, orillas deforestadas",
+            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)"
           }
         ],
         "estacion": "ambas",
@@ -135,7 +136,16 @@
         "descripcion": "Aguas abajo de la ciudad. Donde se libera a la Yacumama.",
         "apariciones": [
           {
-            "episodio": 9
+            "episodio": 9,
+            "nota": "la noche del ritual; la Yacumama liberada",
+            "medido": "fotogramas del máster publicado del EP09 cada 5 s (2026-09-09)"
+          },
+          {
+            "episodio": 10,
+            "desde": 0,
+            "hasta": 40,
+            "nota": "el amanecer solo; el collar dibujado en la arena",
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
           }
         ],
         "estacion": "ambas",
@@ -167,9 +177,10 @@
         "apariciones": [
           {
             "episodio": 10,
-            "nota": "plano final",
-            "desde": 258,
-            "provisional": true
+            "desde": 240,
+            "hasta": 276.672,
+            "nota": "plano final: el humo en el horizonte",
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
           }
         ],
         "estacion": "ambas",

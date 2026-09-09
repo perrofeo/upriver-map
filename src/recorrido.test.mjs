@@ -57,6 +57,16 @@ test('recorrido: una ruta solo es parada con camara:true explícito', () => {
   assert.deepEqual(r.map((p) => [p.id, p.desde, p.hasta]), [['tunel', 30, 90]]);
 });
 
+test('una aparición con posicion ancla la cámara ahí y no en el centroide', () => {
+  const rio = { type: 'Feature', id: 'rio', geometry: { type: 'LineString', coordinates: [[-74, -5], [-76, -6]] },
+    properties: { tipo: 'ruta', apariciones: [{ episodio: 1, camara: true, posicion: [-75.2, -5.3] }] } };
+  const r = construirRecorrido([rio], episodios);
+  assert.deepEqual(r[0].posicion, { lon: -75.2, lat: -5.3 });
+  const { pose } = poseEn(r, 10);
+  assert.deepEqual(pose, poseDeEntidad(rio, {}, { lon: -75.2, lat: -5.3 }));
+  assert.notDeepEqual(pose, poseDeEntidad(rio));
+});
+
 test('recorrido: dos episodios seguidos en el mismo lugar son una sola parada', () => {
   const a = punto('a', -74, -5, 'accidente', [{ episodio: 1 }, { episodio: 2 }]);
   const b = punto('b', -75, -4.8, 'asentamiento', [{ episodio: 3 }]);

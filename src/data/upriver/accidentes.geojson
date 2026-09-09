@@ -24,21 +24,23 @@
         "apariciones": [
           {
             "episodio": 3,
-            "nota": "se nombra",
-            "camara": false
+            "camara": false,
+            "nota": "se nombra"
           },
           {
             "episodio": 5,
-            "nota": "se llega"
+            "nota": "las cascadas, la maloca de Ayahumo, la noche a solas",
+            "medido": "fotogramas del máster publicado del EP05 cada 5 s (2026-09-09)"
           },
           {
             "episodio": 6,
-            "nota": "la maloca; la visión"
+            "nota": "la toma en la maloca; la visión; el amanecer con el bufeo",
+            "medido": "fotogramas del máster publicado del EP06 cada 5 s (2026-09-09)"
           },
           {
             "episodio": 7,
-            "nota": "se deja atrás",
-            "camara": false
+            "camara": false,
+            "nota": "se deja atrás"
           }
         ],
         "estacion": "ambas",

@@ -23,19 +23,25 @@
         "descripcion": "Hogar de Jeshuco y de su abuelo Yawá, en un caño lateral a las afueras del poblado. El abuelo vive apartado. Abre y cierra la película.",
         "apariciones": [
           {
-            "episodio": 2,
-            "camara": false,
-            "nota": "se ve por primera vez"
+            "episodio": 3,
+            "desde": 20,
+            "hasta": 150,
+            "nota": "las últimas palabras de Yawá",
+            "medido": "fotogramas del máster publicado del EP03 cada 5 s (2026-09-09)"
           },
           {
-            "episodio": 3
+            "episodio": 4,
+            "desde": 0,
+            "hasta": 10,
+            "nota": "la partida: el palafito queda atrás",
+            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)"
           },
           {
             "episodio": 10,
-            "desde": 210,
-            "hasta": 258,
-            "provisional": true,
-            "nota": "plano final: Jeshuco flota con el palafito a un lado y el humo del imperio al otro"
+            "desde": 175,
+            "hasta": 240,
+            "nota": "la vuelta al palafito vacío",
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
           }
         ],
         "estacion": "ambas",
@@ -71,6 +77,13 @@
             "hasta": 26,
             "nota": "el bufeo al alba, el poblado, Jeshuco corre al agua",
             "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)"
+          },
+          {
+            "episodio": 3,
+            "desde": 0,
+            "hasta": 20,
+            "nota": "el poblado al alba; peces muertos en la orilla",
+            "medido": "fotogramas del máster publicado del EP03 cada 5 s (2026-09-09)"
           }
         ],
         "estacion": "ambas",
@@ -101,14 +114,18 @@
         "descripcion": "Asentamiento de desplazados amazónicos en la orilla del río grande, río arriba de Las Tres Gargantas, donde el río ya es más estrecho y turbio.",
         "apariciones": [
           {
-            "episodio": 7
+            "episodio": 7,
+            "desde": 10,
+            "hasta": 210,
+            "nota": "la comunidad; los rostros; el pez de dos cabezas",
+            "medido": "fotogramas del máster publicado del EP07 cada 5 s (2026-09-09)"
           },
           {
             "episodio": 10,
-            "nota": "vuelven",
-            "desde": 150,
-            "hasta": 210,
-            "provisional": true
+            "desde": 138,
+            "hasta": 152,
+            "nota": "la niña con un pez vivo al atardecer",
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
           }
         ],
         "estacion": "ambas",
@@ -139,14 +156,23 @@
         "descripcion": "Capital inca-industrial, ciudad-puerto en tres estratos donde el río grande sale de las colinas de los Andes. Destino del viaje, en el corazón del imperio.",
         "apariciones": [
           {
-            "episodio": 8
+            "episodio": 6,
+            "camara": false,
+            "nota": "aparece en la visión"
+          },
+          {
+            "episodio": 8,
+            "desde": 25,
+            "hasta": 235,
+            "nota": "la ciudad inca-industrial",
+            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)"
           },
           {
             "episodio": 10,
-            "nota": "inundada",
-            "desde": 0,
-            "hasta": 150,
-            "provisional": true
+            "desde": 40,
+            "hasta": 125,
+            "nota": "la ciudad inundada; el rescate en el Fango",
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
           }
         ],
         "estacion": "ambas",
@@ -179,7 +205,11 @@
         "apariciones": [
           {
             "episodio": 8,
-            "camara": false
+            "desde": 100,
+            "hasta": 140,
+            "camara": false,
+            "nota": "la pirámide de oro, el Sapa Inca",
+            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)"
           }
         ],
         "estacion": "ambas",
@@ -211,7 +241,11 @@
         "apariciones": [
           {
             "episodio": 8,
-            "camara": false
+            "desde": 105,
+            "hasta": 135,
+            "camara": false,
+            "nota": "el mercado, las ruedas, la fundición",
+            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)"
           }
         ],
         "estacion": "ambas",
@@ -243,12 +277,19 @@
         "apariciones": [
           {
             "episodio": 8,
-            "camara": false
+            "desde": 140,
+            "hasta": 160,
+            "camara": false,
+            "nota": "las chozas junto al desagüe",
+            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)"
           },
           {
             "episodio": 10,
-            "nota": "la crecida se lo lleva primero",
-            "camara": false
+            "desde": 55,
+            "hasta": 120,
+            "camara": false,
+            "nota": "la crecida se lo lleva primero; el rescate",
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
           }
         ],
         "estacion": "vaciante",

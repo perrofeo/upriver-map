@@ -79,6 +79,8 @@ export function tramosDeEntidad(feature, episodios) {
       nota: ap.nota || null,
       camara: ap.camara !== false,
       camaraExplicita: ap.camara === true,
+      // Una aparición puede anclar la cámara en otro punto (un tramo de río).
+      posicion: Array.isArray(ap.posicion) && ap.posicion.length === 2 ? { lon: ap.posicion[0], lat: ap.posicion[1] } : null,
     });
   }
   return out.sort((a, b) => a.desde - b.desde);
@@ -102,8 +104,8 @@ export function posicionDe(feature) {
  * de `poses[id]` (capturada con el director) o la por defecto de su tipo.
  * @returns {{lon:number,lat:number,alt:number,heading:number,pitch:number,roll:number}|null}
  */
-export function poseDeEntidad(feature, poses = {}) {
-  const base = posicionDe(feature);
+export function poseDeEntidad(feature, poses = {}, posicion = null) {
+  const base = posicion || posicionDe(feature);
   if (!base) return null;
   const tipo = feature.properties?.tipo;
   const defecto = POSE_POR_TIPO[tipo] || POSE_POR_TIPO.localizacion;
@@ -158,7 +160,8 @@ export function construirRecorrido(features, episodios) {
   const fundidas = [];
   for (const p of paradas.filter((x) => x.hasta > x.desde)) {
     const ultima = fundidas.at(-1);
-    if (ultima && ultima.id === p.id && Math.abs(ultima.hasta - p.desde) < 1e-6) {
+    const mismaPosicion = JSON.stringify(ultima?.posicion || null) === JSON.stringify(p.posicion || null);
+    if (ultima && ultima.id === p.id && mismaPosicion && Math.abs(ultima.hasta - p.desde) < 1e-6) {
       ultima.hasta = p.hasta;
       ultima.episodios = [...(ultima.episodios || [ultima.episodio]), p.episodio];
     } else {
@@ -213,13 +216,13 @@ export function poseEn(recorrido, t, poses = {}) {
   const idx = indiceParada(recorrido, t);
   if (idx < 0) {
     const p = recorrido[0];
-    return { pose: poseDeEntidad(p.feature, poses), parada: p, siguiente: null, progreso: 0 };
+    return { pose: poseDeEntidad(p.feature, poses, p.posicion), parada: p, siguiente: null, progreso: 0 };
   }
   const actual = recorrido[idx];
   const siguiente = recorrido[idx + 1] || null;
-  const poseActual = poseDeEntidad(actual.feature, poses);
+  const poseActual = poseDeEntidad(actual.feature, poses, actual.posicion);
   if (!siguiente) return { pose: poseActual, parada: actual, siguiente: null, progreso: 0 };
-  const poseSiguiente = poseDeEntidad(siguiente.feature, poses);
+  const poseSiguiente = poseDeEntidad(siguiente.feature, poses, siguiente.posicion);
   const hueco = siguiente.desde - actual.hasta;
   const inicioVuelo = hueco > 0 ? actual.hasta : Math.max(actual.desde, siguiente.desde - TRANSICION_S);
   const finVuelo = siguiente.desde;
