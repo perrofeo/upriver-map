@@ -40,8 +40,11 @@ export async function crearProveedor(estacion) {
     numberOfLevelZeroTilesX: manifest.teselasNivel0.x,
     numberOfLevelZeroTilesY: manifest.teselasNivel0.y,
   });
+  // La fecha de generación va en la URL: las teselas se cachean un día, pero
+  // un mapa nuevo cambia la URL y el navegador no reutiliza las viejas.
+  const version = encodeURIComponent(manifest.generado || '0');
   return new Cesium.UrlTemplateImageryProvider({
-    url: `${BASE}tiles/${estacion}/{z}/{x}/{reverseY}.${manifest.formato}`,
+    url: `${BASE}tiles/${estacion}/{z}/{x}/{reverseY}.${manifest.formato}?v=${version}`,
     tilingScheme,
     rectangle,
     minimumLevel: 0,
