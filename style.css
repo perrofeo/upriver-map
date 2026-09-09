@@ -171,14 +171,29 @@ body.modo-grabacion #panel-lateral, body.modo-grabacion #cabecera, body.modo-gra
 .carga-estado.error { color: #d98c6a; font-style: normal; }
 
 /* ── Pantallas estrechas ─────────────────────────────────────────────────── */
+.solo-movil { display: none; }
 @media (max-width: 760px) {
-  #cabecera { top: 12px; left: 14px; }
+  .solo-movil { display: block; }
+  #cabecera { top: 10px; left: 12px; }
   #cabecera h1 { font-size: 22px; }
-  #panel-lateral { top: auto; bottom: 108px; left: 12px; width: min(236px, calc(100% - 24px)); max-height: 40vh; }
-  #ficha { top: 62px; right: 12px; left: 12px; width: auto; max-height: 38vh; }
-  #linea-tiempo { bottom: 10px; width: calc(100% - 20px); grid-template-columns: 40px 1fr; column-gap: 10px; padding: 10px 12px 8px; }
+  #cabecera .sub { font-size: 13px; }
+  /* El panel se pliega en un botón; abierto, ocupa la pantalla y se cierra con ×. */
+  #btn-panel { position: fixed; top: 12px; right: 12px; z-index: 5; background: var(--adobe); color: var(--hueso); border: 1px solid var(--tumbaga-suave); padding: 6px 10px; font-size: 14px; }
+  #panel-lateral { display: none; top: 0; left: 0; right: 0; bottom: 0; width: auto; max-height: none; padding: 44px 16px 24px; z-index: 6; }
+  #panel-lateral.abierto { display: block; }
+  #btn-cerrar-panel { position: absolute; top: 8px; right: 12px; background: transparent; border: 0; color: var(--hollin); font-size: 26px; line-height: 1; }
+  /* La ficha es una hoja sobre el quipu; se pliega tocando el título. */
+  #ficha { top: auto; bottom: 104px; right: 8px; left: 8px; width: auto; max-height: 42vh; padding: 10px 14px 12px; }
+  #ficha.plegada { max-height: none; overflow: hidden; }
+  #ficha.plegada > :not(.ficha-cabecera):not(.ficha-secundario) { display: none; }
+  .ficha-cabecera { cursor: pointer; }
+  .ficha-cabecera h2 { font-size: 20px; }
+  #linea-tiempo { bottom: 8px; width: calc(100% - 16px); grid-template-columns: 40px 1fr; column-gap: 10px; padding: 8px 10px 6px; }
   .quipu-velocidad { display: none; }
-  .quipu-lectura { font-size: 13px; }
+  .quipu-lectura { font-size: 12px; gap: 8px; }
+  .quipu-episodio { overflow: hidden; text-overflow: ellipsis; }
+  .quipu-ver { display: none; }
+  #panel-autor { top: 52px; left: 8px; right: 8px; width: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
