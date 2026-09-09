@@ -8,8 +8,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.95,
-          -5.12
+          -73.98,
+          -5.235
         ]
       },
       "properties": {
@@ -20,7 +20,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Hogar de Jeshuco y de su abuelo Yawá, río abajo. Abre y cierra la película.",
+        "descripcion": "Hogar de Jeshuco y de su abuelo Yawá, en un caño lateral a las afueras del poblado. El abuelo vive apartado. Abre y cierra la película.",
         "apariciones": [
           {
             "episodio": 1
@@ -38,8 +38,39 @@
         ],
         "estacion": "ambas",
         "orden": 1,
-        "notas": "Sin nombre en la obra.",
+        "notas": "Sin nombre en la obra. No está en el río principal: se llega a él por el caño del poblado.",
         "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "poblado",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93,
+          -5.19
+        ]
+      },
+      "properties": {
+        "tipo": "asentamiento",
+        "faccion": "kukama",
+        "nombre": {
+          "es": "El poblado",
+          "qu": null
+        },
+        "lengua": "es",
+        "descripcion": "El poblado kukama donde empieza la historia. El palafito del abuelo queda a sus afueras, apartado.",
+        "apariciones": [
+          {
+            "episodio": 1,
+            "camara": false
+          }
+        ],
+        "estacion": "ambas",
+        "notas": "Sin nombre en la obra. Añadido por indicación de Igor (2026-09-09).",
+        "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md; Igor",
         "placeholder": true
       }
     },

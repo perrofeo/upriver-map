@@ -4,44 +4,391 @@
   "features": [
     {
       "type": "Feature",
-      "id": "rio",
+      "id": "rio-principal",
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-73.72, -5.20], [-73.85, -5.16], [-73.95, -5.12], [-74.05, -5.10], [-74.15, -5.05],
-          [-74.28, -5.04], [-74.38, -5.00], [-74.45, -4.98], [-74.55, -4.97], [-74.63, -4.93],
-          [-74.70, -4.90], [-74.80, -4.86], [-74.88, -4.85], [-74.95, -4.82], [-75.05, -4.79],
-          [-75.15, -4.76], [-75.22, -4.73], [-75.30, -4.70], [-75.42, -4.66], [-75.55, -4.60],
-          [-75.68, -4.55]
+          [
+            -75.68,
+            -4.55
+          ],
+          [
+            -75.55,
+            -4.6
+          ],
+          [
+            -75.42,
+            -4.66
+          ],
+          [
+            -75.3,
+            -4.7
+          ],
+          [
+            -75.22,
+            -4.73
+          ],
+          [
+            -75.15,
+            -4.76
+          ],
+          [
+            -75.05,
+            -4.79
+          ],
+          [
+            -74.95,
+            -4.82
+          ],
+          [
+            -74.88,
+            -4.85
+          ],
+          [
+            -74.8,
+            -4.86
+          ],
+          [
+            -74.72,
+            -4.88
+          ],
+          [
+            -74.63,
+            -4.93
+          ],
+          [
+            -74.55,
+            -4.97
+          ],
+          [
+            -74.45,
+            -4.98
+          ],
+          [
+            -74.35,
+            -5.0
+          ],
+          [
+            -74.25,
+            -5.03
+          ],
+          [
+            -74.15,
+            -5.05
+          ],
+          [
+            -74.05,
+            -5.1
+          ],
+          [
+            -73.95,
+            -5.12
+          ],
+          [
+            -73.85,
+            -5.16
+          ],
+          [
+            -73.72,
+            -5.2
+          ]
         ]
       },
       "properties": {
         "tipo": "ruta",
+        "rango": "principal",
         "faccion": "ninguna",
-        "nombre": { "es": "El río", "qu": null },
+        "nombre": {
+          "es": "El río",
+          "qu": null
+        },
         "lengua": "es",
-        "descripcion": "La obra nunca lo nombra: es «el río». Fluye de oeste a este; subirlo es ir hacia el imperio.",
-        "apariciones": [ { "episodio": 1 }, { "episodio": 2 }, { "episodio": 3 }, { "episodio": 4 }, { "episodio": 5 }, { "episodio": 6 }, { "episodio": 7 }, { "episodio": 8 }, { "episodio": 9 }, { "episodio": 10 } ],
+        "descripcion": "El río grande y contaminado: la autopista del imperio. La obra nunca lo nombra. Fluye de oeste a este; subirlo es ir hacia la ciudad.",
+        "apariciones": [
+          {
+            "episodio": 1
+          },
+          {
+            "episodio": 2
+          },
+          {
+            "episodio": 3
+          },
+          {
+            "episodio": 4
+          },
+          {
+            "episodio": 5
+          },
+          {
+            "episodio": 6
+          },
+          {
+            "episodio": 7
+          },
+          {
+            "episodio": 8
+          },
+          {
+            "episodio": 9
+          },
+          {
+            "episodio": 10
+          }
+        ],
         "estacion": "ambas",
-        "notas": "Trazado placeholder. Referencia real: Pacaya Samiria.",
-        "fuente": "pelicula/DOSSIER_UPRIVER.md §Mundo",
+        "notas": "Trazado placeholder. Río arriba de Las Tres Gargantas es más estrecho y turbio (EP7).",
+        "fuente": "pelicula/DOSSIER_UPRIVER.md; GUION_EPISODIO_07",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cano-del-poblado",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.98,
+            -5.235
+          ],
+          [
+            -73.95,
+            -5.21
+          ],
+          [
+            -73.93,
+            -5.19
+          ],
+          [
+            -73.92,
+            -5.16
+          ],
+          [
+            -73.94,
+            -5.135
+          ],
+          [
+            -73.95,
+            -5.12
+          ]
+        ]
+      },
+      "properties": {
+        "tipo": "ruta",
+        "rango": "secundario",
+        "faccion": "kukama",
+        "nombre": {
+          "es": "El caño del poblado",
+          "qu": null
+        },
+        "lengua": "es",
+        "descripcion": "Agua limpia y tranquila entre el palafito, el poblado y el río grande. Aquí pescan Jeshuco y el bufeo.",
+        "apariciones": [
+          {
+            "episodio": 1
+          },
+          {
+            "episodio": 3
+          },
+          {
+            "episodio": 10
+          }
+        ],
+        "estacion": "ambas",
+        "notas": "Placeholder. Nombre descriptivo, no de la obra.",
+        "fuente": "Igor (2026-09-09)",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tuneles-naturales",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.97,
+            -5.2
+          ],
+          [
+            -74.02,
+            -5.17
+          ],
+          [
+            -74.08,
+            -5.13
+          ],
+          [
+            -74.13,
+            -5.08
+          ],
+          [
+            -74.15,
+            -5.05
+          ]
+        ]
+      },
+      "properties": {
+        "tipo": "ruta",
+        "rango": "oculto",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "Los túneles naturales",
+          "qu": null
+        },
+        "lengua": "es",
+        "descripcion": "Galerías de agua bajo la selva. El paiche gigante arrastra a Jeshuco por ellas hasta el río grande, ya contaminado, donde ve por primera vez el barco.",
+        "apariciones": [
+          {
+            "episodio": 1
+          }
+        ],
+        "estacion": "ambas",
+        "notas": "Placeholder. Igor (2026-09-09): «el pez lo arrastra por unos túneles naturales del río hasta un río más grande y contaminado».",
+        "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md (EP1: arrastrado por corrientes a una zona desconocida); Igor",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "desvio-rapidos",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.55,
+            -4.97
+          ],
+          [
+            -74.5,
+            -5.02
+          ],
+          [
+            -74.44,
+            -5.07
+          ],
+          [
+            -74.38,
+            -5.1
+          ],
+          [
+            -74.33,
+            -5.08
+          ],
+          [
+            -74.3,
+            -5.04
+          ]
+        ]
+      },
+      "properties": {
+        "tipo": "ruta",
+        "rango": "secundario",
+        "faccion": "ninguna",
+        "nombre": {
+          "es": "El desvío de los rápidos",
+          "qu": null
+        },
+        "lengua": "es",
+        "descripcion": "Un cruce que abandona el río grande y baja con la corriente: por eso hay rápidos en un viaje río arriba. Lleva al campamento minero.",
+        "apariciones": [
+          {
+            "episodio": 4
+          }
+        ],
+        "estacion": "ambas",
+        "notas": "Placeholder. Igor (2026-09-09): «unos planos antes él toma un cruce y esa desviación lo lleva río abajo». El guion del EP4 habla de un afluente lateral (sh10) y de salir por otra ruta (sh27).",
+        "fuente": "GUION_EPISODIO_04_EL_RASTRO_DEL_VENENO.md sh10-12, sh27-28; Igor",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cano-tres-gargantas",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.72,
+            -4.88
+          ],
+          [
+            -74.7,
+            -4.93
+          ],
+          [
+            -74.68,
+            -4.98
+          ],
+          [
+            -74.7,
+            -5.03
+          ]
+        ]
+      },
+      "properties": {
+        "tipo": "ruta",
+        "rango": "oculto",
+        "faccion": "kukama",
+        "nombre": {
+          "es": "El caño de las Gargantas",
+          "qu": null
+        },
+        "lengua": "es",
+        "descripcion": "Canal escondido entre la vegetación. Las Tres Gargantas no se ven desde el río grande: son el lugar sagrado de Ayahumo.",
+        "apariciones": [
+          {
+            "episodio": 5
+          },
+          {
+            "episodio": 7,
+            "nota": "se deja atrás"
+          }
+        ],
+        "estacion": "ambas",
+        "notas": "Placeholder. Igor (2026-09-09): «las tres gargantas no pueden estar visibles desde el río principal». EP5 sh02: la canoa emerge de la vegetación ribereña.",
+        "fuente": "GUION_EPISODIO_05_LAS_TRES_GARGANTAS.md sh02; Igor",
         "placeholder": true
       }
     },
     {
       "type": "Feature",
       "id": "viaje",
-      "geometry": { "type": "LineString", "coordinates": [] },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
       "properties": {
         "tipo": "ruta",
+        "rango": "viaje",
         "faccion": "kukama",
-        "nombre": { "es": "El viaje de Jeshuco", "qu": null },
+        "nombre": {
+          "es": "El viaje de Jeshuco",
+          "qu": null
+        },
         "lengua": "es",
-        "descripcion": "Río arriba desde el palafito hasta la ciudad, y la vuelta.",
-        "paradas": ["palafito", "barco", "rapidos", "campamento-minero", "tres-gargantas", "comunidad", "ciudad", "sitio-ritual", "ciudad", "comunidad", "palafito"],
+        "descripcion": "Del palafito al río grande por los túneles, río arriba con desvíos, hasta la ciudad; y la vuelta.",
+        "paradas": [
+          "palafito",
+          "tuneles-naturales",
+          "barco",
+          "palafito",
+          "desvio-rapidos",
+          "rapidos",
+          "campamento-minero",
+          "cano-tres-gargantas",
+          "tres-gargantas",
+          "comunidad",
+          "ciudad",
+          "sitio-ritual",
+          "ciudad",
+          "comunidad",
+          "palafito"
+        ],
         "apariciones": [],
         "estacion": "ambas",
-        "notas": "La geometría se deriva de las paradas sobre el río; no se dibuja aparte.",
+        "notas": "La geometría se deriva de las paradas; no se dibuja aparte.",
         "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md",
         "placeholder": true
       }

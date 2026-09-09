@@ -63,6 +63,8 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
             outlineColor: Cesium.Color.fromCssColorString('#0d1512'),
             outlineWidth: 2,
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
+            // De lejos, los lugares del río no son más que el punto del mundo.
+            distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, esParte ? 60_000 : 1_200_000),
           },
           label: {
             text: principal,
@@ -75,33 +77,60 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
             horizontalOrigin: Cesium.HorizontalOrigin.LEFT,
             verticalOrigin: Cesium.VerticalOrigin.CENTER,
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
-            distanceDisplayCondition: esParte ? new Cesium.DistanceDisplayCondition(0, 60_000) : undefined,
+            distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, esParte ? 60_000 : 1_200_000),
             scaleByDistance: new Cesium.NearFarScalar(20_000, 1.0, 400_000, 0.7),
           },
         });
       } else if (g.type === 'LineString') {
+        const rango = props.rango || 'secundario';
+        const ancho = { principal: 4, secundario: 2.5, oculto: 2 }[rango] || 2.5;
+        const material = rango === 'oculto'
+          ? new Cesium.PolylineDashMaterialProperty({ color: c.withAlpha(0.9), dashLength: 14 })
+          : c.withAlpha(rango === 'principal' ? 0.9 : 0.75);
         entidad = dataSource.entities.add({
           ...base,
           polyline: {
             positions: Cesium.Cartesian3.fromDegreesArray(g.coordinates.flat()),
-            width: 3,
-            material: c.withAlpha(0.9),
+            width: ancho,
+            material,
             clampToGround: true,
           },
         });
       } else if (g.type === 'Polygon') {
         const anillo = Cesium.Cartesian3.fromDegreesArray(g.coordinates[0].flat());
+        // El territorio continental solo se ve de lejos; el local, solo de cerca.
+        const continental = props.escala === 'continental';
+        const condicion = continental
+          ? new Cesium.DistanceDisplayCondition(600_000, Number.POSITIVE_INFINITY)
+          : new Cesium.DistanceDisplayCondition(0, 900_000);
         entidad = dataSource.entities.add({
           ...base,
           polygon: {
             hierarchy: new Cesium.PolygonHierarchy(anillo),
-            material: c.withAlpha(0.14),
+            material: c.withAlpha(continental ? 0.22 : 0.14),
+            distanceDisplayCondition: condicion,
           },
         });
         dataSource.entities.add({
           id: `${id}:${f.id}:borde`,
           properties: { capa: id, fid: f.id },
-          polyline: { positions: anillo, width: 2, material: c.withAlpha(0.7), clampToGround: true },
+          polyline: { positions: anillo, width: continental ? 3 : 2, material: c.withAlpha(0.8), clampToGround: true, distanceDisplayCondition: condicion },
+        });
+        const centro = g.coordinates[0].reduce((acc, [lon, lat]) => [acc[0] + lon / g.coordinates[0].length, acc[1] + lat / g.coordinates[0].length], [0, 0]);
+        dataSource.entities.add({
+          id: `${id}:${f.id}:nombre`,
+          properties: { capa: id, fid: f.id },
+          position: Cesium.Cartesian3.fromDegrees(centro[0], centro[1], 0),
+          label: {
+            text: principal,
+            font: `${continental ? 22 : 14}px system-ui, sans-serif`,
+            style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+            fillColor: c,
+            outlineColor: Cesium.Color.fromCssColorString('#0d1512'),
+            outlineWidth: 4,
+            disableDepthTestDistance: Number.POSITIVE_INFINITY,
+            distanceDisplayCondition: condicion,
+          },
         });
       }
       if (entidad) entidadesPorId.set(f.id, entidad);

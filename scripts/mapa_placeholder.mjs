@@ -38,20 +38,26 @@ export async function generarPlaceholder(estacion, salida) {
   const creciente = estacion === 'creciente';
   const fondo = creciente ? '#22392c' : '#2b4a2f';
   const agua = creciente ? '#5a8ea6' : '#3f6f86';
-  const rio = rutas.features.find((f) => f.id === 'rio');
-  const rioPuntos = rio.geometry.coordinates.map(([lon, lat]) => px(lon, lat)).join(' ');
   const territorio = imperio.features.find((f) => f.id === 'territorio-imperio');
   const terrPuntos = territorio.geometry.coordinates[0].map(([lon, lat]) => px(lon, lat)).join(' ');
+  const rutasDibujables = rutas.features.filter((f) => f.geometry.type === 'LineString' && f.geometry.coordinates.length);
+  const anchoRuta = (rango) => ({ principal: 46, secundario: 18, oculto: 10 }[rango] || 12);
 
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${ANCHO}" height="${ALTO}" viewBox="0 0 ${ANCHO} ${ALTO}">`;
   svg += `<rect width="100%" height="100%" fill="${fondo}"/>`;
-  // Territorio del imperio: trama.
+  // Territorio local del imperio: trama.
   svg += `<polygon points="${terrPuntos}" fill="#6b4a3a" fill-opacity="0.35" stroke="#a37a5c" stroke-width="6" stroke-dasharray="24 14"/>`;
-  // Bosque inundado en creciente: banda ancha alrededor del río.
-  if (creciente) {
-    svg += `<polyline points="${rioPuntos}" fill="none" stroke="${agua}" stroke-opacity="0.45" stroke-width="360" stroke-linejoin="round" stroke-linecap="round"/>`;
+  // Red fluvial: el río grande es la autopista; los caños y desvíos, más finos; los ocultos, discontinuos.
+  for (const r of rutasDibujables) {
+    const puntos = r.geometry.coordinates.map(([lon, lat]) => px(lon, lat)).join(' ');
+    const rango = r.properties.rango;
+    const w = anchoRuta(rango) * (creciente ? 2.2 : 1);
+    if (creciente && rango === 'principal') {
+      svg += `<polyline points="${puntos}" fill="none" stroke="${agua}" stroke-opacity="0.45" stroke-width="360" stroke-linejoin="round" stroke-linecap="round"/>`;
+    }
+    const dash = rango === 'oculto' ? ' stroke-dasharray="28 22"' : '';
+    svg += `<polyline points="${puntos}" fill="none" stroke="${agua}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"${dash}/>`;
   }
-  svg += `<polyline points="${rioPuntos}" fill="none" stroke="${agua}" stroke-width="${creciente ? 110 : 46}" stroke-linejoin="round" stroke-linecap="round"/>`;
   // Retícula 0,25°.
   for (let lon = MUNDO.oeste; lon <= MUNDO.este + 1e-9; lon += 0.25) {
     const x = coordenadaAPixel(lon, MUNDO.norte, ANCHO, ALTO).px;

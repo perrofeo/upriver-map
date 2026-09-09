@@ -18,7 +18,7 @@ const ETIQUETA_TIPO = {
   localizacion: 'Localización',
   ruta: 'Ruta fluvial',
 };
-const ETIQUETA_FACCION = { kukama: 'kukama', imperio: 'imperio', ninguna: '—', null: 'sin determinar' };
+const ETIQUETA_FACCION = { kukama: 'kukama', imperio: 'imperio', comerciantes: 'comerciantes hispanohablantes', ninguna: '—', null: 'sin determinar' };
 
 export class Ficha {
   /**

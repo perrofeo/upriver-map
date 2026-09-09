@@ -87,7 +87,8 @@ async function init() {
     // Límites de cámara: del detalle de un asentamiento a ver el mundo entero.
     const control = scene.screenSpaceCameraController;
     control.minimumZoomDistance = 250;
-    control.maximumZoomDistance = 2_500_000;
+    // Hasta ver el continente entero: el tamaño del imperio importa.
+    control.maximumZoomDistance = 14_000_000;
     control.enableCollisionDetection = true;
 
     estado.textContent = 'Cargando el mapa…';
@@ -141,12 +142,9 @@ async function init() {
     } else {
       for (const def of CAPAS_FICCION) await capas.setEnabled(def.id, true, { origin: 'programmatic' });
       interfaz.setTiempo(0, { moverCamara: false });
-      viewer.camera.setView({ destination: rectanguloMundo(MUNDO) });
-      viewer.camera.flyTo({
-        destination: rectanguloMundo(MUNDO),
-        duration: 2.0,
-        easingFunction: Cesium.EasingFunction.CUBIC_IN_OUT,
-      });
+      // Arranque: el continente con el imperio dibujado, y de ahí al río.
+      interfaz.verImperio({ duracion: 0 });
+      setTimeout(() => interfaz.verMundo({ duracion: 3.5 }), 1800);
     }
     interfaz.sincronizar();
     enlace.activar();

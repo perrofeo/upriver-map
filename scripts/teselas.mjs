@@ -26,11 +26,11 @@ for (const est of MUNDO.estaciones) {
   }
   let fuente = path.join('mapas', `${est}.png`);
   if (!(await existe(fuente))) {
+    // Sin mapa definitivo: el placeholder se regenera siempre, porque dibuja
+    // los datos de src/data/upriver y estos cambian.
     fuente = path.join('mapas', `placeholder_${est}.png`);
-    if (!(await existe(fuente))) {
-      console.log(`${est}: sin mapa definitivo, generando placeholder`);
-      await generarPlaceholder(est, fuente);
-    }
+    console.log(`${est}: sin mapa definitivo, generando placeholder`);
+    await generarPlaceholder(est, fuente);
   }
   console.log(`${est}: ${fuente} → ${salida}`);
   await cortarTeselas({ imagen: fuente, salida, formato: 'webp', calidad: 82 });

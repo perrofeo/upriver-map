@@ -23,6 +23,9 @@ html, body { margin: 0; height: 100%; background: var(--fondo); color: var(--tex
 
 #panel-lateral { position: fixed; top: 60px; left: 16px; width: 260px; max-height: calc(100% - 80px); overflow: auto; background: var(--panel); border: 1px solid var(--borde); border-radius: 8px; padding: 10px 12px; backdrop-filter: blur(6px); }
 #panel-lateral h2 { margin: 6px 0 8px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--texto-suave); font-weight: 500; }
+#panel-vistas { display: flex; gap: 6px; }
+#panel-vistas button { flex: 1; background: transparent; color: var(--texto); border: 1px solid var(--borde); border-radius: 4px; padding: 6px 8px; font: inherit; font-size: 12px; cursor: pointer; }
+#panel-vistas button:hover { border-color: var(--acento); }
 #panel-lateral section + section { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--borde); }
 
 .capa-fila { display: grid; grid-template-columns: 18px 22px 1fr auto; align-items: center; gap: 6px; padding: 3px 0; cursor: pointer; }

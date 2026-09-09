@@ -19,16 +19,26 @@ lleva `placeholder: true` hasta que Igor sitúe cada entidad sobre el mapa defin
 |---|---|---|
 | `id` (raíz del Feature) | slug | identificador estable; se usa en `sel=` del enlace y en `paradas` |
 | `tipo` | `asentamiento · ruta · territorio · avanzada · accidente · localizacion` | |
-| `faccion` | `kukama · imperio · ninguna · null` | `null` = sin determinar en la obra |
+| `faccion` | `kukama · imperio · comerciantes · ninguna · null` | `comerciantes` = hispanohablantes ajenos al imperio que comercian con él (el barco). `null` = sin determinar |
 | `nombre` | `{ es, qu }` | topónimo en castellano y en quechua imperial (cuzco-collao, MINEDU 2013). `qu: null` si no existe |
 | `lengua` | `es · qu` | cuál se muestra como principal. Regla de la obra: el quechua es la lengua del imperio y no se traduce, así que los lugares imperiales con nombre quechua llevan `qu` |
 | `descripcion` | texto | ficha (castellano) |
 | `apariciones` | `[{ episodio, desde?, hasta?, nota?, lugar? }]` | minutaje: si faltan `desde`/`hasta`, vale el tramo entero del episodio según `episodios.json`. `desde`/`hasta` van en **segundos de película**. `lugar` indica que la aparición ocurre en otra entidad (el barco en la ciudad) |
 | `estacion` | `ambas · vaciante · creciente` | en qué estación existe o es accesible |
 | `orden` | entero | posición en el eje del río, aguas abajo → arriba (solo nodos del viaje) |
+| `rango` (rutas) | `principal · secundario · oculto · viaje` | el río grande es la autopista; los secundarios son desvíos y caños; los ocultos no se ven desde el río grande |
+| `escala` (territorios) | `local · continental` | el polígono continental muestra el tamaño del imperio sobre el globo |
 | `parte_de` | id | para los estratos de la ciudad |
 | `notas`, `fuente` | texto | procedencia en el vault |
 | `placeholder` | bool | geometría provisional |
+
+## La red fluvial (Igor, 2026-09-09)
+
+El viaje no es lineal por un solo río. El río grande, contaminado, es la autopista del imperio, pero
+Jeshuco se desvía: el palafito está en un caño a las afueras del poblado; los túneles naturales lo
+llevan al río grande (EP1); un cruce baja con la corriente hasta los rápidos y el campamento (EP4);
+Las Tres Gargantas están al final de un caño escondido, invisibles desde el río grande (EP5). Todo
+ello está trazado como placeholder en `rutas.geojson`.
 
 ## Lo que la obra no da
 

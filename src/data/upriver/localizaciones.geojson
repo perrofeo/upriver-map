@@ -14,13 +14,13 @@
       },
       "properties": {
         "tipo": "localizacion",
-        "faccion": null,
+        "faccion": "comerciantes",
         "nombre": {
           "es": "El barco industrial",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Embarcación con trabajadores hispanohablantes, fondeada en el río. Reaparece atracada en el puerto de la ciudad.",
+        "descripcion": "Barco mercante que comercia con el imperio. Su tripulación habla castellano: no son del imperio. Fondeado en el río grande, donde lo encuentra Jeshuco al salir de los túneles. Reaparece atracado en el puerto de la ciudad.",
         "apariciones": [
           {
             "episodio": 2
@@ -34,8 +34,8 @@
         ],
         "estacion": "ambas",
         "orden": 2,
-        "notas": "Sin nombre en la obra.",
-        "fuente": "GUION_EPISODIO_02_EL_OTRO_MUNDO.md; prompts/episodio_08/shot_18B_barco_ep2_atracado.md",
+        "notas": "Sin nombre en la obra. Igor (2026-09-09): «uno de los barcos que comercia con el imperio, pero ellos hablan español, no son del imperio». La biblia los describe como inmigrantes hispanohablantes contratados.",
+        "fuente": "GUION_EPISODIO_02_EL_OTRO_MUNDO.md; UCRONIA_INTEGRACION.md; Igor",
         "placeholder": true
       }
     },
@@ -45,8 +45,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.38,
-          -5.0
+          -74.44,
+          -5.07
         ]
       },
       "properties": {
@@ -57,7 +57,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Los rápidos antes del campamento minero.",
+        "descripcion": "Aguas bravas en el desvío que baja del río grande. Tras ellos, orillas deforestadas.",
         "apariciones": [
           {
             "episodio": 4,
@@ -137,10 +137,10 @@
         "fuente": "pelicula/DOSSIER_UPRIVER.md (nota del director)",
         "placeholder": true,
         "camara": {
-          "lon": -73.94,
-          "lat": -5.125,
+          "lon": -73.955,
+          "lat": -5.25,
           "alt": 1200,
-          "heading": 295,
+          "heading": 300,
           "pitch": -8
         }
       }

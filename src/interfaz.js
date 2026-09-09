@@ -10,6 +10,8 @@ import * as Cesium from 'cesium';
 import { ESTILOS, NOMBRES_ESTILO } from './estilos.js';
 import { Ficha } from './ficha.js';
 import { LineaTiempo } from './tiempo.js';
+import { MUNDO } from './mundo.js';
+import { rectanguloMundo } from './basemap.js';
 
 function aviso(texto, ms = 1800) {
   const toast = document.getElementById('toast');
@@ -56,6 +58,19 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
     aviso,
     lineaTiempo: null,
     ficha: null,
+    /** Vista del continente: el imperio entero. */
+    verImperio({ duracion = 2.5 } = {}) {
+      lineaTiempo?.pausar({ silencioso: true });
+      const vista = { destination: Cesium.Cartesian3.fromDegrees(-69.5, -9.5, 9_500_000), orientation: { heading: 0, pitch: Cesium.Math.toRadians(-88), roll: 0 } };
+      if (duracion <= 0) viewer.camera.setView(vista);
+      else viewer.camera.flyTo({ ...vista, duration: duracion, easingFunction: Cesium.EasingFunction.CUBIC_IN_OUT });
+    },
+    /** Vista del mundo del río entero. */
+    verMundo({ duracion = 2.5 } = {}) {
+      const destination = rectanguloMundo(MUNDO);
+      if (duracion <= 0) viewer.camera.setView({ destination });
+      else viewer.camera.flyTo({ destination, duration: duracion, easingFunction: Cesium.EasingFunction.CUBIC_IN_OUT });
+    },
   };
 
   function deseleccionar() {
@@ -181,6 +196,10 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
     if (fid) interfaz.seleccionar(fid);
     else if (interfaz.seleccion) { interfaz.seleccionAutomatica = false; deseleccionar(); }
   }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+
+  // ── Vistas ────────────────────────────────────────────────────────────
+  document.getElementById('btn-imperio').addEventListener('click', () => interfaz.verImperio());
+  document.getElementById('btn-mundo').addEventListener('click', () => interfaz.verMundo());
 
   // ── Enlace ────────────────────────────────────────────────────────────
   document.getElementById('btn-compartir').addEventListener('click', async () => {

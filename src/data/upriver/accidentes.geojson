@@ -9,7 +9,7 @@
         "type": "Point",
         "coordinates": [
           -74.7,
-          -4.9
+          -5.03
         ]
       },
       "properties": {
@@ -20,7 +20,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Tres cascadas y la maloca de Ayahumo. El único lugar con nombre en toda la obra.",
+        "descripcion": "Tres cascadas y la maloca de Ayahumo, al final de un caño escondido. El único lugar con nombre en toda la obra. No se ve desde el río grande.",
         "apariciones": [
           {
             "episodio": 3,

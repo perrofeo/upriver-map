@@ -62,8 +62,29 @@ export class Basemap {
     this.manifests = {};
   }
 
-  /** Carga las dos estaciones. La creciente empieza invisible. */
+  /**
+   * Carga el mundo entero de fondo y las dos estaciones encima. La creciente
+   * empieza invisible.
+   *
+   * El fondo es Natural Earth II, que Cesium empaqueta en sus propios assets
+   * (tres niveles, ~0,5 MB, sin fronteras políticas): sirve desde el build,
+   * sin red, y da la escala continental para ver el tamaño del imperio.
+   */
   async init() {
+    try {
+      const tierra = await Cesium.TileMapServiceImageryProvider.fromUrl(
+        Cesium.buildModuleUrl('Assets/Textures/NaturalEarthII'),
+      );
+      const capaTierra = new Cesium.ImageryLayer(tierra);
+      // Un mundo apagado: el mapa del río es lo que brilla.
+      capaTierra.brightness = 0.55;
+      capaTierra.saturation = 0.35;
+      capaTierra.contrast = 1.05;
+      this.viewer.imageryLayers.add(capaTierra);
+      this.capas.tierra = capaTierra;
+    } catch (e) {
+      console.info('[basemap] sin fondo mundial:', e.message);
+    }
     const [base, superior] = MUNDO.estaciones;
     const capaBase = new Cesium.ImageryLayer(await crearProveedor(base));
     this.viewer.imageryLayers.add(capaBase);
