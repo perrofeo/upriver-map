@@ -82,9 +82,9 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
       <rect width="100%" height="100%" fill="${agua}" fill-opacity="0.34"/>
       <line x1="0" y1="${6 * k}" x2="${12 * k}" y2="${6 * k}" stroke="${agua}" stroke-width="${1 * k}" stroke-opacity="0.7"/>
     </pattern>
-    <pattern id="imperio" width="${18 * k}" height="${18 * k}" patternUnits="userSpaceOnUse">
-      <rect x="${4 * k}" y="${4 * k}" width="${5 * k}" height="${5 * k}" fill="${PALETA.cobre}" fill-opacity="0.32"/>
-      <rect x="${11 * k}" y="${11 * k}" width="${3 * k}" height="${3 * k}" fill="${PALETA.tumbaga}" fill-opacity="0.22"/>
+    <pattern id="imperio" width="${12 * k}" height="${12 * k}" patternUnits="userSpaceOnUse">
+      <rect x="${3 * k}" y="${3 * k}" width="${2.4 * k}" height="${2.4 * k}" fill="${PALETA.cobre}" fill-opacity="0.28"/>
+      <rect x="${8 * k}" y="${8 * k}" width="${1.6 * k}" height="${1.6 * k}" fill="${PALETA.tumbaga}" fill-opacity="0.18"/>
     </pattern>
     <pattern id="tocapu" width="${36 * k}" height="${8 * k}" patternUnits="userSpaceOnUse">
       <rect width="${8 * k}" height="${8 * k}" fill="${PALETA.tumbaga}"/>

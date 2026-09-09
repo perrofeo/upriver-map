@@ -111,12 +111,6 @@ export class Ficha {
         b.append(tiempo, texto);
         b.addEventListener('click', () => this._irA(tramo.desde));
         fila.append(b);
-        if (tramo.historia) {
-          const h = document.createElement('p');
-          h.className = 'ficha-historia';
-          h.textContent = tramo.historia;
-          fila.append(h);
-        }
         const url = enlaceYoutube(ep, tramo.dentroDesde);
         if (url) {
           const a = document.createElement('a');
@@ -127,6 +121,12 @@ export class Ficha {
           a.textContent = 'Ver';
           a.title = 'Ver este momento en YouTube';
           fila.append(a);
+        }
+        if (tramo.historia) {
+          const h = document.createElement('p');
+          h.className = 'ficha-historia';
+          h.textContent = tramo.historia;
+          fila.append(h);
         }
         t.append(fila);
       }
