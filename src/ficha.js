@@ -91,7 +91,7 @@ export class Ficha {
       const t = document.createElement('div');
       t.className = 'ficha-apariciones';
       const titulo = document.createElement('h3');
-      titulo.textContent = 'En la película';
+      titulo.textContent = 'En la serie';
       t.append(titulo);
       for (const tramo of tramos) {
         const ep = tramo.ep;
