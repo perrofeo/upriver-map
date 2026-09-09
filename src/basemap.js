@@ -92,6 +92,8 @@ export class Basemap {
     try {
       const capaSuperior = new Cesium.ImageryLayer(await crearProveedor(superior));
       capaSuperior.alpha = 0;
+      // Oculta hasta que el deslizador la pida: así no se descargan sus teselas en vano.
+      capaSuperior.show = false;
       this.viewer.imageryLayers.add(capaSuperior);
       this.capas[superior] = capaSuperior;
     } catch (e) {
@@ -106,7 +108,10 @@ export class Basemap {
     const v = Math.max(0, Math.min(1, Number(valor) || 0));
     this._estacion = v;
     const superior = this.capas[MUNDO.estaciones[1]];
-    if (superior) superior.alpha = v;
+    if (superior) {
+      superior.show = v > 0;
+      superior.alpha = v;
+    }
     this.viewer.scene.requestRender();
   }
 
