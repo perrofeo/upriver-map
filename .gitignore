@@ -10,5 +10,5 @@ Thumbs.db
 public/tiles/
 
 # Mapas generados: se redibujan desde los datos (npm run teselas). Los pintados a mano (mapas/<estacion>.png) sí se versionan.
-mapas/placeholder_*.png
+
 mapas/grabado_*.png
