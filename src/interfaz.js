@@ -180,6 +180,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
   // ── Ficha y línea de tiempo ───────────────────────────────────────────
   const ficha = new Ficha(document.getElementById('ficha'), {
     episodios,
+    modoAutor: new URLSearchParams(window.location.search).has('autor'),
     irA: (t) => { lineaTiempo.pausar({ silencioso: true }); lineaTiempo.setTiempo(t); },
     alCerrar: () => { if (interfaz.seleccion) { interfaz.seleccion = null; capas.resaltar(null); enlace.programar(); } },
   });

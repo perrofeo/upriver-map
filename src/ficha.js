@@ -27,11 +27,13 @@ export class Ficha {
    * @param {HTMLElement} el
    * @param {{ episodios: object[], irA: (t: number) => void, alCerrar: () => void }} opciones
    */
-  constructor(el, { episodios, irA, alCerrar }) {
+  constructor(el, { episodios, irA, alCerrar, modoAutor = false }) {
     this.el = el;
     this.episodios = episodios;
     this._irA = irA;
     this._alCerrar = alCerrar;
+    // Las notas de trabajo y la marca de «provisional» son cosa del autor, no del visitante.
+    this.modoAutor = modoAutor;
     this.feature = null;
   }
 
@@ -71,7 +73,7 @@ export class Ficha {
     const chips = [ETIQUETA_TIPO[props.tipo] || props.tipo];
     if (faccion && faccion !== '—') chips.push(faccion);
     if (props.estacion && props.estacion !== 'ambas') chips.push(`solo en ${props.estacion}`);
-    if (props.placeholder) chips.push('sitio provisional');
+    if (props.placeholder && this.modoAutor) chips.push('sitio provisional');
     for (const c of chips) {
       const s = document.createElement('span');
       s.className = 'ficha-chip';
@@ -133,7 +135,7 @@ export class Ficha {
       el.append(t);
     }
 
-    if (props.notas) {
+    if (props.notas && this.modoAutor) {
       const n = document.createElement('p');
       n.className = 'ficha-notas';
       n.textContent = props.notas;
