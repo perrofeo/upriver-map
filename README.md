@@ -49,7 +49,12 @@ npm run peso        # tamaño del build por partes
 | `src/scenes/` | director de escenas (gods-eye-view, sin cambios salvo `recipes.js`) |
 | `scripts/` | cortador de teselas, placeholder, peso del build |
 | `mapas/` | imágenes fuente del mapa por estación |
-| `docs/` | desmontaje, mapa y coordenadas, despliegue |
+| `docs/` | desmontaje, mapa y coordenadas, identidad visual, despliegue |
+
+## Publicación
+
+https://mapa.therenderedchannel.com — despliegue continuo desde `main` (ver `docs/DESPLIEGUE.md`).
+Se embebe en https://therenderedchannel.com/upriver/map.
 
 ## Cómo se sitúa algo en el mapa
 
