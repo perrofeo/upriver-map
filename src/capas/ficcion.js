@@ -304,7 +304,11 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
           e.billboard.width = lado;
           e.billboard.height = lado;
         }
-        if (e.label) e.label.font = `${activo ? 700 : 500} ${activo ? 17 : (esParte ? 13 : 15)}px ${FUENTE}`;
+        if (e.label) {
+          // No se toca la fuente: cambiarla rerasteriza los glifos y Cesium pierde letras.
+          e.label.scale = activo ? 1.2 : 1;
+          e.label.fillColor = activo ? Cesium.Color.fromCssColorString(COLOR_FACCION.imperio) : colorDe(porId.get(k)?.properties || {});
+        }
       }
       viewerRef?.scene.requestRender();
     },
