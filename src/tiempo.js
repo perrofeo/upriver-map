@@ -48,25 +48,37 @@ export class LineaTiempo {
     const el = this.el;
     el.replaceChildren();
     el.hidden = false;
+
+    // El quipu: una cuerda con un nudo por cambio de episodio y un nudo mayor
+    // como cabezal. El deslizador real va encima, transparente, para que el
+    // arrastre y el teclado funcionen como en cualquier range.
     this._btnPlay = document.createElement('button');
     this._btnPlay.type = 'button';
-    this._btnPlay.className = 'lt-play';
-    this._btnPlay.setAttribute('aria-label', 'Reproducir el recorrido');
-    this._btnPlay.textContent = '▶';
+    this._btnPlay.className = 'quipu-play';
+    this._btnPlay.setAttribute('aria-label', 'Reproducir el recorrido de la película');
     this._btnPlay.addEventListener('click', () => (this.reproduciendo ? this.pausar() : this.reproducir()));
 
-    this._lectura = document.createElement('div');
-    this._lectura.className = 'lt-lectura';
-    this._lecturaTiempo = document.createElement('span');
-    this._lecturaTiempo.className = 'lt-tiempo';
-    this._lecturaLugar = document.createElement('span');
-    this._lecturaLugar.className = 'lt-lugar';
-    this._lectura.append(this._lecturaTiempo, this._lecturaLugar);
-
-    const pista = document.createElement('div');
-    pista.className = 'lt-pista';
+    const cuerda = document.createElement('div');
+    cuerda.className = 'quipu-cuerda';
+    this._progreso = document.createElement('div');
+    this._progreso.className = 'quipu-recorrido';
+    cuerda.append(this._progreso);
+    for (const ep of this.episodios.slice(1)) {
+      const nudo = document.createElement('button');
+      nudo.type = 'button';
+      nudo.className = 'quipu-nudo';
+      nudo.style.left = `${(ep.desde / this.duracion) * 100}%`;
+      nudo.title = `Episodio ${ep.n}, ${ep.titulo} (${formatearTiempo(ep.desde)})`;
+      nudo.setAttribute('aria-label', nudo.title);
+      nudo.addEventListener('click', () => { this.pausar({ silencioso: true }); this.setTiempo(ep.desde); });
+      cuerda.append(nudo);
+    }
+    this._cabezal = document.createElement('div');
+    this._cabezal.className = 'quipu-cabezal';
+    cuerda.append(this._cabezal);
     this._slider = document.createElement('input');
     this._slider.type = 'range';
+    this._slider.className = 'quipu-slider';
     this._slider.min = '0';
     this._slider.max = String(this.duracion);
     this._slider.step = '0.25';
@@ -76,34 +88,38 @@ export class LineaTiempo {
       this.pausar({ silencioso: true });
       this.setTiempo(Number(this._slider.value));
     });
-    const marcas = document.createElement('div');
-    marcas.className = 'lt-marcas';
-    for (const ep of this.episodios) {
-      const m = document.createElement('button');
-      m.type = 'button';
-      m.className = 'lt-marca';
-      m.style.left = `${(ep.desde / this.duracion) * 100}%`;
-      m.style.width = `${((ep.hasta - ep.desde) / this.duracion) * 100}%`;
-      m.title = `EP${String(ep.n).padStart(2, '0')} · ${ep.titulo} · ${formatearTiempo(ep.desde)}`;
-      m.textContent = String(ep.n);
-      m.addEventListener('click', () => { this.pausar({ silencioso: true }); this.setTiempo(ep.desde); });
-      marcas.append(m);
-    }
-    pista.append(this._slider, marcas);
+    cuerda.append(this._slider);
+
+    this._lectura = document.createElement('div');
+    this._lectura.className = 'quipu-lectura';
+    this._lecturaTiempo = document.createElement('span');
+    this._lecturaTiempo.className = 'quipu-tiempo';
+    this._lecturaEpisodio = document.createElement('span');
+    this._lecturaEpisodio.className = 'quipu-episodio';
+    this._lecturaLugar = document.createElement('span');
+    this._lecturaLugar.className = 'quipu-lugar';
+    this._lectura.append(this._lecturaTiempo, this._lecturaEpisodio, this._lecturaLugar);
 
     this._velocidad = document.createElement('select');
-    this._velocidad.className = 'lt-velocidad';
+    this._velocidad.className = 'quipu-velocidad';
     this._velocidad.setAttribute('aria-label', 'Velocidad de reproducción');
     for (const v of VELOCIDADES) {
       const o = document.createElement('option');
       o.value = String(v);
-      o.textContent = `×${v}`;
+      o.textContent = v === 1 ? 'tiempo real' : `${v} veces más rápido`;
       if (v === this.velocidad) o.selected = true;
       this._velocidad.append(o);
     }
     this._velocidad.addEventListener('change', () => { this.velocidad = Number(this._velocidad.value); });
 
-    el.append(this._btnPlay, this._lectura, pista, this._velocidad);
+    el.append(this._btnPlay, cuerda, this._lectura, this._velocidad);
+    this._pintarCabezal();
+  }
+
+  _pintarCabezal() {
+    const pct = (this.t / this.duracion) * 100;
+    this._cabezal.style.left = `${pct}%`;
+    this._progreso.style.width = `${pct}%`;
   }
 
   /** Un gesto sobre el globo pausa la reproducción: exploración libre. */
@@ -133,7 +149,9 @@ export class LineaTiempo {
     const destino = progreso > 0 && siguiente ? siguiente : parada;
     const lugar = destino ? nombreMostrado(destino.feature.properties).principal : '';
     this._lecturaTiempo.textContent = formatearTiempo(this.t);
-    this._lecturaLugar.textContent = `${ep ? `EP${String(ep.n).padStart(2, '0')} · ${ep.titulo}` : ''}${lugar ? ` — ${progreso > 0 ? 'hacia ' : ''}${lugar}` : ''}`;
+    this._lecturaEpisodio.textContent = ep ? `Episodio ${ep.n}, ${ep.titulo}` : '';
+    this._lecturaLugar.textContent = lugar ? (progreso > 0 ? `hacia ${lugar}` : lugar) : '';
+    this._pintarCabezal();
     const paradaId = parada?.id || null;
     if (paradaId !== this._paradaId) {
       this._paradaId = paradaId;
@@ -146,7 +164,7 @@ export class LineaTiempo {
     if (this.reproduciendo) return;
     if (this.t >= this.duracion - 0.01) this.t = 0;
     this.reproduciendo = true;
-    this._btnPlay.textContent = '❚❚';
+    this.el.classList.add('reproduciendo');
     this._btnPlay.setAttribute('aria-label', 'Pausar');
     this._ultimoTick = performance.now();
     const tick = (ahora) => {
@@ -165,8 +183,8 @@ export class LineaTiempo {
     this.reproduciendo = false;
     cancelAnimationFrame(this._raf);
     this._raf = null;
-    this._btnPlay.textContent = '▶';
-    this._btnPlay.setAttribute('aria-label', 'Reproducir el recorrido');
+    this.el.classList.remove('reproduciendo');
+    this._btnPlay.setAttribute('aria-label', 'Reproducir el recorrido de la película');
     if (!silencioso) this._alCambiar?.(this.t);
   }
 }

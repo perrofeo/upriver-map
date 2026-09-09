@@ -41,12 +41,12 @@ export const ESTILOS = Object.freeze({
 /** Etiquetas de la interfaz. La Fase 4 decide cuáles sobreviven y cómo se llaman. */
 export const NOMBRES_ESTILO = Object.freeze({
   normal: 'Natural',
-  retro: 'CRT',
-  surveillance: 'Visión nocturna',
+  retro: 'Rejilla',
+  surveillance: 'Nocturna',
   thermal: 'Térmica',
-  anime: 'Anime',
-  noir: 'Noir',
-  snow: 'Nieve',
+  anime: 'Trazo',
+  noir: 'Tinta',
+  snow: 'Ceniza',
 });
 
 /** Duración del fundido entre estilos (ms). */

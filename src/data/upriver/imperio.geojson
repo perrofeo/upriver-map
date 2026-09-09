@@ -113,44 +113,56 @@
         "coordinates": [
           [
             [
-              -79.5,
-              -1.5
-            ],
-            [
-              -77.5,
-              1.5
-            ],
-            [
-              -74.5,
-              4.0
-            ],
-            [
-              -70.0,
-              3.0
-            ],
-            [
-              -66.0,
-              1.5
-            ],
-            [
-              -61.0,
-              -1.0
-            ],
-            [
-              -58.0,
+              -80.5,
               -4.0
             ],
             [
-              -58.5,
-              -9.0
+              -79.0,
+              -4.6
             ],
             [
-              -61.0,
-              -13.0
+              -78.5,
+              -4.5
             ],
             [
-              -64.0,
-              -17.5
+              -77.5,
+              -4.7
+            ],
+            [
+              -76.5,
+              -4.6
+            ],
+            [
+              -75.5,
+              -4.55
+            ],
+            [
+              -74.5,
+              -4.5
+            ],
+            [
+              -73.6,
+              -4.5
+            ],
+            [
+              -72.0,
+              -4.0
+            ],
+            [
+              -70.0,
+              -4.2
+            ],
+            [
+              -68.0,
+              -6.0
+            ],
+            [
+              -66.0,
+              -10.0
+            ],
+            [
+              -65.0,
+              -15.0
             ],
             [
               -66.5,
@@ -165,24 +177,24 @@
               -19.0
             ],
             [
-              -73.5,
-              -15.0
+              -74.0,
+              -15.5
             ],
             [
               -76.5,
-              -11.0
+              -12.0
             ],
             [
               -79.0,
-              -7.0
+              -8.0
+            ],
+            [
+              -81.0,
+              -5.5
             ],
             [
               -80.5,
               -4.0
-            ],
-            [
-              -79.5,
-              -1.5
             ]
           ]
         ]
@@ -199,8 +211,66 @@
         "descripcion": "En 1532 Atahualpa no cayó en la trampa de Pizarro. España colonizó las costas y las tierras bajas, pero nunca penetró la Amazonia profunda. El imperio chimú-inca sobrevivió en los Andes, se industrializó y extendió su control sobre la cuenca amazónica. Quinientos años después somete la selva. Comercia y comparte tecnología con los países y reinos hispanohablantes que lo rodean.",
         "apariciones": [],
         "estacion": "ambas",
-        "notas": "Extensión PLACEHOLDER: Andes y cuenca amazónica occidental, según la biblia. El imperio no tiene nombre en la obra. Igor decide el trazado.",
+        "notas": "Extensión PLACEHOLDER. Igor (2026-09-09): la frontera norte es el río Marañón, así la reserva Pacaya Samiria (donde vive Jeshuco) queda dentro del imperio. Al norte del Marañón, los países hispanohablantes. El límite oriental y el sur son provisionales. El imperio no tiene nombre en la obra.",
         "fuente": "UCRONIA_INTEGRACION.md §Premisa; Igor (2026-09-09)",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "frontera",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.7,
+            -4.56
+          ],
+          [
+            -75.3,
+            -4.52
+          ],
+          [
+            -74.9,
+            -4.58
+          ],
+          [
+            -74.5,
+            -4.5
+          ],
+          [
+            -74.1,
+            -4.47
+          ],
+          [
+            -73.7,
+            -4.5
+          ]
+        ]
+      },
+      "properties": {
+        "tipo": "frontera",
+        "escala": "local",
+        "faccion": "imperio",
+        "nombre": {
+          "es": "La frontera del imperio",
+          "qu": null
+        },
+        "lengua": "es",
+        "descripcion": "El río grande que cierra el mundo por el norte es la raya del imperio: al otro lado empiezan las tierras de los hispanohablantes. El poblado de Jeshuco queda a un día de canoa de la frontera, y por su río pasan los barcos que comercian con el imperio.",
+        "apariciones": [
+          {
+            "episodio": 1,
+            "camara": false
+          },
+          {
+            "episodio": 2,
+            "camara": false
+          }
+        ],
+        "estacion": "ambas",
+        "notas": "Trazado PLACEHOLDER sobre el curso real del Marañón, que bordea Pacaya Samiria por el norte. Igor (2026-09-09): «la frontera puede ser el río Marañón en Perú, así la reserva entra dentro del imperio». Nombre en pantalla por decidir.",
+        "fuente": "Igor (2026-09-09); UCRONIA_INTEGRACION.md §Premisa",
         "placeholder": true
       }
     }

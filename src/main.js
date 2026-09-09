@@ -77,7 +77,7 @@ async function init() {
     const { scene } = viewer;
     const { globe } = scene;
     globe.show = true;
-    globe.baseColor = Cesium.Color.fromCssColorString('#0f1d17');
+    globe.baseColor = Cesium.Color.fromCssColorString('#14110d');
     globe.showGroundAtmosphere = false;
     globe.enableLighting = false;
     globe.depthTestAgainstTerrain = false;
@@ -92,6 +92,8 @@ async function init() {
     control.enableCollisionDetection = true;
 
     estado.textContent = 'Cargando el mapa…';
+    // Las etiquetas del globo se rasterizan al crearse: la fuente tiene que estar antes.
+    await Promise.all([document.fonts.load('500 14px Alegreya'), document.fonts.load('italic 500 14px Alegreya')]).catch(() => {});
     const basemap = await new Basemap(viewer).init();
 
     const capas = new GestorCapas(viewer);

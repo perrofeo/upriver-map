@@ -38,7 +38,7 @@
         ],
         "estacion": "ambas",
         "orden": 1,
-        "notas": "Sin nombre en la obra. No está en el río principal: se llega a él por el caño del poblado.",
+        "notas": "Sin nombre en la obra. No está en el río principal: se llega a él por el caño del poblado. Jeshuco vive en la frontera y quizá sea mestizo: sin decidir (Igor, 2026-09-09).",
         "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md",
         "placeholder": true
       }
@@ -61,7 +61,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "El poblado kukama donde empieza la historia. El palafito del abuelo queda a sus afueras, apartado.",
+        "descripcion": "El poblado kukama donde empieza la historia, dentro del imperio pero a un paso de su frontera. El palafito del abuelo queda a sus afueras, apartado.",
         "apariciones": [
           {
             "episodio": 1,
@@ -69,7 +69,7 @@
           }
         ],
         "estacion": "ambas",
-        "notas": "Sin nombre en la obra. Añadido por indicación de Igor (2026-09-09).",
+        "notas": "Sin nombre en la obra. Igor (2026-09-09): Jeshuco vive en la frontera y quizá sea mestizo, sin decidir. Añadido por indicación de Igor.",
         "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md; Igor",
         "placeholder": true
       }

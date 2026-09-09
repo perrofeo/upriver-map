@@ -12,7 +12,7 @@
 
   <header id="cabecera">
     <h1>Upriver</h1>
-    <span class="sub">mapa del mundo</span>
+    <p class="sub">El mapa del mundo</p>
   </header>
 
   <aside id="panel-lateral">
@@ -21,26 +21,26 @@
       <button id="btn-mundo" type="button">El río</button>
     </section>
     <section id="panel-capas">
-      <h2>Capas</h2>
+      <h2>Qué se ve</h2>
       <div id="capas-toggles"></div>
     </section>
 
     <section id="panel-estacion">
       <h2>Estación</h2>
       <input type="range" id="estacion-slider" min="0" max="100" value="0" aria-label="Estación: vaciante a creciente" />
-      <div class="etiquetas"><span>vaciante</span><span>creciente</span></div>
+      <div class="etiquetas"><span>Vaciante</span><span>Creciente</span></div>
     </section>
 
     <section id="panel-estilos">
-      <h2>Aspecto</h2>
+      <h2>Mirada</h2>
       <div id="estilo-botones"></div>
       <label class="fila-control">
-        <input type="checkbox" id="bloom-on" /> Bloom
-        <input type="range" id="bloom-int" min="0" max="200" value="80" aria-label="Intensidad de bloom" />
+        <input type="checkbox" id="bloom-on" /><span>Brillo</span>
+        <input type="range" id="bloom-int" min="0" max="200" value="80" aria-label="Intensidad del brillo" />
       </label>
       <label class="fila-control">
-        <input type="checkbox" id="sharpen-on" /> Nitidez
-        <input type="range" id="sharpen-int" min="0" max="100" value="49" aria-label="Intensidad de nitidez" />
+        <input type="checkbox" id="sharpen-on" /><span>Nitidez</span>
+        <input type="range" id="sharpen-int" min="0" max="100" value="49" aria-label="Intensidad de la nitidez" />
       </label>
       <div id="estilo-params"></div>
       <button id="btn-compartir" type="button">Copiar enlace</button>
@@ -81,6 +81,7 @@
   <div id="toast" hidden></div>
 
   <div id="carga">
+    <div class="carga-tocapu" aria-hidden="true"></div>
     <div class="carga-titulo">Upriver</div>
     <div class="carga-estado">Preparando el globo…</div>
   </div>

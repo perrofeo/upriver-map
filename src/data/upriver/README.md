@@ -18,7 +18,7 @@ lleva `placeholder: true` hasta que Igor sitúe cada entidad sobre el mapa defin
 | Campo | Tipo | Significado |
 |---|---|---|
 | `id` (raíz del Feature) | slug | identificador estable; se usa en `sel=` del enlace y en `paradas` |
-| `tipo` | `asentamiento · ruta · territorio · avanzada · accidente · localizacion` | |
+| `tipo` | `asentamiento · ruta · territorio · frontera · avanzada · accidente · localizacion` | `frontera`: la raya del imperio (LineString) |
 | `faccion` | `kukama · imperio · comerciantes · ninguna · null` | `comerciantes` = hispanohablantes ajenos al imperio que comercian con él (el barco). `null` = sin determinar |
 | `nombre` | `{ es, qu }` | topónimo en castellano y en quechua imperial (cuzco-collao, MINEDU 2013). `qu: null` si no existe |
 | `lengua` | `es · qu` | cuál se muestra como principal. Regla de la obra: el quechua es la lengua del imperio y no se traduce, así que los lugares imperiales con nombre quechua llevan `qu` |

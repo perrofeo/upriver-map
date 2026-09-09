@@ -36,8 +36,8 @@ export async function generarPlaceholder(estacion, salida) {
     leerGeojson('accidentes.geojson'), leerGeojson('localizaciones.geojson'),
   ]);
   const creciente = estacion === 'creciente';
-  const fondo = creciente ? '#22392c' : '#2b4a2f';
-  const agua = creciente ? '#5a8ea6' : '#3f6f86';
+  const fondo = creciente ? '#1e2a1f' : '#26331f';
+  const agua = creciente ? '#7fa9b1' : '#5d8b95';
   const territorio = imperio.features.find((f) => f.id === 'territorio-imperio');
   const terrPuntos = territorio.geometry.coordinates[0].map(([lon, lat]) => px(lon, lat)).join(' ');
   const rutasDibujables = rutas.features.filter((f) => f.geometry.type === 'LineString' && f.geometry.coordinates.length);
@@ -46,7 +46,7 @@ export async function generarPlaceholder(estacion, salida) {
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${ANCHO}" height="${ALTO}" viewBox="0 0 ${ANCHO} ${ALTO}">`;
   svg += `<rect width="100%" height="100%" fill="${fondo}"/>`;
   // Territorio local del imperio: trama.
-  svg += `<polygon points="${terrPuntos}" fill="#6b4a3a" fill-opacity="0.35" stroke="#a37a5c" stroke-width="6" stroke-dasharray="24 14"/>`;
+  svg += `<polygon points="${terrPuntos}" fill="#9a5b2f" fill-opacity="0.28" stroke="#c99a3e" stroke-width="6" stroke-dasharray="24 14"/>`;
   // Red fluvial: el río grande es la autopista; los caños y desvíos, más finos; los ocultos, discontinuos.
   for (const r of rutasDibujables) {
     const puntos = r.geometry.coordinates.map(([lon, lat]) => px(lon, lat)).join(' ');
@@ -57,6 +57,11 @@ export async function generarPlaceholder(estacion, salida) {
     }
     const dash = rango === 'oculto' ? ' stroke-dasharray="28 22"' : '';
     svg += `<polyline points="${puntos}" fill="none" stroke="${agua}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"${dash}/>`;
+  }
+  // La frontera del imperio: tumbaga, discontinua.
+  for (const f of imperio.features.filter((x) => x.properties.tipo === 'frontera')) {
+    const puntos = f.geometry.coordinates.map(([lon, lat]) => px(lon, lat)).join(' ');
+    svg += `<polyline points="${puntos}" fill="none" stroke="#c99a3e" stroke-width="10" stroke-dasharray="40 26" stroke-linecap="round"/>`;
   }
   // Retícula 0,25°.
   for (let lon = MUNDO.oeste; lon <= MUNDO.este + 1e-9; lon += 0.25) {
@@ -76,15 +81,15 @@ export async function generarPlaceholder(estacion, salida) {
     const [lon, lat] = f.geometry.coordinates;
     const p = coordenadaAPixel(lon, lat, ANCHO, ALTO);
     const inundado = creciente && f.properties.estacion === 'vaciante';
-    const color = f.properties.faccion === 'imperio' ? '#e0b070' : '#e8f2ea';
+    const color = f.properties.faccion === 'imperio' ? '#c99a3e' : f.properties.faccion === 'comerciantes' ? '#c98a5a' : '#e9dcc3';
     const nombre = f.properties.nombre[f.properties.lengua] || f.properties.nombre.es;
-    svg += `<circle cx="${p.px}" cy="${p.py}" r="${f.properties.parte_de ? 10 : 18}" fill="${inundado ? agua : color}" stroke="#101a14" stroke-width="4"/>`;
+    svg += `<circle cx="${p.px}" cy="${p.py}" r="${f.properties.parte_de ? 10 : 18}" fill="${inundado ? agua : color}" stroke="#14110d" stroke-width="4"/>`;
     if (!f.properties.parte_de || !creciente) {
-      svg += `<text x="${p.px + 26}" y="${p.py + (f.properties.parte_de ? 8 : 12)}" font-family="sans-serif" font-size="${f.properties.parte_de ? 28 : 40}" fill="${color}" stroke="#101a14" stroke-width="6" paint-order="stroke">${esc(nombre)}</text>`;
+      svg += `<text x="${p.px + 26}" y="${p.py + (f.properties.parte_de ? 8 : 12)}" font-family="Alegreya, Georgia, serif" font-size="${f.properties.parte_de ? 28 : 40}" fill="${color}" stroke="#14110d" stroke-width="6" paint-order="stroke">${esc(nombre)}</text>`;
     }
   }
   // Marca de agua.
-  svg += `<text x="${ANCHO / 2}" y="${ALTO / 2}" text-anchor="middle" font-family="sans-serif" font-size="180" fill="#ffffff" fill-opacity="0.08" transform="rotate(-12 ${ANCHO / 2} ${ALTO / 2})">MAPA PROVISIONAL · ${estacion.toUpperCase()}</text>`;
+  svg += `<text x="${ANCHO / 2}" y="${ALTO / 2}" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-size="180" fill="#ffffff" fill-opacity="0.08" transform="rotate(-12 ${ANCHO / 2} ${ALTO / 2})">MAPA PROVISIONAL · ${estacion.toUpperCase()}</text>`;
   svg += `<text x="${ANCHO - 24}" y="56" text-anchor="end" font-family="monospace" font-size="34" fill="#ffffff" fill-opacity="0.6">bbox ${MUNDO.oeste}…${MUNDO.este} × ${MUNDO.sur}…${MUNDO.norte} · ${ANCHO}×${ALTO}</text>`;
   svg += '</svg>';
 

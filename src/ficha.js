@@ -14,6 +14,7 @@ const ETIQUETA_TIPO = {
   asentamiento: 'Asentamiento',
   avanzada: 'Avanzada',
   territorio: 'Territorio',
+  frontera: 'Frontera',
   accidente: 'Accidente geográfico',
   localizacion: 'Localización',
   ruta: 'Ruta fluvial',
@@ -65,9 +66,11 @@ export class Ficha {
 
     const meta = document.createElement('div');
     meta.className = 'ficha-meta';
-    const chips = [ETIQUETA_TIPO[props.tipo] || props.tipo, `facción: ${ETIQUETA_FACCION[props.faccion] ?? props.faccion}`];
+    const faccion = ETIQUETA_FACCION[props.faccion] ?? props.faccion;
+    const chips = [ETIQUETA_TIPO[props.tipo] || props.tipo];
+    if (faccion && faccion !== '—') chips.push(faccion);
     if (props.estacion && props.estacion !== 'ambas') chips.push(`solo en ${props.estacion}`);
-    if (props.placeholder) chips.push('coordenadas provisionales');
+    if (props.placeholder) chips.push('sitio provisional');
     for (const c of chips) {
       const s = document.createElement('span');
       s.className = 'ficha-chip';
@@ -96,9 +99,9 @@ export class Ficha {
         b.className = 'ficha-aparicion';
         const tiempo = document.createElement('span');
         tiempo.className = 'ficha-tiempo';
-        tiempo.textContent = `${formatearTiempo(tramo.desde)}–${formatearTiempo(tramo.hasta)}`;
+        tiempo.textContent = `${formatearTiempo(tramo.desde)} a ${formatearTiempo(tramo.hasta)}`;
         const texto = document.createElement('span');
-        texto.textContent = `EP${String(tramo.episodio).padStart(2, '0')} ${ep?.titulo || ''}${tramo.nota ? ` · ${tramo.nota}` : ''}`;
+        texto.textContent = `Episodio ${tramo.episodio}, ${ep?.titulo || ''}${tramo.nota ? `. ${tramo.nota[0].toUpperCase()}${tramo.nota.slice(1)}` : ''}`;
         b.append(tiempo, texto);
         b.addEventListener('click', () => this._irA(tramo.desde));
         t.append(b);

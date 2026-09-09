@@ -24,12 +24,37 @@ export function visibleEnEstacion(props, estacion) {
   return e === 'ambas' || e === estacion;
 }
 
+/** Paleta de docs/DISENO.md: lo kukama es hueso, lo imperial tumbaga, el comercio cobre. */
 const COLOR_FACCION = {
-  kukama: '#e8f2ea',
-  imperio: '#e0b070',
-  ninguna: '#bcd0c4',
-  null: '#bcd0c4',
+  kukama: '#e9dcc3',
+  imperio: '#c99a3e',
+  comerciantes: '#b8743f',
+  ninguna: '#b9ad9a',
+  null: '#b9ad9a',
 };
+const COLOR_AGUA = '#6f9ea8';
+const COLOR_PIEDRA = '#14110d';
+const FUENTE = 'Alegreya, Georgia, serif';
+
+/** Marcador cuadrado (tocapu) para el imperio y sus socios; el círculo queda para lo kukama. */
+const cuadradosCache = new Map();
+function imagenCuadrado(colorCss, lado) {
+  const clave = `${colorCss}:${lado}`;
+  if (cuadradosCache.has(clave)) return cuadradosCache.get(clave);
+  const canvas = document.createElement('canvas');
+  canvas.width = lado;
+  canvas.height = lado;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = COLOR_PIEDRA;
+  ctx.fillRect(0, 0, lado, lado);
+  ctx.fillStyle = colorCss;
+  ctx.fillRect(2, 2, lado - 4, lado - 4);
+  ctx.fillStyle = COLOR_PIEDRA;
+  const m = Math.round(lado * 0.32);
+  ctx.fillRect(m, m, lado - 2 * m, lado - 2 * m);
+  cuadradosCache.set(clave, canvas);
+  return canvas;
+}
 
 export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccionar = null }) {
   const features = (geojson.features || []).filter((f) => f.geometry && f.geometry.coordinates?.length);
@@ -54,39 +79,70 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
       let entidad;
       if (g.type === 'Point') {
         const esParte = !!props.parte_de;
+        const imperial = props.faccion === 'imperio' || props.faccion === 'comerciantes';
+        const lado = esParte ? 10 : 16;
+        const condicion = new Cesium.DistanceDisplayCondition(0, esParte ? 60_000 : 1_200_000);
+        const marcador = imperial
+          ? { billboard: { image: imagenCuadrado(color || COLOR_FACCION[props.faccion], lado * 2), width: lado, height: lado, disableDepthTestDistance: Number.POSITIVE_INFINITY, distanceDisplayCondition: condicion } }
+          : { point: { pixelSize: esParte ? 7 : 11, color: c, outlineColor: Cesium.Color.fromCssColorString(COLOR_PIEDRA), outlineWidth: 2, disableDepthTestDistance: Number.POSITIVE_INFINITY, distanceDisplayCondition: condicion } };
         entidad = dataSource.entities.add({
           ...base,
           position: Cesium.Cartesian3.fromDegrees(g.coordinates[0], g.coordinates[1], 0),
-          point: {
-            pixelSize: esParte ? 7 : 11,
-            color: c,
-            outlineColor: Cesium.Color.fromCssColorString('#0d1512'),
-            outlineWidth: 2,
-            disableDepthTestDistance: Number.POSITIVE_INFINITY,
-            // De lejos, los lugares del río no son más que el punto del mundo.
-            distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, esParte ? 60_000 : 1_200_000),
-          },
+          ...marcador,
           label: {
             text: principal,
-            font: `${esParte ? 12 : 14}px system-ui, sans-serif`,
+            font: `500 ${esParte ? 13 : 15}px ${FUENTE}`,
             style: Cesium.LabelStyle.FILL_AND_OUTLINE,
             fillColor: c,
-            outlineColor: Cesium.Color.fromCssColorString('#0d1512'),
+            outlineColor: Cesium.Color.fromCssColorString(COLOR_PIEDRA),
             outlineWidth: 4,
             pixelOffset: new Cesium.Cartesian2(12, esParte ? 2 : -2),
             horizontalOrigin: Cesium.HorizontalOrigin.LEFT,
             verticalOrigin: Cesium.VerticalOrigin.CENTER,
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
-            distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, esParte ? 60_000 : 1_200_000),
+            distanceDisplayCondition: condicion,
             scaleByDistance: new Cesium.NearFarScalar(20_000, 1.0, 400_000, 0.7),
+          },
+        });
+      } else if (g.type === 'LineString' && props.tipo === 'frontera') {
+        // La raya del imperio: tumbaga, discontinua, siempre visible de cerca.
+        const positions = Cesium.Cartesian3.fromDegreesArray(g.coordinates.flat());
+        const condicion = new Cesium.DistanceDisplayCondition(0, 900_000);
+        entidad = dataSource.entities.add({
+          ...base,
+          polyline: {
+            positions,
+            width: 3,
+            material: new Cesium.PolylineDashMaterialProperty({ color: c.withAlpha(0.95), gapColor: Cesium.Color.TRANSPARENT, dashLength: 24 }),
+            clampToGround: true,
+            distanceDisplayCondition: condicion,
+          },
+        });
+        const medio = g.coordinates[Math.floor(g.coordinates.length / 2)];
+        dataSource.entities.add({
+          id: `${id}:${f.id}:nombre`,
+          properties: { capa: id, fid: f.id },
+          position: Cesium.Cartesian3.fromDegrees(medio[0], medio[1], 0),
+          label: {
+            text: principal,
+            font: `italic 500 14px ${FUENTE}`,
+            style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+            fillColor: c,
+            outlineColor: Cesium.Color.fromCssColorString(COLOR_PIEDRA),
+            outlineWidth: 4,
+            pixelOffset: new Cesium.Cartesian2(10, 0),
+            horizontalOrigin: Cesium.HorizontalOrigin.LEFT,
+            disableDepthTestDistance: Number.POSITIVE_INFINITY,
+            distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 400_000),
           },
         });
       } else if (g.type === 'LineString') {
         const rango = props.rango || 'secundario';
+        const cAgua = Cesium.Color.fromCssColorString(COLOR_AGUA);
         const ancho = { principal: 4, secundario: 2.5, oculto: 2 }[rango] || 2.5;
         const material = rango === 'oculto'
-          ? new Cesium.PolylineDashMaterialProperty({ color: c.withAlpha(0.9), dashLength: 14 })
-          : c.withAlpha(rango === 'principal' ? 0.9 : 0.75);
+          ? new Cesium.PolylineDashMaterialProperty({ color: cAgua.withAlpha(0.9), dashLength: 14 })
+          : cAgua.withAlpha(rango === 'principal' ? 0.95 : 0.8);
         entidad = dataSource.entities.add({
           ...base,
           polyline: {
@@ -123,10 +179,10 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
           position: Cesium.Cartesian3.fromDegrees(centro[0], centro[1], 0),
           label: {
             text: principal,
-            font: `${continental ? 22 : 14}px system-ui, sans-serif`,
+            font: `500 ${continental ? 24 : 15}px ${FUENTE}`,
             style: Cesium.LabelStyle.FILL_AND_OUTLINE,
             fillColor: c,
-            outlineColor: Cesium.Color.fromCssColorString('#0d1512'),
+            outlineColor: Cesium.Color.fromCssColorString(COLOR_PIEDRA),
             outlineWidth: 4,
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
             distanceDisplayCondition: condicion,
@@ -185,12 +241,18 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
     /** Resalta una entidad (o ninguna con null). */
     resaltar(fid) {
       for (const [k, e] of entidadesPorId) {
-        if (!e.point) continue;
         const esParte = !!porId.get(k)?.properties?.parte_de;
         const activo = k === fid;
-        e.point.pixelSize = activo ? 16 : (esParte ? 7 : 11);
-        e.point.outlineWidth = activo ? 3 : 2;
-        if (e.label) e.label.font = `${activo ? 16 : (esParte ? 12 : 14)}px system-ui, sans-serif`;
+        if (e.point) {
+          e.point.pixelSize = activo ? 16 : (esParte ? 7 : 11);
+          e.point.outlineWidth = activo ? 3 : 2;
+        }
+        if (e.billboard) {
+          const lado = (activo ? 22 : (esParte ? 10 : 16));
+          e.billboard.width = lado;
+          e.billboard.height = lado;
+        }
+        if (e.label) e.label.font = `${activo ? 700 : 500} ${activo ? 17 : (esParte ? 13 : 15)}px ${FUENTE}`;
       }
       viewerRef?.scene.requestRender();
     },
