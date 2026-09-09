@@ -27,14 +27,16 @@
             "desde": 20,
             "hasta": 150,
             "nota": "las últimas palabras de Yawá",
-            "medido": "fotogramas del máster publicado del EP03 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP03 cada 5 s (2026-09-09)",
+            "historia": "El abuelo Yawá agoniza: el río envenenado lo está matando. Le dice que busque a Ayahumo en Las Tres Gargantas, le da el amuleto y muere."
           },
           {
             "episodio": 4,
             "desde": 0,
             "hasta": 10,
             "nota": "la partida: el palafito queda atrás",
-            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
+            "historia": "La canoa se aleja y el palafito queda atrás entre la bruma."
           },
           {
             "episodio": 10,
@@ -42,7 +44,8 @@
             "hasta": 240,
             "nota": "la vuelta al palafito vacío",
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
-            "estacion": "vaciante"
+            "estacion": "vaciante",
+            "historia": "El palafito vacío. Jeshuco se sienta donde se sentaba el abuelo, con dos herencias en las manos, y sale al río a nadar con el bufeo."
           }
         ],
         "estacion": "ambas",
@@ -77,14 +80,16 @@
             "desde": 0,
             "hasta": 26,
             "nota": "el bufeo al alba, el poblado, Jeshuco corre al agua",
-            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)"
+            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
+            "historia": "Amanece sobre el poblado. El bufeo respira en el río dorado y Jeshuco baja corriendo al agua."
           },
           {
             "episodio": 3,
             "desde": 0,
             "hasta": 20,
             "nota": "el poblado al alba; peces muertos en la orilla",
-            "medido": "fotogramas del máster publicado del EP03 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP03 cada 5 s (2026-09-09)",
+            "historia": "Vuelve del barco al alba. En la orilla del poblado flotan los primeros peces muertos."
           }
         ],
         "estacion": "ambas",
@@ -119,7 +124,8 @@
             "desde": 10,
             "hasta": 210,
             "nota": "la comunidad; los rostros; el pez de dos cabezas",
-            "medido": "fotogramas del máster publicado del EP07 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP07 cada 5 s (2026-09-09)",
+            "historia": "Un campamento de desplazados. Jeshuco pesca para ellos con el bufeo. El anciano y la matriarca cuentan lo que pasó: los invasores hablan otra lengua indígena y traen banderas con el sol. Una niña muestra un pez de dos cabezas."
           },
           {
             "episodio": 10,
@@ -127,7 +133,8 @@
             "hasta": 152,
             "nota": "la niña con un pez vivo al atardecer",
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
-            "estacion": "creciente"
+            "estacion": "creciente",
+            "historia": "La comunidad vuelve a casa. La niña grita: «¡Lo lograste!»."
           }
         ],
         "estacion": "ambas",
@@ -160,14 +167,16 @@
           {
             "episodio": 6,
             "camara": false,
-            "nota": "aparece en la visión"
+            "nota": "aparece en la visión",
+            "historia": "Aparece en la visión de la ayahuasca: pirámides escalonadas y chimeneas humeantes, rostros indígenas en el poder."
           },
           {
             "episodio": 8,
             "desde": 25,
             "hasta": 235,
             "nota": "la ciudad inca-industrial",
-            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
+            "historia": "El origen del veneno no es extranjero: una ciudad-puerto inca-industrial. Pirámides con cúpulas de oro junto a chimeneas, guardias y obreros con rostros como el suyo. Jeshuco toca fondo. Ayahumo le enseña otra forma de ver."
           },
           {
             "episodio": 10,
@@ -175,7 +184,8 @@
             "hasta": 125,
             "nota": "la ciudad inundada; el rescate en el Fango",
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
-            "estacion": "creciente"
+            "estacion": "creciente",
+            "historia": "La crecida de la Yacumama destruye muelles y dragas; las pirámides resisten. El Fango se inunda primero. Jeshuco baja a rescatar a la gente cuyo sistema envenenó su río."
           }
         ],
         "estacion": "ambas",
@@ -212,7 +222,8 @@
             "hasta": 140,
             "camara": false,
             "nota": "la pirámide de oro, el Sapa Inca",
-            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
+            "historia": "Templos de tumbaga sobre la pirámide. El Sapa Inca, con su séquito, mira el río como un dios que civiliza la selva."
           }
         ],
         "estacion": "ambas",
@@ -248,7 +259,8 @@
             "hasta": 135,
             "camara": false,
             "nota": "el mercado, las ruedas, la fundición",
-            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
+            "historia": "El mercado, las ruedas hidráulicas, la fundición donde corre el metal."
           }
         ],
         "estacion": "ambas",
@@ -284,7 +296,8 @@
             "hasta": 160,
             "camara": false,
             "nota": "las chozas junto al desagüe",
-            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
+            "historia": "Chozas de adobe y totora junto al desagüe que vierte al río."
           },
           {
             "episodio": 10,
@@ -292,7 +305,8 @@
             "hasta": 120,
             "camara": false,
             "nota": "la crecida se lo lleva primero; el rescate",
-            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
+            "historia": "La crecida entra aquí primero. Jeshuco y el bufeo sacan a la gente del agua."
           }
         ],
         "estacion": "vaciante",

@@ -77,6 +77,7 @@ export function tramosDeEntidad(feature, episodios) {
       episodio: ap.episodio,
       ep,
       nota: ap.nota || null,
+      historia: ap.historia || null,
       camara: ap.camara !== false,
       camaraExplicita: ap.camara === true,
       // Una aparición puede decir en qué estación está el mundo mientras dura (la crecida del EP10).

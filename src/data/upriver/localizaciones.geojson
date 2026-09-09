@@ -27,16 +27,19 @@
             "desde": 130,
             "hasta": 148.267,
             "nota": "Jeshuco lo ve humear a lo lejos",
-            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)"
+            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
+            "historia": "El barco industrial emerge de la bruma, humeando. Jeshuco lo mira desde el agua."
           },
           {
-            "episodio": 2
+            "episodio": 2,
+            "historia": "De noche trepa por la cadena del ancla. Máquinas, metal, hombres que hablan otra lengua y una cumbia que lo fascina. Lo descubren y escapa al río."
           },
           {
             "episodio": 8,
             "camara": false,
             "nota": "atracado en el puerto imperial",
-            "lugar": "ciudad"
+            "lugar": "ciudad",
+            "historia": "Atracado en el puerto de la ciudad. El tecladista que lo delató aquella noche lo reconoce y lo deja pasar."
           }
         ],
         "estacion": "ambas",
@@ -71,7 +74,8 @@
             "desde": 96,
             "hasta": 130,
             "nota": "sale al río grande, peces muertos, reencuentro con el bufeo",
-            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)"
+            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
+            "historia": "Emerge en agua turbia. Peces muertos en la orilla: el río está envenenado. El bufeo duda; Jeshuco sigue el rastro."
           }
         ],
         "estacion": "ambas",
@@ -106,7 +110,8 @@
             "desde": 75,
             "hasta": 100,
             "nota": "agua blanca; a la salida, orillas deforestadas",
-            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
+            "historia": "Agua blanca. Jeshuco rema con fuerza, el bufeo nada delante. A la salida, orillas deforestadas."
           }
         ],
         "estacion": "ambas",
@@ -138,7 +143,8 @@
           {
             "episodio": 9,
             "nota": "la noche del ritual; la Yacumama liberada",
-            "medido": "fotogramas del máster publicado del EP09 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP09 cada 5 s (2026-09-09)",
+            "historia": "Ayahumo dibuja a la Yacumama en el barro y le ofrece una salida. «Elijo yo.» Con pinturas en el cuerpo entra al mundo espiritual, y junto a la bufeo guerrera rompe las cadenas de la Yacumama. Al amanecer, el agua cambia de color."
           },
           {
             "episodio": 10,
@@ -146,7 +152,8 @@
             "hasta": 40,
             "nota": "el amanecer solo; el collar dibujado en la arena",
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
-            "estacion": "vaciante"
+            "estacion": "vaciante",
+            "historia": "Ayahumo se ha ido en la noche. Deja su collar de dientes de jaguar y una marca en la arena. Jeshuco parte solo."
           }
         ],
         "estacion": "ambas",
@@ -181,7 +188,8 @@
             "desde": 240,
             "hasta": 276.672,
             "nota": "plano final: el humo en el horizonte",
-            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
+            "historia": "Atardecer. A lo lejos, humo: el imperio tiene más ciudades. Jeshuco no mira el humo. Mira el río."
           }
         ],
         "estacion": "ambas",

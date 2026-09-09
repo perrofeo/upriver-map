@@ -189,7 +189,8 @@
               -5.02
             ],
             "nota": "río arriba con el bufeo, entre troncos talados",
-            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
+            "historia": "Río arriba con el bufeo. Troncos talados a la deriva, aves que huyen: el paisaje cambia de vida a destrucción."
           },
           {
             "episodio": 4,
@@ -201,7 +202,8 @@
               -5.3
             ],
             "nota": "sigue río arriba por otra ruta, al atardecer",
-            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
+            "historia": "Se aleja del campamento por otra ruta. El río más limpio adelante; Las Tres Gargantas esperan."
           },
           {
             "episodio": 7,
@@ -213,7 +215,8 @@
               -5.42
             ],
             "nota": "más estrecho y turbio, río arriba de las Gargantas",
-            "medido": "fotogramas del máster publicado del EP07 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP07 cada 5 s (2026-09-09)",
+            "historia": "Más allá de las Gargantas el río es más estrecho y turbio. Ayahumo va en la proa, medio dormido."
           },
           {
             "episodio": 7,
@@ -225,7 +228,8 @@
               -5.57
             ],
             "nota": "la comunidad los envía río arriba",
-            "medido": "fotogramas del máster publicado del EP07 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP07 cada 5 s (2026-09-09)",
+            "historia": "La comunidad los envía río arriba. Quedarse no salva a nadie; ir al origen, sí."
           },
           {
             "episodio": 8,
@@ -237,7 +241,8 @@
               -5.62
             ],
             "nota": "el bosque muerto; la ciudad a la vista",
-            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
+            "historia": "Bosque muerto, troncos blancos en agua quieta y una columna de humo al fondo. La ciudad, a la vista."
           },
           {
             "episodio": 8,
@@ -249,7 +254,8 @@
               -5.84
             ],
             "nota": "bajan de la ciudad al atardecer",
-            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
+            "historia": "Se retiran de la ciudad al atardecer, en silencio. Lo visto pesa."
           },
           {
             "episodio": 10,
@@ -262,7 +268,8 @@
             ],
             "nota": "río abajo con la mujer rescatada",
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
-            "estacion": "creciente"
+            "estacion": "creciente",
+            "historia": "Baja el río con la mujer rescatada en la canoa."
           },
           {
             "episodio": 10,
@@ -275,7 +282,8 @@
             ],
             "nota": "noche en el río",
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
-            "estacion": "creciente"
+            "estacion": "creciente",
+            "historia": "Noche en el río, rumbo a casa."
           }
         ],
         "notas": "Trazado placeholder con meandros. Nace más allá de la ciudad, hacia las colinas andinas. Río arriba de Las Tres Gargantas es más estrecho y turbio (EP7).",
@@ -333,7 +341,8 @@
             "hasta": 70,
             "camara": true,
             "nota": "encuentro con el bufeo y caza del paiche",
-            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)"
+            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
+            "historia": "En el caño se encuentra con el bufeo. Nadan juntos y cazan un paiche gigante. El pez lo arrastra hacia lo desconocido."
           },
           {
             "episodio": 3,
@@ -341,7 +350,8 @@
             "hasta": 192.341,
             "camara": true,
             "nota": "la partida en canoa al atardecer",
-            "medido": "fotogramas del máster publicado del EP03 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP03 cada 5 s (2026-09-09)",
+            "historia": "Entierra al abuelo y decide partir. Sale en la canoa al atardecer, río arriba, con el amuleto al cuello."
           },
           {
             "episodio": 10,
@@ -403,7 +413,8 @@
             "hasta": 96,
             "camara": true,
             "nota": "el paiche lo arrastra por las galerías",
-            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)"
+            "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
+            "historia": "Galerías oscuras bajo el bosque inundado. Arrastrado por el paiche, Jeshuco atraviesa un tramo que no conocía."
           }
         ],
         "notas": "Placeholder. Igor (2026-09-09): «el paiche lo caza entre el poblado y el palafito, ahí encuentra los túneles». El guion completo sitúa la caza en 0:30–2:30 del EP1.",
@@ -461,7 +472,8 @@
             "hasta": 75,
             "camara": true,
             "nota": "el bufeo guía hacia el brazo estrecho",
-            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
+            "historia": "El bufeo guía hacia un brazo estrecho. Jeshuco lo sigue confiando."
           }
         ],
         "notas": "Placeholder. Igor: «unos planos antes él toma un cruce y esa desviación lo lleva río abajo». EP4 sh10 (afluente lateral), sh27 (otra ruta).",

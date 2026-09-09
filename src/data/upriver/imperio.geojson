@@ -49,7 +49,8 @@
           {
             "episodio": 7,
             "camara": false,
-            "nota": "banderas del sol en el recuerdo de la comunidad"
+            "nota": "banderas del sol en el recuerdo de la comunidad",
+            "historia": "Los refugiados hablan de banderas con el sol y de una lengua que no es la suya."
           },
           {
             "episodio": 8,
@@ -92,7 +93,8 @@
             "desde": 100,
             "hasta": 220,
             "nota": "las máquinas, los barriles, el desagüe; libera al mono",
-            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)"
+            "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
+            "historia": "Máquinas, barriles, un desagüe negro que vomita al río, trabajadores cubiertos de barro. Jeshuco quiere actuar; el bufeo lo detiene. Libera a un mono atrapado en una red."
           },
           {
             "episodio": 10,
@@ -100,7 +102,8 @@
             "hasta": 175,
             "nota": "las máquinas abandonadas; taricayas sobre los troncos",
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
-            "estacion": "creciente"
+            "estacion": "creciente",
+            "historia": "Las máquinas abandonadas, hundidas. Sobre los troncos, taricayas al sol."
           }
         ],
         "estacion": "ambas",

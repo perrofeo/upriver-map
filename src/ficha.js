@@ -97,6 +97,7 @@ export class Ficha {
         const ep = tramo.ep;
         const fila = document.createElement('div');
         fila.className = 'ficha-aparicion';
+        fila.dataset.episodio = String(tramo.episodio);
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'ficha-aparicion-ir';
@@ -110,6 +111,12 @@ export class Ficha {
         b.append(tiempo, texto);
         b.addEventListener('click', () => this._irA(tramo.desde));
         fila.append(b);
+        if (tramo.historia) {
+          const h = document.createElement('p');
+          h.className = 'ficha-historia';
+          h.textContent = tramo.historia;
+          fila.append(h);
+        }
         const url = enlaceYoutube(ep, tramo.dentroDesde);
         if (url) {
           const a = document.createElement('a');

@@ -60,6 +60,7 @@ ello está trazado como placeholder.
   algo que ocurre en otro lugar): cuenta para la ficha pero no para el recorrido.
 - `apariciones[].provisional: true` marca un tramo con `desde`/`hasta` estimados dentro del
   episodio. `medido` dice de dónde sale un tramo comprobado (hoja de fotogramas del episodio).
+- `apariciones[].historia`: dos o tres frases con lo que pasa en ese lugar en ese episodio, escritas a partir de las sinopsis de los guiones. Se muestran en la ficha bajo la aparición.
 - `apariciones[].estacion: creciente | vaciante` dice en qué estación está el mundo mientras dura
   esa parada: el deslizador de estación se mueve solo al llegar (la crecida del EP10).
 - `apariciones[].posicion: [lon, lat]` ancla la cámara de esa parada en otro punto (un tramo de río).
