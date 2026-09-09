@@ -4,7 +4,7 @@
  *
  * Fuente por orden de preferencia:
  *   1. mapas/<estación>.png       — el mapa definitivo (producido por Igor)
- *   2. mapas/placeholder_<estación>.png — se genera si no existe
+ *   2. mapas/grabado_<estación>.png — se dibuja desde los datos (scripts/mapa_grabado.mjs)
  *
  * `--si-faltan`: no vuelve a cortar si ya hay manifest.json (lo usa prebuild).
  */
