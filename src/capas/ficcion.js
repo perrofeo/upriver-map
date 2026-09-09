@@ -63,6 +63,8 @@ function imagenCuadrado(colorCss, lado) {
 export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccionar = null }) {
   const features = (geojson.features || []).filter((f) => f.geometry && f.geometry.coordinates?.length);
   const porId = new Map(features.map((f) => [f.id, f]));
+  // Lugares con partes (la ciudad y sus estratos): de cerca se rotulan las partes, de lejos el todo.
+  const conPartes = new Set(features.map((f) => f.properties?.parte_de).filter(Boolean));
   let dataSource = null;
   let viewerRef = null;
   let estacionActiva = 'vaciante';
@@ -83,9 +85,11 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
       let entidad;
       if (g.type === 'Point') {
         const esParte = !!props.parte_de;
+        const tienePartes = conPartes.has(f.id);
         const imperial = props.faccion === 'imperio' || props.faccion === 'comerciantes';
         const lado = esParte ? 10 : 16;
         const condicion = new Cesium.DistanceDisplayCondition(0, esParte ? 60_000 : 1_200_000);
+        const condicionEtiqueta = tienePartes ? new Cesium.DistanceDisplayCondition(60_000, 1_200_000) : condicion;
         const marcador = imperial
           ? { billboard: { image: imagenCuadrado(color || COLOR_FACCION[props.faccion], lado * 2), width: lado, height: lado, disableDepthTestDistance: Number.POSITIVE_INFINITY, distanceDisplayCondition: condicion } }
           : { point: { pixelSize: esParte ? 7 : 11, color: c, outlineColor: Cesium.Color.fromCssColorString(COLOR_PIEDRA), outlineWidth: 2, disableDepthTestDistance: Number.POSITIVE_INFINITY, distanceDisplayCondition: condicion } };
@@ -104,7 +108,7 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
             horizontalOrigin: Cesium.HorizontalOrigin.LEFT,
             verticalOrigin: Cesium.VerticalOrigin.CENTER,
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
-            distanceDisplayCondition: condicion,
+            distanceDisplayCondition: condicionEtiqueta,
             scaleByDistance: new Cesium.NearFarScalar(20_000, 1.0, 400_000, 0.7),
           },
         });

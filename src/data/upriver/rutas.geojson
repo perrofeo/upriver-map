@@ -9,6 +9,22 @@
         "type": "LineString",
         "coordinates": [
           [
+            -77.36,
+            -6.32
+          ],
+          [
+            -77.24,
+            -6.24
+          ],
+          [
+            -77.12,
+            -6.15
+          ],
+          [
+            -77.03,
+            -6.09
+          ],
+          [
             -76.95,
             -6.05
           ],
@@ -262,7 +278,7 @@
             "estacion": "creciente"
           }
         ],
-        "notas": "Trazado placeholder con meandros. Río arriba de Las Tres Gargantas es más estrecho y turbio (EP7).",
+        "notas": "Trazado placeholder con meandros. Nace más allá de la ciudad, hacia las colinas andinas. Río arriba de Las Tres Gargantas es más estrecho y turbio (EP7).",
         "fuente": "pelicula/DOSSIER_UPRIVER.md; GUION_EPISODIO_07; Igor (2026-09-09)"
       }
     },
