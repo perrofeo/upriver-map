@@ -23,22 +23,24 @@
         "descripcion": "Hogar de Jeshuco y de su abuelo Yawá, en un caño lateral a las afueras del poblado. El abuelo vive apartado. Abre y cierra la película.",
         "apariciones": [
           {
-            "episodio": 1
+            "episodio": 2,
+            "camara": false,
+            "nota": "se ve por primera vez"
           },
           {
             "episodio": 3
           },
           {
             "episodio": 10,
-            "nota": "plano final: Jeshuco flota con el palafito a un lado y el humo del imperio al otro",
             "desde": 210,
             "hasta": 258,
-            "provisional": true
+            "provisional": true,
+            "nota": "plano final: Jeshuco flota con el palafito a un lado y el humo del imperio al otro"
           }
         ],
         "estacion": "ambas",
-        "orden": 1,
-        "notas": "Sin nombre en la obra. No está en el río principal: se llega a él por el caño del poblado. Jeshuco vive en la frontera y quizá sea mestizo: sin decidir (Igor, 2026-09-09).",
+        "orden": 2,
+        "notas": "Sin nombre en la obra. No sale en el episodio 1 (Igor, 2026-09-09): solo el poblado. Aparece en el 2. No está en el río grande: se llega por el caño del poblado. Jeshuco vive en la frontera y quizá sea mestizo: sin decidir.",
         "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md",
         "placeholder": true
       }
@@ -61,17 +63,21 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "El poblado kukama donde empieza la historia, dentro del imperio pero a un paso de su frontera. El palafito del abuelo queda a sus afueras, apartado.",
+        "descripcion": "El poblado kukama donde arranca la serie, dentro del imperio pero a un paso de su frontera. El palafito del abuelo queda a sus afueras, apartado.",
         "apariciones": [
           {
             "episodio": 1,
-            "camara": false
+            "desde": 0,
+            "hasta": 30,
+            "provisional": true,
+            "nota": "arranca la historia"
           }
         ],
         "estacion": "ambas",
         "notas": "Sin nombre en la obra. Igor (2026-09-09): Jeshuco vive en la frontera y quizá sea mestizo, sin decidir. Añadido por indicación de Igor.",
         "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md; Igor",
-        "placeholder": true
+        "placeholder": true,
+        "orden": 1
       }
     },
     {

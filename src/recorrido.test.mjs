@@ -48,6 +48,15 @@ test('recorrido: ordenado, sin partes ni menciones, y los solapes se recortan', 
   ]);
 });
 
+test('recorrido: una ruta solo es parada con camara:true explícito', () => {
+  const rio = { type: 'Feature', id: 'rio', geometry: { type: 'LineString', coordinates: [[-74, -5], [-75, -5]] },
+    properties: { tipo: 'ruta', apariciones: [{ episodio: 1 }] } };
+  const tunel = { type: 'Feature', id: 'tunel', geometry: { type: 'LineString', coordinates: [[-74, -5], [-74.2, -5.1]] },
+    properties: { tipo: 'ruta', apariciones: [{ episodio: 1, desde: 30, hasta: 90, camara: true }] } };
+  const r = construirRecorrido([rio, tunel], episodios);
+  assert.deepEqual(r.map((p) => [p.id, p.desde, p.hasta]), [['tunel', 30, 90]]);
+});
+
 test('recorrido: dos episodios seguidos en el mismo lugar son una sola parada', () => {
   const a = punto('a', -74, -5, 'accidente', [{ episodio: 1 }, { episodio: 2 }]);
   const b = punto('b', -75, -4.8, 'asentamiento', [{ episodio: 3 }]);

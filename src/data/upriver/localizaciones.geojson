@@ -23,17 +23,23 @@
         "descripcion": "Barco mercante que comercia con el imperio. Su tripulación habla castellano: no son del imperio. Fondeado en el río grande, donde lo encuentra Jeshuco al salir de los túneles. Reaparece atracado en el puerto de la ciudad.",
         "apariciones": [
           {
+            "episodio": 1,
+            "desde": 110,
+            "provisional": true,
+            "nota": "Jeshuco lo ve al salir de los túneles"
+          },
+          {
             "episodio": 2
           },
           {
             "episodio": 8,
+            "camara": false,
             "nota": "atracado en el puerto imperial",
-            "lugar": "ciudad",
-            "camara": false
+            "lugar": "ciudad"
           }
         ],
         "estacion": "ambas",
-        "orden": 2,
+        "orden": 3,
         "notas": "Sin nombre en la obra. Igor (2026-09-09): «uno de los barcos que comercia con el imperio, pero ellos hablan español, no son del imperio». La biblia los describe como inmigrantes hispanohablantes contratados.",
         "fuente": "GUION_EPISODIO_02_EL_OTRO_MUNDO.md; UCRONIA_INTEGRACION.md; Igor",
         "placeholder": true

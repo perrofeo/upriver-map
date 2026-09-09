@@ -78,6 +78,7 @@ export function tramosDeEntidad(feature, episodios) {
       ep,
       nota: ap.nota || null,
       camara: ap.camara !== false,
+      camaraExplicita: ap.camara === true,
     });
   }
   return out.sort((a, b) => a.desde - b.desde);
@@ -140,9 +141,11 @@ export function construirRecorrido(features, episodios) {
   for (const f of features) {
     const props = f.properties || {};
     if (props.parte_de) continue;
-    if (!['asentamiento', 'avanzada', 'accidente', 'localizacion'].includes(props.tipo)) continue;
+    const lugar = ['asentamiento', 'avanzada', 'accidente', 'localizacion'].includes(props.tipo);
     for (const tramo of tramosDeEntidad(f, episodios)) {
       if (!tramo.camara) continue;
+      // Una ruta (los túneles) solo es parada si la aparición lo pide con camara:true.
+      if (!lugar && !tramo.camaraExplicita) continue;
       paradas.push({ id: f.id, feature: f, ...tramo });
     }
   }

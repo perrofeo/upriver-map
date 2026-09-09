@@ -152,34 +152,44 @@
         "descripcion": "El río grande y contaminado: la autopista del imperio. Baja de los Andes hacia el nordeste y desemboca en el río de la frontera, junto al poblado. Subirlo es adentrarse en el imperio. La obra nunca lo nombra.",
         "apariciones": [
           {
-            "episodio": 1
+            "episodio": 1,
+            "camara": false
           },
           {
-            "episodio": 2
+            "episodio": 2,
+            "camara": false
           },
           {
-            "episodio": 3
+            "episodio": 3,
+            "camara": false
           },
           {
-            "episodio": 4
+            "episodio": 4,
+            "camara": false
           },
           {
-            "episodio": 5
+            "episodio": 5,
+            "camara": false
           },
           {
-            "episodio": 6
+            "episodio": 6,
+            "camara": false
           },
           {
-            "episodio": 7
+            "episodio": 7,
+            "camara": false
           },
           {
-            "episodio": 8
+            "episodio": 8,
+            "camara": false
           },
           {
-            "episodio": 9
+            "episodio": 9,
+            "camara": false
           },
           {
-            "episodio": 10
+            "episodio": 10,
+            "camara": false
           }
         ],
         "notas": "Trazado placeholder con meandros. Río arriba de Las Tres Gargantas es más estrecho y turbio (EP7).",
@@ -232,13 +242,20 @@
         "descripcion": "Agua limpia y quieta entre el palafito, el poblado y la desembocadura. Aquí pescan Jeshuco y el bufeo.",
         "apariciones": [
           {
-            "episodio": 1
+            "episodio": 1,
+            "camara": false
           },
           {
-            "episodio": 3
+            "episodio": 2,
+            "camara": false
           },
           {
-            "episodio": 10
+            "episodio": 3,
+            "camara": false
+          },
+          {
+            "episodio": 10,
+            "camara": false
           }
         ],
         "notas": "Placeholder. Nombre descriptivo, no de la obra.",
@@ -252,24 +269,24 @@
         "type": "LineString",
         "coordinates": [
           [
-            -74.02,
-            -4.8
+            -74.03,
+            -4.745
           ],
           [
-            -74.1,
-            -4.84
+            -74.08,
+            -4.78
           ],
           [
-            -74.2,
+            -74.16,
+            -4.82
+          ],
+          [
+            -74.26,
             -4.86
           ],
           [
-            -74.3,
+            -74.36,
             -4.9
-          ],
-          [
-            -74.4,
-            -4.92
           ],
           [
             -74.46,
@@ -288,13 +305,18 @@
           "es": "Los túneles naturales",
           "qu": null
         },
-        "descripcion": "Galerías de agua bajo el bosque inundado, entre el caño del poblado y el río grande. El paiche gigante arrastra a Jeshuco por ellas hasta el agua contaminada, donde ve por primera vez el barco.",
+        "descripcion": "Galerías de agua bajo el bosque inundado. Empiezan en el caño, entre el poblado y el palafito, donde Jeshuco y el bufeo cazan el paiche gigante; el pez lo arrastra por ellas hasta el río grande, ya contaminado, donde ve por primera vez el barco.",
         "apariciones": [
           {
-            "episodio": 1
+            "episodio": 1,
+            "desde": 30,
+            "hasta": 110,
+            "camara": true,
+            "provisional": true,
+            "nota": "la caza del paiche y el arrastre"
           }
         ],
-        "notas": "Placeholder. Igor: «el pez lo arrastra por unos túneles naturales del río hasta un río más grande y contaminado».",
+        "notas": "Placeholder. Igor (2026-09-09): «el paiche lo caza entre el poblado y el palafito, ahí encuentra los túneles». El guion completo sitúa la caza en 0:30–2:30 del EP1.",
         "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md (EP1); Igor (2026-09-09)"
       }
     },
@@ -424,7 +446,7 @@
         },
         "descripcion": "Del palafito, en la frontera, río arriba hacia el corazón del imperio; y la vuelta.",
         "paradas": [
-          "palafito",
+          "poblado",
           "tuneles-naturales",
           "barco",
           "palafito",
