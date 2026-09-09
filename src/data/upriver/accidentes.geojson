@@ -5,18 +5,41 @@
     {
       "type": "Feature",
       "id": "tres-gargantas",
-      "geometry": { "type": "Point", "coordinates": [-74.70, -4.90] },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.7,
+          -4.9
+        ]
+      },
       "properties": {
         "tipo": "accidente",
         "faccion": "kukama",
-        "nombre": { "es": "Las Tres Gargantas", "qu": null },
+        "nombre": {
+          "es": "Las Tres Gargantas",
+          "qu": null
+        },
         "lengua": "es",
         "descripcion": "Tres cascadas y la maloca de Ayahumo. El único lugar con nombre en toda la obra.",
         "apariciones": [
-          { "episodio": 3, "nota": "se nombra" },
-          { "episodio": 5, "nota": "se llega" },
-          { "episodio": 6, "nota": "la maloca; la visión" },
-          { "episodio": 7, "nota": "se deja atrás" }
+          {
+            "episodio": 3,
+            "nota": "se nombra",
+            "camara": false
+          },
+          {
+            "episodio": 5,
+            "nota": "se llega"
+          },
+          {
+            "episodio": 6,
+            "nota": "la maloca; la visión"
+          },
+          {
+            "episodio": 7,
+            "nota": "se deja atrás",
+            "camara": false
+          }
         ],
         "estacion": "ambas",
         "orden": 4,

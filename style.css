@@ -66,3 +66,33 @@ body.modo-grabacion #panel-lateral, body.modo-grabacion #cabecera, body.modo-gra
 .carga-titulo { font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300; }
 .carga-estado { color: var(--texto-suave); font-size: 12px; }
 .carga-estado.error { color: #ff8080; }
+
+/* ── Línea de tiempo ─────────────────────────────────────────────────────── */
+#linea-tiempo { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); width: min(920px, calc(100% - 32px)); display: grid; grid-template-columns: 40px 1fr auto; grid-template-rows: auto auto; gap: 4px 12px; align-items: center; background: var(--panel); border: 1px solid var(--borde); border-radius: 8px; padding: 10px 14px; backdrop-filter: blur(6px); }
+.lt-play { grid-row: 1 / span 2; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--borde); background: transparent; color: var(--texto); font-size: 14px; cursor: pointer; }
+.lt-play:hover { border-color: var(--acento); }
+.lt-lectura { grid-column: 2; display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--texto-suave); }
+.lt-tiempo { font-family: var(--mono); color: var(--texto); }
+.lt-lugar { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.lt-pista { grid-column: 2; position: relative; }
+.lt-pista input[type=range] { width: 100%; margin: 0; accent-color: var(--acento); }
+.lt-marcas { position: relative; height: 14px; margin-top: 2px; }
+.lt-marca { position: absolute; top: 0; height: 14px; padding: 0; border: 0; border-left: 1px solid var(--borde); background: transparent; color: var(--texto-suave); font: inherit; font-size: 9px; text-align: left; padding-left: 3px; cursor: pointer; overflow: hidden; }
+.lt-marca:hover { color: var(--acento); }
+.lt-velocidad { grid-row: 1 / span 2; background: var(--fondo); color: var(--texto); border: 1px solid var(--borde); border-radius: 4px; font: inherit; font-size: 12px; padding: 4px; }
+
+/* ── Ficha ───────────────────────────────────────────────────────────────── */
+#ficha { position: fixed; top: 60px; right: 16px; width: 320px; max-height: calc(100% - 160px); overflow: auto; background: var(--panel); border: 1px solid var(--borde); border-radius: 8px; padding: 12px 14px; backdrop-filter: blur(6px); }
+.ficha-cabecera { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.ficha-cabecera h2 { margin: 0; font-size: 18px; font-weight: 500; }
+.ficha-cerrar { background: transparent; border: 0; color: var(--texto-suave); font-size: 20px; line-height: 1; cursor: pointer; }
+.ficha-secundario { color: var(--texto-suave); font-size: 13px; margin-top: 2px; }
+.ficha-meta { display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0; }
+.ficha-chip { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--borde); border-radius: 10px; padding: 1px 7px; color: var(--texto-suave); }
+.ficha-descripcion { margin: 8px 0; line-height: 1.45; }
+.ficha-apariciones h3 { margin: 10px 0 4px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--texto-suave); font-weight: 500; }
+.ficha-aparicion { display: grid; grid-template-columns: 96px 1fr; gap: 8px; width: 100%; text-align: left; background: transparent; border: 0; border-top: 1px solid var(--borde); color: var(--texto); font: inherit; font-size: 12px; padding: 5px 0; cursor: pointer; }
+.ficha-aparicion:hover { color: var(--acento); }
+.ficha-tiempo { font-family: var(--mono); color: var(--texto-suave); }
+.ficha-notas { margin: 10px 0 0; font-size: 11px; color: var(--texto-suave); line-height: 1.4; }
+#scene-panel:not([hidden]) ~ #ficha { top: 420px; }

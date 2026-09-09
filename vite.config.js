@@ -14,6 +14,8 @@ export default defineConfig({
   server: {
     host: 'localhost',
     port: 4173,
+    // Desarrollo desde WSL sobre /mnt/c: no hay inotify, hay que sondear.
+    watch: { usePolling: true, interval: 700 },
   },
   preview: {
     port: 4174,

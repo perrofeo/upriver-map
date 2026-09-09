@@ -37,3 +37,14 @@ lleva `placeholder: true` hasta que Igor sitúe cada entidad sobre el mapa defin
 - **No hay coordenadas.** Las de estos ficheros son placeholder sobre el bbox de
   `src/mundo.js` (referencia real: Pacaya Samiria).
 - **El minutaje de `episodios.json` es provisional** (ver su comentario).
+
+## Apariciones y cámara
+
+- `apariciones[].camara: false` marca una aparición que **no mueve la cámara** (una mención, o
+  algo que ocurre en otro lugar): cuenta para la ficha pero no para el recorrido.
+- `apariciones[].provisional: true` marca un tramo con `desde`/`hasta` estimados dentro del
+  episodio (los subtramos del EP04 y del EP10).
+- `properties.camara` fija la pose de cámara de una entidad (`lon`, `lat`, `alt`, `heading`,
+  `pitch`); sin ella se usa una pose por defecto según el tipo. Las poses capturadas con el
+  director (`?autor`, CAPTURAR PLANO → EXPORTAR) van a `poses.json`, indexadas por id, y
+  tienen prioridad.

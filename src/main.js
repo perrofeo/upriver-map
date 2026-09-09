@@ -16,6 +16,23 @@ import { GestorEnlace } from './enlace.js';
 import { SceneDirector } from './scenes/director.js';
 import { installRenderGovernor, governorRequestRender, getRenderGovernorDiagnostics } from './renderGovernor.js';
 import { montarInterfaz } from './interfaz.js';
+import { crearCapaFiccion } from './capas/ficcion.js';
+import episodiosJson from './data/upriver/episodios.json';
+import poses from './data/upriver/poses.json';
+import asentamientosRaw from './data/upriver/asentamientos.geojson?raw';
+import rutasRaw from './data/upriver/rutas.geojson?raw';
+import imperioRaw from './data/upriver/imperio.geojson?raw';
+import accidentesRaw from './data/upriver/accidentes.geojson?raw';
+import localizacionesRaw from './data/upriver/localizaciones.geojson?raw';
+
+/** Capas de ficción, en el orden del panel. */
+const CAPAS_FICCION = [
+  { id: 'rutas', nombre: 'El río', icono: '〜', geojson: rutasRaw, color: '#7fb6c9' },
+  { id: 'imperio', nombre: 'El imperio', icono: '▲', geojson: imperioRaw },
+  { id: 'asentamientos', nombre: 'Asentamientos', icono: '⌂', geojson: asentamientosRaw },
+  { id: 'accidentes', nombre: 'Accidentes geográficos', icono: '≋', geojson: accidentesRaw },
+  { id: 'localizaciones', nombre: 'Localizaciones', icono: '◦', geojson: localizacionesRaw },
+];
 
 // Cero servicios de terceros: sin token de ion no hay ninguna llamada a Cesium ion.
 Cesium.Ion.defaultAccessToken = '';
@@ -77,6 +94,9 @@ async function init() {
     const basemap = await new Basemap(viewer).init();
 
     const capas = new GestorCapas(viewer);
+    for (const def of CAPAS_FICCION) {
+      capas.register(crearCapaFiccion({ ...def, geojson: JSON.parse(def.geojson) }));
+    }
     const estilos = new GestorEstilos(viewer, { onChange: () => enlace?.programar() });
 
     const enlace = new GestorEnlace(viewer, {
@@ -94,7 +114,12 @@ async function init() {
 
     installRenderGovernor(viewer);
 
-    const interfaz = montarInterfaz({ viewer, basemap, estilos, capas, enlace, director });
+    const interfaz = montarInterfaz({
+      viewer, basemap, estilos, capas, enlace, director,
+      episodios: episodiosJson.episodios,
+      duracion: episodiosJson.duracion,
+      poses,
+    });
 
     // Restauración del enlace o vista inicial sobre el mundo entero.
     const compartido = enlace.leerHashInicial();
@@ -107,13 +132,15 @@ async function init() {
         styleParams: compartido.styleParams ? { [compartido.style]: compartido.styleParams } : null,
       });
       if (compartido.estacion !== null) interfaz.setEstacion(compartido.estacion);
-      if (compartido.capas) {
-        for (const id of compartido.capas) await capas.setEnabled(id, true, { origin: 'share-restore' });
-      }
+      const visibles = compartido.capas || CAPAS_FICCION.map((c) => c.id);
+      for (const id of visibles) await capas.setEnabled(id, true, { origin: 'share-restore' });
+      // La t se coloca sin mover la cámara: manda la cámara del enlace.
+      if (compartido.t !== null) interfaz.setTiempo(compartido.t, { moverCamara: !compartido.camera });
       await enlace.aplicarCamara(compartido.camera, { duracion: 0 });
-      if (compartido.t !== null) interfaz.setTiempo?.(compartido.t);
-      if (compartido.seleccion) interfaz.seleccionar?.(compartido.seleccion);
+      if (compartido.seleccion) interfaz.seleccionar(compartido.seleccion);
     } else {
+      for (const def of CAPAS_FICCION) await capas.setEnabled(def.id, true, { origin: 'programmatic' });
+      interfaz.setTiempo(0, { moverCamara: false });
       viewer.camera.setView({ destination: rectanguloMundo(MUNDO) });
       viewer.camera.flyTo({
         destination: rectanguloMundo(MUNDO),

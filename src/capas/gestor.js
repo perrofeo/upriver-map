@@ -98,6 +98,31 @@ export class GestorCapas {
     return [...this._capas.entries()].filter(([, e]) => e.enabled).map(([id]) => id);
   }
 
+
+  /** Propaga la estación activa (nombre) a las capas que la entienden. */
+  setEstacionActiva(nombreEstacion) {
+    for (const { modulo } of this._capas.values()) modulo.setEstacion?.(nombreEstacion);
+  }
+
+  /** Busca una entidad por id en todas las capas: { capa, feature } o null. */
+  buscar(fid) {
+    for (const { modulo } of this._capas.values()) {
+      const feature = modulo.buscar?.(fid);
+      if (feature) return { capa: modulo, feature };
+    }
+    return null;
+  }
+
+  /** Resalta una entidad (o ninguna) en todas las capas. */
+  resaltar(fid) {
+    for (const { modulo } of this._capas.values()) modulo.resaltar?.(fid);
+  }
+
+  /** Todas las features de todas las capas. */
+  todasLasFeatures() {
+    return [...this._capas.values()].flatMap(({ modulo }) => modulo.features || []);
+  }
+
   onChange(fn) {
     this._listeners.add(fn);
     return () => this._listeners.delete(fn);

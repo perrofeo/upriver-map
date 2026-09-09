@@ -5,16 +5,32 @@
     {
       "type": "Feature",
       "id": "barco",
-      "geometry": { "type": "Point", "coordinates": [-74.15, -5.05] },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.15,
+          -5.05
+        ]
+      },
       "properties": {
         "tipo": "localizacion",
         "faccion": null,
-        "nombre": { "es": "El barco industrial", "qu": null },
+        "nombre": {
+          "es": "El barco industrial",
+          "qu": null
+        },
         "lengua": "es",
         "descripcion": "Embarcación con trabajadores hispanohablantes, fondeada en el río. Reaparece atracada en el puerto de la ciudad.",
         "apariciones": [
-          { "episodio": 2 },
-          { "episodio": 8, "nota": "atracado en el puerto imperial", "lugar": "ciudad" }
+          {
+            "episodio": 2
+          },
+          {
+            "episodio": 8,
+            "nota": "atracado en el puerto imperial",
+            "lugar": "ciudad",
+            "camara": false
+          }
         ],
         "estacion": "ambas",
         "orden": 2,
@@ -26,14 +42,30 @@
     {
       "type": "Feature",
       "id": "rapidos",
-      "geometry": { "type": "Point", "coordinates": [-74.38, -5.00] },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.38,
+          -5.0
+        ]
+      },
       "properties": {
         "tipo": "localizacion",
         "faccion": "ninguna",
-        "nombre": { "es": "Los rápidos", "qu": null },
+        "nombre": {
+          "es": "Los rápidos",
+          "qu": null
+        },
         "lengua": "es",
         "descripcion": "Los rápidos antes del campamento minero.",
-        "apariciones": [ { "episodio": 4 } ],
+        "apariciones": [
+          {
+            "episodio": 4,
+            "desde": 597.9,
+            "hasta": 700.0,
+            "provisional": true
+          }
+        ],
         "estacion": "ambas",
         "notas": "Sin nombre propio en la obra.",
         "fuente": "GUION_EPISODIO_04_EL_RASTRO_DEL_VENENO.md",
@@ -43,14 +75,27 @@
     {
       "type": "Feature",
       "id": "sitio-ritual",
-      "geometry": { "type": "Point", "coordinates": [-75.15, -4.76] },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.15,
+          -4.76
+        ]
+      },
       "properties": {
         "tipo": "localizacion",
         "faccion": "kukama",
-        "nombre": { "es": "El sitio del ritual", "qu": null },
+        "nombre": {
+          "es": "El sitio del ritual",
+          "qu": null
+        },
         "lengua": "es",
         "descripcion": "Aguas abajo de la ciudad. Donde se libera a la Yacumama.",
-        "apariciones": [ { "episodio": 9 } ],
+        "apariciones": [
+          {
+            "episodio": 9
+          }
+        ],
         "estacion": "ambas",
         "orden": 7,
         "notas": "Sin nombre en la obra.",
@@ -61,19 +106,43 @@
     {
       "type": "Feature",
       "id": "humo-horizonte",
-      "geometry": { "type": "Point", "coordinates": [-75.60, -4.50] },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6,
+          -4.5
+        ]
+      },
       "properties": {
         "tipo": "localizacion",
         "faccion": "imperio",
-        "nombre": { "es": "El humo del horizonte", "qu": null },
+        "nombre": {
+          "es": "El humo del horizonte",
+          "qu": null
+        },
         "lengua": "es",
         "descripcion": "Las columnas de humo del plano final: el imperio tiene más ciudades.",
-        "apariciones": [ { "episodio": 10, "nota": "plano final" } ],
+        "apariciones": [
+          {
+            "episodio": 10,
+            "desde": 2425.0,
+            "hasta": 2443.136,
+            "nota": "plano final",
+            "provisional": true
+          }
+        ],
         "estacion": "ambas",
         "orden": 8,
-        "notas": "No es un lugar visitado: es lo que se ve desde el palafito.",
+        "notas": "No es un lugar visitado: es lo que se ve desde el palafito. La cámara se coloca sobre el palafito mirando al noroeste, como el plano final.",
         "fuente": "pelicula/DOSSIER_UPRIVER.md (nota del director)",
-        "placeholder": true
+        "placeholder": true,
+        "camara": {
+          "lon": -73.94,
+          "lat": -5.125,
+          "alt": 1200,
+          "heading": 295,
+          "pitch": -8
+        }
       }
     }
   ]

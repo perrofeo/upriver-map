@@ -1,12 +1,15 @@
 /**
- * interfaz.js — cableado del DOM: aspecto, estación, capas y enlace.
+ * interfaz.js — cableado del DOM: aspecto, estación, capas, enlace, línea de
+ * tiempo, ficha y selección en el globo.
  *
- * La línea de tiempo y la ficha de entidad se montan aquí también en cuanto
- * existan (Fase 3). Todo el estado vive en los gestores; este módulo solo
- * traduce clics y deslizadores.
+ * Todo el estado vive en los gestores; este módulo solo traduce clics y
+ * deslizadores.
  */
 
+import * as Cesium from 'cesium';
 import { ESTILOS, NOMBRES_ESTILO } from './estilos.js';
+import { Ficha } from './ficha.js';
+import { LineaTiempo } from './tiempo.js';
 
 function aviso(texto, ms = 1800) {
   const toast = document.getElementById('toast');
@@ -17,14 +20,29 @@ function aviso(texto, ms = 1800) {
   aviso._t = setTimeout(() => { toast.hidden = true; }, ms);
 }
 
-export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, director }) {
+export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, director, episodios, duracion, poses }) {
   const interfaz = {
-    tiempo: null,
     seleccion: null,
+    get tiempo() { return lineaTiempo.t; },
     setEstacion(valor) {
       basemap.setEstacion(valor);
+      capas.setEstacionActiva(basemap.estacionDominante);
       slider.value = String(Math.round(basemap.estacion * 100));
       enlace.programar();
+    },
+    setTiempo(t, opciones) { lineaTiempo.setTiempo(t, opciones); },
+    seleccionar(fid, { volar = false } = {}) {
+      const hallazgo = fid ? capas.buscar(fid) : null;
+      if (!hallazgo) { deseleccionar(); return false; }
+      interfaz.seleccion = fid;
+      capas.resaltar(fid);
+      ficha.mostrar(hallazgo.feature);
+      if (volar) {
+        const entidad = hallazgo.capa.entidadDe(fid);
+        if (entidad) viewer.flyTo(entidad, { duration: 1.6, offset: new Cesium.HeadingPitchRange(0, Cesium.Math.toRadians(-45), 12_000) });
+      }
+      enlace.programar();
+      return true;
     },
     sincronizar() {
       pintarEstilos();
@@ -36,15 +54,20 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
       sharpenInt.value = String(estilos.sharpenIntensity);
     },
     aviso,
+    lineaTiempo: null,
+    ficha: null,
   };
+
+  function deseleccionar() {
+    interfaz.seleccion = null;
+    capas.resaltar(null);
+    ficha.ocultar();
+    enlace.programar();
+  }
 
   // ── Estación ──────────────────────────────────────────────────────────
   const slider = document.getElementById('estacion-slider');
-  slider.addEventListener('input', () => {
-    basemap.setEstacion(Number(slider.value) / 100);
-    capas.setEstacionActiva?.(basemap.estacion);
-    enlace.programar();
-  });
+  slider.addEventListener('input', () => interfaz.setEstacion(Number(slider.value) / 100));
 
   // ── Estilos ───────────────────────────────────────────────────────────
   const botones = document.getElementById('estilo-botones');
@@ -62,11 +85,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
       b.className = 'estilo-btn' + (estilos.activeStyle === nombre ? ' activo' : '');
       b.dataset.estilo = nombre;
       b.textContent = NOMBRES_ESTILO[nombre] || nombre;
-      b.addEventListener('click', () => {
-        estilos.setStyle(nombre);
-        pintarEstilos();
-        pintarParams();
-      });
+      b.addEventListener('click', () => { estilos.setStyle(nombre); pintarEstilos(); pintarParams(); });
       botones.append(b);
     }
   }
@@ -103,15 +122,20 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
   sharpenOn.addEventListener('change', () => estilos.setSharpen({ enabled: sharpenOn.checked }));
   sharpenInt.addEventListener('input', () => estilos.setSharpen({ intensity: Number(sharpenInt.value) }));
 
-  // Atajos: 1-7 estilos, como en gods-eye-view.
+  // Atajos: 1-7 estilos (como en gods-eye-view), espacio reproduce, Esc cierra.
   const orden = ['normal', ...Object.keys(ESTILOS)];
   document.addEventListener('keydown', (e) => {
-    if (e.target && ['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) return;
+    if (e.target && ['INPUT', 'SELECT', 'TEXTAREA', 'BUTTON'].includes(e.target.tagName)) return;
     const n = Number(e.key);
     if (n >= 1 && n <= orden.length) {
       estilos.setStyle(orden[n - 1]);
       pintarEstilos();
       pintarParams();
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      if (lineaTiempo.reproduciendo) lineaTiempo.pausar(); else lineaTiempo.reproducir();
+    } else if (e.key === 'Escape' && !director.running) {
+      deseleccionar();
     }
   });
 
@@ -119,12 +143,49 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
   capas.buildTogglePanel(document.getElementById('capas-toggles'));
   capas.onChange(() => enlace.programar());
 
+  // ── Ficha y línea de tiempo ───────────────────────────────────────────
+  const ficha = new Ficha(document.getElementById('ficha'), {
+    episodios,
+    irA: (t) => { lineaTiempo.pausar({ silencioso: true }); lineaTiempo.setTiempo(t); },
+    alCerrar: () => { if (interfaz.seleccion) { interfaz.seleccion = null; capas.resaltar(null); enlace.programar(); } },
+  });
+  const lineaTiempo = new LineaTiempo({
+    viewer,
+    el: document.getElementById('linea-tiempo'),
+    features: capas.todasLasFeatures(),
+    episodios,
+    duracion,
+    poses,
+    alCambiarParada: (parada) => {
+      // La parada vigente abre su ficha, salvo que el usuario haya elegido otra.
+      if (parada && (!interfaz.seleccion || interfaz.seleccionAutomatica)) {
+        interfaz.seleccionAutomatica = true;
+        interfaz.seleccion = parada.id;
+        capas.resaltar(parada.id);
+        ficha.mostrar(parada.feature);
+      }
+    },
+    alCambiar: () => enlace.programar(),
+  });
+  interfaz.lineaTiempo = lineaTiempo;
+  interfaz.ficha = ficha;
+  const seleccionarManual = interfaz.seleccionar;
+  interfaz.seleccionar = (fid, opciones) => { interfaz.seleccionAutomatica = false; return seleccionarManual(fid, opciones); };
+
+  // ── Selección en el globo ─────────────────────────────────────────────
+  const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+  handler.setInputAction((click) => {
+    const picked = viewer.scene.pick(click.position);
+    const entidad = picked?.id instanceof Cesium.Entity ? picked.id : null;
+    const fid = entidad?.properties?.fid?.getValue?.(Cesium.JulianDate.now());
+    if (fid) interfaz.seleccionar(fid);
+    else if (interfaz.seleccion) { interfaz.seleccionAutomatica = false; deseleccionar(); }
+  }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+
   // ── Enlace ────────────────────────────────────────────────────────────
   document.getElementById('btn-compartir').addEventListener('click', async () => {
     aviso((await enlace.copiar()) ? 'Enlace copiado' : 'No se pudo copiar el enlace');
   });
 
-  void viewer;
-  void director;
   return interfaz;
 }

@@ -283,7 +283,7 @@ export class GestorEstilos {
       alt: carto.height,
       heading: Cesium.Math.toDegrees(this.viewer.camera.heading),
       pitch: Cesium.Math.toDegrees(this.viewer.camera.pitch),
-      roll: Cesium.Math.toDegrees(this.viewer.camera.roll),
+      roll: Cesium.Math.toDegrees(this.viewer.camera.roll) % 360,
     };
   }
 
