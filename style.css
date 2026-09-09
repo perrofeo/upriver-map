@@ -36,6 +36,12 @@
 }
 
 * { box-sizing: border-box; }
+/* Barras de desplazamiento del color de la tablilla, nunca blancas. */
+* { scrollbar-width: thin; scrollbar-color: var(--tumbaga-suave) var(--adobe); }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: var(--adobe); }
+*::-webkit-scrollbar-thumb { background: var(--tumbaga-suave); }
+*::-webkit-scrollbar-corner { background: var(--adobe); }
 html, body { margin: 0; height: 100%; background: var(--piedra); color: var(--hueso); font-family: var(--fuente); font-size: 15px; line-height: 1.4; font-weight: 500; }
 button, select, input { font-family: inherit; }
 button { cursor: pointer; }
@@ -52,7 +58,7 @@ button { cursor: pointer; }
 
 /* ── Tablillas ───────────────────────────────────────────────────────────── */
 .tablilla, #panel-lateral, #ficha, #scene-panel { background: var(--adobe); color: var(--hueso); border-top: 8px solid transparent; border-image: var(--tocapu) 8 0 0 0 / 8px 0 0 0 stretch; }
-#panel-lateral { position: fixed; top: 84px; left: 20px; width: 236px; max-height: calc(100% - 200px); overflow: auto; padding: 12px 14px 14px; }
+#panel-lateral { position: fixed; top: 84px; left: 20px; width: 236px; max-height: calc(100% - 200px); overflow-x: hidden; overflow-y: auto; padding: 12px 14px 14px; }
 #panel-lateral h2 { margin: 12px 0 6px; font-size: 13px; font-weight: 500; font-style: italic; color: var(--tumbaga); }
 #panel-lateral section:first-child h2 { margin-top: 0; }
 #panel-lateral section + section { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--adobe-claro); }
@@ -83,7 +89,7 @@ input[type=range] { width: 100%; margin: 6px 0 2px; accent-color: var(--tumbaga)
 #toast { position: fixed; bottom: 118px; left: 50%; transform: translateX(-50%); background: var(--adobe); color: var(--hueso); border-left: 4px solid var(--tumbaga); padding: 8px 14px; font-size: 14px; }
 
 /* ── Ficha ───────────────────────────────────────────────────────────────── */
-#ficha { position: fixed; top: 84px; right: 20px; width: 324px; max-height: calc(100% - 200px); overflow: auto; padding: 12px 16px 16px; }
+#ficha { position: fixed; top: 84px; right: 20px; width: 324px; max-height: calc(100% - 200px); overflow-x: hidden; overflow-y: auto; padding: 12px 16px 16px; }
 .ficha-cabecera { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
 .ficha-cabecera h2 { margin: 0; font-size: 24px; line-height: 1.1; font-weight: 700; }
 .ficha-cabecera h2[lang=qu] { color: var(--tumbaga); }
@@ -121,7 +127,7 @@ input[type=range] { width: 100%; margin: 6px 0 2px; accent-color: var(--tumbaga)
 .quipu-velocidad { grid-column: 3; grid-row: 1; background: var(--adobe); color: var(--hueso); border: 1px solid var(--adobe-claro); padding: 6px 8px; font-size: 14px; }
 
 /* ── Modo autor ──────────────────────────────────────────────────────────── */
-#panel-autor { position: fixed; top: 84px; right: 20px; width: 324px; max-height: 46vh; overflow: auto; padding: 10px 14px 12px; background: var(--adobe); border-top: 8px solid transparent; border-image: var(--tocapu) 8 0 0 0 / 8px 0 0 0 stretch; }
+#panel-autor { position: fixed; top: 84px; right: 20px; width: 324px; max-height: 46vh; overflow-x: hidden; overflow-y: auto; padding: 10px 14px 12px; background: var(--adobe); border-top: 8px solid transparent; border-image: var(--tocapu) 8 0 0 0 / 8px 0 0 0 stretch; }
 #panel-autor h2 { margin: 0 0 6px; font-size: 15px; font-weight: 700; }
 #panel-autor h3 { margin: 8px 0 4px; font-size: 15px; font-weight: 700; color: var(--tumbaga); }
 .autor-linea, .autor-ayuda, .autor-estado { margin: 4px 0; font-size: 13px; color: var(--hollin); }
