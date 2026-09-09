@@ -93,8 +93,12 @@ input[type=range] { width: 100%; margin: 6px 0 2px; accent-color: var(--tumbaga)
 .ficha-chip::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 6px; background: var(--tumbaga-suave); vertical-align: 1px; }
 .ficha-descripcion { margin: 8px 0; line-height: 1.5; }
 .ficha-apariciones h3 { margin: 12px 0 2px; font-size: 13px; font-weight: 500; font-style: italic; color: var(--tumbaga); }
-.ficha-aparicion { display: grid; grid-template-columns: 104px 1fr; gap: 8px; width: 100%; text-align: left; background: transparent; border: 0; border-top: 1px solid var(--adobe-claro); color: var(--hueso); font-size: 14px; line-height: 1.35; padding: 6px 0; }
-.ficha-aparicion:hover { color: var(--tumbaga); }
+.ficha-aparicion { display: flex; align-items: flex-start; gap: 8px; border-top: 1px solid var(--adobe-claro); padding: 6px 0; }
+.ficha-aparicion-ir { flex: 1; display: grid; grid-template-columns: 104px 1fr; gap: 8px; text-align: left; background: transparent; border: 0; color: var(--hueso); font-size: 14px; line-height: 1.35; padding: 0; }
+.ficha-aparicion-ir:hover { color: var(--tumbaga); }
+.ficha-ver, .quipu-ver { color: var(--tumbaga); text-decoration: none; border-bottom: 1px solid var(--tumbaga-suave); font-size: 13px; white-space: nowrap; }
+.ficha-ver:hover, .quipu-ver:hover { border-bottom-color: var(--tumbaga); }
+.quipu-ver { margin-left: auto; font-style: italic; }
 .ficha-tiempo { color: var(--hollin); font-variant-numeric: tabular-nums; }
 .ficha-notas { margin: 10px 0 0; font-size: 13px; font-style: italic; color: var(--hollin); line-height: 1.4; }
 

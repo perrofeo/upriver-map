@@ -1,16 +1,99 @@
 {
-  "_comentario": "Entrada de cada episodio en la película v2 continua (40:43,1 = 2443,136 s). PROVISIONAL: EP02, EP03, EP05, EP06, EP07, EP09 y EP10 se han medido casando los cues de srt/EPnn_EN.srt contra srt/UPRIVER_PELICULA_v2.srt; EP01, EP04 y EP08 no tienen SRT y se deducen de las duraciones de conform.py. La fuente definitiva es el .drt del timeline «UPRIVER - PELICULA v2 continua» (leer_drt.py).",
-  "duracion": 2443.136,
+  "_comentario": "Minutaje de la SERIE publicada en YouTube (10 episodios), que es lo único que el público puede ver. La línea de tiempo del mapa concatena los diez episodios; `inicio` es el segundo de arranque de cada uno en esa concatenación y las apariciones de las entidades se expresan en segundos DENTRO del episodio, así que enlazan al vídeo en ese instante. Duraciones medidas con ffprobe sobre los másters publicados (las de la web las redondean). La película de 40:43 en festivales tiene otro montaje: si se estrena, se añade un mapeo aparte.",
+  "obra": "serie",
+  "duracion": 2476.138,
   "episodios": [
-    { "n": 1,  "titulo": "El Descubrimiento",     "desde": 0.0,     "hasta": 147.209,  "provisional": true, "medido": false },
-    { "n": 2,  "titulo": "El Otro Mundo",         "desde": 147.209, "hasta": 407.25,   "provisional": true, "medido": "2 cues" },
-    { "n": 3,  "titulo": "Las Últimas Palabras",  "desde": 407.25,  "hasta": 597.9,    "provisional": true, "medido": "13 cues" },
-    { "n": 4,  "titulo": "El Rastro del Veneno",  "desde": 597.9,   "hasta": 846.083,  "provisional": true, "medido": false },
-    { "n": 5,  "titulo": "Las Tres Gargantas",    "desde": 846.083, "hasta": 1086.583, "provisional": true, "medido": "15 cues" },
-    { "n": 6,  "titulo": "La Visión",             "desde": 1086.583,"hasta": 1324.0,   "provisional": true, "medido": "6 cues" },
-    { "n": 7,  "titulo": "La Comunidad",          "desde": 1324.0,  "hasta": 1538.083, "provisional": true, "medido": "17 cues" },
-    { "n": 8,  "titulo": "La Confrontación",      "desde": 1538.083,"hasta": 1806.166, "provisional": true, "medido": false },
-    { "n": 9,  "titulo": "El Ritual",             "desde": 1806.166,"hasta": 2077.0,   "provisional": true, "medido": "11 cues" },
-    { "n": 10, "titulo": "Río Arriba",            "desde": 2077.0,  "hasta": 2443.136, "provisional": true, "medido": "1 cue" }
-  ]
+    {
+      "n": 1,
+      "titulo": "El Descubrimiento",
+      "slug": "the-discovery",
+      "youtubeId": "bg7T_hVdANo",
+      "duracion": 148.267,
+      "inicio": 0.0,
+      "fuente": "Upriver-davinci/episode_01/videos_renderizados/episode_01_upriver_1920x1080_v4.mp4 (ffprobe)"
+    },
+    {
+      "n": 2,
+      "titulo": "El Otro Mundo",
+      "slug": "the-other-world",
+      "youtubeId": "WcSK1BLZFgY",
+      "duracion": 273.472,
+      "inicio": 148.267,
+      "fuente": "Upriver-davinci/episode_02/youtube/episode2_upriver.mp4 (ffprobe)"
+    },
+    {
+      "n": 3,
+      "titulo": "Las Últimas Palabras",
+      "slug": "the-last-words",
+      "youtubeId": "8D_fQBLgx9s",
+      "duracion": 192.341,
+      "inicio": 421.739,
+      "fuente": "Upriver-davinci/episode_03/exports/episode3-upriver-full.mp4 (ffprobe)"
+    },
+    {
+      "n": 4,
+      "titulo": "El Rastro del Veneno",
+      "slug": "the-poison-trail",
+      "youtubeId": "HVcS_THZk1U",
+      "duracion": 260.309,
+      "inicio": 614.08,
+      "fuente": "Upriver-davinci/episode_04/youtube/Upriver_episode_04.mp4 (ffprobe)"
+    },
+    {
+      "n": 5,
+      "titulo": "Las Tres Gargantas",
+      "slug": "the-three-gorges",
+      "youtubeId": "bcOzkNvM9DM",
+      "duracion": 248.725,
+      "inicio": 874.389,
+      "fuente": "Upriver-davinci/episode_05/youtube/upriver_episode_05.mp4 (ffprobe)"
+    },
+    {
+      "n": 6,
+      "titulo": "La Visión",
+      "slug": "the-vision",
+      "youtubeId": "IIemfhlswcs",
+      "duracion": 246.059,
+      "inicio": 1123.114,
+      "fuente": "Upriver-davinci/episode_06/youtube/Upriver_EP06_La_Vision_1080p_master_v1.mp4 (ffprobe)"
+    },
+    {
+      "n": 7,
+      "titulo": "La Comunidad",
+      "slug": "the-community",
+      "youtubeId": "kQggIJiFuPk",
+      "duracion": 224.0,
+      "inicio": 1369.173,
+      "fuente": "Upriver-davinci/episode_07/youtube/Upriver_episode_07.mp4 (ffprobe)"
+    },
+    {
+      "n": 8,
+      "titulo": "La Confrontación",
+      "slug": "the-origin",
+      "youtubeId": "VbSCrPX1me8",
+      "duracion": 296.0,
+      "inicio": 1593.173,
+      "fuente": "Upriver-davinci/episode_08/youtube/EP08_UPRIVER_FULL_FILM.mp4 (ffprobe)"
+    },
+    {
+      "n": 9,
+      "titulo": "El Ritual",
+      "slug": "the-ritual",
+      "youtubeId": "XhPGIr7I248",
+      "duracion": 310.293,
+      "inicio": 1889.173,
+      "fuente": "Upriver-davinci/episode_09/youtube/UPRIVER_episode_9.mp4 (ffprobe)"
+    },
+    {
+      "n": 10,
+      "titulo": "Río Arriba",
+      "slug": "upriver",
+      "youtubeId": "LXUkQmg47Fc",
+      "duracion": 276.672,
+      "inicio": 2199.466,
+      "fuente": "Upriver-davinci/episode_10/youtube/UPRIVER_episode_10.mp4 (ffprobe)"
+    }
+  ],
+  "web": "https://therenderedchannel.com/upriver/{slug}",
+  "youtube": "https://youtu.be/{youtubeId}?t={segundos}"
 }

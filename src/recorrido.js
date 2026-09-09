@@ -34,24 +34,51 @@ export function formatearTiempo(segundos) {
   return `${m}:${String(r).padStart(2, '0')}`;
 }
 
-/** Episodio vigente en el segundo `t`, o null. */
+/** Segundo en que termina un episodio dentro de la serie concatenada. */
+export const finDe = (ep) => ep.inicio + ep.duracion;
+
+/** Episodio vigente en el segundo `t` de la serie, o null. */
 export function episodioEn(episodios, t) {
-  return episodios.find((e) => t >= e.desde && t < e.hasta) || (t >= episodios.at(-1)?.hasta ? episodios.at(-1) : null);
+  return episodios.find((e) => t >= e.inicio && t < finDe(e)) || (t >= finDe(episodios.at(-1)) ? episodios.at(-1) : null);
+}
+
+/** Segundo dentro del episodio vigente (lo que se ve en YouTube). */
+export function segundoEnEpisodio(episodios, t) {
+  const ep = episodioEn(episodios, t);
+  return ep ? Math.max(0, Math.min(ep.duracion, t - ep.inicio)) : 0;
+}
+
+/** Enlace al vídeo del episodio en el segundo `s` de ese episodio. */
+export function enlaceYoutube(ep, s = 0) {
+  if (!ep?.youtubeId) return null;
+  const seg = Math.max(0, Math.floor(s));
+  return `https://youtu.be/${ep.youtubeId}${seg > 0 ? `?t=${seg}` : ''}`;
 }
 
 /**
- * Tramos [desde, hasta] de una entidad, resolviendo los que solo nombran el
- * episodio contra la tabla de episodios.
+ * Tramos [desde, hasta] de una entidad en segundos de la serie concatenada.
+ * Las apariciones van en segundos DENTRO del episodio; sin desde/hasta vale
+ * el episodio entero.
  */
 export function tramosDeEntidad(feature, episodios) {
   const props = feature.properties || {};
   const out = [];
   for (const ap of props.apariciones || []) {
     const ep = episodios.find((e) => e.n === ap.episodio);
-    const desde = Number.isFinite(ap.desde) ? ap.desde : ep?.desde;
-    const hasta = Number.isFinite(ap.hasta) ? ap.hasta : ep?.hasta;
-    if (!Number.isFinite(desde) || !Number.isFinite(hasta) || hasta <= desde) continue;
-    out.push({ desde, hasta, episodio: ap.episodio, nota: ap.nota || null, camara: ap.camara !== false });
+    if (!ep) continue;
+    const dentroDesde = Number.isFinite(ap.desde) ? Math.max(0, ap.desde) : 0;
+    const dentroHasta = Number.isFinite(ap.hasta) ? Math.min(ep.duracion, ap.hasta) : ep.duracion;
+    if (dentroHasta <= dentroDesde) continue;
+    out.push({
+      desde: ep.inicio + dentroDesde,
+      hasta: ep.inicio + dentroHasta,
+      dentroDesde,
+      dentroHasta,
+      episodio: ap.episodio,
+      ep,
+      nota: ap.nota || null,
+      camara: ap.camara !== false,
+    });
   }
   return out.sort((a, b) => a.desde - b.desde);
 }

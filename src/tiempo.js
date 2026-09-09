@@ -8,7 +8,7 @@
  */
 
 import * as Cesium from 'cesium';
-import { construirRecorrido, episodioEn, formatearTiempo, poseEn } from './recorrido.js';
+import { construirRecorrido, enlaceYoutube, episodioEn, formatearTiempo, poseEn, segundoEnEpisodio } from './recorrido.js';
 import { nombreMostrado } from './capas/ficcion.js';
 
 const VELOCIDADES = [1, 5, 10, 30];
@@ -67,10 +67,10 @@ export class LineaTiempo {
       const nudo = document.createElement('button');
       nudo.type = 'button';
       nudo.className = 'quipu-nudo';
-      nudo.style.left = `${(ep.desde / this.duracion) * 100}%`;
-      nudo.title = `Episodio ${ep.n}, ${ep.titulo} (${formatearTiempo(ep.desde)})`;
+      nudo.style.left = `${(ep.inicio / this.duracion) * 100}%`;
+      nudo.title = `Episodio ${ep.n}, ${ep.titulo}`;
       nudo.setAttribute('aria-label', nudo.title);
-      nudo.addEventListener('click', () => { this.pausar({ silencioso: true }); this.setTiempo(ep.desde); });
+      nudo.addEventListener('click', () => { this.pausar({ silencioso: true }); this.setTiempo(ep.inicio); });
       cuerda.append(nudo);
     }
     this._cabezal = document.createElement('div');
@@ -98,7 +98,13 @@ export class LineaTiempo {
     this._lecturaEpisodio.className = 'quipu-episodio';
     this._lecturaLugar = document.createElement('span');
     this._lecturaLugar.className = 'quipu-lugar';
-    this._lectura.append(this._lecturaTiempo, this._lecturaEpisodio, this._lecturaLugar);
+    this._verEnYoutube = document.createElement('a');
+    this._verEnYoutube.className = 'quipu-ver';
+    this._verEnYoutube.target = '_blank';
+    this._verEnYoutube.rel = 'noopener';
+    this._verEnYoutube.textContent = 'Ver el episodio aquí';
+    this._verEnYoutube.title = 'Abre el episodio en YouTube en este segundo';
+    this._lectura.append(this._lecturaTiempo, this._lecturaEpisodio, this._lecturaLugar, this._verEnYoutube);
 
     this._velocidad = document.createElement('select');
     this._velocidad.className = 'quipu-velocidad';
@@ -148,9 +154,14 @@ export class LineaTiempo {
     const ep = episodioEn(this.episodios, this.t);
     const destino = progreso > 0 && siguiente ? siguiente : parada;
     const lugar = destino ? nombreMostrado(destino.feature.properties).principal : '';
-    this._lecturaTiempo.textContent = formatearTiempo(this.t);
+    // Se lee el minuto DEL EPISODIO, que es el que el visitante puede buscar en YouTube.
+    const dentro = segundoEnEpisodio(this.episodios, this.t);
+    this._lecturaTiempo.textContent = formatearTiempo(dentro);
     this._lecturaEpisodio.textContent = ep ? `Episodio ${ep.n}, ${ep.titulo}` : '';
     this._lecturaLugar.textContent = lugar ? (progreso > 0 ? `hacia ${lugar}` : lugar) : '';
+    const url = ep ? enlaceYoutube(ep, dentro) : null;
+    this._verEnYoutube.hidden = !url;
+    if (url) this._verEnYoutube.href = url;
     this._pintarCabezal();
     const paradaId = parada?.id || null;
     if (paradaId !== this._paradaId) {

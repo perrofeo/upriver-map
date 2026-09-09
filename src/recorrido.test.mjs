@@ -2,12 +2,13 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   construirRecorrido, formatearTiempo, interpolarPose, poseDeEntidad, poseEn, tramosDeEntidad, episodioEn,
+  segundoEnEpisodio, enlaceYoutube,
 } from './recorrido.js';
 
 const episodios = [
-  { n: 1, desde: 0, hasta: 100 },
-  { n: 2, desde: 100, hasta: 200 },
-  { n: 3, desde: 200, hasta: 300 },
+  { n: 1, inicio: 0, duracion: 100, youtubeId: 'AAA' },
+  { n: 2, inicio: 100, duracion: 100, youtubeId: 'BBB' },
+  { n: 3, inicio: 200, duracion: 100 },
 ];
 const punto = (id, lon, lat, tipo, apariciones, extra = {}) => ({
   type: 'Feature', id, geometry: { type: 'Point', coordinates: [lon, lat] },
@@ -21,21 +22,26 @@ test('formatearTiempo', () => {
   assert.equal(formatearTiempo(3661), '1:01:01');
 });
 
-test('tramos: el episodio entero si no hay desde/hasta, y camara:false se conserva', () => {
-  const f = punto('a', 0, 0, 'asentamiento', [{ episodio: 2 }, { episodio: 1, desde: 10, hasta: 20, camara: false }]);
-  assert.deepEqual(tramosDeEntidad(f, episodios), [
-    { desde: 10, hasta: 20, episodio: 1, nota: null, camara: false },
-    { desde: 100, hasta: 200, episodio: 2, nota: null, camara: true },
+test('tramos: segundos de episodio → segundos de serie; el episodio entero si no hay desde/hasta', () => {
+  const f = punto('a', 0, 0, 'asentamiento', [{ episodio: 2 }, { episodio: 2, desde: 10, hasta: 20, camara: false }]);
+  const t = tramosDeEntidad(f, episodios).map(({ desde, hasta, dentroDesde, dentroHasta, episodio, camara }) => ({ desde, hasta, dentroDesde, dentroHasta, episodio, camara }));
+  assert.deepEqual(t, [
+    { desde: 100, hasta: 200, dentroDesde: 0, dentroHasta: 100, episodio: 2, camara: true },
+    { desde: 110, hasta: 120, dentroDesde: 10, dentroHasta: 20, episodio: 2, camara: false },
   ]);
   assert.equal(episodioEn(episodios, 150).n, 2);
   assert.equal(episodioEn(episodios, 300).n, 3);
+  assert.equal(segundoEnEpisodio(episodios, 150), 50);
+  assert.equal(enlaceYoutube(episodios[1], 50.7), 'https://youtu.be/BBB?t=50');
+  assert.equal(enlaceYoutube(episodios[0], 0), 'https://youtu.be/AAA');
+  assert.equal(enlaceYoutube(episodios[2], 5), null);
 });
 
 test('recorrido: ordenado, sin partes ni menciones, y los solapes se recortan', () => {
   const a = punto('a', -74, -5, 'asentamiento', [{ episodio: 1 }, { episodio: 3 }]);
   const b = punto('b', -75, -4.8, 'accidente', [{ episodio: 2 }, { episodio: 1, camara: false }]);
   const c = punto('c', -75.1, -4.8, 'asentamiento', [{ episodio: 2 }], { parte_de: 'b' });
-  const d = punto('d', -75.2, -4.7, 'localizacion', [{ episodio: 2, desde: 150 }]);
+  const d = punto('d', -75.2, -4.7, 'localizacion', [{ episodio: 2, desde: 50 }]);
   const r = construirRecorrido([a, b, c, d], episodios);
   assert.deepEqual(r.map((p) => [p.id, p.desde, p.hasta]), [
     ['a', 0, 100], ['b', 100, 150], ['d', 150, 200], ['a', 200, 300],
@@ -55,6 +61,7 @@ test('poseEn: quieta dentro de la parada, interpolada en el hueco, determinista'
   const a = punto('a', -74, -5, 'asentamiento', [{ episodio: 1, hasta: 80 }]);
   const b = punto('b', -75, -4.8, 'accidente', [{ episodio: 2 }]);
   const r = construirRecorrido([a, b], episodios);
+  assert.deepEqual(r.map((p) => [p.desde, p.hasta]), [[0, 80], [100, 200]]);
   const pa = poseDeEntidad(a);
   const pb = poseDeEntidad(b);
   assert.deepEqual(poseEn(r, 40).pose, pa);

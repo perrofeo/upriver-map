@@ -12,7 +12,7 @@ lleva `placeholder: true` hasta que Igor sitúe cada entidad sobre el mapa defin
 | `accidentes.geojson` | accidentes geográficos con nombre propio | Point |
 | `localizaciones.geojson` | lugares de escena que no son asentamiento ni accidente | Point |
 | `hidrografia.geojson` | textura del río sin nombre: cochas, islas, playas, bosque inundado (`subtipo`) | Polygon |
-| `episodios.json` | entrada y salida de cada episodio en la película (segundos) | — |
+| `episodios.json` | los diez episodios de la serie publicada: duración, inicio en la concatenación, id de YouTube | — |
 
 ## Propiedades de cada Feature
 
@@ -26,7 +26,7 @@ lleva `placeholder: true` hasta que Igor sitúe cada entidad sobre el mapa defin
 | `nombre` | `{ es, qu }` | topónimo en castellano y en quechua imperial (cuzco-collao, MINEDU 2013). `qu: null` si no existe |
 | `lengua` | `es · qu` | cuál se muestra como principal. Regla de la obra: el quechua es la lengua del imperio y no se traduce, así que los lugares imperiales con nombre quechua llevan `qu` |
 | `descripcion` | texto | ficha (castellano) |
-| `apariciones` | `[{ episodio, desde?, hasta?, nota?, lugar? }]` | minutaje: si faltan `desde`/`hasta`, vale el tramo entero del episodio según `episodios.json`. `desde`/`hasta` van en **segundos de película**. `lugar` indica que la aparición ocurre en otra entidad (el barco en la ciudad) |
+| `apariciones` | `[{ episodio, desde?, hasta?, nota?, lugar? }]` | minutaje: si faltan `desde`/`hasta`, vale el episodio entero. `desde`/`hasta` van en **segundos dentro del episodio**, que es lo que enlaza al vídeo de YouTube en ese instante. `lugar` indica que la aparición ocurre en otra entidad (el barco en la ciudad) |
 | `estacion` | `ambas · vaciante · creciente` | en qué estación existe o es accesible |
 | `orden` | entero | posición en el eje del río, aguas abajo → arriba (solo nodos del viaje) |
 | `rango` (rutas) | `principal · secundario · oculto · viaje` | el río grande es la autopista; los secundarios son desvíos y caños; los ocultos no se ven desde el río grande |
@@ -52,14 +52,14 @@ ello está trazado como placeholder.
   Hanan, Chaupin y Urin vienen de la biblia y se declaran aquí como material extendido.
 - **No hay coordenadas.** Las de estos ficheros son placeholder sobre el bbox de
   `src/mundo.js` (referencia real: Pacaya Samiria).
-- **El minutaje de `episodios.json` es provisional** (ver su comentario).
+- **El minutaje es el de la serie publicada**, no el de la película de festivales (otro montaje, 40:43). Las duraciones de los episodios están medidas; los subtramos dentro de un episodio son provisionales.
 
 ## Apariciones y cámara
 
 - `apariciones[].camara: false` marca una aparición que **no mueve la cámara** (una mención, o
   algo que ocurre en otro lugar): cuenta para la ficha pero no para el recorrido.
 - `apariciones[].provisional: true` marca un tramo con `desde`/`hasta` estimados dentro del
-  episodio (los subtramos del EP04 y del EP10).
+  episodio (los subtramos del EP04 y del EP10). Los exactos salen del `.drt` de cada episodio.
 - `properties.camara` fija la pose de cámara de una entidad (`lon`, `lat`, `alt`, `heading`,
   `pitch`); sin ella se usa una pose por defecto según el tipo. Las poses capturadas con el
   director (`?autor`, CAPTURAR PLANO → EXPORTAR) van a `poses.json`, indexadas por id, y

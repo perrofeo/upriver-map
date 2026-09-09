@@ -85,8 +85,7 @@
         "apariciones": [
           {
             "episodio": 4,
-            "desde": 700.0,
-            "hasta": 846.083,
+            "desde": 100,
             "provisional": true
           }
         ],

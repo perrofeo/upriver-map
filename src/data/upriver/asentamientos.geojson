@@ -31,8 +31,8 @@
           {
             "episodio": 10,
             "nota": "plano final: Jeshuco flota con el palafito a un lado y el humo del imperio al otro",
-            "desde": 2370.0,
-            "hasta": 2425.0,
+            "desde": 210,
+            "hasta": 258,
             "provisional": true
           }
         ],
@@ -100,8 +100,8 @@
           {
             "episodio": 10,
             "nota": "vuelven",
-            "desde": 2290.0,
-            "hasta": 2370.0,
+            "desde": 150,
+            "hasta": 210,
             "provisional": true
           }
         ],
@@ -138,8 +138,8 @@
           {
             "episodio": 10,
             "nota": "inundada",
-            "desde": 2077.0,
-            "hasta": 2290.0,
+            "desde": 0,
+            "hasta": 150,
             "provisional": true
           }
         ],

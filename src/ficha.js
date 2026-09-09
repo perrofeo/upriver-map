@@ -8,7 +8,7 @@
  */
 
 import { nombreMostrado } from './capas/ficcion.js';
-import { formatearTiempo, tramosDeEntidad } from './recorrido.js';
+import { enlaceYoutube, formatearTiempo, tramosDeEntidad } from './recorrido.js';
 
 const ETIQUETA_TIPO = {
   asentamiento: 'Asentamiento',
@@ -94,18 +94,34 @@ export class Ficha {
       titulo.textContent = 'En la película';
       t.append(titulo);
       for (const tramo of tramos) {
-        const ep = this.episodios.find((e) => e.n === tramo.episodio);
+        const ep = tramo.ep;
+        const fila = document.createElement('div');
+        fila.className = 'ficha-aparicion';
         const b = document.createElement('button');
         b.type = 'button';
-        b.className = 'ficha-aparicion';
+        b.className = 'ficha-aparicion-ir';
+        b.title = 'Llevar el mapa a este momento';
         const tiempo = document.createElement('span');
         tiempo.className = 'ficha-tiempo';
-        tiempo.textContent = `${formatearTiempo(tramo.desde)} a ${formatearTiempo(tramo.hasta)}`;
+        const entero = tramo.dentroDesde === 0 && tramo.dentroHasta >= ep.duracion;
+        tiempo.textContent = entero ? 'Todo el episodio' : `${formatearTiempo(tramo.dentroDesde)} a ${formatearTiempo(tramo.dentroHasta)}`;
         const texto = document.createElement('span');
-        texto.textContent = `Episodio ${tramo.episodio}, ${ep?.titulo || ''}${tramo.nota ? `. ${tramo.nota[0].toUpperCase()}${tramo.nota.slice(1)}` : ''}`;
+        texto.textContent = `Episodio ${tramo.episodio}, ${ep.titulo}${tramo.nota ? `. ${tramo.nota[0].toUpperCase()}${tramo.nota.slice(1)}` : ''}`;
         b.append(tiempo, texto);
         b.addEventListener('click', () => this._irA(tramo.desde));
-        t.append(b);
+        fila.append(b);
+        const url = enlaceYoutube(ep, tramo.dentroDesde);
+        if (url) {
+          const a = document.createElement('a');
+          a.className = 'ficha-ver';
+          a.href = url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = 'Ver';
+          a.title = 'Ver este momento en YouTube';
+          fila.append(a);
+        }
+        t.append(fila);
       }
       el.append(t);
     }
