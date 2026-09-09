@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "_esquema": "ver src/data/upriver/README.md",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "barco",
+      "geometry": { "type": "Point", "coordinates": [-74.15, -5.05] },
+      "properties": {
+        "tipo": "localizacion",
+        "faccion": null,
+        "nombre": { "es": "El barco industrial", "qu": null },
+        "lengua": "es",
+        "descripcion": "Embarcación con trabajadores hispanohablantes, fondeada en el río. Reaparece atracada en el puerto de la ciudad.",
+        "apariciones": [
+          { "episodio": 2 },
+          { "episodio": 8, "nota": "atracado en el puerto imperial", "lugar": "ciudad" }
+        ],
+        "estacion": "ambas",
+        "orden": 2,
+        "notas": "Sin nombre en la obra.",
+        "fuente": "GUION_EPISODIO_02_EL_OTRO_MUNDO.md; prompts/episodio_08/shot_18B_barco_ep2_atracado.md",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "rapidos",
+      "geometry": { "type": "Point", "coordinates": [-74.38, -5.00] },
+      "properties": {
+        "tipo": "localizacion",
+        "faccion": "ninguna",
+        "nombre": { "es": "Los rápidos", "qu": null },
+        "lengua": "es",
+        "descripcion": "Los rápidos antes del campamento minero.",
+        "apariciones": [ { "episodio": 4 } ],
+        "estacion": "ambas",
+        "notas": "Sin nombre propio en la obra.",
+        "fuente": "GUION_EPISODIO_04_EL_RASTRO_DEL_VENENO.md",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "sitio-ritual",
+      "geometry": { "type": "Point", "coordinates": [-75.15, -4.76] },
+      "properties": {
+        "tipo": "localizacion",
+        "faccion": "kukama",
+        "nombre": { "es": "El sitio del ritual", "qu": null },
+        "lengua": "es",
+        "descripcion": "Aguas abajo de la ciudad. Donde se libera a la Yacumama.",
+        "apariciones": [ { "episodio": 9 } ],
+        "estacion": "ambas",
+        "orden": 7,
+        "notas": "Sin nombre en la obra.",
+        "fuente": "GUION_EPISODIO_09_EL_RITUAL.md",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "humo-horizonte",
+      "geometry": { "type": "Point", "coordinates": [-75.60, -4.50] },
+      "properties": {
+        "tipo": "localizacion",
+        "faccion": "imperio",
+        "nombre": { "es": "El humo del horizonte", "qu": null },
+        "lengua": "es",
+        "descripcion": "Las columnas de humo del plano final: el imperio tiene más ciudades.",
+        "apariciones": [ { "episodio": 10, "nota": "plano final" } ],
+        "estacion": "ambas",
+        "orden": 8,
+        "notas": "No es un lugar visitado: es lo que se ve desde el palafito.",
+        "fuente": "pelicula/DOSSIER_UPRIVER.md (nota del director)",
+        "placeholder": true
+      }
+    }
+  ]
+}

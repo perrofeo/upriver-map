@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "_esquema": "ver src/data/upriver/README.md",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "tres-gargantas",
+      "geometry": { "type": "Point", "coordinates": [-74.70, -4.90] },
+      "properties": {
+        "tipo": "accidente",
+        "faccion": "kukama",
+        "nombre": { "es": "Las Tres Gargantas", "qu": null },
+        "lengua": "es",
+        "descripcion": "Tres cascadas y la maloca de Ayahumo. El único lugar con nombre en toda la obra.",
+        "apariciones": [
+          { "episodio": 3, "nota": "se nombra" },
+          { "episodio": 5, "nota": "se llega" },
+          { "episodio": 6, "nota": "la maloca; la visión" },
+          { "episodio": 7, "nota": "se deja atrás" }
+        ],
+        "estacion": "ambas",
+        "orden": 4,
+        "notas": "EN: the Three Gorges. EU: Hiru Arroiletan.",
+        "fuente": "GUION_EPISODIO_05_LAS_TRES_GARGANTAS.md; srt/UPRIVER_PELICULA_v2.srt cues 6, 17, 19",
+        "placeholder": true
+      }
+    }
+  ]
+}

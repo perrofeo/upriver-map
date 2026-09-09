@@ -1,0 +1,16 @@
+{
+  "_comentario": "Entrada de cada episodio en la película v2 continua (40:43,1 = 2443,136 s). PROVISIONAL: EP02, EP03, EP05, EP06, EP07, EP09 y EP10 se han medido casando los cues de srt/EPnn_EN.srt contra srt/UPRIVER_PELICULA_v2.srt; EP01, EP04 y EP08 no tienen SRT y se deducen de las duraciones de conform.py. La fuente definitiva es el .drt del timeline «UPRIVER - PELICULA v2 continua» (leer_drt.py).",
+  "duracion": 2443.136,
+  "episodios": [
+    { "n": 1,  "titulo": "El Descubrimiento",     "desde": 0.0,     "hasta": 147.209,  "provisional": true, "medido": false },
+    { "n": 2,  "titulo": "El Otro Mundo",         "desde": 147.209, "hasta": 407.25,   "provisional": true, "medido": "2 cues" },
+    { "n": 3,  "titulo": "Las Últimas Palabras",  "desde": 407.25,  "hasta": 597.9,    "provisional": true, "medido": "13 cues" },
+    { "n": 4,  "titulo": "El Rastro del Veneno",  "desde": 597.9,   "hasta": 846.083,  "provisional": true, "medido": false },
+    { "n": 5,  "titulo": "Las Tres Gargantas",    "desde": 846.083, "hasta": 1086.583, "provisional": true, "medido": "15 cues" },
+    { "n": 6,  "titulo": "La Visión",             "desde": 1086.583,"hasta": 1324.0,   "provisional": true, "medido": "6 cues" },
+    { "n": 7,  "titulo": "La Comunidad",          "desde": 1324.0,  "hasta": 1538.083, "provisional": true, "medido": "17 cues" },
+    { "n": 8,  "titulo": "La Confrontación",      "desde": 1538.083,"hasta": 1806.166, "provisional": true, "medido": false },
+    { "n": 9,  "titulo": "El Ritual",             "desde": 1806.166,"hasta": 2077.0,   "provisional": true, "medido": "11 cues" },
+    { "n": 10, "titulo": "Río Arriba",            "desde": 2077.0,  "hasta": 2443.136, "provisional": true, "medido": "1 cue" }
+  ]
+}

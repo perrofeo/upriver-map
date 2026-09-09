@@ -27,7 +27,6 @@ const REGISTERED = [
 ];
 
 /** Layers Space Missions permits while it isolates the globe (contextModePolicy). */
-const SPACE_MISSIONS_ALLOWED = new Set(['rocket-launches', 'satellites', 'radio']);
 
 const PROJECT_FIXTURE = {
   version: 3,
@@ -234,67 +233,6 @@ test('a shot captured while tracking never re-establishes tracking on playback',
   }
 });
 
-test('a dirty Space Missions state is exited before a recipe applies its layers', async () => {
-  // Space Missions refuses every enable outside its own replay bundle. The old
-  // full-registry walk dismantled it by accident; the sparse policy never does,
-  // so all four Flights Radar enables were refused and reported as success.
-  const style = { contextMode: 'space-missions' };
-  const holder = {};
-  const data = {
-    refuse: (id, on) => on
-      && holder.styleManager?.contextMode === 'space-missions'
-      && !SPACE_MISSIONS_ALLOWED.has(id),
-  };
-  const { director, styleManager, dataManager, restore } = makeDirector({ style, data });
-  holder.styleManager = styleManager;
-  try {
-    const result = await director._applyLayerStates(recipeLayers('flights-radar'));
-
-    assert.deepEqual(styleManager.contextExits, ['off']);
-    assert.equal(styleManager.contextMode, null);
-    assert.deepEqual(result.refused, []);
-    assert.ok(result.applied.includes('flights'));
-    assert.deepEqual(
-      dataManager.setEnabledCalls.filter((call) => call.enabled).map((call) => call.id),
-      ['flights'],
-    );
-  } finally {
-    restore();
-  }
-});
-
-test('Orbital Watch does not compose over a Space Missions replay', async () => {
-  // Orbital Watch declares satellites, which the guard permits — so nothing is
-  // refused and a refusal-only check would pass while rocket-launches stayed
-  // on screen. Playback leaves an isolating mode whether or not it refuses.
-  const { director, styleManager, dataManager, restore } = makeDirector({
-    style: { contextMode: 'space-missions' },
-  });
-  try {
-    await director._applyLayerStates(recipeLayers('orbital-watch'));
-    assert.deepEqual(styleManager.contextExits, ['off']);
-    assert.equal(
-      dataManager.setEnabledCalls.some((call) => call.id === 'rocket-launches'),
-      false,
-      'the recipe never declares rocket-launches; exiting the mode is what clears it',
-    );
-  } finally {
-    restore();
-  }
-});
-
-test('a non-isolating context mode is left alone', async () => {
-  for (const contextMode of [null, 'flights']) {
-    const { director, styleManager, restore } = makeDirector({ style: { contextMode } });
-    try {
-      await director._applyLayerStates({ flights: { enabled: true } });
-      assert.deepEqual(styleManager.contextExits, [], `${contextMode} must not be exited`);
-    } finally {
-      restore();
-    }
-  }
-});
-
 test('a refused layer is reported, never counted as applied', async () => {
   const { director, dataManager, restore } = makeDirector({
     data: { refuse: (id) => id === 'flights' },
@@ -471,48 +409,16 @@ test('a newer LOAD aborts the previous LOAD transition rather than disowning it'
   }
 });
 
-test('applyVisualState gates the map-stack switch on both sides of its await', () => {
-  // The other half of the contract, and the half these doubles cannot see.
-  // ui.js cannot be imported here (its mgrs dependency is CJS), so this pins
-  // the structure the way the repo pins other cross-module shape
-  // (cockpitMarkup.test.mjs), while qa-shots/scenes-audit.mjs proves the
-  // BEHAVIOUR against the real StyleManager in a browser.
-  //
-  // Gating only the post-await uniform commit is not enough: the stack switch
-  // is ITSELF a mutation. The controller invalidates a switch only when
-  // another setStack() arrives, and a winning state that omits `mapStack`
-  // never issues one — every normalized scene shot omits it — so a stale
-  // switch would otherwise stand on the globe.
-  const source = fs.readFileSync(new URL('../ui.js', import.meta.url), 'utf8');
+test('applyVisualState comprueba la vigencia del llamante antes de mutar', () => {
+  // estilos.js no se puede importar aquí (importa cesium), así que se pinea la
+  // estructura: la fachada existe con la firma que el director espera y
+  // consulta `isCurrent` antes de tocar ningún estado.
+  const source = fs.readFileSync(new URL('../estilos.js', import.meta.url), 'utf8');
   const method = source.match(/\n {2}async applyVisualState\([\s\S]*?\n {2}\}\n/);
-  assert.ok(method, 'applyVisualState is missing from ui.js');
+  assert.ok(method, 'falta applyVisualState en estilos.js');
   assert.match(method[0], /async applyVisualState\(state = \{\}, \{ isCurrent = null \} = \{\}\)/);
-
-  const mapStackBlock = method[0].match(/if \(state\.mapStack\) \{[\s\S]*?\n {4}\}/);
-  assert.ok(mapStackBlock, 'the map-stack block is missing from applyVisualState');
-  const block = mapStackBlock[0];
-
-  // Before: an already-superseded caller must not start the switch at all.
-  assert.match(
-    block,
-    /if \(superseded\(\)\) return false;\s*const stackBefore =/,
-    'the switch must be skipped outright when the caller is already superseded',
-  );
-  // After: supersession that landed DURING the switch must put the globe back.
-  assert.match(
-    block,
-    /await this\._setMapStack\(state\.mapStack[\s\S]*?if \(superseded\(\)\) \{[\s\S]*?await this\._setMapStack\(stackBefore/,
-    'a switch superseded mid-flight must be reverted to the stack the winner inherited',
-  );
-  // And only what is still ours — a newer switch owns the globe, never revert it.
-  assert.match(block, /getSwitchGeneration/, 'the revert must consult the switch generation');
-  assert.match(
-    block,
-    /if \(globeIsStillOurs && stackBefore && landed !== stackBefore\) \{\s*await this\._setMapStack\(stackBefore/,
-    'the revert must be guarded by the generation check and the stack that actually landed',
-  );
+  assert.match(method[0], /if \(superseded\(\)\) return false;/);
 });
-
 test('a superseded LOAD is refused its visual commit', async () => {
   // applyVisualState suspends on a map-stack switch and writes its shader
   // uniforms AFTER that await. A stale LOAD resuming there would commit the

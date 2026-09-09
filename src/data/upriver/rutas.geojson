@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "_esquema": "ver src/data/upriver/README.md",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "rio",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-73.72, -5.20], [-73.85, -5.16], [-73.95, -5.12], [-74.05, -5.10], [-74.15, -5.05],
+          [-74.28, -5.04], [-74.38, -5.00], [-74.45, -4.98], [-74.55, -4.97], [-74.63, -4.93],
+          [-74.70, -4.90], [-74.80, -4.86], [-74.88, -4.85], [-74.95, -4.82], [-75.05, -4.79],
+          [-75.15, -4.76], [-75.22, -4.73], [-75.30, -4.70], [-75.42, -4.66], [-75.55, -4.60],
+          [-75.68, -4.55]
+        ]
+      },
+      "properties": {
+        "tipo": "ruta",
+        "faccion": "ninguna",
+        "nombre": { "es": "El río", "qu": null },
+        "lengua": "es",
+        "descripcion": "La obra nunca lo nombra: es «el río». Fluye de oeste a este; subirlo es ir hacia el imperio.",
+        "apariciones": [ { "episodio": 1 }, { "episodio": 2 }, { "episodio": 3 }, { "episodio": 4 }, { "episodio": 5 }, { "episodio": 6 }, { "episodio": 7 }, { "episodio": 8 }, { "episodio": 9 }, { "episodio": 10 } ],
+        "estacion": "ambas",
+        "notas": "Trazado placeholder. Referencia real: Pacaya Samiria.",
+        "fuente": "pelicula/DOSSIER_UPRIVER.md §Mundo",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "viaje",
+      "geometry": { "type": "LineString", "coordinates": [] },
+      "properties": {
+        "tipo": "ruta",
+        "faccion": "kukama",
+        "nombre": { "es": "El viaje de Jeshuco", "qu": null },
+        "lengua": "es",
+        "descripcion": "Río arriba desde el palafito hasta la ciudad, y la vuelta.",
+        "paradas": ["palafito", "barco", "rapidos", "campamento-minero", "tres-gargantas", "comunidad", "ciudad", "sitio-ritual", "ciudad", "comunidad", "palafito"],
+        "apariciones": [],
+        "estacion": "ambas",
+        "notas": "La geometría se deriva de las paradas sobre el río; no se dibuja aparte.",
+        "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md",
+        "placeholder": true
+      }
+    }
+  ]
+}

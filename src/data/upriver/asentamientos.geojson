@@ -1,0 +1,127 @@
+{
+  "type": "FeatureCollection",
+  "_esquema": "ver src/data/upriver/README.md",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "palafito",
+      "geometry": { "type": "Point", "coordinates": [-73.95, -5.12] },
+      "properties": {
+        "tipo": "asentamiento",
+        "faccion": "kukama",
+        "nombre": { "es": "El palafito del abuelo", "qu": null },
+        "lengua": "es",
+        "descripcion": "Hogar de Jeshuco y de su abuelo Yawá, río abajo. Abre y cierra la película.",
+        "apariciones": [
+          { "episodio": 1 },
+          { "episodio": 3 },
+          { "episodio": 10, "nota": "plano final: Jeshuco flota con el palafito a un lado y el humo del imperio al otro" }
+        ],
+        "estacion": "ambas",
+        "orden": 1,
+        "notas": "Sin nombre en la obra.",
+        "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "comunidad",
+      "geometry": { "type": "Point", "coordinates": [-74.95, -4.82] },
+      "properties": {
+        "tipo": "asentamiento",
+        "faccion": "kukama",
+        "nombre": { "es": "El campamento de los refugiados", "qu": null },
+        "lengua": "es",
+        "descripcion": "Asentamiento de desplazados amazónicos, río arriba de Las Tres Gargantas.",
+        "apariciones": [
+          { "episodio": 7 },
+          { "episodio": 10, "nota": "vuelven" }
+        ],
+        "estacion": "ambas",
+        "orden": 5,
+        "notas": "Sin nombre en la obra.",
+        "fuente": "GUION_EPISODIO_07_LA_COMUNIDAD.md",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ciudad",
+      "geometry": { "type": "Point", "coordinates": [-75.30, -4.70] },
+      "properties": {
+        "tipo": "asentamiento",
+        "faccion": "imperio",
+        "nombre": { "es": "La ciudad del imperio", "qu": "Chimor Yaku" },
+        "lengua": "qu",
+        "descripcion": "Capital inca-industrial, ciudad-puerto en tres estratos. Destino del viaje.",
+        "apariciones": [
+          { "episodio": 8 },
+          { "episodio": 10, "nota": "inundada" }
+        ],
+        "estacion": "ambas",
+        "orden": 6,
+        "notas": "«Chimor Yaku» («agua de Chimor») procede de la biblia (03_PERSONAJES.md, UCRONIA_INTEGRACION.md) y nunca se pronuncia en pantalla. Se muestra en quechua, sin traducir, siguiendo la regla de la obra: el quechua es la lengua del imperio.",
+        "fuente": "UCRONIA_INTEGRACION.md; GUION_EPISODIO_08",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hanan",
+      "geometry": { "type": "Point", "coordinates": [-75.33, -4.675] },
+      "properties": {
+        "tipo": "asentamiento",
+        "parte_de": "ciudad",
+        "faccion": "imperio",
+        "nombre": { "es": "La Ciudad del Sol", "qu": "Hanan" },
+        "lengua": "qu",
+        "descripcion": "Estrato alto de la ciudad: templos de tumbaga, la élite.",
+        "apariciones": [ { "episodio": 8 } ],
+        "estacion": "ambas",
+        "notas": "Hanan = «arriba». De la biblia (UCRONIA_INTEGRACION.md §2), no se nombra en pantalla.",
+        "fuente": "UCRONIA_INTEGRACION.md",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chaupin",
+      "geometry": { "type": "Point", "coordinates": [-75.30, -4.70] },
+      "properties": {
+        "tipo": "asentamiento",
+        "parte_de": "ciudad",
+        "faccion": "imperio",
+        "nombre": { "es": "La Fundición", "qu": "Chaupin" },
+        "lengua": "qu",
+        "descripcion": "Estrato medio: fundiciones, canales-turbina, mercado.",
+        "apariciones": [ { "episodio": 8 } ],
+        "estacion": "ambas",
+        "notas": "Chaupin = «medio». De la biblia, no se nombra en pantalla.",
+        "fuente": "UCRONIA_INTEGRACION.md",
+        "placeholder": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "urin",
+      "geometry": { "type": "Point", "coordinates": [-75.265, -4.725] },
+      "properties": {
+        "tipo": "asentamiento",
+        "parte_de": "ciudad",
+        "faccion": "imperio",
+        "nombre": { "es": "El Fango", "qu": "Urin" },
+        "lengua": "qu",
+        "descripcion": "Estrato bajo, barrio paria de adobe y totora. Es el primero que se inunda.",
+        "apariciones": [
+          { "episodio": 8 },
+          { "episodio": 10, "nota": "la crecida se lo lleva primero" }
+        ],
+        "estacion": "vaciante",
+        "notas": "Urin = «abajo». De la biblia; «El Fango» también. En creciente queda bajo el agua.",
+        "fuente": "UCRONIA_INTEGRACION.md; GUION_EPISODIO_10_RIO_ARRIBA.md",
+        "placeholder": true
+      }
+    }
+  ]
+}

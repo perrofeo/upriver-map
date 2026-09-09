@@ -18,7 +18,7 @@
 // registry (director._captureLayerStates), so those shots declare all sixteen
 // keys and still reconcile in full.
 
-import { contextLayerEnableBlockReason } from '../contextModePolicy.js';
+// Sin modos de contexto en Upriver: ningún modo aísla el globo.
 
 /**
  * Layer params that re-establish a tracked contact — and with it a SECOND
@@ -121,11 +121,8 @@ export const SCENE_EXCLUSIVITY_PROBE_LAYER_ID = '__scene-exclusivity-probe__';
  * @returns {boolean} Whether playback must leave the mode first.
  */
 export function sceneRequiresContextModeExit(contextMode) {
-  if (!contextMode) return false;
-  return contextLayerEnableBlockReason({
-    contextMode,
-    change: { layerId: SCENE_EXCLUSIVITY_PROBE_LAYER_ID, enabled: true },
-  }) !== null;
+  // Upriver no tiene modos de contexto: nada que abandonar antes de un plano.
+  return false;
 }
 
 /**
