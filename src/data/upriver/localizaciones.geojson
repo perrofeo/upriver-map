@@ -161,8 +161,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.6,
-          -5.12
+          -73.65,
+          -5.25
         ]
       },
       "properties": {
@@ -173,7 +173,7 @@
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Las columnas de humo del plano final, al suroeste, tierra adentro: el imperio tiene más chimeneas que las de la ciudad.",
+        "descripcion": "Las columnas de humo del plano final, al sudeste, en tierras que Jeshuco no conoce: el imperio tiene más chimeneas que las de la ciudad, y en la dirección contraria a su viaje.",
         "apariciones": [
           {
             "episodio": 10,
@@ -185,14 +185,14 @@
         ],
         "estacion": "ambas",
         "orden": 8,
-        "notas": "No es un lugar visitado: es lo que se ve desde el palafito mirando hacia el interior del imperio. La cámara se coloca sobre el palafito mirando al suroeste. Qué humea ahí no lo dice la obra.",
+        "notas": "No es un lugar visitado: es lo que se ve desde el palafito mirando al sudeste. Igor (2026-09-09): «lo pondría más al sudeste, en un lugar que no conoce Jeshuco». Qué humea ahí no lo dice la obra.",
         "fuente": "pelicula/DOSSIER_UPRIVER.md (nota del director)",
         "placeholder": true,
         "camara": {
           "lon": -73.97,
           "lat": -4.76,
           "alt": 900,
-          "heading": 232,
+          "heading": 138,
           "pitch": -6
         }
       }
