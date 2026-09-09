@@ -50,6 +50,25 @@
   <div id="ficha" hidden></div>
   <div id="linea-tiempo" hidden></div>
 
+  <!-- Modo autor: visible con ?autor -->
+  <div id="panel-autor" hidden>
+    <h2>Modo autor</h2>
+    <p class="autor-linea">Puntero: <span id="autor-coord">—</span> <button id="autor-copiar-coord" class="autor-btn" type="button">Copiar</button></p>
+    <p class="autor-ayuda">Arrastra un lugar para moverlo. Con el quipu en un momento, fija dónde empieza o termina su aparición.</p>
+    <h3 id="autor-seleccionado">Ningún lugar seleccionado</h3>
+    <div id="autor-apariciones"></div>
+    <div class="autor-fila">
+      <button id="autor-camara" class="autor-btn" type="button">Cámara aquí</button>
+      <button id="autor-camara-quitar" class="autor-btn" type="button">Quitar cámara</button>
+    </div>
+    <div class="autor-fila">
+      <button id="autor-exportar" class="autor-btn autor-btn-principal" type="button">Exportar datos</button>
+      <button id="autor-descartar" class="autor-btn" type="button">Descartar cambios</button>
+      <button id="autor-director" class="autor-btn" type="button">Director</button>
+    </div>
+    <p id="autor-estado" class="autor-estado"></p>
+  </div>
+
   <!-- Director de escenas: herramienta de autoría, visible con ?autor -->
   <div id="scene-panel" hidden>
     <h2>Escenas <small>(autoría)</small></h2>

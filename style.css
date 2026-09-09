@@ -120,6 +120,23 @@ input[type=range] { width: 100%; margin: 6px 0 2px; accent-color: var(--tumbaga)
 .quipu-lugar { font-style: italic; color: var(--tumbaga); overflow: hidden; text-overflow: ellipsis; }
 .quipu-velocidad { grid-column: 3; grid-row: 1; background: var(--adobe); color: var(--hueso); border: 1px solid var(--adobe-claro); padding: 6px 8px; font-size: 14px; }
 
+/* ── Modo autor ──────────────────────────────────────────────────────────── */
+#panel-autor { position: fixed; top: 84px; right: 20px; width: 324px; max-height: 46vh; overflow: auto; padding: 10px 14px 12px; background: var(--adobe); border-top: 8px solid transparent; border-image: var(--tocapu) 8 0 0 0 / 8px 0 0 0 stretch; }
+#panel-autor h2 { margin: 0 0 6px; font-size: 15px; font-weight: 700; }
+#panel-autor h3 { margin: 8px 0 4px; font-size: 15px; font-weight: 700; color: var(--tumbaga); }
+.autor-linea, .autor-ayuda, .autor-estado { margin: 4px 0; font-size: 13px; color: var(--hollin); }
+.autor-linea span { color: var(--hueso); font-variant-numeric: tabular-nums; }
+.autor-estado { color: var(--tumbaga); font-style: italic; }
+.autor-ap { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; border-top: 1px solid var(--adobe-claro); padding: 4px 0; font-size: 13px; }
+.autor-ap > span { flex-basis: 100%; }
+.autor-fila { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
+.autor-btn { background: var(--adobe-claro); color: var(--hueso); border: 1px solid transparent; padding: 3px 8px; font-size: 12px; }
+.autor-btn:hover { border-color: var(--tumbaga); }
+.autor-btn-principal { background: var(--tumbaga); color: var(--piedra); }
+body.autor #ficha { top: calc(84px + 46vh + 12px); max-height: calc(54vh - 220px); }
+body.autor #scene-panel { top: auto; bottom: 118px; right: 20px; }
+body.autor #scene-panel:not([hidden]) ~ #ficha { top: calc(84px + 46vh + 12px); }
+
 /* ── Director (autoría) ──────────────────────────────────────────────────── */
 #scene-panel { position: fixed; top: 84px; right: 20px; width: 300px; padding: 10px 12px; }
 #scene-panel h2 { margin: 0 0 8px; font-size: 15px; font-weight: 700; }

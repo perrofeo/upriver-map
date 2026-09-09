@@ -39,6 +39,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
       interfaz.seleccion = fid;
       capas.resaltar(fid);
       ficha.mostrar(hallazgo.feature);
+      interfaz.alSeleccionar?.(fid);
       if (volar) {
         const entidad = hallazgo.capa.entidadDe(fid);
         if (entidad) viewer.flyTo(entidad, { duration: 1.6, offset: new Cesium.HeadingPitchRange(0, Cesium.Math.toRadians(-45), 12_000) });
@@ -78,6 +79,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
     capas.resaltar(null);
     ficha.ocultar();
     enlace.programar();
+    interfaz.alSeleccionar?.(null);
   }
 
   // ── Estación ──────────────────────────────────────────────────────────

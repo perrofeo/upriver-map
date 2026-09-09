@@ -17,6 +17,7 @@ import { SceneDirector } from './scenes/director.js';
 import { installRenderGovernor, governorRequestRender, getRenderGovernorDiagnostics } from './renderGovernor.js';
 import { montarInterfaz } from './interfaz.js';
 import { crearCapaFiccion } from './capas/ficcion.js';
+import { montarAutor } from './autor.js';
 import episodiosJson from './data/upriver/episodios.json';
 import poses from './data/upriver/poses.json';
 import asentamientosRaw from './data/upriver/asentamientos.geojson?raw';
@@ -99,8 +100,10 @@ async function init() {
     const basemap = await new Basemap(viewer).init();
 
     const capas = new GestorCapas(viewer);
+    const colecciones = {};
     for (const def of CAPAS_FICCION) {
-      capas.register(crearCapaFiccion({ ...def, geojson: JSON.parse(def.geojson) }));
+      colecciones[def.id] = JSON.parse(def.geojson);
+      capas.register(crearCapaFiccion({ ...def, geojson: colecciones[def.id] }));
     }
     const estilos = new GestorEstilos(viewer, { onChange: () => enlace?.programar() });
 
@@ -115,7 +118,6 @@ async function init() {
     });
 
     const director = new SceneDirector(viewer, estilos, capas);
-    if (modoAutor) document.getElementById('scene-panel').hidden = false;
 
     installRenderGovernor(viewer);
 
@@ -153,6 +155,14 @@ async function init() {
     interfaz.sincronizar();
     enlace.activar();
 
+    // Modo autor: herramientas de corrección del mundo, solo con ?autor.
+    let autor = null;
+    if (modoAutor) {
+      autor = montarAutor({ viewer, capas, interfaz, estilos, episodios: episodiosJson.episodios, poses, colecciones });
+      interfaz.alSeleccionar = () => autor.pintar();
+      autor.pintar();
+    }
+
     // Pestaña oculta: parar el bucle de render (perf, gods-eye-view).
     const visibilidad = () => {
       viewer.useDefaultRenderLoop = !document.hidden;
@@ -164,7 +174,7 @@ async function init() {
     carga.classList.add('oculto');
 
     window.__upriver = {
-      viewer, basemap, estilos, capas, enlace, director, interfaz, MUNDO,
+      viewer, basemap, estilos, capas, enlace, director, interfaz, MUNDO, autor,
       diagnosticoRender: getRenderGovernorDiagnostics,
     };
   } catch (error) {

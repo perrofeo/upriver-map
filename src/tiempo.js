@@ -31,6 +31,7 @@ export class LineaTiempo {
     this.episodios = episodios;
     this.duracion = duracion;
     this.poses = poses;
+    this._features = features;
     this.recorrido = construirRecorrido(features, episodios);
     this._alCambiarParada = alCambiarParada;
     this._alCambiar = alCambiar;
@@ -126,6 +127,15 @@ export class LineaTiempo {
     const pct = (this.t / this.duracion) * 100;
     this._cabezal.style.left = `${pct}%`;
     this._progreso.style.width = `${pct}%`;
+  }
+
+  /** Rehace el recorrido tras editar datos (modo autor) y recoloca la cámara. */
+  reconstruir({ features, poses } = {}) {
+    if (features) this._features = features;
+    if (poses) this.poses = poses;
+    this.recorrido = construirRecorrido(this._features, this.episodios);
+    this._paradaId = null;
+    this.setTiempo(this.t);
   }
 
   /** Un gesto sobre el globo pausa la reproducción: exploración libre. */

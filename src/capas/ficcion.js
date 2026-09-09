@@ -273,6 +273,19 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
     entidadDe(fid) {
       return entidadesPorId.get(fid) || null;
     },
+    /**
+     * Mueve una entidad puntual (modo autor): actualiza la geometría del
+     * feature y la posición de la entidad en el globo.
+     */
+    moverEntidad(fid, lon, lat) {
+      const f = porId.get(fid);
+      const e = entidadesPorId.get(fid);
+      if (!f || !e || f.geometry.type !== 'Point') return false;
+      f.geometry.coordinates = [Number(lon.toFixed(5)), Number(lat.toFixed(5))];
+      e.position = Cesium.Cartesian3.fromDegrees(lon, lat, 0);
+      viewerRef?.scene.requestRender();
+      return true;
+    },
     /** Resalta una entidad (o ninguna con null). */
     resaltar(fid) {
       for (const [k, e] of entidadesPorId) {
