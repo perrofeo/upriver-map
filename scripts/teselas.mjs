@@ -13,7 +13,7 @@ import { access } from 'node:fs/promises';
 import path from 'node:path';
 import { MUNDO } from '../src/mundo.js';
 import { cortarTeselas } from './cortar_teselas.mjs';
-import { generarPlaceholder } from './mapa_placeholder.mjs';
+import { generarGrabado } from './mapa_grabado.mjs';
 
 const existe = (p) => access(p).then(() => true, () => false);
 const soloSiFaltan = process.argv.includes('--si-faltan');
@@ -26,11 +26,13 @@ for (const est of MUNDO.estaciones) {
   }
   let fuente = path.join('mapas', `${est}.png`);
   if (!(await existe(fuente))) {
-    // Sin mapa definitivo: el placeholder se regenera siempre, porque dibuja
-    // los datos de src/data/upriver y estos cambian.
-    fuente = path.join('mapas', `placeholder_${est}.png`);
-    console.log(`${est}: sin mapa definitivo, generando placeholder`);
-    await generarPlaceholder(est, fuente);
+    // Sin mapa pintado a mano: el mapa grabado se regenera siempre desde los
+    // datos de src/data/upriver, que cambian. ANCHO_GRABADO permite bajar la
+    // resolución en desarrollo (por defecto 8192).
+    fuente = path.join('mapas', `grabado_${est}.png`);
+    const ancho = Number(process.env.ANCHO_GRABADO) || 8192;
+    console.log(`${est}: sin mapa pintado a mano, dibujando el grabado a ${ancho} px`);
+    await generarGrabado(est, fuente, { ancho });
   }
   console.log(`${est}: ${fuente} → ${salida}`);
   await cortarTeselas({ imagen: fuente, salida, formato: 'webp', calidad: 82 });

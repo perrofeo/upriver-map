@@ -9,5 +9,6 @@ Thumbs.db
 # Teselas: se generan en el build a partir de mapas/ (npm run teselas)
 public/tiles/
 
-# Mapas placeholder: se regeneran con npm run placeholder. Los definitivos (mapas/<estacion>.png) sí se versionan.
+# Mapas generados: se redibujan desde los datos (npm run teselas). Los pintados a mano (mapas/<estacion>.png) sí se versionan.
 mapas/placeholder_*.png
+mapas/grabado_*.png

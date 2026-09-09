@@ -61,8 +61,11 @@ restringido al bbox con esa misma rejilla, así que no hay reproyección.
 | 8192×4096 | 0–4 | 682 | 54 |
 | 16384×8192 | 0–5 | 2.730 | 27 |
 
-Si `mapas/<estación>.png` no existe se genera un placeholder (retícula, río y nodos con nombre)
-en `mapas/placeholder_<estación>.png`. Los placeholders no se versionan; los definitivos sí.
+Si `mapas/<estación>.png` no existe, `scripts/mapa_grabado.mjs` dibuja el mapa desde los datos en
+`mapas/grabado_<estación>.png` (8192×4096, un minuto por estación): cartografía grabada en el estilo
+de `docs/DISENO.md`, sin rótulos, que se redibuja sola cada vez que cambian los datos y por tanto
+siempre cuadra con el globo. Los mapas generados no se versionan; un mapa pintado a mano sí, y
+manda sobre el generado. `ANCHO_GRABADO=4096 npm run teselas` acelera el ciclo en desarrollo.
 
 ## Estaciones
 

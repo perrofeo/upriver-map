@@ -20,7 +20,7 @@
     "prebuild": "node scripts/teselas.mjs --si-faltan",
     "preview": "vite preview",
     "test": "node --test \"src/**/*.test.mjs\"",
-    "placeholder": "node scripts/mapa_placeholder.mjs",
+    "grabado": "node scripts/mapa_grabado.mjs",
     "teselas": "node scripts/teselas.mjs",
     "peso": "node scripts/peso.mjs"
   },

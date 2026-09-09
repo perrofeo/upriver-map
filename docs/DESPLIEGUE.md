@@ -8,7 +8,7 @@
 | Sitio Netlify | `upriver-mapa` (equipo `igor-fuvhjxw`), id `c4cb66d9-f70c-4e4b-9bba-0ad35a2a3049` |
 | URL | https://mapa.therenderedchannel.com (alias: https://upriver-mapa.netlify.app) |
 | DNS | zona `therenderedchannel.com` en Netlify DNS; el registro `mapa` lo creó Netlify al asignar el dominio |
-| Build | `npm run build` → `dist/`; Node 24 (`netlify.toml`). `prebuild` corta las teselas si faltan |
+| Build | `npm run build` → `dist/`; Node 24 (`netlify.toml`). `prebuild` dibuja el mapa grabado a 8192 px y corta las teselas si faltan: unos tres minutos |
 
 Creado el 2026-09-09 por la API de Netlify con la GitHub App ya instalada en la cuenta
 (`installation_id` 452563). **Despliegue continuo:** cada push a `main` construye y publica.
@@ -49,7 +49,6 @@ fuera del origen). Si alguna vez aparece una, es una regresión.
 | JS y CSS propios | ~0,14 MB |
 | Cesium (motor, workers, texturas, Natural Earth II) | 12,5 MB |
 | Fuente Alegreya (dos ficheros) | 0,09 MB |
-| Teselas placeholder, dos estaciones | 0,45 MB |
+| Teselas del mapa grabado a 8192, dos estaciones, 1.364 teselas | ~7,5 MB |
 
-Con el mapa definitivo a 8192×4096 las teselas rondarán 10-20 MB por estación (WebP, calidad 82).
-Solo se descargan las que se ven: el visitante no paga el total.
+Solo se descargan las teselas que se ven: el visitante no paga el total.
