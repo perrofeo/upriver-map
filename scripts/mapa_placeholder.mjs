@@ -105,20 +105,8 @@ export async function generarPlaceholder(estacion, salida) {
     svg += `<line x1="0" y1="${y}" x2="${ANCHO}" y2="${y}" stroke="#ffffff" stroke-opacity="0.12" stroke-width="2"/>`;
     svg += `<text x="12" y="${y - 8}" font-family="monospace" font-size="28" fill="#ffffff" fill-opacity="0.5">${lat.toFixed(2)}°</text>`;
   }
-  // Entidades puntuales.
-  const puntos = [...asent.features, ...imperio.features, ...accidentes.features, ...locs.features]
-    .filter((f) => f.geometry.type === 'Point' && f.properties.etiqueta !== false);
-  for (const f of puntos) {
-    const [lon, lat] = f.geometry.coordinates;
-    const p = coordenadaAPixel(lon, lat, ANCHO, ALTO);
-    const inundado = creciente && f.properties.estacion === 'vaciante';
-    const color = f.properties.faccion === 'imperio' ? '#c99a3e' : f.properties.faccion === 'comerciantes' ? '#c98a5a' : '#e9dcc3';
-    const nombre = f.properties.nombre[f.properties.lengua] || f.properties.nombre.es;
-    svg += `<circle cx="${p.px}" cy="${p.py}" r="${f.properties.parte_de ? 10 : 18}" fill="${inundado ? agua : color}" stroke="#14110d" stroke-width="4"/>`;
-    if (!f.properties.parte_de || !creciente) {
-      svg += `<text x="${p.px + 26}" y="${p.py + (f.properties.parte_de ? 8 : 12)}" font-family="Alegreya, Georgia, serif" font-size="${f.properties.parte_de ? 28 : 40}" fill="${color}" stroke="#14110d" stroke-width="6" paint-order="stroke">${esc(nombre)}</text>`;
-    }
-  }
+  // Los lugares no se dibujan en la imagen: los pinta el globo con sus propias entidades,
+  // así el mapa placeholder es solo geografía y no duplica rótulos.
   // Marca de agua.
   svg += `<text x="${ANCHO / 2}" y="${ALTO / 2}" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-size="180" fill="#ffffff" fill-opacity="0.08" transform="rotate(-12 ${ANCHO / 2} ${ALTO / 2})">MAPA PROVISIONAL · ${estacion.toUpperCase()}</text>`;
   svg += `<text x="${ANCHO - 24}" y="56" text-anchor="end" font-family="monospace" font-size="34" fill="#ffffff" fill-opacity="0.6">bbox ${MUNDO.oeste}…${MUNDO.este} × ${MUNDO.sur}…${MUNDO.norte} · ${ANCHO}×${ALTO}</text>`;

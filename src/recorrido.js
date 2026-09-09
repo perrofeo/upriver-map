@@ -17,10 +17,10 @@ export const TRANSICION_S = 6;
 /** Poses por defecto según el tipo de entidad (alt en metros, ángulos en grados). La cámara mira río arriba. */
 const RUMBO = MUNDO.rumboRioArriba;
 const POSE_POR_TIPO = {
-  asentamiento: { alt: 9000, pitch: -42, heading: RUMBO },
-  avanzada: { alt: 8000, pitch: -42, heading: RUMBO },
-  accidente: { alt: 7000, pitch: -38, heading: RUMBO },
-  localizacion: { alt: 8000, pitch: -42, heading: RUMBO },
+  asentamiento: { alt: 14000, pitch: -44, heading: RUMBO },
+  avanzada: { alt: 12000, pitch: -44, heading: RUMBO },
+  accidente: { alt: 10000, pitch: -40, heading: RUMBO },
+  localizacion: { alt: 12000, pitch: -44, heading: RUMBO },
   territorio: { alt: 60000, pitch: -60, heading: RUMBO },
   ruta: { alt: 60000, pitch: -60, heading: RUMBO },
 };

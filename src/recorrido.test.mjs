@@ -82,7 +82,7 @@ test('poseDeEntidad retrocede la cámara según heading y pitch, y respeta overr
   const f = punto('a', -74, -5, 'asentamiento', []);
   const p = poseDeEntidad(f);
   assert.ok(p.lon > -74 && p.lat > -5, 'mira río arriba (suroeste): la cámara queda al nordeste');
-  assert.equal(p.alt, 9000);
+  assert.equal(p.alt, 14000);
   const capturada = poseDeEntidad(f, { a: { lon: -73.5, lat: -5.1, alt: 1500, heading: 300, pitch: -12 } });
   assert.deepEqual(capturada, { lon: -73.5, lat: -5.1, alt: 1500, heading: 300, pitch: -12, roll: 0 });
   const i = interpolarPose({ lon: 0, lat: 0, alt: 1000, heading: 350, pitch: -40, roll: 0 },
