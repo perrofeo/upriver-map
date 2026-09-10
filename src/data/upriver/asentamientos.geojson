@@ -239,9 +239,9 @@
         },
         "lengua": "qu",
         "descripcion": {
-          "es": "Ciudad-puerto inca-industrial en tres estratos, donde el río grande sale de las colinas de los Andes: la puerta del imperio y su aduana sobre el río. La capital queda más adentro, en la sierra. Destino del viaje.",
-          "en": "An Inca-industrial port city in three tiers, where the big river comes out of the Andean foothills: the gate of the empire and its customs house on the river. The capital lies further in, up in the highlands. The journey’s destination.",
-          "eu": "Hiru mailatako portu-hiri inka-industriala, ibai handia Andeetako muinoetatik ateratzen den lekuan: inperioaren atea eta ibaiaren gaineko aduana. Hiriburua barrurago dago, mendialdean. Bidaiaren helmuga."
+          "es": "Ciudad-puerto andina e industrial en tres estratos, donde el río grande sale de las colinas de los Andes: la puerta del imperio y su aduana sobre el río. La capital queda más adentro, en la sierra. Destino del viaje.",
+          "en": "An industrial Andean port city in three tiers, where the big river leaves the foothills of the Andes: the gate of the empire and its customs house on the river. The capital lies further in, up in the highlands. The journey’s destination.",
+          "eu": "Andeetako portu-hiri industrial bat, hiru mailatan, ibai handia muinoetatik ateratzen den lekuan: inperioaren atea eta ibaiaren gaineko aduana. Hiriburua barrurago dago, mendialdean. Bidaiaren helmuga."
         },
         "apariciones": [
           {
@@ -263,15 +263,15 @@
             "desde": 25,
             "hasta": 235,
             "nota": {
-              "es": "la ciudad inca-industrial",
-              "en": "the Inca-industrial city",
-              "eu": "hiri inka-industriala"
+              "es": "la ciudad andina e industrial",
+              "en": "the industrial Andean city",
+              "eu": "Andeetako hiri industriala"
             },
             "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
             "historia": {
-              "es": "El origen del veneno no es extranjero: una ciudad-puerto inca-industrial. Pirámides con cúpulas de oro junto a chimeneas, guardias y obreros con rostros como el suyo. Jeshuco toca fondo. Ayahumo le enseña otra forma de ver.",
-              "en": "The source of the poison is not foreign: an Inca-industrial port city. Pyramids with golden domes beside chimneys, guards and workers with faces like his own. Jeshuco hits bottom. Ayahumo shows him another way of seeing.",
-              "eu": "Pozoiaren sorburua ez da atzerritarra: portu-hiri inka-industrial bat. Urrezko kupuladun piramideak tximinien ondoan, zaindariak eta langileak berea bezalako aurpegiekin. Jeshucok hondoa jotzen du. Ayahumok ikusteko beste modu bat erakusten dio."
+              "es": "El origen del veneno no es extranjero: una ciudad-puerto andina e industrial. Pirámides con cúpulas de oro junto a chimeneas, guardias y obreros con rostros como el suyo. Jeshuco toca fondo. Ayahumo le enseña otra forma de ver.",
+              "en": "The source of the poison is not foreign: an industrial Andean port city. Pyramids with golden domes beside chimneys, guards and workers with faces like his own. Jeshuco hits bottom. Ayahumo shows him another way of seeing.",
+              "eu": "Pozoiaren sorburua ez da atzerritarra: Andeetako portu-hiri industrial bat. Urrezko kupuladun piramideak tximinien ondoan, zaindariak eta langileak berea bezalako aurpegiekin. Jeshucok hondoa jotzen du. Ayahumok ikusteko beste modu bat erakusten dio."
             }
           },
           {
@@ -332,15 +332,15 @@
             "hasta": 140,
             "camara": false,
             "nota": {
-              "es": "la pirámide de oro, el Sapa Inca",
-              "en": "the golden pyramid, the Sapa Inca",
-              "eu": "urrezko piramidea, Sapa Inka"
+              "es": "la pirámide de oro, el emperador",
+              "en": "the golden pyramid, the emperor",
+              "eu": "urrezko piramidea, enperadorea"
             },
             "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
             "historia": {
-              "es": "Templos de tumbaga sobre la pirámide. El Sapa Inca, llegado de la capital con su séquito, mira el río como un dios que civiliza la selva.",
-              "en": "Tumbaga temples on top of the pyramid. The Sapa Inca, come from the capital with his retinue, looks at the river like a god civilising the jungle.",
-              "eu": "Tunbagazko tenpluak piramidearen gainean. Sapa Inkak, hiriburutik etorrita bere segizioarekin, ibaiari begiratzen dio oihana zibilizatzen duen jainko baten gisa."
+              "es": "Templos de tumbaga sobre la pirámide. El emperador, llegado de la capital con su séquito, mira el río como un dios que civiliza la selva.",
+              "en": "Tumbaga temples on top of the pyramid. The emperor, come from the capital with his retinue, looks at the river like a god civilising the jungle.",
+              "eu": "Tunbagazko tenpluak piramidearen gainean. Enperadoreak, hiriburutik etorrita bere segizioarekin, ibaiari begiratzen dio oihana zibilizatzen duen jainko baten gisa."
             }
           }
         ],
@@ -463,8 +463,8 @@
             }
           }
         ],
-        "estacion": "vaciante",
-        "notas": "Urin = «abajo». De la biblia; «El Fango» también. En creciente queda bajo el agua.",
+        "estacion": "ambas",
+        "notas": "Urin = «abajo». De la biblia; «El Fango» también. Visible en las dos estaciones (Igor, 2026-09-10): en creciente es el primero que se inunda, pero el barrio sigue ahí.",
         "fuente": "UCRONIA_INTEGRACION.md; GUION_EPISODIO_10_RIO_ARRIBA.md",
         "placeholder": true
       }

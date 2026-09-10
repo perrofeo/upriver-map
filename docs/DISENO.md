@@ -12,7 +12,7 @@ río. Nada europeo ni colonial (canon: `UCRONIA_INTEGRACION.md` §NEGATIVE).
 | `--piedra` | `#14110d` | piedra ahumada de la ciudad; fondo |
 | `--adobe` | `#251c15` | adobe del Fango; superficie de los paneles |
 | `--tumbaga` | `#c99a3e` | la aleación de oro y cobre de los templos de Hanan; acento principal, lo imperial |
-| `--cobre` | `#9a5b2f` | la metalurgia chimú de la Fundición; acento secundario, los comerciantes |
+| `--cobre` | `#9a5b2f` | la metalurgia andina de la Fundición; acento secundario, los comerciantes |
 | `--hueso` | `#e9dcc3` | totora y hueso; el texto y lo kukama |
 | `--hollin` | `#8a7b6a` | hollín; texto secundario |
 | `--rio` | `#6f9ea8` | el agua, solo para el agua |

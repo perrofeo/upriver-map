@@ -44,7 +44,7 @@ const ESCALA = SALIDA_TROZO / TROZO;
 export const PROMPT_CUENTO = 'Storybook map illustration in ink and watercolour on dark parchment, top-down view. The whole land is one unbroken dense Amazon jungle drawn as clusters of little hand-drawn trees, palms and ferns with soft wash shading, the same dark olive tone everywhere, the canopy covering everything. A meandering river in dusty blue with a few tiny canoes and a pink river dolphin peeking out of the water. Whimsical, hand-drawn feel, muted earthy palette, dark background.';
 const SEMILLA = 62;
 // Los trozos donde cae la ciudad llevan además la ciudad en el prompt (canon: UCRONIA_INTEGRACION.md).
-export const PROMPT_CIUDAD = PROMPT_CUENTO.replace('Whimsical,', 'Small oxbow lakes of dark black water. On the river bank, inside its walls, a walled Inca city seen from above: stepped stone pyramids with gleaming golden domes, terraces and plazas, tall conical adobe smelting towers with thin plumes of smoke, stone docks with dark bronze machines, drawn in the same ink and watercolour. Whimsical,');
+export const PROMPT_CIUDAD = PROMPT_CUENTO.replace('Whimsical,', 'Small oxbow lakes of dark black water. On the river bank, inside its walls, a walled Andean city seen from above: stepped stone pyramids with gleaming golden domes, terraces and plazas, tall conical adobe smelting towers with thin plumes of smoke, stone docks with dark bronze machines, drawn in the same ink and watercolour. Whimsical,');
 
 async function clave() {
   if (process.env.COMFYUI_API_KEY) return process.env.COMFYUI_API_KEY;
