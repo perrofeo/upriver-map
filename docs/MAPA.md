@@ -74,6 +74,16 @@ escribe la opacidad de la superior: 0 es vaciante, 1 es creciente. Las entidades
 qué estación existen (`estacion: ambas | vaciante | creciente`) y se muestran u ocultan al cruzar
 el punto medio.
 
+## Escala del viaje
+
+Medido sobre la red dibujada (2026-09-10): 584 km del palafito a la ciudad contando los desvíos,
+con el río grande a sinuosidad 1,3 (530 km de cauce sobre 406 en línea recta); 481 km de vuelta
+río abajo. Una canoa de remo contra corriente en río de llanura hace 15-25 km al día, y 40-60 río
+abajo: unas cuatro semanas de subida y diez días de bajada. El arranque (poblado, palafito, caño,
+túneles, peces muertos y barco) cabe en 14 km, que es lo que el episodio 1 recorre en una mañana.
+Los meandros los genera `scripts/meandros.py` a partir de un trazado base suave; si se cambia el
+trazado, se vuelve a ejecutar.
+
 ## Cómo cambiar el bbox
 
 Editar `src/mundo.js` y volver a correr `npm run teselas`. Las coordenadas de los GeoJSON de

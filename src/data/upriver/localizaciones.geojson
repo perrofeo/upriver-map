@@ -8,8 +8,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.52,
-          -4.95
+          -74.21854,
+          -4.58432
         ]
       },
       "properties": {
@@ -55,8 +55,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.39,
-          -4.85
+          -74.19889,
+          -4.57505
         ]
       },
       "properties": {
@@ -126,8 +126,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.56,
-          -5.76
+          -76.58171,
+          -5.73994
         ]
       },
       "properties": {
@@ -198,8 +198,8 @@
         "fuente": "pelicula/DOSSIER_UPRIVER.md (nota del director)",
         "placeholder": true,
         "camara": {
-          "lon": -73.97,
-          "lat": -4.76,
+          "lon": -74.073,
+          "lat": -4.613,
           "alt": 900,
           "heading": 166,
           "pitch": -5
