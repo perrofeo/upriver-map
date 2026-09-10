@@ -218,7 +218,9 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
           polyline: { positions: anillo, width: continental ? 3 : 2, material: c.withAlpha(0.8), clampToGround: true, distanceDisplayCondition: condicion },
         });
         const centro = g.coordinates[0].reduce((acc, [lon, lat]) => [acc[0] + lon / g.coordinates[0].length, acc[1] + lat / g.coordinates[0].length], [0, 0]);
-        dataSource.entities.add({
+        // `etiqueta: false` en los datos: la mancha se ve y se pulsa, pero sin rótulo (el territorio
+        // local del imperio, que ya lo nombra la raya de la frontera; Igor, 2026-09-10).
+        if (props.etiqueta !== false) dataSource.entities.add({
           id: `${id}:${f.id}:nombre`,
           properties: { capa: id, fid: f.id },
           position: Cesium.Cartesian3.fromDegrees(centro[0], centro[1], 0),

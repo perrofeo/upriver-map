@@ -88,10 +88,11 @@
           }
         ],
         "estacion": "ambas",
-        "notas": "Igor (2026-09-10): la ciudad es la frontera norte del imperio; el territorio local queda al suroeste de la raya. El imperio no tiene nombre en la obra.",
+        "notas": "Igor (2026-09-10): la ciudad es la frontera norte del imperio; el territorio local queda al suroeste de la raya. El imperio no tiene nombre en la obra. Sin rótulo en el globo (Igor, 2026-09-10): con la raya de la frontera puesta, «Territorio del imperio» sobraba; la mancha queda como aviso de color y la ficha sale al pulsarla.",
         "fuente": "pelicula/DOSSIER_UPRIVER.md §Mundo",
         "placeholder": false,
-        "escala": "local"
+        "escala": "local",
+        "etiqueta": false
       }
     },
     {
