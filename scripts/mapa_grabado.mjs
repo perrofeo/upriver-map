@@ -63,7 +63,8 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
   const creciente = estacion === 'creciente';
   const visible = (f) => f.properties.estacion === 'ambas' || f.properties.estacion === estacion;
   const agua = creciente ? PALETA.aguaCreciente : PALETA.agua;
-  const anchoRuta = (rango) => ({ principal: 44, secundario: 15, oculto: 9 }[rango] || 12) * k * (creciente ? 1.9 : 1);
+  // Anchos en px sobre 4096 (× k). Un caño de 10 px son ~1,1 km a 8192; el test de datos usa estas mismas cifras.
+  const anchoRuta = (rango) => ({ principal: 44, secundario: 10, oculto: 7 }[rango] || 12) * k * (creciente ? 1.9 : 1);
 
   const s = [];
   s.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${ANCHO}" height="${ALTO}" viewBox="0 0 ${ANCHO} ${ALTO}">`);

@@ -46,7 +46,8 @@
         "orden": 4,
         "notas": "Sin nombre en la obra. Igor (2026-09-09): «uno de los barcos que comercia con el imperio, pero ellos hablan español, no son del imperio». La biblia los describe como inmigrantes hispanohablantes contratados.",
         "fuente": "GUION_EPISODIO_02_EL_OTRO_MUNDO.md; UCRONIA_INTEGRACION.md; Igor",
-        "placeholder": true
+        "placeholder": true,
+        "sobre_agua": true
       }
     },
     {
@@ -55,8 +56,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.19889,
-          -4.57505
+          -74.18451,
+          -4.59409
         ]
       },
       "properties": {
@@ -117,7 +118,8 @@
         "estacion": "ambas",
         "notas": "Sin nombre propio en la obra.",
         "fuente": "GUION_EPISODIO_04_EL_RASTRO_DEL_VENENO.md",
-        "placeholder": true
+        "placeholder": true,
+        "sobre_agua": true
       }
     },
     {
