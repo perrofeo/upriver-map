@@ -127,47 +127,9 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
     if (st === 'tahuampa') s.push(`<polygon points="${pts}" fill="${control ? '#2e4a44' : 'url(#tahuampa)'}"/>`);
     else if (st === 'cocha') s.push(`<polygon points="${pts}" fill="${PALETA.aguaNegra}" stroke="${PALETA.tumbaga}" stroke-width="${1.5 * k}" stroke-opacity="0.55"/>`);
   }
-  // Ríos: orilla de tumbaga fina bajo el agua. El río grande se estrecha río
-  // arriba: se dibuja por tramos con anchura decreciente desde la desembocadura.
-  const tramosRioGrande = (f) => {
-    const c = f.geometry.coordinates; // de la cabecera (SO) a la desembocadura (NE)
-    const wMax = anchoRuta('principal'), wMin = wMax * 0.32;
-    const out = [];
-    for (let i = 0; i < c.length - 1; i++) {
-      const t = i / (c.length - 2);
-      const w = wMin + (wMax - wMin) * Math.pow(t, 0.8);
-      const desde = Math.max(0, i - 1), hasta = Math.min(c.length, i + 3);
-      out.push({ d: trazo(c.slice(desde, hasta)), w, dash: '', tramo: true });
-    }
-    return out;
-  };
-  const rios = [
-    ...imperio.features.filter((x) => x.properties.tipo === 'gran-rio').map((f) => ({ d: trazo(f.geometry.coordinates), w: (creciente ? 118 : 62) * k, dash: '' })),
-    ...rutas.features.filter((f) => f.geometry.type === 'LineString' && f.geometry.coordinates.length && f.properties.rango !== 'principal')
-      .map((f) => ({ d: trazo(f.geometry.coordinates), w: anchoRuta(f.properties.rango), dash: f.properties.rango === 'oculto' ? ` stroke-dasharray="${26 * k} ${18 * k}"` : '' })),
-    ...rutas.features.filter((f) => f.properties.rango === 'principal').flatMap(tramosRioGrande),
-  ];
-  for (const r of rios) s.push(`<path d="${r.d}" fill="none" stroke="${PALETA.tumbaga}" stroke-opacity="0.55" stroke-width="${r.w + 3 * k}" stroke-linejoin="round" stroke-linecap="round"${r.dash}/>`);
-  for (const r of rios) s.push(`<path d="${r.d}" fill="none" stroke="${agua}" stroke-width="${r.w}" stroke-linejoin="round" stroke-linecap="round"${r.dash}/>`);
-  // Línea de corriente en los grandes ríos y en el río grande.
-  const corrientes = [
-    ...imperio.features.filter((x) => x.properties.tipo === 'gran-rio').map((f) => trazo(f.geometry.coordinates)),
-    ...rutas.features.filter((f) => f.properties.rango === 'principal').map((f) => trazo(f.geometry.coordinates)),
-  ];
-  if (!control) for (const d of corrientes) s.push(`<path d="${d}" fill="none" stroke="${PALETA.hueso}" stroke-opacity="0.18" stroke-width="${1.2 * k}" stroke-dasharray="${40 * k} ${28 * k}"/>`);
-  // Islas y playas.
-  for (const f of hidro.features.filter(visible)) {
-    const st = f.properties.subtipo, pts = poligono(f.geometry.coordinates[0]);
-    if (st === 'isla') s.push(`<polygon points="${pts}" fill="url(#selva)" stroke="${PALETA.tumbaga}" stroke-width="${1.5 * k}" stroke-opacity="0.6"/>`);
-    else if (st === 'playa') s.push(`<polygon points="${pts}" fill="${PALETA.arena}"/>`);
-  }
-  // La raya de la frontera, por tierra: cruza el río grande en la ciudad. En el control no va: el globo la dibuja.
-  for (const f of control ? [] : imperio.features.filter((x) => x.properties.tipo === 'frontera')) {
-    s.push(`<path d="${trazo(f.geometry.coordinates)}" fill="none" stroke="${PALETA.piedra}" stroke-opacity="0.55" stroke-width="${14 * k}" stroke-linecap="round"/>`);
-    s.push(`<path d="${trazo(f.geometry.coordinates)}" fill="none" stroke="${PALETA.tumbaga}" stroke-width="${7 * k}" stroke-dasharray="${40 * k} ${26 * k}" stroke-linecap="round"/>`);
-  }
   // La ciudad del imperio, solo en el control: recinto de piedra con pirámides escalonadas y muelles,
-  // para que el modelo pinte una ciudad y no selva (aviso de Igor, 2026-09-10). Tamaño de cuento:
+  // para que el modelo pinte una ciudad y no selva (aviso de Igor, 2026-09-10). Va ANTES de los ríos:
+  // el agua se dibuja encima y la ciudad queda en la orilla, no sobre el río (Igor, 2026-09-10). Tamaño de cuento:
   // unos 8 km de recinto y pirámides de 2 km, que a 1024 px por trozo aún dan bordes al canny.
   if (control) {
     const ciudad = asentamientos.features.find((f) => f.properties.tipo === 'asentamiento' && f.properties.lengua === 'qu' && !f.properties.parte_de);
@@ -175,7 +137,7 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
       const partes = asentamientos.features.filter((f) => f.properties.parte_de === ciudad.id);
       const puntos = [ciudad, ...partes].map((f) => f.geometry.coordinates);
       const kmLon = 111.32 * Math.cos((-6 * Math.PI) / 180), kmLat = 110.57;
-      const R = 4.5; // km de holgura alrededor de cada barrio: recinto de tamaño de cuento (~12 km)
+      const R = 3.2; // km de holgura alrededor de cada barrio: recinto de tamaño de cuento (~10 km), en la orilla norte
       const nube = puntos.flatMap(([lon, lat]) => Array.from({ length: 12 }, (_, i) => { const a = (i / 12) * 2 * Math.PI; return [lon + (R * Math.cos(a)) / kmLon, lat + (R * Math.sin(a)) / kmLat]; }));
       // envolvente convexa (Andrew)
       const pts = nube.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
@@ -221,6 +183,45 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
         }
       }
     }
+  }
+  // Ríos: orilla de tumbaga fina bajo el agua. El río grande se estrecha río
+  // arriba: se dibuja por tramos con anchura decreciente desde la desembocadura.
+  const tramosRioGrande = (f) => {
+    const c = f.geometry.coordinates; // de la cabecera (SO) a la desembocadura (NE)
+    const wMax = anchoRuta('principal'), wMin = wMax * 0.32;
+    const out = [];
+    for (let i = 0; i < c.length - 1; i++) {
+      const t = i / (c.length - 2);
+      const w = wMin + (wMax - wMin) * Math.pow(t, 0.8);
+      const desde = Math.max(0, i - 1), hasta = Math.min(c.length, i + 3);
+      out.push({ d: trazo(c.slice(desde, hasta)), w, dash: '', tramo: true });
+    }
+    return out;
+  };
+  const rios = [
+    ...imperio.features.filter((x) => x.properties.tipo === 'gran-rio').map((f) => ({ d: trazo(f.geometry.coordinates), w: (creciente ? 118 : 62) * k, dash: '' })),
+    ...rutas.features.filter((f) => f.geometry.type === 'LineString' && f.geometry.coordinates.length && f.properties.rango !== 'principal')
+      .map((f) => ({ d: trazo(f.geometry.coordinates), w: anchoRuta(f.properties.rango), dash: f.properties.rango === 'oculto' ? ` stroke-dasharray="${26 * k} ${18 * k}"` : '' })),
+    ...rutas.features.filter((f) => f.properties.rango === 'principal').flatMap(tramosRioGrande),
+  ];
+  for (const r of rios) s.push(`<path d="${r.d}" fill="none" stroke="${PALETA.tumbaga}" stroke-opacity="0.55" stroke-width="${r.w + 3 * k}" stroke-linejoin="round" stroke-linecap="round"${r.dash}/>`);
+  for (const r of rios) s.push(`<path d="${r.d}" fill="none" stroke="${agua}" stroke-width="${r.w}" stroke-linejoin="round" stroke-linecap="round"${r.dash}/>`);
+  // Línea de corriente en los grandes ríos y en el río grande.
+  const corrientes = [
+    ...imperio.features.filter((x) => x.properties.tipo === 'gran-rio').map((f) => trazo(f.geometry.coordinates)),
+    ...rutas.features.filter((f) => f.properties.rango === 'principal').map((f) => trazo(f.geometry.coordinates)),
+  ];
+  if (!control) for (const d of corrientes) s.push(`<path d="${d}" fill="none" stroke="${PALETA.hueso}" stroke-opacity="0.18" stroke-width="${1.2 * k}" stroke-dasharray="${40 * k} ${28 * k}"/>`);
+  // Islas y playas.
+  for (const f of hidro.features.filter(visible)) {
+    const st = f.properties.subtipo, pts = poligono(f.geometry.coordinates[0]);
+    if (st === 'isla') s.push(`<polygon points="${pts}" fill="url(#selva)" stroke="${PALETA.tumbaga}" stroke-width="${1.5 * k}" stroke-opacity="0.6"/>`);
+    else if (st === 'playa') s.push(`<polygon points="${pts}" fill="${PALETA.arena}"/>`);
+  }
+  // La raya de la frontera, por tierra: cruza el río grande en la ciudad. En el control no va: el globo la dibuja.
+  for (const f of control ? [] : imperio.features.filter((x) => x.properties.tipo === 'frontera')) {
+    s.push(`<path d="${trazo(f.geometry.coordinates)}" fill="none" stroke="${PALETA.piedra}" stroke-opacity="0.55" stroke-width="${14 * k}" stroke-linecap="round"/>`);
+    s.push(`<path d="${trazo(f.geometry.coordinates)}" fill="none" stroke="${PALETA.tumbaga}" stroke-width="${7 * k}" stroke-dasharray="${40 * k} ${26 * k}" stroke-linecap="round"/>`);
   }
   // Retícula fina de 0,25°.
   if (!control) for (let lon = MUNDO.oeste; lon <= MUNDO.este + 1e-9; lon += 0.25) {

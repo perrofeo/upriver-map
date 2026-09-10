@@ -118,3 +118,7 @@ unbroken dense Amazon jungle …, the same dark olive tone everywhere …».
   máquinas de bronce oscuro), igualado de tono y fundido encima del mapa cosido con máscara radial. Así
   la colocación está garantizada. El prompt del recuadro nombra las cochas para que no las vuelva islotes.
 - `esperar()` relanza los jobs que la nube deja «pending» más de 150 s (pasó dos veces hoy).
+- Igor: «la ciudad no debería estar encima del río». La huella se dibujaba después del agua y la
+  tapaba. Ahora va ANTES de los ríos (el agua se pinta encima) y el recinto se encoge a 3,2 km de
+  holgura para quedar en la orilla norte, donde están los cuatro puntos; los muelles llegan a la orilla.
+- Igor: los marcadores coincidían con la cúspide de las pirámides → cada pirámide 1,3 km al NO de su punto.
