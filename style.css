@@ -85,6 +85,9 @@ input[type=range] { width: 100%; margin: 6px 0 2px; accent-color: var(--tumbaga)
 .param-fila { display: grid; grid-template-columns: 84px 1fr 38px; align-items: center; gap: 6px; font-size: 13px; color: var(--hollin); }
 .param-fila output { text-align: right; font-variant-numeric: tabular-nums; }
 #btn-compartir { margin-top: 10px; width: 100%; }
+#idiomas { display: flex; gap: 10px; justify-content: flex-end; margin-top: 12px; font-size: 13px; }
+#idiomas .idioma { color: var(--hollin); text-decoration: none; text-transform: uppercase; letter-spacing: 0.04em; }
+#idiomas .idioma.activo { color: var(--tumbaga); border-bottom: 1px solid var(--tumbaga); }
 
 #toast { position: fixed; bottom: 118px; left: 50%; transform: translateX(-50%); background: var(--adobe); color: var(--hueso); border-left: 4px solid var(--tumbaga); padding: 8px 14px; font-size: 14px; }
 

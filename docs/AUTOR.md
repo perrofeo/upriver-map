@@ -44,3 +44,16 @@ git add -A && git commit -m "datos: ..." && git push
 
 Los trazados de ríos y polígonos (vértices) y los textos de las fichas: esos se editan en los
 GeoJSON de `src/data/upriver/`.
+
+## Idiomas
+
+La interfaz y los datos están preparados para castellano, inglés y euskera; solo el castellano está
+escrito. El idioma sale de `?lang=es|en|eu` (la página de la web lo pasa al iframe), si no del
+navegador. Lo que falte en una lengua cae al castellano.
+
+- Interfaz: `src/i18n.js`, diccionarios `en` y `eu` vacíos; se rellenan clave a clave.
+- Datos: cualquier `descripcion`, `historia`, `nota` o `titulo` de episodio admite `{ "es": "…",
+  "en": "…", "eu": "…" }` en vez de una cadena. Los nombres de lugar: `nombre.en` y `nombre.eu`
+  junto a `nombre.es`; si la lengua que manda es el quechua, el quechua sigue siendo el principal
+  y la traducción va como secundario.
+- Criterio de nombres: el de los subtítulos (Las Tres Gargantas = the Three Gorges / Hiru Arroiletan).

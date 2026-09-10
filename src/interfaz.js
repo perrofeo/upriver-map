@@ -7,7 +7,8 @@
  */
 
 import * as Cesium from 'cesium';
-import { ESTILOS, NOMBRES_ESTILO } from './estilos.js';
+import { ESTILOS } from './estilos.js';
+import { IDIOMAS, idioma, t, urlEnIdioma } from './i18n.js';
 import { Ficha } from './ficha.js';
 import { LineaTiempo } from './tiempo.js';
 import { MUNDO } from './mundo.js';
@@ -118,7 +119,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
       b.type = 'button';
       b.className = 'estilo-btn' + (estilos.activeStyle === nombre ? ' activo' : '');
       b.dataset.estilo = nombre;
-      b.textContent = NOMBRES_ESTILO[nombre] || nombre;
+      b.textContent = t(`estilo.${nombre}`);
       b.addEventListener('click', () => { estilos.setStyle(nombre); pintarEstilos(); pintarParams(); });
       botones.append(b);
     }
@@ -235,13 +236,27 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
     if (window.matchMedia('(max-width: 760px)').matches) fichaEl.classList.toggle('plegada');
   });
 
+  // ── Idioma ────────────────────────────────────────────────────────────
+  const selectorIdioma = document.getElementById('idiomas');
+  if (selectorIdioma) {
+    for (const lang of IDIOMAS) {
+      const a = document.createElement('a');
+      a.href = urlEnIdioma(lang);
+      a.textContent = lang;
+      a.lang = lang;
+      a.className = 'idioma' + (lang === idioma ? ' activo' : '');
+      if (lang === idioma) a.setAttribute('aria-current', 'true');
+      selectorIdioma.append(a);
+    }
+  }
+
   // ── Vistas ────────────────────────────────────────────────────────────
   document.getElementById('btn-imperio').addEventListener('click', () => interfaz.verImperio());
   document.getElementById('btn-mundo').addEventListener('click', () => interfaz.verMundo());
 
   // ── Enlace ────────────────────────────────────────────────────────────
   document.getElementById('btn-compartir').addEventListener('click', async () => {
-    aviso((await enlace.copiar()) ? 'Enlace copiado' : 'No se pudo copiar el enlace');
+    aviso((await enlace.copiar()) ? t('enlace.copiado') : t('enlace.fallo'));
   });
 
   return interfaz;

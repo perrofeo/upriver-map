@@ -9,13 +9,22 @@
  */
 
 import * as Cesium from 'cesium';
+import { idioma } from '../i18n.js';
 
-/** Nombre que se muestra: el de la lengua declarada, con el otro como secundario. */
-export function nombreMostrado(props) {
+/**
+ * Nombre que se muestra. Si la lengua que manda es el quechua, el principal es
+ * el quechua (sin traducir) y el secundario la traducción en la lengua de la
+ * interfaz; si manda el castellano, el principal es el nombre en la lengua de
+ * la interfaz (con castellano de respaldo) y no hay secundario.
+ */
+export function nombreMostrado(props, lang = idioma) {
   const n = props?.nombre || {};
-  const principal = n[props?.lengua] || n.es || n.qu || '';
-  const secundario = props?.lengua === 'qu' ? n.es : n.qu;
-  return { principal, secundario: secundario && secundario !== principal ? secundario : null };
+  const traducido = n[lang] || n.es || '';
+  if (props?.lengua === 'qu' && n.qu) {
+    return { principal: n.qu, secundario: traducido && traducido !== n.qu ? traducido : null };
+  }
+  const principal = traducido || n.qu || '';
+  return { principal, secundario: null };
 }
 
 /** ¿Existe la entidad en la estación dada? */

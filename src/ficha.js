@@ -9,18 +9,10 @@
 
 import { nombreMostrado } from './capas/ficcion.js';
 import { enlaceYoutube, formatearTiempo, tramosDeEntidad } from './recorrido.js';
+import { t as tr, texto } from './i18n.js';
 
-const ETIQUETA_TIPO = {
-  asentamiento: 'Asentamiento',
-  avanzada: 'Avanzada',
-  territorio: 'Territorio',
-  frontera: 'Frontera',
-  hidrografia: 'Agua',
-  accidente: 'Accidente geográfico',
-  localizacion: 'Localización',
-  ruta: 'Ruta fluvial',
-};
-const ETIQUETA_FACCION = { kukama: 'kukama', imperio: 'imperio', comerciantes: 'comerciantes hispanohablantes', ninguna: '—', null: 'sin determinar' };
+const etiquetaTipo = (tipo) => tr(`tipo.${tipo}`);
+const etiquetaFaccion = (f) => (f === 'ninguna' ? '—' : tr(`faccion.${f}`));
 
 export class Ficha {
   /**
@@ -54,7 +46,7 @@ export class Ficha {
     const cerrar = document.createElement('button');
     cerrar.type = 'button';
     cerrar.className = 'ficha-cerrar';
-    cerrar.setAttribute('aria-label', 'Cerrar ficha');
+    cerrar.setAttribute('aria-label', tr('ficha.cerrar'));
     cerrar.textContent = '×';
     cerrar.addEventListener('click', () => this.ocultar());
     cabecera.append(cerrar);
@@ -69,11 +61,11 @@ export class Ficha {
 
     const meta = document.createElement('div');
     meta.className = 'ficha-meta';
-    const faccion = ETIQUETA_FACCION[props.faccion] ?? props.faccion;
-    const chips = [ETIQUETA_TIPO[props.tipo] || props.tipo];
+    const faccion = etiquetaFaccion(props.faccion);
+    const chips = [etiquetaTipo(props.tipo)];
     if (faccion && faccion !== '—') chips.push(faccion);
-    if (props.estacion && props.estacion !== 'ambas') chips.push(`solo en ${props.estacion}`);
-    if (props.placeholder && this.modoAutor) chips.push('sitio provisional');
+    if (props.estacion && props.estacion !== 'ambas') chips.push(tr('ficha.soloEn', { estacion: t(`estacion.${props.estacion}`).toLowerCase() }));
+    if (props.placeholder && this.modoAutor) chips.push(tr('ficha.provisional'));
     for (const c of chips) {
       const s = document.createElement('span');
       s.className = 'ficha-chip';
@@ -85,7 +77,7 @@ export class Ficha {
     if (props.descripcion) {
       const p = document.createElement('p');
       p.className = 'ficha-descripcion';
-      p.textContent = props.descripcion;
+      p.textContent = texto(props.descripcion);
       el.append(p);
     }
 
@@ -93,7 +85,7 @@ export class Ficha {
       const t = document.createElement('div');
       t.className = 'ficha-apariciones';
       const titulo = document.createElement('h3');
-      titulo.textContent = 'En la serie';
+      titulo.textContent = tr('ficha.enLaSerie');
       t.append(titulo);
       for (const tramo of tramos) {
         const ep = tramo.ep;
@@ -103,14 +95,15 @@ export class Ficha {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'ficha-aparicion-ir';
-        b.title = 'Llevar el mapa a este momento';
+        b.title = tr('ficha.ir');
         const tiempo = document.createElement('span');
         tiempo.className = 'ficha-tiempo';
         const entero = tramo.dentroDesde === 0 && tramo.dentroHasta >= ep.duracion;
-        tiempo.textContent = entero ? 'Todo el episodio' : `${formatearTiempo(tramo.dentroDesde)} a ${formatearTiempo(tramo.dentroHasta)}`;
-        const texto = document.createElement('span');
-        texto.textContent = `Episodio ${tramo.episodio}, ${ep.titulo}${tramo.nota ? `. ${tramo.nota[0].toUpperCase()}${tramo.nota.slice(1)}` : ''}`;
-        b.append(tiempo, texto);
+        tiempo.textContent = entero ? tr('ficha.todoElEpisodio') : tr('ficha.tramo', { desde: formatearTiempo(tramo.dentroDesde), hasta: formatearTiempo(tramo.dentroHasta) });
+        const linea = document.createElement('span');
+        const nota = texto(tramo.nota);
+        linea.textContent = tr('ficha.episodio', { n: tramo.episodio, titulo: texto(ep.titulo) }) + (nota ? `. ${nota[0].toUpperCase()}${nota.slice(1)}` : '');
+        b.append(tiempo, linea);
         b.addEventListener('click', () => this._irA(tramo.desde));
         fila.append(b);
         const url = enlaceYoutube(ep, tramo.dentroDesde);
@@ -120,14 +113,14 @@ export class Ficha {
           a.href = url;
           a.target = '_blank';
           a.rel = 'noopener';
-          a.textContent = 'Ver';
-          a.title = 'Ver este momento en YouTube';
+          a.textContent = tr('ficha.ver');
+          a.title = tr('ficha.ver.titulo');
           fila.append(a);
         }
         if (tramo.historia) {
           const h = document.createElement('p');
           h.className = 'ficha-historia';
-          h.textContent = tramo.historia;
+          h.textContent = texto(tramo.historia);
           fila.append(h);
         }
         t.append(fila);

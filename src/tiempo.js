@@ -10,6 +10,7 @@
 import * as Cesium from 'cesium';
 import { construirRecorrido, enlaceYoutube, episodioEn, formatearTiempo, poseEn, segundoEnEpisodio } from './recorrido.js';
 import { nombreMostrado } from './capas/ficcion.js';
+import { t as tr, texto } from './i18n.js';
 
 const VELOCIDADES = [1, 5, 10, 30];
 
@@ -56,7 +57,7 @@ export class LineaTiempo {
     this._btnPlay = document.createElement('button');
     this._btnPlay.type = 'button';
     this._btnPlay.className = 'quipu-play';
-    this._btnPlay.setAttribute('aria-label', 'Reproducir el recorrido de la película');
+    this._btnPlay.setAttribute('aria-label', tr('quipu.play'));
     this._btnPlay.addEventListener('click', () => (this.reproduciendo ? this.pausar() : this.reproducir()));
 
     const cuerda = document.createElement('div');
@@ -69,7 +70,7 @@ export class LineaTiempo {
       nudo.type = 'button';
       nudo.className = 'quipu-nudo';
       nudo.style.left = `${(ep.inicio / this.duracion) * 100}%`;
-      nudo.title = `Episodio ${ep.n}, ${ep.titulo}`;
+      nudo.title = tr('quipu.episodio', { n: ep.n, titulo: texto(ep.titulo) });
       nudo.setAttribute('aria-label', nudo.title);
       nudo.addEventListener('click', () => { this.pausar({ silencioso: true }); this.setTiempo(ep.inicio); });
       cuerda.append(nudo);
@@ -84,7 +85,7 @@ export class LineaTiempo {
     this._slider.max = String(this.duracion);
     this._slider.step = '0.25';
     this._slider.value = '0';
-    this._slider.setAttribute('aria-label', 'Minuto de la película');
+    this._slider.setAttribute('aria-label', tr('quipu.minuto'));
     this._slider.addEventListener('input', () => {
       this.pausar({ silencioso: true });
       this.setTiempo(Number(this._slider.value));
@@ -103,17 +104,17 @@ export class LineaTiempo {
     this._verEnYoutube.className = 'quipu-ver';
     this._verEnYoutube.target = '_blank';
     this._verEnYoutube.rel = 'noopener';
-    this._verEnYoutube.textContent = 'Ver el episodio aquí';
-    this._verEnYoutube.title = 'Abre el episodio en YouTube en este segundo';
+    this._verEnYoutube.textContent = tr('quipu.ver');
+    this._verEnYoutube.title = tr('quipu.ver.titulo');
     this._lectura.append(this._lecturaTiempo, this._lecturaEpisodio, this._lecturaLugar, this._verEnYoutube);
 
     this._velocidad = document.createElement('select');
     this._velocidad.className = 'quipu-velocidad';
-    this._velocidad.setAttribute('aria-label', 'Velocidad de reproducción');
+    this._velocidad.setAttribute('aria-label', tr('quipu.velocidad'));
     for (const v of VELOCIDADES) {
       const o = document.createElement('option');
       o.value = String(v);
-      o.textContent = v === 1 ? 'tiempo real' : `${v} veces más rápido`;
+      o.textContent = v === 1 ? tr('quipu.tiempoReal') : tr('quipu.veces', { n: v });
       if (v === this.velocidad) o.selected = true;
       this._velocidad.append(o);
     }
@@ -166,8 +167,8 @@ export class LineaTiempo {
     // Se lee el minuto DEL EPISODIO, que es el que el visitante puede buscar en YouTube.
     const dentro = segundoEnEpisodio(this.episodios, this.t);
     this._lecturaTiempo.textContent = formatearTiempo(dentro);
-    this._lecturaEpisodio.textContent = ep ? `Episodio ${ep.n}, ${ep.titulo}` : '';
-    this._lecturaLugar.textContent = lugar ? (progreso > 0 ? `hacia ${lugar}` : lugar) : '';
+    this._lecturaEpisodio.textContent = ep ? tr('quipu.episodio', { n: ep.n, titulo: texto(ep.titulo) }) : '';
+    this._lecturaLugar.textContent = lugar ? (progreso > 0 ? tr('quipu.hacia', { lugar }) : lugar) : '';
     const url = ep ? enlaceYoutube(ep, dentro) : null;
     this._verEnYoutube.hidden = !url;
     if (url) this._verEnYoutube.href = url;
@@ -185,7 +186,7 @@ export class LineaTiempo {
     if (this.t >= this.duracion - 0.01) this.t = 0;
     this.reproduciendo = true;
     this.el.classList.add('reproduciendo');
-    this._btnPlay.setAttribute('aria-label', 'Pausar');
+    this._btnPlay.setAttribute('aria-label', tr('quipu.pausa'));
     this._ultimoTick = performance.now();
     const tick = (ahora) => {
       if (!this.reproduciendo) return;
@@ -204,7 +205,7 @@ export class LineaTiempo {
     cancelAnimationFrame(this._raf);
     this._raf = null;
     this.el.classList.remove('reproduciendo');
-    this._btnPlay.setAttribute('aria-label', 'Reproducir el recorrido de la película');
+    this._btnPlay.setAttribute('aria-label', tr('quipu.play'));
     if (!silencioso) this._alCambiar?.(this.t);
   }
 }

@@ -11,42 +11,44 @@
   <div id="globo"></div>
 
   <header id="cabecera">
-    <h1>Upriver</h1>
-    <p class="sub">El mapa del mundo</p>
+    <h1 data-i18n="titulo">Upriver</h1>
+    <p class="sub" data-i18n="subtitulo">El mapa del mundo</p>
   </header>
 
-  <button id="btn-panel" class="solo-movil" type="button" aria-controls="panel-lateral" aria-expanded="false">Capas y mirada</button>
+  <button id="btn-panel" class="solo-movil" type="button" aria-controls="panel-lateral" aria-expanded="false" data-i18n="movil.panel">Capas y mirada</button>
   <aside id="panel-lateral">
-    <button id="btn-cerrar-panel" class="solo-movil" type="button" aria-label="Cerrar">×</button>
+    <button id="btn-cerrar-panel" class="solo-movil" type="button" aria-label="Cerrar" data-i18n-attr="aria-label:movil.cerrar">×</button>
     <section id="panel-vistas">
-      <button id="btn-imperio" type="button">El imperio</button>
-      <button id="btn-mundo" type="button">El río</button>
+      <button id="btn-imperio" type="button" data-i18n="vista.imperio">El imperio</button>
+      <button id="btn-mundo" type="button" data-i18n="vista.rio">El río</button>
     </section>
     <section id="panel-capas">
-      <h2>Qué se ve</h2>
+      <h2 data-i18n="panel.capas">Qué se ve</h2>
       <div id="capas-toggles"></div>
     </section>
 
     <section id="panel-estacion">
-      <h2>Estación</h2>
-      <input type="range" id="estacion-slider" min="0" max="100" value="0" aria-label="Estación: vaciante a creciente" />
-      <div class="etiquetas"><span>Vaciante</span><span>Creciente</span></div>
+      <h2 data-i18n="panel.estacion">Estación</h2>
+      <input type="range" id="estacion-slider" min="0" max="100" value="0" aria-label="Estación: vaciante a creciente" data-i18n-attr="aria-label:estacion.aria" />
+      <div class="etiquetas"><span data-i18n="estacion.vaciante">Vaciante</span><span data-i18n="estacion.creciente">Creciente</span></div>
     </section>
 
     <section id="panel-estilos">
-      <h2>Mirada</h2>
+      <h2 data-i18n="panel.mirada">Mirada</h2>
       <div id="estilo-botones"></div>
       <label class="fila-control">
-        <input type="checkbox" id="bloom-on" /><span>Brillo</span>
-        <input type="range" id="bloom-int" min="0" max="200" value="80" aria-label="Intensidad del brillo" />
+        <input type="checkbox" id="bloom-on" /><span data-i18n="mirada.brillo">Brillo</span>
+        <input type="range" id="bloom-int" min="0" max="200" value="80" aria-label="Intensidad del brillo" data-i18n-attr="aria-label:mirada.brillo.aria" />
       </label>
       <label class="fila-control">
-        <input type="checkbox" id="sharpen-on" /><span>Nitidez</span>
-        <input type="range" id="sharpen-int" min="0" max="100" value="49" aria-label="Intensidad de la nitidez" />
+        <input type="checkbox" id="sharpen-on" /><span data-i18n="mirada.nitidez">Nitidez</span>
+        <input type="range" id="sharpen-int" min="0" max="100" value="49" aria-label="Intensidad de la nitidez" data-i18n-attr="aria-label:mirada.nitidez.aria" />
       </label>
       <div id="estilo-params"></div>
-      <button id="btn-compartir" type="button">Copiar enlace</button>
+      <button id="btn-compartir" type="button" data-i18n="enlace.copiar">Copiar enlace</button>
     </section>
+
+    <nav id="idiomas" aria-label="Idioma"></nav>
   </aside>
 
   <div id="ficha" hidden></div>
@@ -104,7 +106,7 @@
   <div id="carga">
     <div class="carga-tocapu" aria-hidden="true"></div>
     <div class="carga-titulo">Upriver</div>
-    <div class="carga-estado">Preparando el globo…</div>
+    <div class="carga-estado" data-i18n="carga.globo">Preparando el globo…</div>
   </div>
 
   <script type="module" src="/src/main.js"></script>

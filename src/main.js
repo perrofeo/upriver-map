@@ -18,6 +18,7 @@ import { installRenderGovernor, governorRequestRender, getRenderGovernorDiagnost
 import { montarInterfaz } from './interfaz.js';
 import { crearCapaFiccion } from './capas/ficcion.js';
 import { montarAutor } from './autor.js';
+import { aplicarDom, t } from './i18n.js';
 import episodiosJson from './data/upriver/episodios.json';
 import poses from './data/upriver/poses.json';
 import asentamientosRaw from './data/upriver/asentamientos.geojson?raw';
@@ -29,13 +30,13 @@ import hidrografiaRaw from './data/upriver/hidrografia.geojson?raw';
 
 /** Capas de ficción, en el orden del panel. */
 const CAPAS_FICCION = [
-  { id: 'hidrografia', nombre: 'Cochas, islas y bosque inundado', icono: '≈', geojson: hidrografiaRaw },
-  { id: 'rutas', nombre: 'El río', icono: '〜', geojson: rutasRaw },
-  { id: 'imperio', nombre: 'El imperio', icono: '▲', geojson: imperioRaw },
-  { id: 'asentamientos', nombre: 'Asentamientos', icono: '⌂', geojson: asentamientosRaw },
-  { id: 'accidentes', nombre: 'Accidentes geográficos', icono: '≋', geojson: accidentesRaw },
-  { id: 'localizaciones', nombre: 'Localizaciones', icono: '◦', geojson: localizacionesRaw },
-];
+  { id: 'hidrografia', icono: '≈', geojson: hidrografiaRaw },
+  { id: 'rutas', icono: '〜', geojson: rutasRaw },
+  { id: 'imperio', icono: '▲', geojson: imperioRaw },
+  { id: 'asentamientos', icono: '⌂', geojson: asentamientosRaw },
+  { id: 'accidentes', icono: '≋', geojson: accidentesRaw },
+  { id: 'localizaciones', icono: '◦', geojson: localizacionesRaw },
+].map((c) => ({ ...c, nombre: t(`capa.${c.id}`) }));
 
 // Cero servicios de terceros: sin token de ion no hay ninguna llamada a Cesium ion.
 Cesium.Ion.defaultAccessToken = '';
@@ -47,13 +48,14 @@ function describirError(error) {
 }
 
 async function init() {
+  aplicarDom();
   const carga = document.getElementById('carga');
   const estado = carga.querySelector('.carga-estado');
   const parametros = new URLSearchParams(window.location.search);
   const modoAutor = parametros.has('autor');
 
   try {
-    estado.textContent = 'Configurando el globo…';
+    estado.textContent = t('carga.configurando');
     const creditos = document.createElement('div');
     creditos.id = 'creditos-cesium';
     document.body.appendChild(creditos);
@@ -94,7 +96,7 @@ async function init() {
     control.maximumZoomDistance = 14_000_000;
     control.enableCollisionDetection = true;
 
-    estado.textContent = 'Cargando el mapa…';
+    estado.textContent = t('carga.mapa');
     // Las etiquetas del globo se rasterizan al crearse: la fuente tiene que estar antes.
     await Promise.all([document.fonts.load('500 14px Alegreya'), document.fonts.load('italic 500 14px Alegreya')]).catch(() => {});
     const basemap = await new Basemap(viewer).init();
@@ -131,7 +133,7 @@ async function init() {
     // Restauración del enlace o vista inicial sobre el mundo entero.
     const compartido = enlace.leerHashInicial();
     if (compartido) {
-      estado.textContent = 'Restaurando la vista compartida…';
+      estado.textContent = t('carga.restaurando');
       await estilos.applyVisualState({
         style: compartido.style,
         bloom: { ...compartido.bloom, version: 2 },
@@ -179,7 +181,7 @@ async function init() {
     };
   } catch (error) {
     console.error('Upriver: fallo de arranque', error);
-    estado.textContent = `Error: ${describirError(error)}`;
+    estado.textContent = `${t('carga.error')}: ${describirError(error)}`;
     estado.classList.add('error');
   }
 }
