@@ -6,8 +6,9 @@ dist/
 Thumbs.db
 .vscode/
 
-# Teselas: se generan en el build a partir de mapas/ (npm run teselas)
+# Teselas y cielo: se generan en el build (npm run teselas, scripts/cielo.mjs)
 public/tiles/
+public/cielo/
 
 # Mapas generados: se redibujan desde los datos (npm run teselas). Los pintados a mano (mapas/<estacion>.png) sí se versionan.
 

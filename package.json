@@ -17,7 +17,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "prebuild": "node scripts/teselas.mjs --si-faltan",
+    "prebuild": "node scripts/cielo.mjs && node scripts/teselas.mjs --si-faltan",
     "preview": "vite preview",
     "test": "node --test \"src/**/*.test.mjs\"",
     "grabado": "node scripts/mapa_grabado.mjs",

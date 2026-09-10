@@ -75,6 +75,13 @@ async function init() {
       baseLayer: false,
       creditContainer: creditos,
       shadows: false,
+      // El cielo de Cesium a media resolución (scripts/cielo.mjs): 200 KB en vez de 850.
+      skyBox: new Cesium.SkyBox({
+        sources: Object.fromEntries(['px', 'mx', 'py', 'my', 'pz', 'mz'].map((c) => [
+          { px: 'positiveX', mx: 'negativeX', py: 'positiveY', my: 'negativeY', pz: 'positiveZ', mz: 'negativeZ' }[c],
+          `${import.meta.env.BASE_URL}cielo/${c}.webp`,
+        ])),
+      }),
       // Sin `terrain`: elipsoide liso. Es la llanura.
     });
     viewer.targetFrameRate = 60;
