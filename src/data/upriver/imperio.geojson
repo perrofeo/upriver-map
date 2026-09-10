@@ -121,92 +121,124 @@
         "coordinates": [
           [
             [
-              -80.5,
-              -4
-            ],
-            [
-              -79,
-              -4.6
-            ],
-            [
-              -78.5,
-              -4.5
+              -77.6,
+              -4.45
             ],
             [
               -77.5,
               -4.78
             ],
             [
+              -77.1,
+              -4.66
+            ],
+            [
               -76.7,
               -4.6
+            ],
+            [
+              -76.3,
+              -4.63
             ],
             [
               -75.9,
               -4.56
             ],
             [
+              -75.5,
+              -4.55
+            ],
+            [
               -75.1,
               -4.6
+            ],
+            [
+              -74.7,
+              -4.52
             ],
             [
               -74.3,
               -4.5
             ],
             [
-              -73.5,
-              -4.5
+              -73.9,
+              -4.55
             ],
             [
-              -72,
-              -4
+              -73.55,
+              -4.45
             ],
             [
-              -70,
-              -4.2
+              -73.75,
+              -4.75
             ],
             [
-              -68,
-              -6
+              -73.85,
+              -5.05
             ],
             [
-              -66,
-              -10
-            ],
-            [
-              -65,
-              -15
-            ],
-            [
-              -66.5,
-              -21.5
-            ],
-            [
-              -69.5,
-              -23.5
-            ],
-            [
-              -71.5,
-              -19
-            ],
-            [
-              -74,
-              -15.5
-            ],
-            [
-              -76.5,
-              -12
-            ],
-            [
-              -79,
-              -8
-            ],
-            [
-              -81,
+              -74.0,
               -5.5
             ],
             [
-              -80.5,
-              -4
+              -74.2,
+              -6.0
+            ],
+            [
+              -74.6,
+              -6.6
+            ],
+            [
+              -75.0,
+              -7.0
+            ],
+            [
+              -75.0,
+              -7.35
+            ],
+            [
+              -74.85,
+              -7.8
+            ],
+            [
+              -74.55,
+              -8.4
+            ],
+            [
+              -75.5,
+              -9.0
+            ],
+            [
+              -76.24,
+              -9.93
+            ],
+            [
+              -77.2,
+              -9.8
+            ],
+            [
+              -77.9,
+              -9.2
+            ],
+            [
+              -78.5,
+              -7.16
+            ],
+            [
+              -78.9,
+              -6.5
+            ],
+            [
+              -78.55,
+              -5.6
+            ],
+            [
+              -78.1,
+              -4.8
+            ],
+            [
+              -77.6,
+              -4.45
             ]
           ]
         ]
@@ -223,9 +255,9 @@
         "descripcion": "En 1532 Atahualpa no cayó en la trampa de Pizarro. España colonizó las costas y las tierras bajas, pero nunca penetró la Amazonia profunda. El imperio chimú-inca sobrevivió en los Andes, se industrializó y extendió su control sobre la cuenca amazónica. Quinientos años después somete la selva. Comercia y comparte tecnología con los países y reinos hispanohablantes que lo rodean.",
         "apariciones": [],
         "estacion": "ambas",
-        "notas": "Extensión PLACEHOLDER. Igor (2026-09-09): la frontera norte es el río Marañón, así la reserva Pacaya Samiria (donde vive Jeshuco) queda dentro del imperio. Al norte del Marañón, los países hispanohablantes. El límite oriental y el sur son provisionales. El imperio no tiene nombre en la obra.",
-        "fuente": "UCRONIA_INTEGRACION.md §Premisa; Igor (2026-09-09)",
-        "placeholder": true
+        "notas": "Contorno según Igor (2026-09-10): el Marañón al norte, el Ucayali al este, y una parte de los Andes al oeste y al sur, porque la tribu en el poder es andina. Al norte del Marañón y al este del Ucayali, los países hispanohablantes. Trazado esquemático sobre los cursos reales (Pongo de Manseriche → Nauta → Pucallpa; Huánuco, Cordillera Blanca, Cajamarca, Chachapoyas). El imperio no tiene nombre en la obra.",
+        "fuente": "UCRONIA_INTEGRACION.md §Premisa; Igor (2026-09-10)",
+        "placeholder": false
       }
     },
     {
@@ -305,9 +337,71 @@
           }
         ],
         "estacion": "ambas",
-        "notas": "Trazado PLACEHOLDER sobre el curso real del Marañón. Igor (2026-09-09): «la frontera puede ser el río Marañón, así la reserva entra dentro del imperio». Nombre en pantalla por decidir.",
+        "notas": "Trazado esquemático sobre el curso real del Marañón. Igor (2026-09-09): «la frontera puede ser el río Marañón, así la reserva entra dentro del imperio». Nombre en pantalla: «La frontera del imperio» (Igor, 2026-09-10).",
         "fuente": "Igor (2026-09-09); UCRONIA_INTEGRACION.md §Premisa",
-        "placeholder": true,
+        "placeholder": false,
+        "rango": "principal"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "frontera-este",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.5,
+            -4.5
+          ],
+          [
+            -73.58,
+            -4.7
+          ],
+          [
+            -73.63,
+            -4.9
+          ],
+          [
+            -73.65,
+            -5.15
+          ],
+          [
+            -73.58,
+            -5.4
+          ],
+          [
+            -73.56,
+            -5.7
+          ],
+          [
+            -73.6,
+            -5.95
+          ],
+          [
+            -73.64,
+            -6.2
+          ],
+          [
+            -73.6,
+            -6.4
+          ]
+        ]
+      },
+      "properties": {
+        "tipo": "frontera",
+        "escala": "local",
+        "faccion": "imperio",
+        "nombre": {
+          "es": "La frontera del imperio",
+          "qu": null
+        },
+        "lengua": "es",
+        "descripcion": "El otro gran río, el que cierra el mundo por el este, es también raya del imperio: aguas abajo se junta con el río de la frontera norte, y más allá de los dos empiezan las tierras de los hispanohablantes. Jeshuco nunca llega a verlo.",
+        "apariciones": [],
+        "estacion": "ambas",
+        "notas": "Trazado esquemático sobre el Ucayali, pegado al borde oriental del mundo para que el humo del final quede dentro del imperio. Igor (2026-09-10): «Ucayali como frontera».",
+        "fuente": "Igor (2026-09-10)",
+        "placeholder": false,
         "rango": "principal"
       }
     }
