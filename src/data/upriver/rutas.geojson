@@ -1211,9 +1211,15 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "El río grande",
+          "en": "The big river",
+          "eu": "Ibai handia",
           "qu": null
         },
-        "descripcion": "El río grande y contaminado: la autopista del imperio. Baja de los Andes hacia el nordeste y desemboca en el río de la frontera, junto al poblado. Subirlo es adentrarse en el imperio. La obra nunca lo nombra.",
+        "descripcion": {
+          "es": "El río grande y contaminado: la autopista del imperio. Baja de los Andes hacia el nordeste y desemboca en el río de la frontera, junto al poblado. Subirlo es adentrarse en el imperio. La obra nunca lo nombra.",
+          "en": "The big, polluted river: the empire’s highway. It comes down from the Andes towards the north-east and flows into the frontier river, by the village. To go up it is to go deeper into the empire. The story never names it.",
+          "eu": "Ibai handi eta kutsatua: inperioaren autobidea. Andeetatik ipar-ekialderantz jaisten da eta mugako ibaian isurtzen da, herrixkaren ondoan. Ibaian gora egitea inperioan barrurago sartzea da. Obrak ez du inoiz izendatzen."
+        },
         "apariciones": [
           {
             "episodio": 1,
@@ -1236,9 +1242,17 @@
               -74.61751,
               -5.02253
             ],
-            "nota": "río arriba con el bufeo, entre troncos talados",
+            "nota": {
+              "es": "río arriba con el bufeo, entre troncos talados",
+              "en": "upriver with the bufeo, among felled logs",
+              "eu": "ibaian gora bufeoarekin, moztutako enborren artean"
+            },
             "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
-            "historia": "Río arriba con el bufeo. Troncos talados a la deriva, aves que huyen: el paisaje cambia de vida a destrucción."
+            "historia": {
+              "es": "Río arriba con el bufeo. Troncos talados a la deriva, aves que huyen: el paisaje cambia de vida a destrucción.",
+              "en": "Upriver with the bufeo. Felled logs adrift, birds fleeing: the landscape turns from life to destruction.",
+              "eu": "Ibaian gora bufeoarekin. Moztutako enborrak noraezean, hegaztiak ihesi: paisaia bizitzatik suntsipenera aldatzen da."
+            }
           },
           {
             "episodio": 4,
@@ -1249,9 +1263,17 @@
               -75.1992,
               -5.27532
             ],
-            "nota": "sigue río arriba por otra ruta, al atardecer",
+            "nota": {
+              "es": "sigue río arriba por otra ruta, al atardecer",
+              "en": "he goes on upriver by another route, at sunset",
+              "eu": "ibaian gora jarraitzen du beste bide batetik, ilunabarrean"
+            },
             "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
-            "historia": "Se aleja del campamento por otra ruta. El río más limpio adelante; Las Tres Gargantas esperan."
+            "historia": {
+              "es": "Se aleja del campamento por otra ruta. El río más limpio adelante; Las Tres Gargantas esperan.",
+              "en": "He leaves the camp by another route. Cleaner river ahead; the Three Gorges await.",
+              "eu": "Kanpamentutik beste bide batetik urruntzen da. Ibai garbiagoa aurrean; Hiru Arroilak zain daude."
+            }
           },
           {
             "episodio": 7,
@@ -1262,9 +1284,17 @@
               -75.82751,
               -5.41386
             ],
-            "nota": "más estrecho y turbio, río arriba de las Gargantas",
+            "nota": {
+              "es": "más estrecho y turbio, río arriba de las Gargantas",
+              "en": "narrower and murkier, upriver from the Gorges",
+              "eu": "estuagoa eta uherragoa, Arroiletatik ibaian gora"
+            },
             "medido": "fotogramas del máster publicado del EP07 cada 5 s (2026-09-09)",
-            "historia": "Más allá de las Gargantas el río es más estrecho y turbio. Ayahumo va en la proa, medio dormido."
+            "historia": {
+              "es": "Más allá de las Gargantas el río es más estrecho y turbio. Ayahumo va en la proa, medio dormido.",
+              "en": "Beyond the Gorges the river is narrower and murkier. Ayahumo sits in the bow, half asleep.",
+              "eu": "Arroiletatik haratago ibaia estuagoa eta uherragoa da. Ayahumo brankan doa, erdi lo."
+            }
           },
           {
             "episodio": 7,
@@ -1275,9 +1305,17 @@
               -76.1587,
               -5.55265
             ],
-            "nota": "la comunidad los envía río arriba",
+            "nota": {
+              "es": "la comunidad los envía río arriba",
+              "en": "the community sends them upriver",
+              "eu": "komunitateak ibaian gora bidaltzen ditu"
+            },
             "medido": "fotogramas del máster publicado del EP07 cada 5 s (2026-09-09)",
-            "historia": "La comunidad los envía río arriba. Quedarse no salva a nadie; ir al origen, sí."
+            "historia": {
+              "es": "La comunidad los envía río arriba. Quedarse no salva a nadie; ir al origen, sí.",
+              "en": "The community sends them upriver. Staying saves no one; going to the source does.",
+              "eu": "Komunitateak ibaian gora bidaltzen ditu. Geratzeak ez du inor salbatzen; sorburura joateak, bai."
+            }
           },
           {
             "episodio": 8,
@@ -1288,9 +1326,17 @@
               -76.43212,
               -5.61433
             ],
-            "nota": "el bosque muerto; la ciudad a la vista",
+            "nota": {
+              "es": "el bosque muerto; la ciudad a la vista",
+              "en": "the dead forest; the city in sight",
+              "eu": "baso hila; hiria bistan"
+            },
             "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
-            "historia": "Bosque muerto, troncos blancos en agua quieta y una columna de humo al fondo. La ciudad, a la vista."
+            "historia": {
+              "es": "Bosque muerto, troncos blancos en agua quieta y una columna de humo al fondo. La ciudad, a la vista.",
+              "en": "Dead forest, white trunks in still water and a column of smoke at the back. The city, in sight.",
+              "eu": "Baso hila, enbor zuriak ur geldian eta ke-zutabe bat hondoan. Hiria, bistan."
+            }
           },
           {
             "episodio": 8,
@@ -1301,9 +1347,17 @@
               -76.65521,
               -5.84134
             ],
-            "nota": "bajan de la ciudad al atardecer",
+            "nota": {
+              "es": "bajan de la ciudad al atardecer",
+              "en": "they leave the city at sunset",
+              "eu": "hiritik jaisten dira ilunabarrean"
+            },
             "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
-            "historia": "Se retiran de la ciudad al atardecer, en silencio. Lo visto pesa."
+            "historia": {
+              "es": "Se retiran de la ciudad al atardecer, en silencio. Lo visto pesa.",
+              "en": "They withdraw from the city at sunset, in silence. What they have seen weighs on them.",
+              "eu": "Hiritik erretiratzen dira ilunabarrean, isilik. Ikusitakoak pisu egiten du."
+            }
           },
           {
             "episodio": 10,
@@ -1314,10 +1368,18 @@
               -76.30989,
               -5.55663
             ],
-            "nota": "río abajo con la mujer rescatada",
+            "nota": {
+              "es": "río abajo con la mujer rescatada",
+              "en": "downriver with the rescued woman",
+              "eu": "ibaian behera erreskatatutako emakumearekin"
+            },
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
             "estacion": "creciente",
-            "historia": "Baja el río con la mujer rescatada en la canoa."
+            "historia": {
+              "es": "Baja el río con la mujer rescatada en la canoa.",
+              "en": "He goes down the river with the rescued woman in the canoe.",
+              "eu": "Ibaian behera doa erreskatatutako emakumea kanoan duela."
+            }
           },
           {
             "episodio": 10,
@@ -1328,10 +1390,18 @@
               -75.31649,
               -5.2587
             ],
-            "nota": "noche en el río",
+            "nota": {
+              "es": "noche en el río",
+              "en": "night on the river",
+              "eu": "gaua ibaian"
+            },
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
             "estacion": "creciente",
-            "historia": "Noche en el río, rumbo a casa."
+            "historia": {
+              "es": "Noche en el río, rumbo a casa.",
+              "en": "Night on the river, heading home.",
+              "eu": "Gaua ibaian, etxerantz."
+            }
           }
         ],
         "notas": "Trazado placeholder con meandros. Nace más allá de la ciudad, hacia las colinas andinas. Río arriba de Las Tres Gargantas es más estrecho y turbio (EP7).",
@@ -1375,27 +1445,49 @@
         "faccion": "kukama",
         "nombre": {
           "es": "El caño del poblado",
+          "en": "The village creek",
+          "eu": "Herrixkako ubidea",
           "qu": null
         },
-        "descripcion": "Agua limpia y quieta entre el palafito, el poblado y la desembocadura. Aquí Jeshuco se encuentra con el bufeo y cazan el paiche gigante.",
+        "descripcion": {
+          "es": "Agua limpia y quieta entre el palafito, el poblado y la desembocadura. Aquí Jeshuco se encuentra con el bufeo y cazan el paiche gigante.",
+          "en": "Clean, still water between the stilt house, the village and the river mouth. Here Jeshuco meets the bufeo and they hunt the giant paiche.",
+          "eu": "Ur garbi eta geldia palafitoaren, herrixkaren eta bokalearen artean. Hemen Jeshuco bufeoarekin elkartzen da eta paiche erraldoia ehizatzen dute."
+        },
         "apariciones": [
           {
             "episodio": 1,
             "desde": 26,
             "hasta": 70,
             "camara": true,
-            "nota": "encuentro con el bufeo y caza del paiche",
+            "nota": {
+              "es": "encuentro con el bufeo y caza del paiche",
+              "en": "meeting the bufeo and hunting the paiche",
+              "eu": "bufeoarekin elkartzea eta paichearen ehiza"
+            },
             "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
-            "historia": "En el caño se encuentra con el bufeo. Nadan juntos y cazan un paiche gigante. El pez lo arrastra hacia lo desconocido."
+            "historia": {
+              "es": "En el caño se encuentra con el bufeo. Nadan juntos y cazan un paiche gigante. El pez lo arrastra hacia lo desconocido.",
+              "en": "In the creek he meets the bufeo. They swim together and hunt a giant paiche. The fish drags him towards the unknown.",
+              "eu": "Ubidean bufeoarekin elkartzen da. Elkarrekin igeri egiten dute eta paiche erraldoi bat ehizatzen dute. Arrainak ezezagunerantz arrastatzen du."
+            }
           },
           {
             "episodio": 3,
             "desde": 150,
             "hasta": 192.341,
             "camara": true,
-            "nota": "la partida en canoa al atardecer",
+            "nota": {
+              "es": "la partida en canoa al atardecer",
+              "en": "the departure by canoe at sunset",
+              "eu": "abiatzea kanoan ilunabarrean"
+            },
             "medido": "fotogramas del máster publicado del EP03 cada 5 s (2026-09-09)",
-            "historia": "Entierra al abuelo y decide partir. Sale en la canoa al atardecer, río arriba, con el amuleto al cuello."
+            "historia": {
+              "es": "Entierra al abuelo y decide partir. Sale en la canoa al atardecer, río arriba, con el amuleto al cuello.",
+              "en": "He buries his grandfather and decides to leave. He sets out in the canoe at sunset, upriver, with the amulet around his neck.",
+              "eu": "Aitona lurperatzen du eta abiatzea erabakitzen du. Kanoan ateratzen da ilunabarrean, ibaian gora, amuletoa lepoan."
+            }
           },
           {
             "episodio": 10,
@@ -1439,18 +1531,32 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Los túneles naturales",
+          "en": "The natural tunnels",
+          "eu": "Tunel naturalak",
           "qu": null
         },
-        "descripcion": "Galerías de agua bajo el bosque inundado. Empiezan en el caño, entre el poblado y el palafito, donde Jeshuco y el bufeo cazan el paiche gigante; el pez lo arrastra por ellas hasta el río grande, ya contaminado.",
+        "descripcion": {
+          "es": "Galerías de agua bajo el bosque inundado. Empiezan en el caño, entre el poblado y el palafito, donde Jeshuco y el bufeo cazan el paiche gigante; el pez lo arrastra por ellas hasta el río grande, ya contaminado.",
+          "en": "Water galleries under the flooded forest. They begin in the creek, between the village and the stilt house, where Jeshuco and the bufeo hunt the giant paiche; the fish drags him through them to the big river, already polluted.",
+          "eu": "Ur-galeriak baso urpetuaren azpian. Ubidean hasten dira, herrixkaren eta palafitoaren artean, Jeshucok eta bufeoak paiche erraldoia ehizatzen duten lekuan; arrainak haietan barrena arrastatzen du ibai handiraino, jada kutsatuta."
+        },
         "apariciones": [
           {
             "episodio": 1,
             "desde": 70,
             "hasta": 96,
             "camara": true,
-            "nota": "el paiche lo arrastra por las galerías",
+            "nota": {
+              "es": "el paiche lo arrastra por las galerías",
+              "en": "the paiche drags him through the galleries",
+              "eu": "paicheak galerietan barrena arrastatzen du"
+            },
             "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
-            "historia": "Galerías oscuras bajo el bosque inundado. Arrastrado por el paiche, Jeshuco atraviesa un tramo que no conocía."
+            "historia": {
+              "es": "Galerías oscuras bajo el bosque inundado. Arrastrado por el paiche, Jeshuco atraviesa un tramo que no conocía.",
+              "en": "Dark galleries under the flooded forest. Dragged by the paiche, Jeshuco crosses a stretch he did not know.",
+              "eu": "Galeria ilunak baso urpetuaren azpian. Paicheak arrastatuta, Jeshucok ezagutzen ez zuen tarte bat zeharkatzen du."
+            }
           }
         ],
         "notas": "Placeholder. Igor (2026-09-09): «el paiche lo caza entre el poblado y el palafito, ahí encuentra los túneles». El guion completo sitúa la caza en 0:30–2:30 del EP1.",
@@ -1498,18 +1604,32 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "El desvío de los rápidos",
+          "en": "The detour of the rapids",
+          "eu": "Ur-lasterren adarra",
           "qu": null
         },
-        "descripcion": "Un brazo que abandona el río grande y baja con la corriente: por eso hay rápidos en un viaje río arriba. Lleva al campamento minero y vuelve al río por otra boca.",
+        "descripcion": {
+          "es": "Un brazo que abandona el río grande y baja con la corriente: por eso hay rápidos en un viaje río arriba. Lleva al campamento minero y vuelve al río por otra boca.",
+          "en": "A branch that leaves the big river and runs down with the current: that is why there are rapids on a journey upriver. It leads to the mining camp and returns to the river through another mouth.",
+          "eu": "Ibai handia utzi eta korrontearekin behera doan adarra: horregatik daude ur-lasterrak ibaian gorako bidaia batean. Meatze-kanpamentura darama eta beste aho batetik itzultzen da ibaira."
+        },
         "apariciones": [
           {
             "episodio": 4,
             "desde": 60,
             "hasta": 75,
             "camara": true,
-            "nota": "el bufeo guía hacia el brazo estrecho",
+            "nota": {
+              "es": "el bufeo guía hacia el brazo estrecho",
+              "en": "the bufeo leads into the narrow branch",
+              "eu": "bufeoak adar estura gidatzen du"
+            },
             "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
-            "historia": "El bufeo guía hacia un brazo estrecho. Jeshuco lo sigue confiando."
+            "historia": {
+              "es": "El bufeo guía hacia un brazo estrecho. Jeshuco lo sigue confiando.",
+              "en": "The bufeo leads into a narrow branch. Jeshuco follows, trusting it.",
+              "eu": "Bufeoak adar estu baterantz gidatzen du. Jeshucok konfiantzaz jarraitzen dio."
+            }
           }
         ],
         "notas": "Placeholder. Igor: «unos planos antes él toma un cruce y esa desviación lo lleva río abajo». EP4 sh10 (afluente lateral), sh27 (otra ruta).",
@@ -1549,19 +1669,33 @@
         "faccion": "kukama",
         "nombre": {
           "es": "El caño de las Gargantas",
+          "en": "The creek of the Gorges",
+          "eu": "Arroiletako ubidea",
           "qu": null
         },
-        "descripcion": "Canal escondido entre la vegetación que sube hacia las colinas. Las Tres Gargantas no se ven desde el río grande: son el lugar sagrado de Ayahumo.",
+        "descripcion": {
+          "es": "Canal escondido entre la vegetación que sube hacia las colinas. Las Tres Gargantas no se ven desde el río grande: son el lugar sagrado de Ayahumo.",
+          "en": "A channel hidden in the vegetation that climbs towards the hills. The Three Gorges cannot be seen from the big river: they are Ayahumo’s sacred place.",
+          "eu": "Landarediaren artean ezkutatutako kanala, muinoetarantz igotzen dena. Hiru Arroilak ez dira ibai handitik ikusten: Ayahumoren leku sakratua dira."
+        },
         "apariciones": [
           {
             "episodio": 5,
             "camara": false,
-            "nota": "la canoa emerge de la vegetación"
+            "nota": {
+              "es": "la canoa emerge de la vegetación",
+              "en": "the canoe emerges from the vegetation",
+              "eu": "kanoa landaredi artetik ateratzen da"
+            }
           },
           {
             "episodio": 7,
             "camara": false,
-            "nota": "se deja atrás"
+            "nota": {
+              "es": "se deja atrás",
+              "en": "left behind",
+              "eu": "atzean uzten da"
+            }
           }
         ],
         "notas": "Placeholder. Igor: «las tres gargantas no pueden estar visibles desde el río principal». EP5 sh02: la canoa emerge de la vegetación ribereña.",
@@ -1584,9 +1718,15 @@
         "faccion": "kukama",
         "nombre": {
           "es": "El viaje de Jeshuco",
+          "en": "Jeshuco’s journey",
+          "eu": "Jeshucoren bidaia",
           "qu": null
         },
-        "descripcion": "Del palafito, en la frontera, río arriba hacia el corazón del imperio; y la vuelta.",
+        "descripcion": {
+          "es": "Del palafito, en la frontera, río arriba hacia el corazón del imperio; y la vuelta.",
+          "en": "From the stilt house, on the frontier, upriver to the heart of the empire; and back.",
+          "eu": "Palafitotik, mugan, ibaian gora inperioaren bihotzeraino; eta itzulera."
+        },
         "paradas": [
           "poblado",
           "cano-del-poblado",

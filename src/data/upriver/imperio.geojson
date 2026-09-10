@@ -41,16 +41,30 @@
         "faccion": "imperio",
         "nombre": {
           "es": "Territorio del imperio",
+          "en": "Imperial territory",
+          "eu": "Inperioaren lurraldea",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Zona bajo control directo del imperio en este tramo: la ciudad y su comarca, al pie de los Andes.",
+        "descripcion": {
+          "es": "Zona bajo control directo del imperio en este tramo: la ciudad y su comarca, al pie de los Andes.",
+          "en": "The area under the empire’s direct control on this stretch: the city and its district, at the foot of the Andes.",
+          "eu": "Tarte honetan inperioaren kontrol zuzenpeko eremua: hiria eta bere eskualdea, Andeen oinean."
+        },
         "apariciones": [
           {
             "episodio": 7,
             "camara": false,
-            "nota": "banderas del sol en el recuerdo de la comunidad",
-            "historia": "Los refugiados hablan de banderas con el sol y de una lengua que no es la suya."
+            "nota": {
+              "es": "banderas del sol en el recuerdo de la comunidad",
+              "en": "banners with the sun in the community’s memory",
+              "eu": "eguzkidun banderak komunitatearen oroimenean"
+            },
+            "historia": {
+              "es": "Los refugiados hablan de banderas con el sol y de una lengua que no es la suya.",
+              "en": "The refugees speak of banners with the sun and of a language that is not their own.",
+              "eu": "Errefuxiatuek eguzkidun banderez eta berea ez den hizkuntza batez hitz egiten dute."
+            }
           },
           {
             "episodio": 8,
@@ -83,27 +97,49 @@
         "faccion": null,
         "nombre": {
           "es": "El campamento minero",
+          "en": "The mining camp",
+          "eu": "Meatze-kanpamentua",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Las máquinas, al final del desvío de los rápidos. Primera avanzada industrial en el río y primera prueba de que alguien lo está matando.",
+        "descripcion": {
+          "es": "Las máquinas, al final del desvío de los rápidos. Primera avanzada industrial en el río y primera prueba de que alguien lo está matando.",
+          "en": "The machines, at the end of the detour of the rapids. The first industrial outpost on the river and the first proof that someone is killing it.",
+          "eu": "Makinak, ur-lasterren adarraren amaieran. Ibaiko lehen aurrerapostu industriala eta norbait ibaia hiltzen ari dela erakusten duen lehen froga."
+        },
         "apariciones": [
           {
             "episodio": 4,
             "desde": 100,
             "hasta": 220,
-            "nota": "las máquinas, los barriles, el desagüe; libera al mono",
+            "nota": {
+              "es": "las máquinas, los barriles, el desagüe; libera al mono",
+              "en": "the machines, the barrels, the outfall; he frees the monkey",
+              "eu": "makinak, upelak, isurbidea; tximinoa askatzen du"
+            },
             "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
-            "historia": "Máquinas, barriles, un desagüe negro que vomita al río, trabajadores cubiertos de barro. Jeshuco quiere actuar; el bufeo lo detiene. Libera a un mono atrapado en una red."
+            "historia": {
+              "es": "Máquinas, barriles, un desagüe negro que vomita al río, trabajadores cubiertos de barro. Jeshuco quiere actuar; el bufeo lo detiene. Libera a un mono atrapado en una red.",
+              "en": "Machines, barrels, a black outfall vomiting into the river, workers covered in mud. Jeshuco wants to act; the bufeo stops him. He frees a monkey caught in a net.",
+              "eu": "Makinak, upelak, ibaira oka egiten duen isurbide beltz bat, langileak lokatzez estalita. Jeshucok ekin nahi du; bufeoak geldiarazten du. Sare batean harrapatutako tximino bat askatzen du."
+            }
           },
           {
             "episodio": 10,
             "desde": 158,
             "hasta": 175,
-            "nota": "las máquinas abandonadas; taricayas sobre los troncos",
+            "nota": {
+              "es": "las máquinas abandonadas; taricayas sobre los troncos",
+              "en": "the abandoned machines; taricaya turtles on the logs",
+              "eu": "makina abandonatuak; taricayak enborren gainean"
+            },
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
             "estacion": "creciente",
-            "historia": "Las máquinas abandonadas, hundidas. Sobre los troncos, taricayas al sol."
+            "historia": {
+              "es": "Las máquinas abandonadas, hundidas. Sobre los troncos, taricayas al sol.",
+              "en": "The abandoned machines, sunk. On the logs, taricaya turtles in the sun.",
+              "eu": "Makina abandonatuak, hondoratuta. Enborren gainean, taricayak eguzkitan."
+            }
           }
         ],
         "estacion": "ambas",
@@ -249,10 +285,16 @@
         "faccion": "imperio",
         "nombre": {
           "es": "El imperio",
+          "en": "The empire",
+          "eu": "Inperioa",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "En 1532 Atahualpa no cayó en la trampa de Pizarro. España colonizó las costas y las tierras bajas, pero nunca penetró la Amazonia profunda. El imperio chimú-inca sobrevivió en los Andes, se industrializó y extendió su control sobre la cuenca amazónica. Quinientos años después somete la selva. Comercia y comparte tecnología con los países y reinos hispanohablantes que lo rodean.",
+        "descripcion": {
+          "es": "En 1532 Atahualpa no cayó en la trampa de Pizarro. España colonizó las costas y las tierras bajas, pero nunca penetró la Amazonia profunda. El imperio chimú-inca sobrevivió en los Andes, se industrializó y extendió su control sobre la cuenca amazónica. Quinientos años después somete la selva. Comercia y comparte tecnología con los países y reinos hispanohablantes que lo rodean.",
+          "en": "In 1532 Atahualpa did not fall into Pizarro’s trap. Spain colonised the coasts and the lowlands but never penetrated the deep Amazon. The Chimú-Inca empire survived in the Andes, industrialised and extended its control over the Amazon basin. Five hundred years later it is subduing the jungle. It trades and shares technology with the Spanish-speaking countries and kingdoms around it.",
+          "eu": "1532an Atahualpa ez zen Pizarroren tranpan erori. Espainiak kostaldeak eta lur behereak kolonizatu zituen, baina ez zen inoiz Amazonia sakonean sartu. Inperio chimu-inkak Andeetan bizirik iraun zuen, industrializatu egin zen eta Amazonas arroaren gaineko kontrola hedatu zuen. Bostehun urte geroago oihana menderatzen ari da. Inguruko herrialde eta erresuma gaztelaniadunekin merkataritzan aritzen da eta teknologia partekatzen du."
+        },
         "apariciones": [],
         "estacion": "ambas",
         "notas": "Contorno según Igor (2026-09-10): el Marañón al norte, el Ucayali al este, y una parte de los Andes al oeste y al sur, porque la tribu en el poder es andina. Al norte del Marañón y al este del Ucayali, los países hispanohablantes. Trazado esquemático sobre los cursos reales (Pongo de Manseriche → Nauta → Pucallpa; Huánuco, Cordillera Blanca, Cajamarca, Chachapoyas). El imperio no tiene nombre en la obra.",
@@ -322,10 +364,16 @@
         "faccion": "imperio",
         "nombre": {
           "es": "La frontera del imperio",
+          "en": "The empire’s frontier",
+          "eu": "Inperioaren muga",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "El gran río que cierra el mundo por el norte es la raya del imperio: en la otra orilla empiezan las tierras de los hispanohablantes. El poblado de Jeshuco está en su misma orilla, junto a la desembocadura del río grande, y por ahí entran los barcos que comercian con el imperio.",
+        "descripcion": {
+          "es": "El gran río que cierra el mundo por el norte es la raya del imperio: en la otra orilla empiezan las tierras de los hispanohablantes. El poblado de Jeshuco está en su misma orilla, junto a la desembocadura del río grande, y por ahí entran los barcos que comercian con el imperio.",
+          "en": "The great river that closes the world to the north is the empire’s line: on the other bank begin the lands of the Spanish speakers. Jeshuco’s village stands on this same bank, by the mouth of the big river, and that is where the ships that trade with the empire come in.",
+          "eu": "Mundua iparraldetik ixten duen ibai handia inperioaren marra da: beste ertzean gaztelaniadunen lurrak hasten dira. Jeshucoren herrixka ertz berean dago, ibai handiaren bokalearen ondoan, eta hortik sartzen dira inperioarekin merkataritzan aritzen diren ontziak."
+        },
         "apariciones": [
           {
             "episodio": 1,
@@ -393,10 +441,16 @@
         "faccion": "imperio",
         "nombre": {
           "es": "La frontera del imperio",
+          "en": "The empire’s frontier",
+          "eu": "Inperioaren muga",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "El otro gran río, el que cierra el mundo por el este, es también raya del imperio: aguas abajo se junta con el río de la frontera norte, y más allá de los dos empiezan las tierras de los hispanohablantes. Jeshuco nunca llega a verlo.",
+        "descripcion": {
+          "es": "El otro gran río, el que cierra el mundo por el este, es también raya del imperio: aguas abajo se junta con el río de la frontera norte, y más allá de los dos empiezan las tierras de los hispanohablantes. Jeshuco nunca llega a verlo.",
+          "en": "The other great river, the one that closes the world to the east, is also the empire’s line: downstream it joins the river of the northern frontier, and beyond them both begin the lands of the Spanish speakers. Jeshuco never gets to see it.",
+          "eu": "Beste ibai handia, mundua ekialdetik ixten duena, inperioaren marra da baita ere: ibaian behera iparraldeko mugako ibaiarekin elkartzen da, eta bien haratago gaztelaniadunen lurrak hasten dira. Jeshucok ez du inoiz ikusten."
+        },
         "apariciones": [],
         "estacion": "ambas",
         "notas": "Trazado esquemático sobre el Ucayali, pegado al borde oriental del mundo para que el humo del final quede dentro del imperio. Igor (2026-09-10): «Ucayali como frontera».",

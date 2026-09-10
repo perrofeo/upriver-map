@@ -94,12 +94,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "ambas",
-        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "descripcion": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -198,12 +204,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "ambas",
-        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "descripcion": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -302,12 +314,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "ambas",
-        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "descripcion": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -406,12 +424,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "ambas",
-        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "descripcion": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -510,12 +534,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "ambas",
-        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "descripcion": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -614,12 +644,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "ambas",
-        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "descripcion": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -718,12 +754,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "ambas",
-        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "descripcion": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -822,12 +864,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "ambas",
-        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "descripcion": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -926,12 +974,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "ambas",
-        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "descripcion": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -1030,12 +1084,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "ambas",
-        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "descripcion": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -1134,12 +1194,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "ambas",
-        "descripcion": "Una cocha: meandro abandonado, agua negra",
+        "descripcion": {
+          "es": "Una cocha: meandro abandonado, agua negra",
+          "en": "A cocha: an abandoned meander, black water",
+          "eu": "Cocha bat: meandro abandonatua, ur beltza"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -1238,12 +1304,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una isla del río grande",
+          "en": "An island in the big river",
+          "eu": "Ibai handiko uharte bat",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "vaciante",
-        "descripcion": "Una isla del río grande",
+        "descripcion": {
+          "es": "Una isla del río grande",
+          "en": "An island in the big river",
+          "eu": "Ibai handiko uharte bat"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -1342,12 +1414,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una isla del río grande",
+          "en": "An island in the big river",
+          "eu": "Ibai handiko uharte bat",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "vaciante",
-        "descripcion": "Una isla del río grande",
+        "descripcion": {
+          "es": "Una isla del río grande",
+          "en": "An island in the big river",
+          "eu": "Ibai handiko uharte bat"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -1446,12 +1524,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una isla del río grande",
+          "en": "An island in the big river",
+          "eu": "Ibai handiko uharte bat",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "vaciante",
-        "descripcion": "Una isla del río grande",
+        "descripcion": {
+          "es": "Una isla del río grande",
+          "en": "An island in the big river",
+          "eu": "Ibai handiko uharte bat"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -1550,12 +1634,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una isla del río grande",
+          "en": "An island in the big river",
+          "eu": "Ibai handiko uharte bat",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "vaciante",
-        "descripcion": "Una isla del río grande",
+        "descripcion": {
+          "es": "Una isla del río grande",
+          "en": "An island in the big river",
+          "eu": "Ibai handiko uharte bat"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -1654,12 +1744,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "vaciante",
-        "descripcion": "Una playa de arena que la creciente cubre",
+        "descripcion": {
+          "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -1758,12 +1854,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "vaciante",
-        "descripcion": "Una playa de arena que la creciente cubre",
+        "descripcion": {
+          "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -1862,12 +1964,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "vaciante",
-        "descripcion": "Una playa de arena que la creciente cubre",
+        "descripcion": {
+          "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -1966,12 +2074,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "vaciante",
-        "descripcion": "Una playa de arena que la creciente cubre",
+        "descripcion": {
+          "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -2070,12 +2184,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "vaciante",
-        "descripcion": "Una playa de arena que la creciente cubre",
+        "descripcion": {
+          "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -2174,12 +2294,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "vaciante",
-        "descripcion": "Una playa de arena que la creciente cubre",
+        "descripcion": {
+          "es": "Una playa de arena que la creciente cubre",
+          "en": "A sandbank the flood covers",
+          "eu": "Uholdeak estaltzen duen hondartza bat"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -3398,12 +3524,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Bosque inundado: en creciente el río grande se sale al monte",
+          "en": "Flooded forest: in the flood season the big river spills into the woods",
+          "eu": "Baso urpetua: uholdean ibai handia basora ateratzen da",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "creciente",
-        "descripcion": "Bosque inundado: en creciente el río grande se sale al monte",
+        "descripcion": {
+          "es": "Bosque inundado: en creciente el río grande se sale al monte",
+          "en": "Flooded forest: in the flood season the big river spills into the woods",
+          "eu": "Baso urpetua: uholdean ibai handia basora ateratzen da"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -4534,12 +4666,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Bosque inundado del tramo alto",
+          "en": "Flooded forest of the upper stretch",
+          "eu": "Goiko tarteko baso urpetua",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "creciente",
-        "descripcion": "Bosque inundado del tramo alto",
+        "descripcion": {
+          "es": "Bosque inundado del tramo alto",
+          "en": "Flooded forest of the upper stretch",
+          "eu": "Goiko tarteko baso urpetua"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",
@@ -4662,12 +4800,18 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "La orilla inundada del río de la frontera",
+          "en": "The flooded bank of the frontier river",
+          "eu": "Mugako ibaiaren ertz urpetua",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "creciente",
-        "descripcion": "La orilla inundada del río de la frontera",
+        "descripcion": {
+          "es": "La orilla inundada del río de la frontera",
+          "en": "The flooded bank of the frontier river",
+          "eu": "Mugako ibaiaren ertz urpetua"
+        },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",
         "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»",

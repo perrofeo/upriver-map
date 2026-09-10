@@ -5,7 +5,11 @@
   "episodios": [
     {
       "n": 1,
-      "titulo": "El Descubrimiento",
+      "titulo": {
+        "es": "El Descubrimiento",
+        "en": "The Discovery",
+        "eu": "Aurkikuntza"
+      },
       "slug": "the-discovery",
       "youtubeId": "bg7T_hVdANo",
       "duracion": 148.267,
@@ -14,7 +18,11 @@
     },
     {
       "n": 2,
-      "titulo": "El Otro Mundo",
+      "titulo": {
+        "es": "El Otro Mundo",
+        "en": "The Other World",
+        "eu": "Beste Mundua"
+      },
       "slug": "the-other-world",
       "youtubeId": "WcSK1BLZFgY",
       "duracion": 273.472,
@@ -23,7 +31,11 @@
     },
     {
       "n": 3,
-      "titulo": "Las Últimas Palabras",
+      "titulo": {
+        "es": "Las Últimas Palabras",
+        "en": "The Last Words",
+        "eu": "Azken Hitzak"
+      },
       "slug": "the-last-words",
       "youtubeId": "8D_fQBLgx9s",
       "duracion": 192.341,
@@ -32,7 +44,11 @@
     },
     {
       "n": 4,
-      "titulo": "El Rastro del Veneno",
+      "titulo": {
+        "es": "El Rastro del Veneno",
+        "en": "The Poison Trail",
+        "eu": "Pozoiaren Aztarna"
+      },
       "slug": "the-poison-trail",
       "youtubeId": "HVcS_THZk1U",
       "duracion": 260.309,
@@ -41,7 +57,11 @@
     },
     {
       "n": 5,
-      "titulo": "Las Tres Gargantas",
+      "titulo": {
+        "es": "Las Tres Gargantas",
+        "en": "The Three Gorges",
+        "eu": "Hiru Arroilak"
+      },
       "slug": "the-three-gorges",
       "youtubeId": "bcOzkNvM9DM",
       "duracion": 248.725,
@@ -50,7 +70,11 @@
     },
     {
       "n": 6,
-      "titulo": "La Visión",
+      "titulo": {
+        "es": "La Visión",
+        "en": "The Vision",
+        "eu": "Bisioa"
+      },
       "slug": "the-vision",
       "youtubeId": "IIemfhlswcs",
       "duracion": 246.059,
@@ -59,7 +83,11 @@
     },
     {
       "n": 7,
-      "titulo": "La Comunidad",
+      "titulo": {
+        "es": "La Comunidad",
+        "en": "The Community",
+        "eu": "Komunitatea"
+      },
       "slug": "the-community",
       "youtubeId": "kQggIJiFuPk",
       "duracion": 224.0,
@@ -68,7 +96,11 @@
     },
     {
       "n": 8,
-      "titulo": "La Confrontación",
+      "titulo": {
+        "es": "La Confrontación",
+        "en": "The Origin",
+        "eu": "Jatorria"
+      },
       "slug": "the-origin",
       "youtubeId": "VbSCrPX1me8",
       "duracion": 296.0,
@@ -77,7 +109,11 @@
     },
     {
       "n": 9,
-      "titulo": "El Ritual",
+      "titulo": {
+        "es": "El Ritual",
+        "en": "The Ritual",
+        "eu": "Errituala"
+      },
       "slug": "the-ritual",
       "youtubeId": "XhPGIr7I248",
       "duracion": 310.293,
@@ -86,7 +122,11 @@
     },
     {
       "n": 10,
-      "titulo": "Río Arriba",
+      "titulo": {
+        "es": "Río Arriba",
+        "en": "Upriver",
+        "eu": "Ibai Gora"
+      },
       "slug": "upriver",
       "youtubeId": "LXUkQmg47Fc",
       "duracion": 276.672,

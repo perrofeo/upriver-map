@@ -17,29 +17,55 @@
         "faccion": "comerciantes",
         "nombre": {
           "es": "El barco industrial",
+          "en": "The industrial ship",
+          "eu": "Ontzi industriala",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Barco mercante que comercia con el imperio. Su tripulación habla castellano: no son del imperio. Fondeado en el río grande, donde lo encuentra Jeshuco al salir de los túneles. Reaparece atracado en el puerto de la ciudad.",
+        "descripcion": {
+          "es": "Barco mercante que comercia con el imperio. Su tripulación habla castellano: no son del imperio. Fondeado en el río grande, donde lo encuentra Jeshuco al salir de los túneles. Reaparece atracado en el puerto de la ciudad.",
+          "en": "A merchant ship that trades with the empire. Its crew speaks Spanish: they are not from the empire. Anchored in the big river, where Jeshuco finds it when he comes out of the tunnels. It reappears moored in the city’s port.",
+          "eu": "Inperioarekin merkataritzan aritzen den merkataritza-ontzia. Tripulazioak gaztelaniaz hitz egiten du: ez dira inperiokoak. Ibai handian ainguratuta, Jeshucok tuneletatik irtetean aurkitzen duen lekuan. Hiriko portuan atrakatuta berragertzen da."
+        },
         "apariciones": [
           {
             "episodio": 1,
             "desde": 130,
             "hasta": 148.267,
-            "nota": "Jeshuco lo ve humear a lo lejos",
+            "nota": {
+              "es": "Jeshuco lo ve humear a lo lejos",
+              "en": "Jeshuco sees it smoking in the distance",
+              "eu": "Jeshucok urrunean ketan ikusten du"
+            },
             "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
-            "historia": "El barco industrial emerge de la bruma, humeando. Jeshuco lo mira desde el agua."
+            "historia": {
+              "es": "El barco industrial emerge de la bruma, humeando. Jeshuco lo mira desde el agua.",
+              "en": "The industrial ship emerges from the mist, smoking. Jeshuco watches it from the water.",
+              "eu": "Ontzi industriala lainotik ateratzen da, ketan. Jeshucok uretatik begiratzen dio."
+            }
           },
           {
             "episodio": 2,
-            "historia": "De noche trepa por la cadena del ancla. Máquinas, metal, hombres que hablan otra lengua y una cumbia que lo fascina. Lo descubren y escapa al río."
+            "historia": {
+              "es": "De noche trepa por la cadena del ancla. Máquinas, metal, hombres que hablan otra lengua y una cumbia que lo fascina. Lo descubren y escapa al río.",
+              "en": "At night he climbs up the anchor chain. Machines, metal, men speaking another language and a cumbia that fascinates him. They discover him and he escapes to the river.",
+              "eu": "Gauez aingura-katetik igotzen da. Makinak, metala, beste hizkuntza bat hitz egiten duten gizonak eta liluratzen duen cumbia bat. Aurkitu egiten dute eta ibaira ihes egiten du."
+            }
           },
           {
             "episodio": 8,
             "camara": false,
-            "nota": "atracado en el puerto imperial",
+            "nota": {
+              "es": "atracado en el puerto imperial",
+              "en": "moored in the imperial port",
+              "eu": "portu inperialean atrakatuta"
+            },
             "lugar": "ciudad",
-            "historia": "Atracado en el puerto de la ciudad. El tecladista que lo delató aquella noche lo reconoce y lo deja pasar."
+            "historia": {
+              "es": "Atracado en el puerto de la ciudad. El tecladista que lo delató aquella noche lo reconoce y lo deja pasar.",
+              "en": "Moored in the city’s port. The keyboard player who gave him away that night recognises him and lets him through.",
+              "eu": "Hiriko portuan atrakatuta. Gau hartan salatu zuen teklistak ezagutzen du eta pasatzen uzten dio."
+            }
           }
         ],
         "estacion": "ambas",
@@ -65,18 +91,32 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Los peces muertos",
+          "en": "The dead fish",
+          "eu": "Arrain hilak",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "La salida de los túneles al río grande. Jeshuco emerge en agua turbia, ve los peces muertos en la orilla, se reencuentra con el bufeo y sigue nadando río arriba.",
+        "descripcion": {
+          "es": "La salida de los túneles al río grande. Jeshuco emerge en agua turbia, ve los peces muertos en la orilla, se reencuentra con el bufeo y sigue nadando río arriba.",
+          "en": "The tunnels’ exit into the big river. Jeshuco surfaces in murky water, sees the dead fish on the shore, finds the bufeo again and keeps swimming upriver.",
+          "eu": "Tunelen irteera ibai handira. Jeshuco ur uherretan azaleratzen da, arrain hilak ikusten ditu ertzean, bufeoarekin berriro elkartzen da eta ibaian gora igeri jarraitzen du."
+        },
         "apariciones": [
           {
             "episodio": 1,
             "desde": 96,
             "hasta": 130,
-            "nota": "sale al río grande, peces muertos, reencuentro con el bufeo",
+            "nota": {
+              "es": "sale al río grande, peces muertos, reencuentro con el bufeo",
+              "en": "out into the big river, dead fish, reunion with the bufeo",
+              "eu": "ibai handira ateratzen da, arrain hilak, bufeoarekin berriro"
+            },
             "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
-            "historia": "Emerge en agua turbia. Peces muertos en la orilla: el río está envenenado. El bufeo duda; Jeshuco sigue el rastro."
+            "historia": {
+              "es": "Emerge en agua turbia. Peces muertos en la orilla: el río está envenenado. El bufeo duda; Jeshuco sigue el rastro.",
+              "en": "He surfaces in murky water. Dead fish on the shore: the river is poisoned. The bufeo hesitates; Jeshuco follows the trail.",
+              "eu": "Ur uherretan azaleratzen da. Arrain hilak ertzean: ibaia pozoinduta dago. Bufeoak zalantza egiten du; Jeshucok aztarnari jarraitzen dio."
+            }
           }
         ],
         "estacion": "ambas",
@@ -102,18 +142,32 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Los rápidos",
+          "en": "The rapids",
+          "eu": "Ur-lasterrak",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Aguas bravas en el brazo que baja del río grande. Tras ellos, orillas deforestadas.",
+        "descripcion": {
+          "es": "Aguas bravas en el brazo que baja del río grande. Tras ellos, orillas deforestadas.",
+          "en": "White water on the branch that runs down from the big river. Beyond them, deforested banks.",
+          "eu": "Ur zuriak ibai handitik behera doan adarrean. Haien ondoren, ertz basogabetuak."
+        },
         "apariciones": [
           {
             "episodio": 4,
             "desde": 75,
             "hasta": 100,
-            "nota": "agua blanca; a la salida, orillas deforestadas",
+            "nota": {
+              "es": "agua blanca; a la salida, orillas deforestadas",
+              "en": "white water; at the exit, deforested banks",
+              "eu": "ur zuria; irteeran, ertz basogabetuak"
+            },
             "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
-            "historia": "Agua blanca. Jeshuco rema con fuerza, el bufeo nada delante. A la salida, orillas deforestadas."
+            "historia": {
+              "es": "Agua blanca. Jeshuco rema con fuerza, el bufeo nada delante. A la salida, orillas deforestadas.",
+              "en": "White water. Jeshuco paddles hard, the bufeo swims ahead. At the exit, deforested banks.",
+              "eu": "Ur zuria. Jeshucok indarrez arraun egiten du, bufeoak aurretik igeri. Irteeran, ertz basogabetuak."
+            }
           }
         ],
         "estacion": "ambas",
@@ -138,25 +192,47 @@
         "faccion": "kukama",
         "nombre": {
           "es": "El sitio del ritual",
+          "en": "The ritual site",
+          "eu": "Erritualaren lekua",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Aguas abajo de la ciudad. Donde se libera a la Yacumama.",
+        "descripcion": {
+          "es": "Aguas abajo de la ciudad. Donde se libera a la Yacumama.",
+          "en": "Downstream from the city. Where the Yacumama is set free.",
+          "eu": "Hiritik ibaian behera. Yacumama askatzen den lekua."
+        },
         "apariciones": [
           {
             "episodio": 9,
-            "nota": "la noche del ritual; la Yacumama liberada",
+            "nota": {
+              "es": "la noche del ritual; la Yacumama liberada",
+              "en": "the night of the ritual; the Yacumama set free",
+              "eu": "erritualaren gaua; Yacumama askatuta"
+            },
             "medido": "fotogramas del máster publicado del EP09 cada 5 s (2026-09-09)",
-            "historia": "Ayahumo dibuja a la Yacumama en el barro y le ofrece una salida. «Elijo yo.» Con pinturas en el cuerpo entra al mundo espiritual, y junto a la bufeo guerrera rompe las cadenas de la Yacumama. Al amanecer, el agua cambia de color."
+            "historia": {
+              "es": "Ayahumo dibuja a la Yacumama en el barro y le ofrece una salida. «Elijo yo.» Con pinturas en el cuerpo entra al mundo espiritual, y junto a la bufeo guerrera rompe las cadenas de la Yacumama. Al amanecer, el agua cambia de color.",
+              "en": "Ayahumo draws the Yacumama in the mud and offers him a way out. “I choose.” With paint on his body he enters the spirit world and, beside the bufeo warrior, breaks the Yacumama’s chains. At dawn, the water changes colour.",
+              "eu": "Ayahumok Yacumama lokatzean marrazten du eta irtenbide bat eskaintzen dio. «Nik aukeratzen dut.» Gorputza margotuta mundu espiritualean sartzen da, eta bufeo gerlariaren ondoan Yacumamaren kateak hausten ditu. Egunsentian, ura kolorez aldatzen da."
+            }
           },
           {
             "episodio": 10,
             "desde": 0,
             "hasta": 40,
-            "nota": "el amanecer solo; el collar dibujado en la arena",
+            "nota": {
+              "es": "el amanecer solo; el collar dibujado en la arena",
+              "en": "dawn alone; the necklace drawn in the sand",
+              "eu": "egunsentia bakarrik; lepokoa hondarrean marraztuta"
+            },
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
             "estacion": "vaciante",
-            "historia": "Ayahumo se ha ido en la noche. Deja su collar de dientes de jaguar y una marca en la arena. Jeshuco parte solo."
+            "historia": {
+              "es": "Ayahumo se ha ido en la noche. Deja su collar de dientes de jaguar y una marca en la arena. Jeshuco parte solo.",
+              "en": "Ayahumo has gone in the night. He leaves his jaguar-tooth necklace and a mark in the sand. Jeshuco sets off alone.",
+              "eu": "Ayahumo gauean joan da. Bere jaguar-hortzezko lepokoa eta marka bat hondarrean uzten ditu. Jeshuco bakarrik abiatzen da."
+            }
           }
         ],
         "estacion": "ambas",
@@ -181,18 +257,32 @@
         "faccion": "imperio",
         "nombre": {
           "es": "El humo del horizonte",
+          "en": "The smoke on the horizon",
+          "eu": "Zerumugako kea",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Las columnas de humo del plano final, muy al sur, en tierras que Jeshuco no conoce: el imperio tiene más chimeneas que las de la ciudad, y en la dirección contraria a su viaje.",
+        "descripcion": {
+          "es": "Las columnas de humo del plano final, muy al sur, en tierras que Jeshuco no conoce: el imperio tiene más chimeneas que las de la ciudad, y en la dirección contraria a su viaje.",
+          "en": "The columns of smoke in the final shot, far to the south, in lands Jeshuco does not know: the empire has more chimneys than the city’s, and in the opposite direction to his journey.",
+          "eu": "Azken planoko ke-zutabeak, hegoaldean urrun, Jeshucok ezagutzen ez dituen lurretan: inperioak hiriko tximiniak baino gehiago ditu, eta bere bidaiaren kontrako norabidean."
+        },
         "apariciones": [
           {
             "episodio": 10,
             "desde": 240,
             "hasta": 276.672,
-            "nota": "plano final: el humo en el horizonte",
+            "nota": {
+              "es": "plano final: el humo en el horizonte",
+              "en": "final shot: smoke on the horizon",
+              "eu": "azken planoa: kea zerumugan"
+            },
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
-            "historia": "Atardecer. A lo lejos, humo: el imperio tiene más ciudades. Jeshuco no mira el humo. Mira el río."
+            "historia": {
+              "es": "Atardecer. A lo lejos, humo: el imperio tiene más ciudades. Jeshuco no mira el humo. Mira el río.",
+              "en": "Sunset. In the distance, smoke: the empire has more cities. Jeshuco does not look at the smoke. He looks at the river.",
+              "eu": "Ilunabarra. Urrunean, kea: inperioak hiri gehiago ditu. Jeshucok ez dio keari begiratzen. Ibaiari begiratzen dio."
+            }
           }
         ],
         "estacion": "ambas",

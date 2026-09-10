@@ -17,32 +17,62 @@
         "faccion": "kukama",
         "nombre": {
           "es": "Las Tres Gargantas",
+          "en": "The Three Gorges",
+          "eu": "Hiru Arroilak",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Tres cascadas y la maloca de Ayahumo, al final de un caño escondido que sube a las colinas. El único lugar con nombre en toda la obra. No se ve desde el río grande.",
+        "descripcion": {
+          "es": "Tres cascadas y la maloca de Ayahumo, al final de un caño escondido que sube a las colinas. El único lugar con nombre en toda la obra. No se ve desde el río grande.",
+          "en": "Three waterfalls and Ayahumo’s maloca, at the end of a hidden creek that climbs into the hills. The only named place in the whole story. It cannot be seen from the big river.",
+          "eu": "Hiru ur-jauzi eta Ayahumoren maloka, muinoetara igotzen den ubide ezkutu baten amaieran. Obra osoan izena duen leku bakarra. Ibai handitik ez da ikusten."
+        },
         "apariciones": [
           {
             "episodio": 3,
             "camara": false,
-            "nota": "se nombra"
+            "nota": {
+              "es": "se nombra",
+              "en": "it is named",
+              "eu": "izendatzen da"
+            }
           },
           {
             "episodio": 5,
-            "nota": "las cascadas, la maloca de Ayahumo, la noche a solas",
+            "nota": {
+              "es": "las cascadas, la maloca de Ayahumo, la noche a solas",
+              "en": "the waterfalls, Ayahumo’s maloca, the night alone",
+              "eu": "ur-jauziak, Ayahumoren maloka, gaua bakarrik"
+            },
             "medido": "fotogramas del máster publicado del EP05 cada 5 s (2026-09-09)",
-            "historia": "Tres cascadas y un arcoíris. El bufeo se despide. Jeshuco encuentra a Ayahumo, le cuenta que Yawá ha muerto y pasa una noche solo en la selva: ojos en la oscuridad, el Tunchi. Al amanecer, Ayahumo lo acepta como aprendiz."
+            "historia": {
+              "es": "Tres cascadas y un arcoíris. El bufeo se despide. Jeshuco encuentra a Ayahumo, le cuenta que Yawá ha muerto y pasa una noche solo en la selva: ojos en la oscuridad, el Tunchi. Al amanecer, Ayahumo lo acepta como aprendiz.",
+              "en": "Three waterfalls and a rainbow. The bufeo says goodbye. Jeshuco finds Ayahumo, tells him Yawá is dead, and spends a night alone in the jungle: eyes in the dark, the Tunchi. At dawn, Ayahumo takes him on as an apprentice.",
+              "eu": "Hiru ur-jauzi eta ortzadar bat. Bufeoak agur esaten du. Jeshucok Ayahumo aurkitzen du, Yawá hil dela kontatzen dio, eta gau bat bakarrik igarotzen du oihanean: begiak ilunpean, Tunchia. Egunsentian, Ayahumok ikasle gisa onartzen du."
+            }
           },
           {
             "episodio": 6,
-            "nota": "la toma en la maloca; la visión; el amanecer con el bufeo",
+            "nota": {
+              "es": "la toma en la maloca; la visión; el amanecer con el bufeo",
+              "en": "the brew in the maloca; the vision; dawn with the bufeo",
+              "eu": "edabea malokan; bisioa; egunsentia bufeoarekin"
+            },
             "medido": "fotogramas del máster publicado del EP06 cada 5 s (2026-09-09)",
-            "historia": "En la maloca, Ayahumo prepara la ayahuasca. Jeshuco bebe. En la visión: el río de antes, el río envenenado, una ciudad de pirámides y chimeneas, la Yacumama encadenada, el bufeo convertido en guerrera. Despierta transformado."
+            "historia": {
+              "es": "En la maloca, Ayahumo prepara la ayahuasca. Jeshuco bebe. En la visión: el río de antes, el río envenenado, una ciudad de pirámides y chimeneas, la Yacumama encadenada, el bufeo convertido en guerrera. Despierta transformado.",
+              "en": "In the maloca, Ayahumo prepares the ayahuasca. Jeshuco drinks. In the vision: the river as it was, the poisoned river, a city of pyramids and chimneys, the Yacumama in chains, the bufeo turned into a warrior. He wakes transformed.",
+              "eu": "Malokan, Ayahumok ayahuasca prestatzen du. Jeshucok edaten du. Bisioan: lehengo ibaia, ibai pozoindua, piramide eta tximiniazko hiri bat, Yacumama kateatuta, bufeoa gerlari bihurtuta. Eraldatuta esnatzen da."
+            }
           },
           {
             "episodio": 7,
             "camara": false,
-            "nota": "se deja atrás"
+            "nota": {
+              "es": "se deja atrás",
+              "en": "left behind",
+              "eu": "atzean uzten da"
+            }
           }
         ],
         "estacion": "ambas",
@@ -107,10 +137,16 @@
         "faccion": "ninguna",
         "nombre": {
           "es": "Las colinas de las Gargantas",
+          "en": "The hills of the Gorges",
+          "eu": "Arroiletako muinoak",
           "qu": null
         },
         "etiqueta": false,
-        "descripcion": "El único relieve de la llanura: las colinas de donde caen las tres cascadas.",
+        "descripcion": {
+          "es": "El único relieve de la llanura: las colinas de donde caen las tres cascadas.",
+          "en": "The only relief in the floodplain: the hills the three waterfalls fall from.",
+          "eu": "Lautadako erliebe bakarra: hiru ur-jauziak erortzen diren muinoak."
+        },
         "apariciones": [
           {
             "episodio": 5,

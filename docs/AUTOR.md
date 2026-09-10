@@ -47,13 +47,17 @@ GeoJSON de `src/data/upriver/`.
 
 ## Idiomas
 
-La interfaz y los datos están preparados para castellano, inglés y euskera; solo el castellano está
-escrito. El idioma sale de `?lang=es|en|eu` (la página de la web lo pasa al iframe), si no del
-navegador. Lo que falte en una lengua cae al castellano.
+La interfaz y los datos están en castellano, inglés y euskera (2026-09-10). El idioma sale de
+`?lang=es|en|eu` (la página de la web lo pasa al iframe), si no del navegador. Lo que falte en una
+lengua cae al castellano. El euskera lo escribí con el vocabulario de los subtítulos de la serie y
+de la página del embed; Igor lo revisa.
 
-- Interfaz: `src/i18n.js`, diccionarios `en` y `eu` vacíos; se rellenan clave a clave.
-- Datos: cualquier `descripcion`, `historia`, `nota` o `titulo` de episodio admite `{ "es": "…",
-  "en": "…", "eu": "…" }` en vez de una cadena. Los nombres de lugar: `nombre.en` y `nombre.eu`
-  junto a `nombre.es`; si la lengua que manda es el quechua, el quechua sigue siendo el principal
-  y la traducción va como secundario.
-- Criterio de nombres: el de los subtítulos (Las Tres Gargantas = the Three Gorges / Hiru Arroiletan).
+- Interfaz: `src/i18n.js`, diccionarios `es`, `en` y `eu` con las mismas claves.
+- Datos: `descripcion`, `historia`, `nota` y `titulo` de episodio van como `{ "es": "…", "en": "…",
+  "eu": "…" }`. Los nombres de lugar: `nombre.en` y `nombre.eu` junto a `nombre.es`; si la lengua
+  que manda es el quechua, el quechua sigue siendo el principal y la traducción va como secundario.
+- Al escribir un texto nuevo basta con la cadena en castellano: el mapa la muestra en las tres
+  lenguas hasta que se traduzca.
+- Criterio de nombres: el de los subtítulos (Las Tres Gargantas = the Three Gorges / Hiru Arroilak);
+  vaciante/creciente = low water/high water = ur-behera/ur-goraldia, como en la página del embed.
+- La hidrografía generada (`scripts/meandros.py`) lleva sus nombres en las tres lenguas en `HIDRO_NOMBRES`.

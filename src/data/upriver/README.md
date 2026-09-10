@@ -24,7 +24,7 @@ lleva `placeholder: true` hasta que Igor sitúe cada entidad sobre el mapa defin
 | `etiqueta` | bool | `false` = no se rotula en el globo (texturas sin nombre) |
 | `sobre_agua` | bool | `true` = el punto va sobre el agua a propósito (el barco, los rápidos). Los demás lugares deben caer en tierra: lo comprueba `datos.test.mjs` |
 | `faccion` | `kukama · imperio · comerciantes · ninguna · null` | `comerciantes` = hispanohablantes ajenos al imperio que comercian con él (el barco). `null` = sin determinar |
-| `nombre` | `{ es, qu }` | topónimo en castellano y en quechua imperial (cuzco-collao, MINEDU 2013). `qu: null` si no existe |
+| `nombre` | `{ es, en, eu, qu }` | topónimo en castellano, inglés y euskera, y en quechua imperial (cuzco-collao, MINEDU 2013). `qu: null` si no existe |
 | `lengua` | `es · qu` | cuál se muestra como principal. Regla de la obra: el quechua es la lengua del imperio y no se traduce, así que los lugares imperiales con nombre quechua llevan `qu` |
 | `descripcion` | texto | ficha (castellano) |
 | `apariciones` | `[{ episodio, desde?, hasta?, nota?, lugar? }]` | minutaje: si faltan `desde`/`hasta`, vale el episodio entero. `desde`/`hasta` van en **segundos dentro del episodio**, que es lo que enlaza al vídeo de YouTube en ese instante. `lugar` indica que la aparición ocurre en otra entidad (el barco en la ciudad) |

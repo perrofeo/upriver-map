@@ -17,35 +17,65 @@
         "faccion": "kukama",
         "nombre": {
           "es": "El palafito del abuelo",
+          "en": "The grandfather’s stilt house",
+          "eu": "Aitonaren palafitoa",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Hogar de Jeshuco y de su abuelo Yawá, en un caño lateral a las afueras del poblado. El abuelo vive apartado. Abre y cierra la película.",
+        "descripcion": {
+          "es": "Hogar de Jeshuco y de su abuelo Yawá, en un caño lateral a las afueras del poblado. El abuelo vive apartado. Abre y cierra la serie.",
+          "en": "Home of Jeshuco and his grandfather Yawá, on a side creek on the outskirts of the village. The grandfather lives apart. It opens and closes the series.",
+          "eu": "Jeshucoren eta Yawá aitonaren etxea, herrixkaren kanpoaldeko albo-ubide batean. Aitona bakartuta bizi da. Seriea ireki eta ixten du."
+        },
         "apariciones": [
           {
             "episodio": 3,
             "desde": 20,
             "hasta": 150,
-            "nota": "las últimas palabras de Yawá",
+            "nota": {
+              "es": "las últimas palabras de Yawá",
+              "en": "Yawá’s last words",
+              "eu": "Yawáren azken hitzak"
+            },
             "medido": "fotogramas del máster publicado del EP03 cada 5 s (2026-09-09)",
-            "historia": "El abuelo Yawá agoniza: el río envenenado lo está matando. Le dice que busque a Ayahumo en Las Tres Gargantas, le da el amuleto y muere."
+            "historia": {
+              "es": "El abuelo Yawá agoniza: el río envenenado lo está matando. Le dice que busque a Ayahumo en Las Tres Gargantas, le da el amuleto y muere.",
+              "en": "Grandfather Yawá is dying: the poisoned river is killing him. He tells Jeshuco to find Ayahumo in the Three Gorges, gives him the amulet and dies.",
+              "eu": "Yawá aitona hilzorian dago: ibai pozoinduak hiltzen ari du. Ayahumo Hiru Arroiletan bilatzeko esaten dio, amuletoa ematen dio eta hil egiten da."
+            }
           },
           {
             "episodio": 4,
             "desde": 0,
             "hasta": 10,
-            "nota": "la partida: el palafito queda atrás",
+            "nota": {
+              "es": "la partida: el palafito queda atrás",
+              "en": "the departure: the stilt house is left behind",
+              "eu": "abiatzea: palafitoa atzean geratzen da"
+            },
             "medido": "fotogramas del máster publicado del EP04 cada 5 s (2026-09-09)",
-            "historia": "La canoa se aleja y el palafito queda atrás entre la bruma."
+            "historia": {
+              "es": "La canoa se aleja y el palafito queda atrás entre la bruma.",
+              "en": "The canoe pulls away and the stilt house is left behind in the mist.",
+              "eu": "Kanoa urruntzen da eta palafitoa atzean geratzen da lainoartean."
+            }
           },
           {
             "episodio": 10,
             "desde": 175,
             "hasta": 240,
-            "nota": "la vuelta al palafito vacío",
+            "nota": {
+              "es": "la vuelta al palafito vacío",
+              "en": "the return to the empty stilt house",
+              "eu": "itzulera palafito hutsera"
+            },
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
             "estacion": "vaciante",
-            "historia": "El palafito vacío. Jeshuco se sienta donde se sentaba el abuelo, con dos herencias en las manos, y sale al río a nadar con el bufeo."
+            "historia": {
+              "es": "El palafito vacío. Jeshuco se sienta donde se sentaba el abuelo, con dos herencias en las manos, y sale al río a nadar con el bufeo.",
+              "en": "The empty stilt house. Jeshuco sits where his grandfather used to sit, with two inheritances in his hands, and goes out to the river to swim with the bufeo.",
+              "eu": "Palafito hutsa. Jeshuco aitona esertzen zen lekuan esertzen da, bi ondare eskuetan, eta ibaira ateratzen da bufeoarekin igeri egitera."
+            }
           }
         ],
         "estacion": "ambas",
@@ -70,26 +100,48 @@
         "faccion": "kukama",
         "nombre": {
           "es": "El poblado",
+          "en": "The village",
+          "eu": "Herrixka",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "El poblado kukama donde arranca la serie, dentro del imperio pero a un paso de su frontera. El palafito del abuelo queda a sus afueras, apartado.",
+        "descripcion": {
+          "es": "El poblado kukama donde arranca la serie, dentro del imperio pero a un paso de su frontera. El palafito del abuelo queda a sus afueras, apartado.",
+          "en": "The Kukama village where the series begins, inside the empire but a step from its frontier. The grandfather’s stilt house stands apart on its outskirts.",
+          "eu": "Seriea hasten den herrixka kukama, inperioaren barruan baina mugatik urrats batera. Aitonaren palafitoa kanpoaldean dago, bakartuta."
+        },
         "apariciones": [
           {
             "episodio": 1,
             "desde": 0,
             "hasta": 26,
-            "nota": "el bufeo al alba, el poblado, Jeshuco corre al agua",
+            "nota": {
+              "es": "el bufeo al alba, el poblado, Jeshuco corre al agua",
+              "en": "the bufeo at dawn, the village, Jeshuco runs to the water",
+              "eu": "bufeoa egunsentian, herrixka, Jeshuco uretara korrika"
+            },
             "medido": "fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
-            "historia": "Amanece sobre el poblado. El bufeo respira en el río dorado y Jeshuco baja corriendo al agua."
+            "historia": {
+              "es": "Amanece sobre el poblado. El bufeo respira en el río dorado y Jeshuco baja corriendo al agua.",
+              "en": "Dawn over the village. The bufeo breathes in the golden river and Jeshuco runs down to the water.",
+              "eu": "Egunsentia herrixkaren gainean. Bufeoak arnasa hartzen du ibai urreztatuan eta Jeshuco uretara jaisten da korrika."
+            }
           },
           {
             "episodio": 3,
             "desde": 0,
             "hasta": 20,
-            "nota": "el poblado al alba; peces muertos en la orilla",
+            "nota": {
+              "es": "el poblado al alba; peces muertos en la orilla",
+              "en": "the village at dawn; dead fish on the shore",
+              "eu": "herrixka egunsentian; arrain hilak ertzean"
+            },
             "medido": "fotogramas del máster publicado del EP03 cada 5 s (2026-09-09)",
-            "historia": "Vuelve del barco al alba. En la orilla del poblado flotan los primeros peces muertos."
+            "historia": {
+              "es": "Vuelve del barco al alba. En la orilla del poblado flotan los primeros peces muertos.",
+              "en": "He returns from the ship at dawn. On the village shore float the first dead fish.",
+              "eu": "Ontzitik itzultzen da egunsentian. Herrixkako ertzean lehen arrain hilak flotatzen dute."
+            }
           }
         ],
         "estacion": "ambas",
@@ -114,27 +166,49 @@
         "faccion": "kukama",
         "nombre": {
           "es": "El campamento de los refugiados",
+          "en": "The refugee camp",
+          "eu": "Errefuxiatuen kanpamentua",
           "qu": null
         },
         "lengua": "es",
-        "descripcion": "Asentamiento de desplazados amazónicos en la orilla del río grande, río arriba de Las Tres Gargantas, donde el río ya es más estrecho y turbio.",
+        "descripcion": {
+          "es": "Asentamiento de desplazados amazónicos en la orilla del río grande, río arriba de Las Tres Gargantas, donde el río ya es más estrecho y turbio.",
+          "en": "A settlement of displaced Amazonians on the bank of the big river, upstream from the Three Gorges, where the river is already narrower and murkier.",
+          "eu": "Amazoniako desplazatuen kokalekua ibai handiaren ertzean, Hiru Arroiletatik ibaian gora, ibaia jada estuagoa eta uherragoa den lekuan."
+        },
         "apariciones": [
           {
             "episodio": 7,
             "desde": 10,
             "hasta": 210,
-            "nota": "la comunidad; los rostros; el pez de dos cabezas",
+            "nota": {
+              "es": "la comunidad; los rostros; el pez de dos cabezas",
+              "en": "the community; the faces; the two-headed fish",
+              "eu": "komunitatea; aurpegiak; bi buruko arraina"
+            },
             "medido": "fotogramas del máster publicado del EP07 cada 5 s (2026-09-09)",
-            "historia": "Un campamento de desplazados. Jeshuco pesca para ellos con el bufeo. El anciano y la matriarca cuentan lo que pasó: los invasores hablan otra lengua indígena y traen banderas con el sol. Una niña muestra un pez de dos cabezas."
+            "historia": {
+              "es": "Un campamento de desplazados. Jeshuco pesca para ellos con el bufeo. El anciano y la matriarca cuentan lo que pasó: los invasores hablan otra lengua indígena y traen banderas con el sol. Una niña muestra un pez de dos cabezas.",
+              "en": "A camp of displaced people. Jeshuco fishes for them with the bufeo. The elder and the matriarch tell what happened: the invaders speak another indigenous language and carry banners with the sun. A girl shows a fish with two heads.",
+              "eu": "Desplazatuen kanpamentu bat. Jeshucok haientzat arrantzatzen du bufeoarekin. Zaharrak eta matriarkak gertatutakoa kontatzen dute: inbaditzaileek beste hizkuntza indigena bat hitz egiten dute eta eguzkidun banderak dakartzate. Neskato batek bi buruko arrain bat erakusten du."
+            }
           },
           {
             "episodio": 10,
             "desde": 138,
             "hasta": 152,
-            "nota": "la niña con un pez vivo al atardecer",
+            "nota": {
+              "es": "la niña con un pez vivo al atardecer",
+              "en": "the girl with a live fish at sunset",
+              "eu": "neskatoa arrain bizi batekin ilunabarrean"
+            },
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
             "estacion": "creciente",
-            "historia": "La comunidad vuelve a casa. La niña grita: «¡Lo lograste!»."
+            "historia": {
+              "es": "La comunidad vuelve a casa. La niña grita: «¡Lo lograste!».",
+              "en": "The community returns home. The girl shouts: “You did it!”",
+              "eu": "Komunitatea etxera itzultzen da. Neskatoak oihu egiten du: «Lortu duzu!»."
+            }
           }
         ],
         "estacion": "ambas",
@@ -159,33 +233,63 @@
         "faccion": "imperio",
         "nombre": {
           "es": "La ciudad del imperio",
+          "en": "The city of the empire",
+          "eu": "Inperioaren hiria",
           "qu": "Chimor Yaku"
         },
         "lengua": "qu",
-        "descripcion": "Capital inca-industrial, ciudad-puerto en tres estratos donde el río grande sale de las colinas de los Andes. Destino del viaje, en el corazón del imperio.",
+        "descripcion": {
+          "es": "Capital inca-industrial, ciudad-puerto en tres estratos donde el río grande sale de las colinas de los Andes. Destino del viaje, en el corazón del imperio.",
+          "en": "Inca-industrial capital, a port city in three tiers where the big river comes out of the Andean foothills. The journey’s destination, in the heart of the empire.",
+          "eu": "Hiriburu inka-industriala, hiru mailatako portu-hiria, ibai handia Andeetako muinoetatik ateratzen den lekuan. Bidaiaren helmuga, inperioaren bihotzean."
+        },
         "apariciones": [
           {
             "episodio": 6,
             "camara": false,
-            "nota": "aparece en la visión",
-            "historia": "Aparece en la visión de la ayahuasca: pirámides escalonadas y chimeneas humeantes, rostros indígenas en el poder."
+            "nota": {
+              "es": "aparece en la visión",
+              "en": "appears in the vision",
+              "eu": "bisioan agertzen da"
+            },
+            "historia": {
+              "es": "Aparece en la visión de la ayahuasca: pirámides escalonadas y chimeneas humeantes, rostros indígenas en el poder.",
+              "en": "It appears in the ayahuasca vision: stepped pyramids and smoking chimneys, indigenous faces in power.",
+              "eu": "Ayahuascaren bisioan agertzen da: piramide mailakatuak eta tximinia ketsuak, aurpegi indigenak boterean."
+            }
           },
           {
             "episodio": 8,
             "desde": 25,
             "hasta": 235,
-            "nota": "la ciudad inca-industrial",
+            "nota": {
+              "es": "la ciudad inca-industrial",
+              "en": "the Inca-industrial city",
+              "eu": "hiri inka-industriala"
+            },
             "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
-            "historia": "El origen del veneno no es extranjero: una ciudad-puerto inca-industrial. Pirámides con cúpulas de oro junto a chimeneas, guardias y obreros con rostros como el suyo. Jeshuco toca fondo. Ayahumo le enseña otra forma de ver."
+            "historia": {
+              "es": "El origen del veneno no es extranjero: una ciudad-puerto inca-industrial. Pirámides con cúpulas de oro junto a chimeneas, guardias y obreros con rostros como el suyo. Jeshuco toca fondo. Ayahumo le enseña otra forma de ver.",
+              "en": "The source of the poison is not foreign: an Inca-industrial port city. Pyramids with golden domes beside chimneys, guards and workers with faces like his own. Jeshuco hits bottom. Ayahumo shows him another way of seeing.",
+              "eu": "Pozoiaren sorburua ez da atzerritarra: portu-hiri inka-industrial bat. Urrezko kupuladun piramideak tximinien ondoan, zaindariak eta langileak berea bezalako aurpegiekin. Jeshucok hondoa jotzen du. Ayahumok ikusteko beste modu bat erakusten dio."
+            }
           },
           {
             "episodio": 10,
             "desde": 40,
             "hasta": 125,
-            "nota": "la ciudad inundada; el rescate en el Fango",
+            "nota": {
+              "es": "la ciudad inundada; el rescate en el Fango",
+              "en": "the flooded city; the rescue in the Mud",
+              "eu": "hiri urpetua; erreskatea Lokatzan"
+            },
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
             "estacion": "creciente",
-            "historia": "La crecida de la Yacumama destruye muelles y dragas; las pirámides resisten. El Fango se inunda primero. Jeshuco baja a rescatar a la gente cuyo sistema envenenó su río."
+            "historia": {
+              "es": "La crecida de la Yacumama destruye muelles y dragas; las pirámides resisten. El Fango se inunda primero. Jeshuco baja a rescatar a la gente cuyo sistema envenenó su río.",
+              "en": "The Yacumama’s flood destroys docks and dredgers; the pyramids hold. The Mud floods first. Jeshuco goes down to rescue the people whose system poisoned his river.",
+              "eu": "Yacumamaren uholdeak kaiak eta dragak suntsitzen ditu; piramideek eusten diote. Lokatza urpetzen da lehenik. Jeshuco jaisten da bere ibaia pozoindu zuen sistemako jendea erreskatatzera."
+            }
           }
         ],
         "estacion": "ambas",
@@ -211,19 +315,33 @@
         "faccion": "imperio",
         "nombre": {
           "es": "La Ciudad del Sol",
+          "en": "The City of the Sun",
+          "eu": "Eguzkiaren Hiria",
           "qu": "Hanan"
         },
         "lengua": "qu",
-        "descripcion": "Estrato alto de la ciudad: templos de tumbaga, la élite.",
+        "descripcion": {
+          "es": "Estrato alto de la ciudad: templos de tumbaga, la élite.",
+          "en": "The city’s upper tier: tumbaga temples, the elite.",
+          "eu": "Hiriaren goiko maila: tunbagazko tenpluak, elitea."
+        },
         "apariciones": [
           {
             "episodio": 8,
             "desde": 100,
             "hasta": 140,
             "camara": false,
-            "nota": "la pirámide de oro, el Sapa Inca",
+            "nota": {
+              "es": "la pirámide de oro, el Sapa Inca",
+              "en": "the golden pyramid, the Sapa Inca",
+              "eu": "urrezko piramidea, Sapa Inka"
+            },
             "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
-            "historia": "Templos de tumbaga sobre la pirámide. El Sapa Inca, con su séquito, mira el río como un dios que civiliza la selva."
+            "historia": {
+              "es": "Templos de tumbaga sobre la pirámide. El Sapa Inca, con su séquito, mira el río como un dios que civiliza la selva.",
+              "en": "Tumbaga temples on top of the pyramid. The Sapa Inca, with his retinue, looks at the river like a god civilising the jungle.",
+              "eu": "Tunbagazko tenpluak piramidearen gainean. Sapa Inkak, bere segizioarekin, ibaiari begiratzen dio oihana zibilizatzen duen jainko baten gisa."
+            }
           }
         ],
         "estacion": "ambas",
@@ -248,19 +366,33 @@
         "faccion": "imperio",
         "nombre": {
           "es": "La Fundición",
+          "en": "The Foundry",
+          "eu": "Galdategia",
           "qu": "Chaupin"
         },
         "lengua": "qu",
-        "descripcion": "Estrato medio: fundiciones, canales-turbina, mercado.",
+        "descripcion": {
+          "es": "Estrato medio: fundiciones, canales-turbina, mercado.",
+          "en": "Middle tier: foundries, turbine channels, the market.",
+          "eu": "Erdiko maila: galdategiak, turbina-kanalak, merkatua."
+        },
         "apariciones": [
           {
             "episodio": 8,
             "desde": 105,
             "hasta": 135,
             "camara": false,
-            "nota": "el mercado, las ruedas, la fundición",
+            "nota": {
+              "es": "el mercado, las ruedas, la fundición",
+              "en": "the market, the wheels, the foundry",
+              "eu": "merkatua, gurpilak, galdategia"
+            },
             "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
-            "historia": "El mercado, las ruedas hidráulicas, la fundición donde corre el metal."
+            "historia": {
+              "es": "El mercado, las ruedas hidráulicas, la fundición donde corre el metal.",
+              "en": "The market, the water wheels, the foundry where the metal runs.",
+              "eu": "Merkatua, ur-gurpilak, metala isurtzen den galdategia."
+            }
           }
         ],
         "estacion": "ambas",
@@ -285,28 +417,50 @@
         "faccion": "imperio",
         "nombre": {
           "es": "El Fango",
+          "en": "The Mud",
+          "eu": "Lokatza",
           "qu": "Urin"
         },
         "lengua": "qu",
-        "descripcion": "Estrato bajo, barrio paria de adobe y totora. Es el primero que se inunda.",
+        "descripcion": {
+          "es": "Estrato bajo, barrio paria de adobe y totora. Es el primero que se inunda.",
+          "en": "Lower tier, a pariah quarter of adobe and totora reed. It is the first to flood.",
+          "eu": "Beheko maila, adobezko eta totorazko auzo paria. Lehenik urpetzen dena da."
+        },
         "apariciones": [
           {
             "episodio": 8,
             "desde": 140,
             "hasta": 160,
             "camara": false,
-            "nota": "las chozas junto al desagüe",
+            "nota": {
+              "es": "las chozas junto al desagüe",
+              "en": "the huts by the outfall",
+              "eu": "txabolak isurbidearen ondoan"
+            },
             "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
-            "historia": "Chozas de adobe y totora junto al desagüe que vierte al río."
+            "historia": {
+              "es": "Chozas de adobe y totora junto al desagüe que vierte al río.",
+              "en": "Adobe and totora huts beside the outfall that empties into the river.",
+              "eu": "Adobezko eta totorazko txabolak ibaira isurtzen duen isurbidearen ondoan."
+            }
           },
           {
             "episodio": 10,
             "desde": 55,
             "hasta": 120,
             "camara": false,
-            "nota": "la crecida se lo lleva primero; el rescate",
+            "nota": {
+              "es": "la crecida se lo lleva primero; el rescate",
+              "en": "the flood takes it first; the rescue",
+              "eu": "uholdeak lehenik eramaten du; erreskatea"
+            },
             "medido": "fotogramas del máster publicado del EP10 cada 5 s (2026-09-09)",
-            "historia": "La crecida entra aquí primero. Jeshuco y el bufeo sacan a la gente del agua."
+            "historia": {
+              "es": "La crecida entra aquí primero. Jeshuco y el bufeo sacan a la gente del agua.",
+              "en": "The flood comes in here first. Jeshuco and the bufeo pull people out of the water.",
+              "eu": "Uholdea hemen sartzen da lehenik. Jeshucok eta bufeoak jendea uretatik ateratzen dute."
+            }
           }
         ],
         "estacion": "vaciante",

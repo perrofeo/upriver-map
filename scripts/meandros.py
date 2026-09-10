@@ -126,10 +126,19 @@ def banda(linea, ancho):
         izq.append([r5(x + nx * ancho / KM_LON), r5(y + ny * ancho / KM_LAT)]); der.append([r5(x - nx * ancho / KM_LON), r5(y - ny * ancho / KM_LAT)])
     return izq + der[::-1] + [izq[0]]
 hid = {"type": "FeatureCollection", "_esquema": "ver README.md", "features": []}
+HIDRO_NOMBRES = {  # es -> {es, en, eu}: las tres lenguas del mapa
+    "Una cocha: meandro abandonado, agua negra": {"es": "Una cocha: meandro abandonado, agua negra", "en": "A cocha: an abandoned meander, black water", "eu": "Cocha bat: meandro abandonatua, ur beltza"},
+    "Una isla del río grande": {"es": "Una isla del río grande", "en": "An island in the big river", "eu": "Ibai handiko uharte bat"},
+    "Una playa de arena que la creciente cubre": {"es": "Una playa de arena que la creciente cubre", "en": "A sandbank the flood covers", "eu": "Uholdeak estaltzen duen hondartza bat"},
+    "Bosque inundado: en creciente el río grande se sale al monte": {"es": "Bosque inundado: en creciente el río grande se sale al monte", "en": "Flooded forest: in the flood season the big river spills into the woods", "eu": "Baso urpetua: uholdean ibai handia basora ateratzen da"},
+    "Bosque inundado del tramo alto": {"es": "Bosque inundado del tramo alto", "en": "Flooded forest of the upper stretch", "eu": "Goiko tarteko baso urpetua"},
+    "La orilla inundada del río de la frontera": {"es": "La orilla inundada del río de la frontera", "en": "The flooded bank of the frontier river", "eu": "Mugako ibaiaren ertz urpetua"},
+}
+
 def h(id_, coords, subtipo, estacion, desc):
     hid['features'].append({"type": "Feature", "id": id_, "geometry": {"type": "Polygon", "coordinates": [coords]},
-        "properties": {"tipo": "hidrografia", "subtipo": subtipo, "faccion": "ninguna", "nombre": {"es": desc, "qu": None}, "lengua": "es", "etiqueta": False,
-            "estacion": estacion, "descripcion": desc, "apariciones": [], "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).", "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»", "placeholder": True}})
+        "properties": {"tipo": "hidrografia", "subtipo": subtipo, "faccion": "ninguna", "nombre": {**HIDRO_NOMBRES[desc], "qu": None}, "lengua": "es", "etiqueta": False,
+            "estacion": estacion, "descripcion": HIDRO_NOMBRES[desc], "apariciones": [], "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).", "fuente": "Igor (2026-09-09): «desarrolla más el mapa del río»", "placeholder": True}})
 random.seed(SEMILLA + 4)
 n = len(nuevo); ci = 0
 # cochas: en el lado exterior de los meandros, a 3-5 km del cauce; una cada ~35 km
