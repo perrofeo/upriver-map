@@ -183,8 +183,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.616,
-          -5.6893
+          -76.83595,
+          -6.031
         ]
       },
       "properties": {
@@ -198,9 +198,9 @@
         },
         "lengua": "es",
         "descripcion": {
-          "es": "Aguas abajo de la ciudad. Donde se libera a la Yacumama.",
-          "en": "Downstream from the city. Where the Yacumama is set free.",
-          "eu": "Hiritik ibaian behera. Yacumama askatzen den lekua."
+          "es": "En la orilla de una cocha, aguas abajo de la ciudad, ya fuera del imperio. Donde se libera a la Yacumama.",
+          "en": "On the shore of a cocha, downstream from the city, already outside the empire. Where the Yacumama is set free.",
+          "eu": "Cocha baten ertzean, hiritik ibaian behera, inperiotik kanpo jada. Yacumama askatzen den lekua."
         },
         "apariciones": [
           {
@@ -237,7 +237,7 @@
         ],
         "estacion": "ambas",
         "orden": 7,
-        "notas": "Sin nombre en la obra. Igor (2026-09-10) lo situó en una loma de la orilla, fuera del bosque inundado, para que no quede bajo el agua cuando Jeshuco despierta tras el ritual y empieza la crecida. Igor (2026-09-10): con la frontera en la ciudad queda fuera del imperio, en tierra kukama; se queda así, la Yacumama se libera en su tierra.",
+        "notas": "Sin nombre en la obra. Igor (2026-09-10) lo situó en una loma de la orilla, fuera del bosque inundado, para que no quede bajo el agua cuando Jeshuco despierta tras el ritual y empieza la crecida. Igor (2026-09-10): con la frontera en la ciudad queda fuera del imperio, en tierra kukama; se queda así, la Yacumama se libera en su tierra. Igor (2026-09-10, tarde): «no está demasiado lejos de la ciudad; lo podemos colocar en la orilla de esta cocha»: orilla suroeste de cocha-2, 19 km al este de la ciudad, en seco en la crecida y fuera del imperio.",
         "fuente": "GUION_EPISODIO_09_EL_RITUAL.md",
         "placeholder": true
       }
