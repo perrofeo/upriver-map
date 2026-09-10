@@ -132,7 +132,7 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
   // el agua se dibuja encima y la ciudad queda en la orilla, no sobre el río (Igor, 2026-09-10). Tamaño de cuento:
   // unos 8 km de recinto y pirámides de 2 km, que a 1024 px por trozo aún dan bordes al canny.
   if (control) {
-    const ciudad = asentamientos.features.find((f) => f.properties.tipo === 'asentamiento' && f.properties.lengua === 'qu' && !f.properties.parte_de);
+    const ciudad = asentamientos.features.find((f) => f.id === 'ciudad');
     if (ciudad) {
       const partes = asentamientos.features.filter((f) => f.properties.parte_de === ciudad.id);
       const puntos = [ciudad, ...partes].map((f) => f.geometry.coordinates);

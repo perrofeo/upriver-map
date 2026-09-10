@@ -235,9 +235,9 @@
           "es": "La ciudad del imperio",
           "en": "The city of the empire",
           "eu": "Inperioaren hiria",
-          "qu": "Chimor Yaku"
+          "qu": null
         },
-        "lengua": "qu",
+        "lengua": "es",
         "descripcion": {
           "es": "Ciudad-puerto andina e industrial en tres estratos, donde el río grande sale de las colinas de los Andes: la puerta del imperio y su aduana sobre el río. La capital queda más adentro, en la sierra. Destino del viaje.",
           "en": "An industrial Andean port city in three tiers, where the big river leaves the foothills of the Andes: the gate of the empire and its customs house on the river. The capital lies further in, up in the highlands. The journey’s destination.",
@@ -294,7 +294,7 @@
         ],
         "estacion": "ambas",
         "orden": 6,
-        "notas": "«Chimor Yaku» («agua de Chimor») procede de la biblia (03_PERSONAJES.md, UCRONIA_INTEGRACION.md) y nunca se pronuncia en pantalla. Se muestra en quechua, sin traducir, siguiendo la regla de la obra: el quechua es la lengua del imperio. Igor (2026-09-10): la ciudad es la frontera norte del imperio, su puerta; la capital está más adentro.",
+        "notas": "Sin nombre propio, como en la serie, que solo dice «el Imperio» (Igor, 2026-09-10). La biblia la llamaba «Chimor Yaku» («agua de Chimor»), pero Chimor es el nombre histórico del reino chimú y el imperio de Upriver es un pueblo andino inventado. Los barrios siguen en quechua (Hanan, Chaupin, Urin: arriba, en medio, abajo). Igor (2026-09-10): la ciudad es la frontera norte del imperio, su puerta; la capital está más adentro.",
         "fuente": "UCRONIA_INTEGRACION.md; GUION_EPISODIO_08",
         "placeholder": true
       }

@@ -258,7 +258,7 @@ export async function pintarMapa(estacion, { salida, prompt = PROMPT_CUENTO, sem
   for (const y of posiciones(HP, PASO_Y)) for (const x of posiciones(WP, PASO_X)) trozos.push({ x, y });
   // ¿En qué trozos cae la ciudad? Esos llevan el prompt con la ciudad.
   const asent = JSON.parse(await readFile(new URL('src/data/upriver/asentamientos.geojson', RAIZ), 'utf8'));
-  const ciudad = asent.features.find((f) => f.properties.tipo === 'asentamiento' && f.properties.lengua === 'qu' && !f.properties.parte_de);
+  const ciudad = asent.features.find((f) => f.id === 'ciudad');
   const cpx = ciudad ? coordenadaAPixel(ciudad.geometry.coordinates[0], ciudad.geometry.coordinates[1], ANCHO, ALTO) : null;
   const holgura = 220; // px a 8192: que la ciudad no quede cortada por el borde del trozo
   trozos = trozos.map((t, i) => ({ ...t, i, ciudad: false }));

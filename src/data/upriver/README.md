@@ -49,8 +49,11 @@ ello está trazado como placeholder.
 
 ## Lo que la obra no da
 
-- **Casi no hay topónimos.** En pantalla solo se nombra Las Tres Gargantas. Chimor Yaku,
-  Hanan, Chaupin y Urin vienen de la biblia y se declaran aquí como material extendido.
+- **Casi no hay topónimos.** En pantalla solo se nombra Las Tres Gargantas. Hanan, Chaupin y Urin
+  (arriba, en medio, abajo) vienen de la biblia y se declaran aquí como material extendido. La ciudad
+  no tiene nombre propio, como en la serie, que solo dice «el Imperio»: la biblia la llamaba «Chimor
+  Yaku», pero se quitó el 2026-09-10 porque Chimor es el reino chimú real y el imperio es un pueblo
+  andino inventado.
 - **No hay coordenadas.** Las de estos ficheros son placeholder sobre el bbox de
   `src/mundo.js` (referencia real: Pacaya Samiria).
 - **El minutaje es el de la serie publicada**, no el de la película de festivales (otro montaje, 40:43). Las duraciones de los episodios están medidas; los subtramos dentro de un episodio son provisionales.
