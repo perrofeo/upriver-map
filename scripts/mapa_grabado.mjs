@@ -63,8 +63,8 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
     return d;
   };
 
-  const [rutas, imperio, accidentes, hidro] = await Promise.all([
-    leerGeojson('rutas.geojson'), leerGeojson('imperio.geojson'), leerGeojson('accidentes.geojson'), leerGeojson('hidrografia.geojson'),
+  const [rutas, imperio, accidentes, hidro, asentamientos] = await Promise.all([
+    leerGeojson('rutas.geojson'), leerGeojson('imperio.geojson'), leerGeojson('accidentes.geojson'), leerGeojson('hidrografia.geojson'), leerGeojson('asentamientos.geojson'),
   ]);
   const creciente = estacion === 'creciente';
   const visible = (f) => f.properties.estacion === 'ambas' || f.properties.estacion === estacion;
@@ -165,6 +165,60 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
   for (const f of control ? [] : imperio.features.filter((x) => x.properties.tipo === 'frontera')) {
     s.push(`<path d="${trazo(f.geometry.coordinates)}" fill="none" stroke="${PALETA.piedra}" stroke-opacity="0.55" stroke-width="${14 * k}" stroke-linecap="round"/>`);
     s.push(`<path d="${trazo(f.geometry.coordinates)}" fill="none" stroke="${PALETA.tumbaga}" stroke-width="${7 * k}" stroke-dasharray="${40 * k} ${26 * k}" stroke-linecap="round"/>`);
+  }
+  // La ciudad del imperio, solo en el control: recinto de piedra con pirámides escalonadas y muelles,
+  // para que el modelo pinte una ciudad y no selva (aviso de Igor, 2026-09-10). Tamaño de cuento:
+  // unos 8 km de recinto y pirámides de 2 km, que a 1024 px por trozo aún dan bordes al canny.
+  if (control) {
+    const ciudad = asentamientos.features.find((f) => f.properties.tipo === 'asentamiento' && f.properties.lengua === 'qu' && !f.properties.parte_de);
+    if (ciudad) {
+      const partes = asentamientos.features.filter((f) => f.properties.parte_de === ciudad.id);
+      const puntos = [ciudad, ...partes].map((f) => f.geometry.coordinates);
+      const kmLon = 111.32 * Math.cos((-6 * Math.PI) / 180), kmLat = 110.57;
+      const R = 4.5; // km de holgura alrededor de cada barrio: recinto de tamaño de cuento (~12 km)
+      const nube = puntos.flatMap(([lon, lat]) => Array.from({ length: 12 }, (_, i) => { const a = (i / 12) * 2 * Math.PI; return [lon + (R * Math.cos(a)) / kmLon, lat + (R * Math.sin(a)) / kmLat]; }));
+      // envolvente convexa (Andrew)
+      const pts = nube.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+      const cruz = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+      const inf = [], sup = [];
+      for (const q of pts) { while (inf.length >= 2 && cruz(inf[inf.length - 2], inf[inf.length - 1], q) <= 0) inf.pop(); inf.push(q); }
+      for (const q of pts.reverse()) { while (sup.length >= 2 && cruz(sup[sup.length - 2], sup[sup.length - 1], q) <= 0) sup.pop(); sup.push(q); }
+      const casco = inf.slice(0, -1).concat(sup.slice(0, -1));
+      const dCasco = `${trazo([...casco, casco[0], casco[1]])} Z`;
+      // recinto de piedra clara con muralla gruesa
+      s.push(`<path d="${dCasco}" fill="#d8c6a0" stroke="#2a2118" stroke-width="${9 * k}"/>`);
+      // calles: retícula de 0,7 km recortada al recinto
+      const cx0 = puntos.reduce((a, c) => a + c[0], 0) / puntos.length, cy0 = puntos.reduce((a, c) => a + c[1], 0) / puntos.length;
+      s.push(`<clipPath id="ciudadClip"><path d="${dCasco}"/></clipPath>`);
+      s.push(`<g clip-path="url(#ciudadClip)" stroke="#5a4a30" stroke-width="${1.6 * k}">`);
+      for (let d = -9; d <= 9; d += 0.7) {
+        const a1 = P(cx0 + d / kmLon, cy0 - 9 / kmLat), a2 = P(cx0 + d / kmLon, cy0 + 9 / kmLat);
+        const b1 = P(cx0 - 9 / kmLon, cy0 + d / kmLat), b2 = P(cx0 + 9 / kmLon, cy0 + d / kmLat);
+        s.push(`<line x1="${a1.px.toFixed(1)}" y1="${a1.py.toFixed(1)}" x2="${a2.px.toFixed(1)}" y2="${a2.py.toFixed(1)}"/>`);
+        s.push(`<line x1="${b1.px.toFixed(1)}" y1="${b1.py.toFixed(1)}" x2="${b2.px.toFixed(1)}" y2="${b2.py.toFixed(1)}"/>`);
+      }
+      s.push('</g>');
+      // pirámides escalonadas: tres cuadrados concéntricos por barrio (más grandes en el alto; Urin, chozas, sin pirámide)
+      for (const f of [ciudad, ...partes]) {
+        const [lon, lat] = f.geometry.coordinates;
+        const base = f.id === 'hanan' ? 3.2 : f.id === 'urin' ? 0 : 2.4;
+        for (const e of [1, 0.66, 0.33]) {
+          if (!base) break;
+          const r = (base * e) / 2;
+          const a = P(lon - r / kmLon, lat + r / kmLat), b = P(lon + r / kmLon, lat - r / kmLat);
+          s.push(`<rect x="${a.px.toFixed(1)}" y="${a.py.toFixed(1)}" width="${(b.px - a.px).toFixed(1)}" height="${(b.py - a.py).toFixed(1)}" fill="${e === 0.33 ? '#e0b448' : '#a88c5e'}" stroke="#2a2118" stroke-width="${3 * k}"/>`);
+        }
+      }
+      // muelles: tres espigones desde el barrio bajo hacia el agua (perpendiculares al río, hacia el sureste)
+      const urin = partes.find((f) => f.id === 'urin');
+      if (urin) {
+        const [lon, lat] = urin.geometry.coordinates;
+        for (const d of [-1.2, 0, 1.2]) {
+          const a = P(lon + d / kmLon, lat), b = P(lon + (d + 0.35) / kmLon, lat - 1.6 / kmLat);
+          s.push(`<rect x="${Math.min(a.px, b.px).toFixed(1)}" y="${Math.min(a.py, b.py).toFixed(1)}" width="${Math.abs(b.px - a.px).toFixed(1)}" height="${Math.abs(b.py - a.py).toFixed(1)}" fill="#8c7b5c" stroke="#2a2118" stroke-width="${3 * k}"/>`);
+        }
+      }
+    }
   }
   // Retícula fina de 0,25°.
   if (!control) for (let lon = MUNDO.oeste; lon <= MUNDO.este + 1e-9; lon += 0.25) {

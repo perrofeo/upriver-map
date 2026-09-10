@@ -105,3 +105,16 @@ Z-Image + canny a 1024, y se cosen con fundido lineal en un lienzo de 4096×2048
    el mismo dibujo (tres charcas idénticas) → una semilla por trozo (62 + índice).
 El prompt describe solo textura y agua, sin lagos ni colinas ni ciudades: «The whole land is one
 unbroken dense Amazon jungle …, the same dark olive tone everywhere …».
+
+## Séptima tanda: la ciudad (Igor: «la ciudad del imperio no se diferencia del resto»)
+- Huella en el control (`mapa_grabado.mjs`, modo control): recinto de ~12 km con muralla, retícula de
+  calles, tres pirámides escalonadas (Hanan la mayor; Urin sin pirámide) y tres muelles hacia el río.
+- Con la huella dentro de un trozo normal, aun grande y con bordes marcados, el modelo pintaba allí un
+  montículo con una choza y la ciudad la ponía donde le quedaba bonita (al final del río). Dos trozos con
+  la ciudad = dos ciudades.
+- **Solución: el recuadro de la ciudad** (`pintarRecuadroCiudad`): un trozo de control de 1024 px a
+  escala 8192 (doble zoom) centrado en la ciudad, prompt de la ciudad (canon de UCRONIA_INTEGRACION:
+  pirámides escalonadas, cúpulas de oro, torres troncocónicas de fundición con humo, muelles de piedra con
+  máquinas de bronce oscuro), igualado de tono y fundido encima del mapa cosido con máscara radial. Así
+  la colocación está garantizada. El prompt del recuadro nombra las cochas para que no las vuelva islotes.
+- `esperar()` relanza los jobs que la nube deja «pending» más de 150 s (pasó dos veces hoy).

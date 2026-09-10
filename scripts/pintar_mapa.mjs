@@ -10,6 +10,7 @@
  *   node scripts/pintar_mapa.mjs creciente
  *   node scripts/pintar_mapa.mjs vaciante --salida mapas/pruebas/vaciante_cuento.png
  *   node scripts/pintar_mapa.mjs vaciante --trozos 3,12     # prueba: trozos sueltos en mapas/pruebas/
+ *   node scripts/pintar_mapa.mjs vaciante --ciudad          # prueba: solo los trozos donde cae la ciudad
  *
  * Cómo: el grabado de 8192×4096 se corta en 5×3 trozos de 2048 con solape (paso 1536 / 1024),
  * cada trozo se reduce a 1024 (lo que procesa el grafo), se manda a la nube y las 15 salidas
@@ -24,6 +25,7 @@ import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 import { generarGrabado } from './mapa_grabado.mjs';
+import { coordenadaAPixel } from '../src/mundo.js';
 
 const BASE = 'https://cloud.comfy.org';
 const RAIZ = new URL('..', import.meta.url);
@@ -38,6 +40,8 @@ const ESCALA = SALIDA_TROZO / TROZO;
 // Nada de colinas, ciudades ni caminos: con retícula y tramas el modelo se los inventaba por todo el mapa.
 export const PROMPT_CUENTO = 'Storybook map illustration in ink and watercolour on dark parchment, top-down view. The whole land is one unbroken dense Amazon jungle drawn as clusters of little hand-drawn trees, palms and ferns with soft wash shading, the same dark olive tone everywhere, the canopy covering everything. A meandering river in dusty blue with a few tiny canoes and a pink river dolphin peeking out of the water. Whimsical, hand-drawn feel, muted earthy palette, dark background.';
 const SEMILLA = 62;
+// Los trozos donde cae la ciudad llevan además la ciudad en el prompt (canon: UCRONIA_INTEGRACION.md).
+export const PROMPT_CIUDAD = PROMPT_CUENTO.replace('Whimsical,', 'Small oxbow lakes of dark black water. On the river bank, inside its walls, a walled Inca city seen from above: stepped stone pyramids with gleaming golden domes, terraces and plazas, tall conical adobe smelting towers with thin plumes of smoke, stone docks with dark bronze machines, drawn in the same ink and watercolour. Whimsical,');
 
 async function clave() {
   if (process.env.COMFYUI_API_KEY) return process.env.COMFYUI_API_KEY;
@@ -66,15 +70,33 @@ async function subir(key, png, nombre) {
   return r.name;
 }
 
-async function esperar(key, ids, { cadaMs = 8000, maxMin = 30 } = {}) {
+/**
+ * Espera a que todos los jobs acaben. Un job que sigue «pending» más de `pendienteMaxS` segundos
+ * (la nube a veces no lo asigna nunca) se cancela y se relanza con `relanzar(id)`, que devuelve el
+ * id nuevo; `ids` se actualiza en sitio para que el que llama baje la salida del id bueno.
+ */
+async function esperar(key, ids, { cadaMs = 8000, maxMin = 30, pendienteMaxS = 150, relanzar = null, log = console.log } = {}) {
   const fin = Date.now() + maxMin * 60_000;
-  const estado = {};
+  const estado = {}, desde = {};
   while (Date.now() < fin) {
     let pendientes = 0;
-    for (const id of ids) {
+    for (let j = 0; j < ids.length; j++) {
+      const id = ids[j];
       if (estado[id] && /success|completed|failed|error|cancelled/.test(estado[id])) continue;
       const s = await api(key, 'GET', `/api/job/${id}/status`).catch(() => ({ status: '?' }));
       estado[id] = s.status;
+      if (s.status === 'pending' || s.status === 'queued') {
+        desde[id] ??= Date.now();
+        if (relanzar && Date.now() - desde[id] > pendienteMaxS * 1000) {
+          log(`  ⟳ ${id.slice(0, 8)} lleva ${Math.round((Date.now() - desde[id]) / 1000)} s sin asignar: se cancela y se relanza`);
+          await api(key, 'POST', `/api/job/${id}/cancel`, { body: {} }).catch(() => api(key, 'DELETE', `/api/job/${id}`).catch(() => null));
+          const nuevo = await relanzar(id);
+          estado[id] = 'cancelled';
+          ids[j] = nuevo;
+          pendientes++;
+          continue;
+        }
+      }
       if (!/success|completed|failed|error|cancelled/.test(s.status)) pendientes++;
       if (/failed|error/.test(s.status)) console.error(`  ✖ ${id.slice(0, 8)}: ${String(s.error_message || '').slice(0, 200)}`);
     }
@@ -94,6 +116,35 @@ async function bajarSalida(key, id) {
   return Buffer.from(await r.arrayBuffer());
 }
 
+/**
+ * El recuadro de la ciudad: un trozo de control de 1024 px (a escala 8192, ~55 km) centrado en la
+ * ciudad, sin reducir, con el prompt de la ciudad. Al doble de zoom la muralla y las pirámides son
+ * grandes y el modelo las obedece; con la huella pequeña dentro de un trozo normal, pintaba la ciudad
+ * donde le apetecía. Devuelve el PNG de 1024 px pintado.
+ */
+async function pintarRecuadroCiudad(key, controlBuf, plantilla, cpx, prompt, semilla, log) {
+  const L = 1024;
+  const left = Math.round(cpx.px + MARGEN - L / 2), top = Math.round(cpx.py + MARGEN - L / 2);
+  const png = await sharp(controlBuf, { limitInputPixels: false }).extract({ left, top, width: L, height: L }).png().toBuffer();
+  const nombre = await subir(key, png, 'upriver_ciudad.png');
+  const grafo = JSON.parse(JSON.stringify(plantilla));
+  grafo['58'].inputs.image = nombre;
+  grafo['57'].inputs.low_threshold = 0.2; grafo['57'].inputs.high_threshold = 0.45;
+  grafo['70:45'].inputs.text = prompt;
+  grafo['70:44'].inputs.seed = semilla;
+  grafo['9'].inputs.filename_prefix = 'upriver_ciudad';
+  const lanzar = async () => {
+    const r = await api(key, 'POST', '/api/prompt', { body: { prompt: grafo } });
+    if (r.node_errors && Object.keys(r.node_errors).length) throw new Error('errores de nodo (ciudad): ' + JSON.stringify(r.node_errors).slice(0, 400));
+    return r.prompt_id;
+  };
+  const ids = [await lanzar()];
+  log(`  recuadro de la ciudad → ${ids[0].slice(0, 8)}`);
+  const estado = await esperar(key, ids, { relanzar: lanzar, log });
+  if (!/success|completed/.test(estado[ids[0]])) throw new Error('el recuadro de la ciudad falló');
+  return { png: await bajarSalida(key, ids[0]), left, top, L };
+}
+
 /** Máscara de fundido lineal en los bordes que solapan (no en los bordes del mapa). */
 function pesos(w, h, bordes, solapeX, solapeY) {
   const p = new Float32Array(w * h);
@@ -111,7 +162,7 @@ function pesos(w, h, bordes, solapeX, solapeY) {
   return p;
 }
 
-export async function pintarMapa(estacion, { salida, prompt = PROMPT_CUENTO, semilla = SEMILLA, solo = null, log = console.log } = {}) {
+export async function pintarMapa(estacion, { salida, prompt = PROMPT_CUENTO, semilla = SEMILLA, solo = null, soloCiudad = false, log = console.log } = {}) {
   const key = await clave();
   const grabado = new URL(`mapas/grabado_${estacion}.png`, RAIZ);
   await access(grabado).catch(() => { throw new Error(`falta ${grabado.pathname}: genera el grabado antes (node scripts/mapa_grabado.mjs)`); });
@@ -129,29 +180,50 @@ export async function pintarMapa(estacion, { salida, prompt = PROMPT_CUENTO, sem
   const posiciones = (total, paso) => { const n = Math.ceil((total - TROZO) / paso) + 1; return Array.from({ length: n }, (_, i) => Math.round(i * (total - TROZO) / (n - 1))); };
   let trozos = [];
   for (const y of posiciones(HP, PASO_Y)) for (const x of posiciones(WP, PASO_X)) trozos.push({ x, y });
-  trozos = trozos.map((t, i) => ({ ...t, i }));
+  // ¿En qué trozos cae la ciudad? Esos llevan el prompt con la ciudad.
+  const asent = JSON.parse(await readFile(new URL('src/data/upriver/asentamientos.geojson', RAIZ), 'utf8'));
+  const ciudad = asent.features.find((f) => f.properties.tipo === 'asentamiento' && f.properties.lengua === 'qu' && !f.properties.parte_de);
+  const cpx = ciudad ? coordenadaAPixel(ciudad.geometry.coordinates[0], ciudad.geometry.coordinates[1], ANCHO, ALTO) : null;
+  const holgura = 220; // px a 8192: que la ciudad no quede cortada por el borde del trozo
+  trozos = trozos.map((t, i) => ({ ...t, i, ciudad: false }));
+  if (soloCiudad) {
+    if (!cpx) throw new Error('no hay ciudad en los datos');
+    const rc = await pintarRecuadroCiudad(key, controlBuf, plantilla, cpx, PROMPT_CIUDAD, semilla + 100, log);
+    const destino = new URL('mapas/pruebas/recuadro_ciudad.png', RAIZ).pathname;
+    await mkdir(path.dirname(destino), { recursive: true });
+    await writeFile(destino, rc.png);
+    await sharp(controlBuf, { limitInputPixels: false }).extract({ left: rc.left, top: rc.top, width: rc.L, height: rc.L }).png().toFile(destino.replace('.png', '_control.png'));
+    log(`→ ${destino}`);
+    return null;
+  }
   if (solo) trozos = trozos.filter((t) => solo.includes(t.i));
   log(`${estacion}: ${trozos.length} trozos de ${TROZO} px (paso ${PASO_X}×${PASO_Y})`);
 
   // 2) subir y lanzar
-  const ids = [];
+  const ids = [], grafos = {};
+  const lanzar = async (grafo) => {
+    const r = await api(key, 'POST', '/api/prompt', { body: { prompt: grafo } });
+    if (r.node_errors && Object.keys(r.node_errors).length) throw new Error('errores de nodo: ' + JSON.stringify(r.node_errors).slice(0, 400));
+    grafos[r.prompt_id] = grafo;
+    return r.prompt_id;
+  };
+  const relanzar = (id) => lanzar(grafos[id]);
   for (const [i, t] of trozos.entries()) {
     const png = await sharp(controlBuf).extract({ left: t.x, top: t.y, width: TROZO, height: TROZO }).resize(SALIDA_TROZO, SALIDA_TROZO, { kernel: 'lanczos3' }).png().toBuffer();
     const nombre = await subir(key, png, `upriver_${estacion}_${i}.png`);
     const grafo = JSON.parse(JSON.stringify(plantilla));
     grafo['58'].inputs.image = nombre;
     grafo['57'].inputs.low_threshold = 0.25; grafo['57'].inputs.high_threshold = 0.5;
-    grafo['70:45'].inputs.text = prompt;
+    grafo['70:45'].inputs.text = t.ciudad ? PROMPT_CIUDAD : prompt;
     grafo['70:44'].inputs.seed = semilla + (t.i ?? i); // una semilla por trozo: con la misma, los trozos de solo selva repiten el mismo dibujo
     grafo['9'].inputs.filename_prefix = `upriver_${estacion}_${i}`;
-    const r = await api(key, 'POST', '/api/prompt', { body: { prompt: grafo } });
-    if (r.node_errors && Object.keys(r.node_errors).length) throw new Error('errores de nodo: ' + JSON.stringify(r.node_errors).slice(0, 400));
-    ids.push(r.prompt_id);
-    log(`  trozo ${i} (${t.x},${t.y}) → ${r.prompt_id.slice(0, 8)}`);
+    const id = await lanzar(grafo);
+    ids.push(id);
+    log(`  trozo ${i} (${t.x},${t.y}) → ${id.slice(0, 8)}`);
   }
 
   // 3) esperar y bajar
-  const estado = await esperar(key, ids);
+  const estado = await esperar(key, ids, { relanzar, log });
   const fallidos = ids.filter((id) => !/success|completed/.test(estado[id]));
   if (fallidos.length) throw new Error(`${fallidos.length} trozos fallidos: ${fallidos.map((x) => x.slice(0, 8)).join(', ')}`);
 
@@ -197,6 +269,23 @@ export async function pintarMapa(estacion, { salida, prompt = PROMPT_CUENTO, sem
   }
   const out = Buffer.alloc(W * H * 3);
   for (let K = 0; K < W * H; K++) { const s = suma[K] || 1; out[K * 3] = acum[K * 3] / s; out[K * 3 + 1] = acum[K * 3 + 1] / s; out[K * 3 + 2] = acum[K * 3 + 2] / s; }
+  // El recuadro de la ciudad, fundido encima con máscara radial (lleno hasta 0,55 del radio, se apaga en el borde).
+  if (cpx) {
+    const rc = await pintarRecuadroCiudad(key, controlBuf, plantilla, cpx, PROMPT_CIUDAD, semilla + 100, log);
+    const l = Math.round(rc.L * ESCALA), ox = Math.round(rc.left * ESCALA), oy = Math.round(rc.top * ESCALA);
+    const { data } = await sharp(rc.png).resize(l, l).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+    const e = estad(data);
+    for (let k = 0; k < data.length; k += 3) for (let ch = 0; ch < 3; ch++) data[k + ch] = Math.max(0, Math.min(255, (data[k + ch] - e.m[ch]) / e.s[ch] * ref.s[ch] + ref.m[ch]));
+    const c = l / 2, R = l / 2;
+    for (let y = 0; y < l; y++) for (let x = 0; x < l; x++) {
+      const d = Math.hypot(x - c, y - c) / R;
+      const a = d < 0.55 ? 1 : d > 1 ? 0 : 1 - (d - 0.55) / 0.45;
+      if (a <= 0) continue;
+      const K = ((oy + y) * W + (ox + x)) * 3, k = (y * l + x) * 3;
+      for (let ch = 0; ch < 3; ch++) out[K + ch] = out[K + ch] * (1 - a) + data[k + ch] * a;
+    }
+    log('  recuadro de la ciudad fundido');
+  }
 
   // 5) el marco de tocapu del grabado, encima (arriba y abajo)
   const marco = Math.round(40 * ESCALA); // 10 * k con k = 4 a 8192 px
@@ -216,6 +305,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const est = process.argv[2];
   const iSalida = process.argv.indexOf('--salida');
   const iSolo = process.argv.indexOf('--trozos');
+  const soloCiudad = process.argv.includes('--ciudad');
   if (!est) { console.error('uso: node scripts/pintar_mapa.mjs <vaciante|creciente> [--salida fichero.png]'); process.exit(1); }
-  await pintarMapa(est, { salida: iSalida > 0 ? process.argv[iSalida + 1] : undefined, solo: iSolo > 0 ? process.argv[iSolo + 1].split(',').map(Number) : null });
+  await pintarMapa(est, { salida: iSalida > 0 ? process.argv[iSalida + 1] : undefined, solo: iSolo > 0 ? process.argv[iSolo + 1].split(',').map(Number) : null, soloCiudad });
 }
