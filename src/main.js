@@ -183,7 +183,7 @@ async function init() {
     carga.classList.add('oculto');
 
     window.__upriver = {
-      viewer, basemap, estilos, capas, enlace, director, interfaz, MUNDO, autor,
+      viewer, basemap, estilos, capas, enlace, director, interfaz, MUNDO, autor, Cesium,
       diagnosticoRender: getRenderGovernorDiagnostics,
     };
   } catch (error) {
