@@ -122,3 +122,8 @@ unbroken dense Amazon jungle …, the same dark olive tone everywhere …».
   tapaba. Ahora va ANTES de los ríos (el agua se pinta encima) y el recinto se encoge a 3,2 km de
   holgura para quedar en la orilla norte, donde están los cuatro puntos; los muelles llegan a la orilla.
 - Igor: los marcadores coincidían con la cúspide de las pirámides → cada pirámide 1,3 km al NO de su punto.
+- Igor: «cuando está vaciante esta parte tiene bastante agua, y cuando está creciente tiene menos: esa
+  laguna desaparece». Las dos estaciones se pintaban por separado y cada tirada inventaba lo suyo.
+  → `armonizarCreciente()`: la creciente definitiva es la pintura de vaciante salvo donde los dos
+  mapas de control difieren (río ancho, bosque inundado), dilatado y fundido; ahí entra la pintura de
+  creciente (28,5 % del mapa). Se ejecuta sola al final de pintar la creciente; `--armonizar` solo mezcla.

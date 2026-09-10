@@ -10,7 +10,8 @@
  *   node scripts/pintar_mapa.mjs creciente
  *   node scripts/pintar_mapa.mjs vaciante --salida mapas/pruebas/vaciante_cuento.png
  *   node scripts/pintar_mapa.mjs vaciante --trozos 3,12     # prueba: trozos sueltos en mapas/pruebas/
- *   node scripts/pintar_mapa.mjs vaciante --ciudad          # prueba: solo los trozos donde cae la ciudad
+ *   node scripts/pintar_mapa.mjs vaciante --ciudad          # prueba: solo el recuadro de la ciudad
+ *   node scripts/pintar_mapa.mjs creciente --armonizar      # solo la mezcla vaciante→creciente, sin nube
  *
  * Cómo: el grabado de 8192×4096 se corta en 5×3 trozos de 2048 con solape (paso 1536 / 1024),
  * cada trozo se reduce a 1024 (lo que procesa el grafo), se manda a la nube y las 15 salidas
@@ -143,6 +144,42 @@ async function pintarRecuadroCiudad(key, controlBuf, plantilla, cpx, prompt, sem
   const estado = await esperar(key, ids, { relanzar: lanzar, log });
   if (!/success|completed/.test(estado[ids[0]])) throw new Error('el recuadro de la ciudad falló');
   return { png: await bajarSalida(key, ids[0]), left, top, L };
+}
+
+/**
+ * Armoniza la creciente con la vaciante: las dos estaciones se pintan por separado y el modelo se
+ * inventa cosas distintas en cada una (una laguna que existe en una y no en la otra: aviso de Igor,
+ * 2026-09-10). La creciente definitiva es la pintura de vaciante salvo donde el agua cambia de verdad
+ * (río más ancho, bosque inundado), que se toma de la pintura de creciente con un borde fundido.
+ * La máscara sale de la diferencia entre los dos mapas de control, dilatada y suavizada.
+ */
+export async function armonizarCreciente({ log = console.log } = {}) {
+  const vac = new URL('mapas/vaciante.png', RAIZ).pathname, cre = new URL('mapas/creciente.png', RAIZ).pathname;
+  const cVac = new URL('mapas/control_vaciante.png', RAIZ).pathname, cCre = new URL('mapas/control_creciente.png', RAIZ).pathname;
+  for (const f of [vac, cre, cVac, cCre]) await access(f).catch(() => { throw new Error(`falta ${f}`); });
+  const meta = await sharp(vac).metadata();
+  const W = meta.width, H = meta.height;
+  const raw = (f) => sharp(f, { limitInputPixels: false }).resize(W, H).removeAlpha().raw().toBuffer();
+  const [a, b, ca, cb] = await Promise.all([raw(vac), raw(cre), raw(cVac), raw(cCre)]);
+  // 1) diferencia de controles → máscara binaria
+  const dif = Buffer.alloc(W * H);
+  for (let k = 0; k < W * H; k++) {
+    const d = Math.abs(ca[k * 3] - cb[k * 3]) + Math.abs(ca[k * 3 + 1] - cb[k * 3 + 1]) + Math.abs(ca[k * 3 + 2] - cb[k * 3 + 2]);
+    dif[k] = d > 30 ? 255 : 0;
+  }
+  // 2) dilatar (desenfoque + umbral) y suavizar el borde
+  const dil = await sharp(dif, { raw: { width: W, height: H, channels: 1 } }).blur(6).threshold(40).blur(5).raw().toBuffer();
+  // 3) mezcla
+  const out = Buffer.alloc(W * H * 3);
+  let cambiados = 0;
+  for (let k = 0; k < W * H; k++) {
+    const al = dil[k] / 255;
+    if (al > 0.5) cambiados++;
+    for (let c = 0; c < 3; c++) out[k * 3 + c] = a[k * 3 + c] * (1 - al) + b[k * 3 + c] * al;
+  }
+  await sharp(out, { raw: { width: W, height: H, channels: 3 } }).png({ compressionLevel: 9 }).toFile(cre);
+  log(`→ ${cre} armonizada con la vaciante (${(100 * cambiados / (W * H)).toFixed(1)} % del mapa viene de la pintura de creciente)`);
+  return cre;
 }
 
 /** Máscara de fundido lineal en los bordes que solapan (no en los bordes del mapa). */
@@ -298,6 +335,7 @@ export async function pintarMapa(estacion, { salida, prompt = PROMPT_CUENTO, sem
     .composite([{ input: await banda(0), top: 0, left: 0 }, { input: await banda(ALTO - 40), top: HF - marco, left: 0 }])
     .png({ compressionLevel: 9 }).toFile(destino);
   log(`→ ${destino} (${WF}×${HF})`);
+  if (estacion === 'creciente' && !salida) await armonizarCreciente({ log });
   return destino;
 }
 
@@ -306,6 +344,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const iSalida = process.argv.indexOf('--salida');
   const iSolo = process.argv.indexOf('--trozos');
   const soloCiudad = process.argv.includes('--ciudad');
+  if (process.argv.includes('--armonizar')) { await armonizarCreciente(); process.exit(0); }
   if (!est) { console.error('uso: node scripts/pintar_mapa.mjs <vaciante|creciente> [--salida fichero.png]'); process.exit(1); }
   await pintarMapa(est, { salida: iSalida > 0 ? process.argv[iSalida + 1] : undefined, solo: iSolo > 0 ? process.argv[iSolo + 1].split(',').map(Number) : null, soloCiudad });
 }
