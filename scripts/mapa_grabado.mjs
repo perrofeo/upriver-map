@@ -200,7 +200,9 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
       s.push('</g>');
       // pirámides escalonadas: tres cuadrados concéntricos por barrio (más grandes en el alto; Urin, chozas, sin pirámide)
       for (const f of [ciudad, ...partes]) {
-        const [lon, lat] = f.geometry.coordinates;
+        // La pirámide va desplazada 1,3 km al noroeste del punto: el marcador queda al pie, no en la
+        // cúspide (Igor: «no son los nombres de las pirámides»).
+        const [lon, lat] = [f.geometry.coordinates[0] - 1.3 / kmLon, f.geometry.coordinates[1] + 1.3 / kmLat];
         const base = f.id === 'hanan' ? 3.2 : f.id === 'urin' ? 0 : 2.4;
         for (const e of [1, 0.66, 0.33]) {
           if (!base) break;
