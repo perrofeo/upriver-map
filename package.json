@@ -22,7 +22,8 @@
     "test": "node --test \"src/**/*.test.mjs\"",
     "grabado": "node scripts/mapa_grabado.mjs",
     "teselas": "node scripts/teselas.mjs",
-    "peso": "node scripts/peso.mjs"
+    "peso": "node scripts/peso.mjs",
+    "pintar": "node scripts/pintar_mapa.mjs vaciante && node scripts/pintar_mapa.mjs creciente"
   },
   "dependencies": {
     "cesium": "^1.138.0"

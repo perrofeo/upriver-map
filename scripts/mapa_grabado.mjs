@@ -39,7 +39,13 @@ async function leerGeojson(nombre) {
   return JSON.parse(await readFile(new URL(nombre, DATOS), 'utf8'));
 }
 
-export async function generarGrabado(estacion, salida, { ancho = 8192, grano = true } = {}) {
+/**
+ * `control: true` dibuja la versión limpia para guiar a un modelo por canny (scripts/pintar_mapa.mjs):
+ * solo formas (agua, cochas, bosque inundado, colinas, raya), sin tramas, retícula, corrientes,
+ * marco ni grano, para que el modelo no lea la textura como caminos o ciudades.
+ */
+export async function generarGrabado(estacion, salida, { ancho = 8192, grano = true, control = false } = {}) {
+  if (control) grano = false;
   const ANCHO = ancho;
   const ALTO = Math.round(ancho / 2);
   const k = ANCHO / 4096; // escala de trazos respecto a la base de 4096
@@ -94,10 +100,15 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
     </pattern>
   </defs>`);
   // Fondo de selva punteada.
-  s.push(`<rect width="100%" height="100%" fill="url(#selva)"/>`);
+  s.push(`<rect width="100%" height="100%" fill="${control ? '#33402a' : 'url(#selva)'}"/>`);
   // Colinas: relleno a rayas y dos anillos de curva de nivel.
   for (const f of accidentes.features.filter((x) => x.properties.subtipo === 'colinas')) {
     const anillo = f.geometry.coordinates[0];
+    if (control) {
+      // Mancha suave y sin borde: el modelo pinta un relieve, no una valla; el contorno lo dibuja el globo.
+      s.push(`<path d="${trazo([...anillo, anillo[0], anillo[1]])} Z" fill="#5a5a3a" fill-opacity="0.85"/>`);
+      continue;
+    }
     s.push(`<polygon points="${poligono(anillo)}" fill="url(#colinas)" stroke="${PALETA.colinaLinea}" stroke-width="${2 * k}"/>`);
     const cx = anillo.reduce((a, c) => a + c[0], 0) / anillo.length, cy = anillo.reduce((a, c) => a + c[1], 0) / anillo.length;
     for (const e of [0.72, 0.45]) {
@@ -107,12 +118,13 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
   }
   // Territorio local del imperio: trama de tocapu y borde discontinuo.
   for (const f of imperio.features.filter((x) => x.properties.tipo === 'territorio' && x.properties.escala === 'local')) {
+    if (control) continue;
     s.push(`<polygon points="${poligono(f.geometry.coordinates[0])}" fill="url(#imperio)" stroke="${PALETA.tumbaga}" stroke-width="${5 * k}" stroke-dasharray="${26 * k} ${14 * k}"/>`);
   }
   // Bosque inundado y cochas.
   for (const f of hidro.features.filter(visible)) {
     const st = f.properties.subtipo, pts = poligono(f.geometry.coordinates[0]);
-    if (st === 'tahuampa') s.push(`<polygon points="${pts}" fill="url(#tahuampa)"/>`);
+    if (st === 'tahuampa') s.push(`<polygon points="${pts}" fill="${control ? '#2e4a44' : 'url(#tahuampa)'}"/>`);
     else if (st === 'cocha') s.push(`<polygon points="${pts}" fill="${PALETA.aguaNegra}" stroke="${PALETA.tumbaga}" stroke-width="${1.5 * k}" stroke-opacity="0.55"/>`);
   }
   // Ríos: orilla de tumbaga fina bajo el agua. El río grande se estrecha río
@@ -142,30 +154,30 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
     ...imperio.features.filter((x) => x.properties.tipo === 'gran-rio').map((f) => trazo(f.geometry.coordinates)),
     ...rutas.features.filter((f) => f.properties.rango === 'principal').map((f) => trazo(f.geometry.coordinates)),
   ];
-  for (const d of corrientes) s.push(`<path d="${d}" fill="none" stroke="${PALETA.hueso}" stroke-opacity="0.18" stroke-width="${1.2 * k}" stroke-dasharray="${40 * k} ${28 * k}"/>`);
+  if (!control) for (const d of corrientes) s.push(`<path d="${d}" fill="none" stroke="${PALETA.hueso}" stroke-opacity="0.18" stroke-width="${1.2 * k}" stroke-dasharray="${40 * k} ${28 * k}"/>`);
   // Islas y playas.
   for (const f of hidro.features.filter(visible)) {
     const st = f.properties.subtipo, pts = poligono(f.geometry.coordinates[0]);
     if (st === 'isla') s.push(`<polygon points="${pts}" fill="url(#selva)" stroke="${PALETA.tumbaga}" stroke-width="${1.5 * k}" stroke-opacity="0.6"/>`);
     else if (st === 'playa') s.push(`<polygon points="${pts}" fill="${PALETA.arena}"/>`);
   }
-  // La raya de la frontera, por tierra: cruza el río grande en la ciudad.
-  for (const f of imperio.features.filter((x) => x.properties.tipo === 'frontera')) {
+  // La raya de la frontera, por tierra: cruza el río grande en la ciudad. En el control no va: el globo la dibuja.
+  for (const f of control ? [] : imperio.features.filter((x) => x.properties.tipo === 'frontera')) {
     s.push(`<path d="${trazo(f.geometry.coordinates)}" fill="none" stroke="${PALETA.piedra}" stroke-opacity="0.55" stroke-width="${14 * k}" stroke-linecap="round"/>`);
     s.push(`<path d="${trazo(f.geometry.coordinates)}" fill="none" stroke="${PALETA.tumbaga}" stroke-width="${7 * k}" stroke-dasharray="${40 * k} ${26 * k}" stroke-linecap="round"/>`);
   }
   // Retícula fina de 0,25°.
-  for (let lon = MUNDO.oeste; lon <= MUNDO.este + 1e-9; lon += 0.25) {
+  if (!control) for (let lon = MUNDO.oeste; lon <= MUNDO.este + 1e-9; lon += 0.25) {
     const x = P(lon, MUNDO.norte).px;
     s.push(`<line x1="${x}" y1="0" x2="${x}" y2="${ALTO}" stroke="${PALETA.hueso}" stroke-opacity="0.09" stroke-width="${1.2 * k}"/>`);
   }
-  for (let lat = MUNDO.sur; lat <= MUNDO.norte + 1e-9; lat += 0.25) {
+  if (!control) for (let lat = MUNDO.sur; lat <= MUNDO.norte + 1e-9; lat += 0.25) {
     const y = P(MUNDO.oeste, lat).py;
     s.push(`<line x1="0" y1="${y}" x2="${ANCHO}" y2="${y}" stroke="${PALETA.hueso}" stroke-opacity="0.09" stroke-width="${1.2 * k}"/>`);
   }
   // Grano de piedra sobre todo, y el marco de tocapu.
   // El grano de piedra se añade después con sharp: el filtro SVG triplica el tiempo.
-  const marco = 10 * k;
+  const marco = control ? 0 : 10 * k;
   s.push(`<rect x="0" y="0" width="${ANCHO}" height="${marco}" fill="url(#tocapu)"/>`);
   s.push(`<rect x="0" y="${ALTO - marco}" width="${ANCHO}" height="${marco}" fill="url(#tocapu)"/>`);
   s.push(`<rect x="0" y="0" width="${marco}" height="${ALTO}" fill="${PALETA.tumbaga}"/>`);

@@ -13,3 +13,10 @@ public/cielo/
 # Mapas generados: se redibujan desde los datos (npm run teselas). Los pintados a mano (mapas/<estacion>.png) sí se versionan.
 
 mapas/grabado_*.png
+
+# Pruebas de mapa pintado: imágenes fuera del repo (el diario README.md sí entra)
+mapas/pruebas/*.png
+mapas/pruebas/*.jpg
+mapas/pruebas/referencias/*.png
+mapas/pruebas/referencias/*.jpg
+mapas/control_*.png

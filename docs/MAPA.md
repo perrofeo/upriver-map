@@ -90,3 +90,20 @@ trazado, se vuelve a ejecutar.
 
 Editar `src/mundo.js` y volver a correr `npm run teselas`. Las coordenadas de los GeoJSON de
 `src/data/upriver/` son absolutas (grados), así que si el bbox se mueve, se mueven ellas también.
+
+
+## El mapa pintado (2026-09-10)
+
+`mapas/vaciante.png` y `mapas/creciente.png` (4096×2048) son ilustraciones «de cuento» pintadas por
+**Z-Image-Turbo + Fun Union ControlNet (canny)** en Comfy Cloud sobre un mapa de control que dibuja
+`mapa_grabado.mjs` en modo `control` (solo agua, cochas, bosque inundado y colinas). Decisión de Igor:
+«¿y si lo hacemos ilustración, como si fuera un cuento?» y, entre tres miradas, «vamos con la 2»
+(tinta y acuarela sobre pergamino oscuro).
+
+- `npm run pintar` (o `node scripts/pintar_mapa.mjs <estación>`): 24 trozos de 2048 con solape sobre el
+  control con margen, a 1024 en la nube (~11 s cada uno), cosidos con fundido, tono igualado por trozo,
+  una semilla por trozo, y el marco de tocapu del grabado encima. Necesita `COMFYUI_API_KEY` o el
+  `.mcp.json` de AI_FILMS. Unos céntimos y diez minutos por estación.
+- `teselas.mjs` corta estos PNG si existen (nivel máximo 3); si se borran, vuelve al grabado generativo.
+- Cuando cambie la geografía (ríos, cochas), hay que volver a pintar: el control sale de los datos.
+- Diario de las pruebas y las trampas encontradas: `mapas/pruebas/README.md`.
