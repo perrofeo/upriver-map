@@ -190,6 +190,7 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
             distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 700_000),
           },
         });
+        entidad._colorBase = relleno; // para atenuar con el deslizador de estación
         if (props.subtipo === 'colinas') {
           dataSource.entities.add({
             id: `${id}:${f.id}:borde`,
@@ -242,12 +243,20 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
     viewer.dataSources.add(dataSource);
   }
 
+  // Nivel continuo de la crecida (0 = vaciante, 1 = creciente). Lo que solo existe en una estación
+  // se atenúa con el deslizador en vez de aparecer de golpe a mitad de recorrido (Igor, 2026-09-10:
+  // «la raya azul del río se ensancha de golpe»): el bosque inundado va cobrando cuerpo con el agua.
+  let nivelCrecida = 0;
   function aplicarEstacion() {
     if (!dataSource) return;
     for (const e of dataSource.entities.values) {
       const fid = e.properties?.fid?.getValue?.() ?? e.properties?.fid;
       const f = porId.get(fid);
-      if (f) e.show = visibleEnEstacion(f.properties, estacionActiva);
+      if (!f) continue;
+      const est = f.properties.estacion || 'ambas';
+      const factor = est === 'ambas' ? 1 : est === 'creciente' ? nivelCrecida : 1 - nivelCrecida;
+      e.show = factor > 0.02;
+      if (e._colorBase && e.polygon && est !== 'ambas') e.polygon.material = e._colorBase.withAlpha(e._colorBase.alpha * factor);
     }
     viewerRef?.scene.requestRender();
   }
@@ -276,6 +285,11 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
     },
     setEstacion(nombreEstacion) {
       estacionActiva = nombreEstacion;
+      aplicarEstacion();
+    },
+    /** Valor continuo del deslizador (0..1): atenúa lo propio de cada estación. */
+    setNivelEstacion(v) {
+      nivelCrecida = Math.max(0, Math.min(1, Number(v) || 0));
       aplicarEstacion();
     },
     /** Feature por id, para la ficha y la selección. */

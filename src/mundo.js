@@ -35,6 +35,12 @@ export const MUNDO = Object.freeze({
   /** Estaciones del bosque inundable. La base es la vaciante. */
   estaciones: Object.freeze(['vaciante', 'creciente']),
   estacionBase: 'vaciante',
+  /**
+   * Pasos de la crecida para el deslizador: capas de teselas apiladas que se funden por tramos, para
+   * que el agua CREZCA desde el cauce en vez de aparecer de golpe (Igor, 2026-09-10). Las intermedias
+   * se generan en el build a partir de las dos pinturas (scripts/pintar_mapa.mjs, generarIntermedias).
+   */
+  pasosCrecida: Object.freeze([{ id: 'crecida_33', v: 0.33 }, { id: 'crecida_66', v: 0.66 }, { id: 'creciente', v: 1 }]),
 });
 
 /** Anchura del bbox en grados. */

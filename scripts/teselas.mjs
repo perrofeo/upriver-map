@@ -14,6 +14,7 @@ import path from 'node:path';
 import { MUNDO } from '../src/mundo.js';
 import { cortarTeselas } from './cortar_teselas.mjs';
 import { generarGrabado } from './mapa_grabado.mjs';
+import { generarIntermedias } from './pintar_mapa.mjs';
 
 const existe = (p) => access(p).then(() => true, () => false);
 const soloSiFaltan = process.argv.includes('--si-faltan');
@@ -36,4 +37,25 @@ for (const est of MUNDO.estaciones) {
   }
   console.log(`${est}: ${fuente} → ${salida}`);
   await cortarTeselas({ imagen: fuente, salida, formato: 'webp', calidad: 82 });
+}
+
+// Pasos intermedios de la crecida: solo si hay pintura de las dos estaciones. Los mapas de control
+// salen de los datos (modo control de mapa_grabado) y los intermedios de mezclar las dos pinturas.
+const pintados = await Promise.all(MUNDO.estaciones.map((est) => existe(path.join('mapas', `${est}.png`))));
+if (pintados.every(Boolean)) {
+  const pasos = MUNDO.pasosCrecida.filter((p) => p.v < 1);
+  const faltan = [];
+  for (const p of pasos) if (!(soloSiFaltan && await existe(path.join('public', 'tiles', p.id, 'manifest.json')))) faltan.push(p);
+  if (faltan.length) {
+    for (const est of MUNDO.estaciones) {
+      const control = path.join('mapas', `control_${est}.png`);
+      if (!(await existe(control))) { console.log(`${est}: dibujando el mapa de control`); await generarGrabado(est, control, { ancho: 8192, control: true }); }
+    }
+    await generarIntermedias();
+    for (const p of faltan) {
+      const salida = path.join('public', 'tiles', p.id);
+      console.log(`${p.id}: mapas/${p.id}.png → ${salida}`);
+      await cortarTeselas({ imagen: path.join('mapas', `${p.id}.png`), salida, formato: 'webp', calidad: 82 });
+    }
+  } else console.log('crecida intermedia: teselas ya presentes');
 }

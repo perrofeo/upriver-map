@@ -12,6 +12,7 @@
  *   node scripts/pintar_mapa.mjs vaciante --trozos 3,12     # prueba: trozos sueltos en mapas/pruebas/
  *   node scripts/pintar_mapa.mjs vaciante --ciudad          # prueba: solo el recuadro de la ciudad
  *   node scripts/pintar_mapa.mjs creciente --armonizar      # solo la mezcla vaciante→creciente, sin nube
+ *   node scripts/pintar_mapa.mjs creciente --intermedias    # crecida_33 y crecida_66 desde las dos pinturas, sin nube
  *
  * Cómo: el grabado de 8192×4096 se corta en 5×3 trozos de 2048 con solape (paso 1536 / 1024),
  * cada trozo se reduce a 1024 (lo que procesa el grafo), se manda a la nube y las 15 salidas
@@ -26,7 +27,8 @@ import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 import { generarGrabado } from './mapa_grabado.mjs';
-import { coordenadaAPixel } from '../src/mundo.js';
+import { coordenadaAPixel, MUNDO } from '../src/mundo.js';
+const MUNDO_PASOS = MUNDO.pasosCrecida;
 
 const BASE = 'https://cloud.comfy.org';
 const RAIZ = new URL('..', import.meta.url);
@@ -180,6 +182,43 @@ export async function armonizarCreciente({ log = console.log } = {}) {
   await sharp(out, { raw: { width: W, height: H, channels: 3 } }).png({ compressionLevel: 9 }).toFile(cre);
   log(`→ ${cre} armonizada con la vaciante (${(100 * cambiados / (W * H)).toFixed(1)} % del mapa viene de la pintura de creciente)`);
   return cre;
+}
+
+/**
+ * Estados intermedios de la crecida (mapas/crecida_33.png, crecida_66.png) para que el deslizador
+ * haga crecer el agua desde el cauce: la máscara de diferencia entre controles se desenfoca mucho y
+ * se umbraliza alto (solo el corazón del agua) para el paso bajo, y más bajo para el paso alto.
+ * Salen de las dos pinturas, sin nube; se regeneran en el build (teselas.mjs) y no se versionan.
+ */
+export async function generarIntermedias({ log = console.log } = {}) {
+  const vac = new URL('mapas/vaciante.png', RAIZ).pathname, cre = new URL('mapas/creciente.png', RAIZ).pathname;
+  const cVac = new URL('mapas/control_vaciante.png', RAIZ).pathname, cCre = new URL('mapas/control_creciente.png', RAIZ).pathname;
+  for (const f of [vac, cre, cVac, cCre]) await access(f).catch(() => { throw new Error(`falta ${f}`); });
+  const meta = await sharp(vac).metadata();
+  const W = meta.width, H = meta.height;
+  const raw = (f) => sharp(f, { limitInputPixels: false }).resize(W, H).removeAlpha().raw().toBuffer();
+  const [a, b, ca, cb] = await Promise.all([raw(vac), raw(cre), raw(cVac), raw(cCre)]);
+  const dif = Buffer.alloc(W * H);
+  for (let k = 0; k < W * H; k++) {
+    const d = Math.abs(ca[k * 3] - cb[k * 3]) + Math.abs(ca[k * 3 + 1] - cb[k * 3 + 1]) + Math.abs(ca[k * 3 + 2] - cb[k * 3 + 2]);
+    dif[k] = d > 30 ? 255 : 0;
+  }
+  // «profundidad»: 255 en el corazón del agua nueva, cayendo hacia fuera
+  const prof = await sharp(dif, { raw: { width: W, height: H, channels: 1 } }).blur(18).raw().toBuffer();
+  const salidas = [];
+  for (const paso of MUNDO_PASOS.filter((p) => p.v < 1)) {
+    const umbral = Math.round(255 * (1 - paso.v) * 0.9);
+    const bin = Buffer.alloc(W * H);
+    for (let k = 0; k < W * H; k++) bin[k] = prof[k] >= umbral ? 255 : 0;
+    const al = await sharp(bin, { raw: { width: W, height: H, channels: 1 } }).blur(4).raw().toBuffer();
+    const out = Buffer.alloc(W * H * 3);
+    for (let k = 0; k < W * H; k++) { const t = al[k] / 255; for (let c = 0; c < 3; c++) out[k * 3 + c] = a[k * 3 + c] * (1 - t) + b[k * 3 + c] * t; }
+    const destino = new URL(`mapas/${paso.id}.png`, RAIZ).pathname;
+    await sharp(out, { raw: { width: W, height: H, channels: 3 } }).png({ compressionLevel: 6 }).toFile(destino);
+    log(`→ ${destino} (crecida al ${Math.round(paso.v * 100)} %)`);
+    salidas.push(destino);
+  }
+  return salidas;
 }
 
 /** Máscara de fundido lineal en los bordes que solapan (no en los bordes del mapa). */
@@ -345,6 +384,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const iSolo = process.argv.indexOf('--trozos');
   const soloCiudad = process.argv.includes('--ciudad');
   if (process.argv.includes('--armonizar')) { await armonizarCreciente(); process.exit(0); }
+  if (process.argv.includes('--intermedias')) { await generarIntermedias(); process.exit(0); }
   if (!est) { console.error('uso: node scripts/pintar_mapa.mjs <vaciante|creciente> [--salida fichero.png]'); process.exit(1); }
   await pintarMapa(est, { salida: iSalida > 0 ? process.argv[iSalida + 1] : undefined, solo: iSolo > 0 ? process.argv[iSolo + 1].split(',').map(Number) : null, soloCiudad });
 }

@@ -30,6 +30,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
     setEstacion(valor) {
       basemap.setEstacion(valor);
       capas.setEstacionActiva(basemap.estacionDominante);
+      capas.setNivelEstacion(basemap.estacion);
       slider.value = String(Math.round(basemap.estacion * 100));
       enlace.programar();
     },

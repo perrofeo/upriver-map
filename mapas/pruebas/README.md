@@ -127,3 +127,10 @@ unbroken dense Amazon jungle …, the same dark olive tone everywhere …».
   → `armonizarCreciente()`: la creciente definitiva es la pintura de vaciante salvo donde los dos
   mapas de control difieren (río ancho, bosque inundado), dilatado y fundido; ahí entra la pintura de
   creciente (28,5 % del mapa). Se ejecuta sola al final de pintar la creciente; `--armonizar` solo mezcla.
+- Igor: «antes el agua iba aumentando con el deslizador; ahora solo tiene dos estados» y «la raya azul del
+  río se ensancha de golpe». Dos causas: (1) el mapa pintado solo tenía dos estados y el fundido de una
+  franja rayada no se lee como crecimiento → `generarIntermedias()` crea `crecida_33` y `crecida_66` desde
+  las dos pinturas (el agua nueva crece desde el corazón hacia fuera, por umbral de una máscara
+  desenfocada) y `basemap.js` funde las capas por tramos; se regeneran en el build (`teselas.mjs`), no se
+  versionan. (2) La franja vectorial del bosque inundado (capa hidrografía, solo creciente) se encendía a
+  mitad de recorrido → ahora su opacidad sigue al deslizador (`setNivelEstacion`).

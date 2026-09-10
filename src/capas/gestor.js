@@ -104,6 +104,11 @@ export class GestorCapas {
     for (const { modulo } of this._capas.values()) modulo.setEstacion?.(nombreEstacion);
   }
 
+  /** Propaga el valor continuo del deslizador de estación (0..1) a las capas que lo entienden. */
+  setNivelEstacion(v) {
+    for (const { modulo } of this._capas.values()) modulo.setNivelEstacion?.(v);
+  }
+
   /** Busca una entidad por id en todas las capas: { capa, feature } o null. */
   buscar(fid) {
     for (const { modulo } of this._capas.values()) {

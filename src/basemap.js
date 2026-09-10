@@ -88,20 +88,25 @@ export class Basemap {
     } catch (e) {
       console.info('[basemap] sin fondo mundial:', e.message);
     }
-    const [base, superior] = MUNDO.estaciones;
+    const base = MUNDO.estacionBase;
     const capaBase = new Cesium.ImageryLayer(await crearProveedor(base));
     this.viewer.imageryLayers.add(capaBase);
     this.capas[base] = capaBase;
-    try {
-      const capaSuperior = new Cesium.ImageryLayer(await crearProveedor(superior));
-      capaSuperior.alpha = 0;
-      // Oculta hasta que el deslizador la pida: así no se descargan sus teselas en vano.
-      capaSuperior.show = false;
-      this.viewer.imageryLayers.add(capaSuperior);
-      this.capas[superior] = capaSuperior;
-    } catch (e) {
-      // Sin segunda estación el deslizador no hace nada; no es un fallo.
-      console.info('[basemap]', e.message);
+    // Los pasos de la crecida, apilados en orden: cada uno empieza invisible y el deslizador los
+    // funde por tramos (crecida_33 entre 0 y 0,33; crecida_66 entre 0,33 y 0,66; creciente hasta 1).
+    this.pasos = [];
+    for (const paso of MUNDO.pasosCrecida) {
+      try {
+        const capa = new Cesium.ImageryLayer(await crearProveedor(paso.id));
+        capa.alpha = 0;
+        capa.show = false; // oculta hasta que el deslizador la pida: así no se descargan sus teselas en vano
+        this.viewer.imageryLayers.add(capa);
+        this.capas[paso.id] = capa;
+        this.pasos.push(paso);
+      } catch (e) {
+        // Sin un paso intermedio el deslizador salta ese tramo; sin ninguno, no hace nada. No es un fallo.
+        console.info('[basemap]', e.message);
+      }
     }
     return this;
   }
@@ -110,10 +115,13 @@ export class Basemap {
   setEstacion(valor) {
     const v = Math.max(0, Math.min(1, Number(valor) || 0));
     this._estacion = v;
-    const superior = this.capas[MUNDO.estaciones[1]];
-    if (superior) {
-      superior.show = v > 0;
-      superior.alpha = v;
+    let previo = 0;
+    for (const paso of this.pasos || []) {
+      const capa = this.capas[paso.id];
+      const a = Math.max(0, Math.min(1, (v - previo) / (paso.v - previo)));
+      capa.alpha = a;
+      capa.show = a > 0;
+      previo = paso.v;
     }
     this.viewer.scene.requestRender();
   }
