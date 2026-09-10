@@ -56,8 +56,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.18451,
-          -4.59409
+          -74.19889,
+          -4.57505
         ]
       },
       "properties": {
@@ -83,7 +83,8 @@
         "orden": 3,
         "notas": "Sin nombre en la obra: nombre descriptivo. Primera prueba de que el río está envenenado.",
         "fuente": "GUION_COMPLETO_UPRIVER_10x5min.md (EP1: descubre peces muertos, agua contaminada); fotogramas de episode_01_upriver_1920x1080_v4.mp4 cada 4 s (2026-09-09)",
-        "placeholder": true
+        "placeholder": true,
+        "sobre_agua": true
       }
     },
     {
