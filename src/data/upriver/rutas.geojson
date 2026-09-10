@@ -1216,9 +1216,9 @@
           "qu": null
         },
         "descripcion": {
-          "es": "El río grande y contaminado: la autopista del imperio. Baja de los Andes hacia el nordeste y desemboca en el río de la frontera, junto al poblado. Subirlo es adentrarse en el imperio. La obra nunca lo nombra.",
-          "en": "The big, polluted river: the empire’s highway. It comes down from the Andes towards the north-east and flows into the frontier river, by the village. To go up it is to go deeper into the empire. The story never names it.",
-          "eu": "Ibai handi eta kutsatua: inperioaren autobidea. Andeetatik ipar-ekialderantz jaisten da eta mugako ibaian isurtzen da, herrixkaren ondoan. Ibaian gora egitea inperioan barrurago sartzea da. Obrak ez du inoiz izendatzen."
+          "es": "El río grande y contaminado: la autopista del imperio hacia la llanura. Baja de los Andes hacia el nordeste y desemboca en el gran río del norte, junto al poblado. Subirlo es llegar al imperio, cuya frontera es la ciudad. La obra nunca lo nombra.",
+          "en": "The big, polluted river: the empire’s highway down to the floodplain. It comes down from the Andes towards the north-east and flows into the great river of the north, by the village. To go up it is to reach the empire, whose frontier is the city. The story never names it.",
+          "eu": "Ibai handi eta kutsatua: inperioaren autobidea lautadarantz. Andeetatik ipar-ekialderantz jaisten da eta iparraldeko ibai handian isurtzen da, herrixkaren ondoan. Ibaian gora egitea inperiora iristea da, eta inperioaren muga hiria da. Obrak ez du inoiz izendatzen."
         },
         "apariciones": [
           {
@@ -1723,9 +1723,9 @@
           "qu": null
         },
         "descripcion": {
-          "es": "Del palafito, en la frontera, río arriba hacia el corazón del imperio; y la vuelta.",
-          "en": "From the stilt house, on the frontier, upriver to the heart of the empire; and back.",
-          "eu": "Palafitotik, mugan, ibaian gora inperioaren bihotzeraino; eta itzulera."
+          "es": "Del palafito, en la llanura kukama, río arriba hasta la puerta del imperio; y la vuelta.",
+          "en": "From the stilt house, on the Kukama floodplain, upriver to the gate of the empire; and back.",
+          "eu": "Palafitotik, kukama lautadan, ibaian gora inperioaren ateraino; eta itzulera."
         },
         "paradas": [
           "poblado",

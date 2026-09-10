@@ -4799,18 +4799,18 @@
         "subtipo": "tahuampa",
         "faccion": "ninguna",
         "nombre": {
-          "es": "La orilla inundada del río de la frontera",
-          "en": "The flooded bank of the frontier river",
-          "eu": "Mugako ibaiaren ertz urpetua",
+          "es": "La orilla inundada del gran río del norte",
+          "en": "The flooded bank of the great river of the north",
+          "eu": "Iparraldeko ibai handiaren ertz urpetua",
           "qu": null
         },
         "lengua": "es",
         "etiqueta": false,
         "estacion": "creciente",
         "descripcion": {
-          "es": "La orilla inundada del río de la frontera",
-          "en": "The flooded bank of the frontier river",
-          "eu": "Mugako ibaiaren ertz urpetua"
+          "es": "La orilla inundada del gran río del norte",
+          "en": "The flooded bank of the great river of the north",
+          "eu": "Iparraldeko ibai handiaren ertz urpetua"
         },
         "apariciones": [],
         "notas": "Placeholder sin nombre: textura del río, generada sobre el trazado (scripts/meandros.py).",

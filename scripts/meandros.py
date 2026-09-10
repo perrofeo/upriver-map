@@ -132,7 +132,7 @@ HIDRO_NOMBRES = {  # es -> {es, en, eu}: las tres lenguas del mapa
     "Una playa de arena que la creciente cubre": {"es": "Una playa de arena que la creciente cubre", "en": "A sandbank the flood covers", "eu": "Uholdeak estaltzen duen hondartza bat"},
     "Bosque inundado: en creciente el río grande se sale al monte": {"es": "Bosque inundado: en creciente el río grande se sale al monte", "en": "Flooded forest: in the flood season the big river spills into the woods", "eu": "Baso urpetua: uholdean ibai handia basora ateratzen da"},
     "Bosque inundado del tramo alto": {"es": "Bosque inundado del tramo alto", "en": "Flooded forest of the upper stretch", "eu": "Goiko tarteko baso urpetua"},
-    "La orilla inundada del río de la frontera": {"es": "La orilla inundada del río de la frontera", "en": "The flooded bank of the frontier river", "eu": "Mugako ibaiaren ertz urpetua"},
+    "La orilla inundada del gran río del norte": {"es": "La orilla inundada del gran río del norte", "en": "The flooded bank of the great river of the north", "eu": "Iparraldeko ibai handiaren ertz urpetua"},
 }
 
 def h(id_, coords, subtipo, estacion, desc):
@@ -157,8 +157,8 @@ for k in range(50, n - 44, 40):
     h(f"playa-{pi}", elipse(p[0], p[1], 0.014, 0.004, rot=math.atan2((q[1] - p[1]) * KM_LAT, (q[0] - p[0]) * KM_LON)), "playa", "vaciante", "Una playa de arena que la creciente cubre")
 h("tahuampa-baja", banda(nuevo[n // 2:], 7.0), "tahuampa", "creciente", "Bosque inundado: en creciente el río grande se sale al monte")
 h("tahuampa-alta", banda(nuevo[12:n // 2 + 1], 4.5), "tahuampa", "creciente", "Bosque inundado del tramo alto")
-imp = carga(BASE, 'imperio.geojson'); fr = [f for f in imp['features'] if f['id'] == 'frontera'][0]['geometry']['coordinates']
-h("tahuampa-frontera", banda(fr, 8.0), "tahuampa", "creciente", "La orilla inundada del río de la frontera")
+imp = carga(BASE, 'imperio.geojson'); fr = [f for f in imp['features'] if f['id'] == 'gran-rio-norte'][0]['geometry']['coordinates']
+h("tahuampa-frontera", banda(fr, 8.0), "tahuampa", "creciente", "La orilla inundada del gran río del norte")
 guarda('hidrografia.geojson', hid)
 
 # ── Medidas ──

@@ -47,7 +47,7 @@ function cercania(pt, linea) {
 
 /** Medio ancho del cauce en km, como lo dibuja el mapa grabado (vaciante). */
 function medioAncho(rango, fraccion) {
-  if (rango === 'frontera') return (62 * M_POR_PX) / 2;
+  if (rango === 'gran-rio') return (62 * M_POR_PX) / 2;
   if (rango === 'principal') {
     const wMax = 44 * M_POR_PX, wMin = wMax * 0.32;
     return (wMin + (wMax - wMin) * Math.pow(fraccion, 0.8)) / 2;
@@ -67,8 +67,8 @@ function dentroDePoligono([x, y], anillo) {
 const cauces = [
   ...rutas.features.filter((f) => f.geometry.type === 'LineString' && f.geometry.coordinates.length > 1)
     .map((f) => ({ id: f.id, rango: f.properties.rango, linea: f.geometry.coordinates })),
-  ...imperio.features.filter((f) => f.properties.tipo === 'frontera')
-    .map((f) => ({ id: f.id, rango: 'frontera', linea: f.geometry.coordinates })),
+  ...imperio.features.filter((f) => f.properties.tipo === 'gran-rio')
+    .map((f) => ({ id: f.id, rango: 'gran-rio', linea: f.geometry.coordinates })),
 ];
 
 test('todos los lugares caen dentro del mundo', () => {

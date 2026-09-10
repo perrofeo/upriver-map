@@ -19,7 +19,7 @@ lleva `placeholder: true` hasta que Igor sitúe cada entidad sobre el mapa defin
 | Campo | Tipo | Significado |
 |---|---|---|
 | `id` (raíz del Feature) | slug | identificador estable; se usa en `sel=` del enlace y en `paradas` |
-| `tipo` | `asentamiento · ruta · territorio · frontera · avanzada · accidente · localizacion · hidrografia` | `frontera`: el río de la raya del imperio (LineString) |
+| `tipo` | `asentamiento · ruta · territorio · frontera · gran-rio · avanzada · accidente · localizacion · hidrografia` | `frontera`: la raya del imperio, por tierra, que cruza el río grande en la ciudad (LineString); `gran-rio`: los ríos que cierran el mundo por el norte y el este (LineString) |
 | `subtipo` | `cocha · isla · playa · tahuampa · colinas` | solo hidrografía y relieve |
 | `etiqueta` | bool | `false` = no se rotula en el globo (texturas sin nombre) |
 | `sobre_agua` | bool | `true` = el punto va sobre el agua a propósito (el barco, los rápidos). Los demás lugares deben caer en tierra: lo comprueba `datos.test.mjs` |
@@ -39,7 +39,7 @@ lleva `placeholder: true` hasta que Igor sitúe cada entidad sobre el mapa defin
 ## La red fluvial (Igor, 2026-09-09)
 
 El viaje no es lineal por un solo río. El río grande, contaminado, baja de los Andes hacia el
-nordeste y es la autopista del imperio; desemboca en el río de la frontera (el Marañón), en cuya
+nordeste y es la autopista del imperio hacia la llanura; desemboca en el gran río del norte (el Marañón), en cuya
 orilla vive Jeshuco. Subirlo es adentrarse en el imperio. Jeshuco se desvía: el palafito está en un
 caño a las afueras del poblado; los túneles naturales lo llevan al río grande (EP1); un brazo baja
 con la corriente hasta los rápidos y el campamento (EP4); Las Tres Gargantas están al final de un

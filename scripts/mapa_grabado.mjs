@@ -3,7 +3,7 @@
  * mapa_grabado.mjs — dibuja el mapa del mundo a partir de los datos, en el
  * estilo de la cartografía imperial (docs/DISENO.md): grabado sobre piedra
  * ahumada, selva punteada, colinas a rayas, ríos con orilla de tumbaga,
- * bosque inundado tramado, cochas de agua negra, la raya de la frontera y una
+ * bosque inundado tramado, cochas de agua negra, la raya de la frontera por tierra y una
  * retícula fina. Sin rótulos: los pinta el globo.
  *
  * Es generativo: cada vez que cambian los datos de src/data/upriver/ el mapa
@@ -130,16 +130,16 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
     return out;
   };
   const rios = [
-    ...imperio.features.filter((x) => x.properties.tipo === 'frontera').map((f) => ({ d: trazo(f.geometry.coordinates), w: (creciente ? 118 : 62) * k, dash: '' })),
+    ...imperio.features.filter((x) => x.properties.tipo === 'gran-rio').map((f) => ({ d: trazo(f.geometry.coordinates), w: (creciente ? 118 : 62) * k, dash: '' })),
     ...rutas.features.filter((f) => f.geometry.type === 'LineString' && f.geometry.coordinates.length && f.properties.rango !== 'principal')
       .map((f) => ({ d: trazo(f.geometry.coordinates), w: anchoRuta(f.properties.rango), dash: f.properties.rango === 'oculto' ? ` stroke-dasharray="${26 * k} ${18 * k}"` : '' })),
     ...rutas.features.filter((f) => f.properties.rango === 'principal').flatMap(tramosRioGrande),
   ];
   for (const r of rios) s.push(`<path d="${r.d}" fill="none" stroke="${PALETA.tumbaga}" stroke-opacity="0.55" stroke-width="${r.w + 3 * k}" stroke-linejoin="round" stroke-linecap="round"${r.dash}/>`);
   for (const r of rios) s.push(`<path d="${r.d}" fill="none" stroke="${agua}" stroke-width="${r.w}" stroke-linejoin="round" stroke-linecap="round"${r.dash}/>`);
-  // Línea de corriente en el río de la frontera y en el río grande.
+  // Línea de corriente en los grandes ríos y en el río grande.
   const corrientes = [
-    ...imperio.features.filter((x) => x.properties.tipo === 'frontera').map((f) => trazo(f.geometry.coordinates)),
+    ...imperio.features.filter((x) => x.properties.tipo === 'gran-rio').map((f) => trazo(f.geometry.coordinates)),
     ...rutas.features.filter((f) => f.properties.rango === 'principal').map((f) => trazo(f.geometry.coordinates)),
   ];
   for (const d of corrientes) s.push(`<path d="${d}" fill="none" stroke="${PALETA.hueso}" stroke-opacity="0.18" stroke-width="${1.2 * k}" stroke-dasharray="${40 * k} ${28 * k}"/>`);
@@ -149,9 +149,10 @@ export async function generarGrabado(estacion, salida, { ancho = 8192, grano = t
     if (st === 'isla') s.push(`<polygon points="${pts}" fill="url(#selva)" stroke="${PALETA.tumbaga}" stroke-width="${1.5 * k}" stroke-opacity="0.6"/>`);
     else if (st === 'playa') s.push(`<polygon points="${pts}" fill="${PALETA.arena}"/>`);
   }
-  // La raya de la frontera sobre su río.
+  // La raya de la frontera, por tierra: cruza el río grande en la ciudad.
   for (const f of imperio.features.filter((x) => x.properties.tipo === 'frontera')) {
-    s.push(`<path d="${trazo(f.geometry.coordinates)}" fill="none" stroke="${PALETA.tumbaga}" stroke-width="${6 * k}" stroke-dasharray="${40 * k} ${26 * k}" stroke-linecap="round"/>`);
+    s.push(`<path d="${trazo(f.geometry.coordinates)}" fill="none" stroke="${PALETA.piedra}" stroke-opacity="0.55" stroke-width="${14 * k}" stroke-linecap="round"/>`);
+    s.push(`<path d="${trazo(f.geometry.coordinates)}" fill="none" stroke="${PALETA.tumbaga}" stroke-width="${7 * k}" stroke-dasharray="${40 * k} ${26 * k}" stroke-linecap="round"/>`);
   }
   // Retícula fina de 0,25°.
   for (let lon = MUNDO.oeste; lon <= MUNDO.este + 1e-9; lon += 0.25) {

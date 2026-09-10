@@ -18,10 +18,12 @@ Referencia real: Reserva Nacional Pacaya Samiria (Loreto, Perú), tratada con li
 se coloca sobre ella para que el globo tenga detrás una silueta de Tierra reconocible. Fuera del
 bbox no hay teselas y el globo pinta su color base.
 
-El río grande baja de los Andes hacia el nordeste y desemboca en el río de la frontera (el
+El río grande baja de los Andes hacia el nordeste y desemboca en el gran río del norte (el
 Marañón, que corre por el borde norte del mundo) junto al poblado de Jeshuco. «Río arriba» es
-hacia el suroeste, hacia el corazón del imperio; la ciudad queda al fondo, al pie de las colinas
-andinas. El mundo mide unos 444 × 222 km, así que el viaje de ida ronda los 350 km de río.
+hacia el suroeste, hacia el imperio; la ciudad queda al fondo, al pie de las colinas andinas, y
+**es la frontera**: la puerta del imperio sobre el río (Igor, 2026-09-10). Jeshuco y los refugiados
+viven fuera, en la llanura kukama, entre los grandes ríos del norte y del este (Marañón y Ucayali),
+más allá de los cuales están los países hispanohablantes. La capital queda más adentro, en la sierra. El mundo mide unos 444 × 222 km, así que el viaje de ida ronda los 350 km de río.
 
 ## Cómo se corresponde la imagen con las coordenadas
 

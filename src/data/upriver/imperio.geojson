@@ -11,18 +11,30 @@
           [
             [
               -77.5,
-              -5.55
+              -5.5
             ],
             [
-              -76.75,
-              -5.55
+              -77.35,
+              -5.63
             ],
             [
-              -76.35,
-              -5.85
+              -77.2,
+              -5.76
             ],
             [
-              -76.45,
+              -77.08,
+              -5.9
+            ],
+            [
+              -76.97316,
+              -6.01256
+            ],
+            [
+              -76.85,
+              -6.22
+            ],
+            [
+              -76.7,
               -6.4
             ],
             [
@@ -31,7 +43,7 @@
             ],
             [
               -77.5,
-              -5.55
+              -5.5
             ]
           ]
         ]
@@ -47,9 +59,9 @@
         },
         "lengua": "es",
         "descripcion": {
-          "es": "Zona bajo control directo del imperio en este tramo: la ciudad y su comarca, al pie de los Andes.",
-          "en": "The area under the empire’s direct control on this stretch: the city and its district, at the foot of the Andes.",
-          "eu": "Tarte honetan inperioaren kontrol zuzenpeko eremua: hiria eta bere eskualdea, Andeen oinean."
+          "es": "Zona bajo control directo del imperio en este tramo: la ciudad y su comarca, al pie de los Andes. Aquí empieza el imperio; la llanura de río abajo es tierra kukama, todavía sin someter.",
+          "en": "The area under the empire’s direct control on this stretch: the city and its district, at the foot of the Andes. The empire begins here; the floodplain downriver is Kukama land, not yet subdued.",
+          "eu": "Tarte honetan inperioaren kontrol zuzenpeko eremua: hiria eta bere eskualdea, Andeen oinean. Hemen hasten da inperioa; ibaian beherako lautada kukama lurra da, oraindik menderatu gabe."
         },
         "apariciones": [
           {
@@ -76,9 +88,9 @@
           }
         ],
         "estacion": "ambas",
-        "notas": "Extensión placeholder. El imperio no tiene nombre en la obra.",
+        "notas": "Igor (2026-09-10): la ciudad es la frontera norte del imperio; el territorio local queda al suroeste de la raya. El imperio no tiene nombre en la obra.",
         "fuente": "pelicula/DOSSIER_UPRIVER.md §Mundo",
-        "placeholder": true,
+        "placeholder": false,
         "escala": "local"
       }
     },
@@ -103,9 +115,9 @@
         },
         "lengua": "es",
         "descripcion": {
-          "es": "Las máquinas, al final del desvío de los rápidos. Primera avanzada industrial en el río y primera prueba de que alguien lo está matando.",
-          "en": "The machines, at the end of the detour of the rapids. The first industrial outpost on the river and the first proof that someone is killing it.",
-          "eu": "Makinak, ur-lasterren adarraren amaieran. Ibaiko lehen aurrerapostu industriala eta norbait ibaia hiltzen ari dela erakusten duen lehen froga."
+          "es": "Las máquinas, al final del desvío de los rápidos, en tierra kukama, lejos de la frontera: la primera incursión industrial del imperio río abajo y la primera prueba de que alguien está matando el río.",
+          "en": "The machines, at the end of the detour of the rapids, on Kukama land, far from the frontier: the empire’s first industrial incursion downriver and the first proof that someone is killing the river.",
+          "eu": "Makinak, ur-lasterren adarraren amaieran, kukama lurrean, mugatik urrun: inperioaren lehen sarraldi industriala ibaian behera, eta norbait ibaia hiltzen ari dela erakusten duen lehen froga."
         },
         "apariciones": [
           {
@@ -157,100 +169,48 @@
         "coordinates": [
           [
             [
-              -77.6,
-              -4.45
-            ],
-            [
-              -77.5,
-              -4.78
-            ],
-            [
-              -77.1,
-              -4.66
-            ],
-            [
-              -76.7,
-              -4.6
-            ],
-            [
-              -76.3,
-              -4.63
-            ],
-            [
-              -75.9,
-              -4.56
-            ],
-            [
-              -75.5,
-              -4.55
-            ],
-            [
-              -75.1,
-              -4.6
-            ],
-            [
-              -74.7,
-              -4.52
-            ],
-            [
-              -74.3,
+              -78.0,
               -4.5
             ],
             [
-              -73.9,
-              -4.55
-            ],
-            [
-              -73.55,
-              -4.45
-            ],
-            [
-              -73.75,
-              -4.75
-            ],
-            [
-              -73.85,
-              -5.05
-            ],
-            [
-              -74.0,
+              -77.5,
               -5.5
             ],
             [
-              -74.2,
-              -6.0
+              -77.2,
+              -5.76
             ],
             [
-              -74.6,
-              -6.6
+              -76.97316,
+              -6.01256
             ],
             [
-              -75.0,
-              -7.0
+              -76.7,
+              -6.4
             ],
             [
-              -75.0,
-              -7.35
+              -76.2,
+              -7.2
             ],
             [
-              -74.85,
-              -7.8
+              -75.6,
+              -8.3
             ],
             [
-              -74.55,
-              -8.4
+              -75.2,
+              -9.4
             ],
             [
-              -75.5,
-              -9.0
+              -75.3,
+              -10.4
             ],
             [
-              -76.24,
-              -9.93
+              -76.2,
+              -10.8
             ],
             [
               -77.2,
-              -9.8
+              -10.2
             ],
             [
               -77.9,
@@ -265,16 +225,16 @@
               -6.5
             ],
             [
-              -78.55,
+              -78.6,
               -5.6
             ],
             [
-              -78.1,
-              -4.8
+              -78.2,
+              -4.9
             ],
             [
-              -77.6,
-              -4.45
+              -78.0,
+              -4.5
             ]
           ]
         ]
@@ -291,13 +251,13 @@
         },
         "lengua": "es",
         "descripcion": {
-          "es": "En 1532 Atahualpa no cayó en la trampa de Pizarro. España colonizó las costas y las tierras bajas, pero nunca penetró la Amazonia profunda. El imperio chimú-inca sobrevivió en los Andes, se industrializó y extendió su control sobre la cuenca amazónica. Quinientos años después somete la selva. Comercia y comparte tecnología con los países y reinos hispanohablantes que lo rodean.",
-          "en": "In 1532 Atahualpa did not fall into Pizarro’s trap. Spain colonised the coasts and the lowlands but never penetrated the deep Amazon. The Chimú-Inca empire survived in the Andes, industrialised and extended its control over the Amazon basin. Five hundred years later it is subduing the jungle. It trades and shares technology with the Spanish-speaking countries and kingdoms around it.",
-          "eu": "1532an Atahualpa ez zen Pizarroren tranpan erori. Espainiak kostaldeak eta lur behereak kolonizatu zituen, baina ez zen inoiz Amazonia sakonean sartu. Inperio chimu-inkak Andeetan bizirik iraun zuen, industrializatu egin zen eta Amazonas arroaren gaineko kontrola hedatu zuen. Bostehun urte geroago oihana menderatzen ari da. Inguruko herrialde eta erresuma gaztelaniadunekin merkataritzan aritzen da eta teknologia partekatzen du."
+          "es": "En 1532 Atahualpa no cayó en la trampa de Pizarro. España colonizó las costas y las tierras bajas, pero nunca penetró la Amazonia profunda. El imperio chimú-inca sobrevivió en los Andes, se industrializó y ahora baja hacia la cuenca amazónica. Quinientos años después está sometiendo la selva: su frontera es la ciudad, la puerta sobre el río grande, y sus máquinas ya se adentran en la llanura kukama. Comercia y comparte tecnología con los países y reinos hispanohablantes que lo rodean.",
+          "en": "In 1532 Atahualpa did not fall into Pizarro’s trap. Spain colonised the coasts and the lowlands but never penetrated the deep Amazon. The Chimú-Inca empire survived in the Andes, industrialised and is now coming down towards the Amazon basin. Five hundred years later it is subduing the jungle: its frontier is the city, the gate on the big river, and its machines are already pushing into the Kukama floodplain. It trades and shares technology with the Spanish-speaking countries and kingdoms around it.",
+          "eu": "1532an Atahualpa ez zen Pizarroren tranpan erori. Espainiak kostaldeak eta lur behereak kolonizatu zituen, baina ez zen inoiz Amazonia sakonean sartu. Inperio chimu-inkak Andeetan bizirik iraun zuen, industrializatu egin zen eta orain Amazonas arrorantz jaisten ari da. Bostehun urte geroago oihana menderatzen ari da: bere muga hiria da, ibai handiaren gaineko atea, eta bere makinak kukama lautadan sartzen ari dira jada. Inguruko herrialde eta erresuma gaztelaniadunekin merkataritzan aritzen da eta teknologia partekatzen du."
         },
         "apariciones": [],
         "estacion": "ambas",
-        "notas": "Contorno según Igor (2026-09-10): el Marañón al norte, el Ucayali al este, y una parte de los Andes al oeste y al sur, porque la tribu en el poder es andina. Al norte del Marañón y al este del Ucayali, los países hispanohablantes. Trazado esquemático sobre los cursos reales (Pongo de Manseriche → Nauta → Pucallpa; Huánuco, Cordillera Blanca, Cajamarca, Chachapoyas). El imperio no tiene nombre en la obra.",
+        "notas": "Contorno según Igor (2026-09-10): el imperio son los Andes y sus estribaciones; su frontera norte es la ciudad, la puerta sobre el río grande. La llanura entre el Marañón y el Ucayali es tierra kukama sin someter; al norte del Marañón y al este del Ucayali, los países hispanohablantes. La capital queda más adentro, en la sierra (sin situar). Trazado esquemático (Bagua, Chachapoyas, Cajamarca, Cordillera Blanca, estribaciones hacia Pucallpa). El imperio no tiene nombre en la obra.",
         "fuente": "UCRONIA_INTEGRACION.md §Premisa; Igor (2026-09-10)",
         "placeholder": false
       }
@@ -305,6 +265,77 @@
     {
       "type": "Feature",
       "id": "frontera",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.5,
+            -5.5
+          ],
+          [
+            -77.35,
+            -5.63
+          ],
+          [
+            -77.2,
+            -5.76
+          ],
+          [
+            -77.08,
+            -5.9
+          ],
+          [
+            -76.97316,
+            -6.01256
+          ],
+          [
+            -76.85,
+            -6.22
+          ],
+          [
+            -76.7,
+            -6.4
+          ]
+        ]
+      },
+      "properties": {
+        "tipo": "frontera",
+        "escala": "local",
+        "faccion": "imperio",
+        "rango": "principal",
+        "nombre": {
+          "es": "La frontera del imperio",
+          "en": "The empire’s frontier",
+          "eu": "Inperioaren muga",
+          "qu": null
+        },
+        "lengua": "es",
+        "estacion": "ambas",
+        "descripcion": {
+          "es": "La raya del imperio corre por el pie de los Andes y cruza el río grande en la ciudad, que es su puerta y su aduana. Río abajo, la llanura kukama: tierras que el imperio no gobierna todavía, aunque sus barcos y sus máquinas ya suben y bajan por ellas.",
+          "en": "The empire’s line runs along the foot of the Andes and crosses the big river at the city, which is its gate and its customs house. Downriver, the Kukama floodplain: lands the empire does not yet rule, though its ships and machines already go up and down through them.",
+          "eu": "Inperioaren marra Andeen oinetik doa eta ibai handia hirian zeharkatzen du; hiria da bere atea eta bere aduana. Ibaian behera, kukama lautada: inperioak oraindik gobernatzen ez dituen lurrak, nahiz eta bere ontziak eta makinak jada haietan gora eta behera ibiltzen diren."
+        },
+        "historia": null,
+        "apariciones": [
+          {
+            "episodio": 8,
+            "camara": false,
+            "nota": {
+              "es": "la puerta del imperio",
+              "en": "the gate of the empire",
+              "eu": "inperioaren atea"
+            }
+          }
+        ],
+        "notas": "Decisión de Igor (2026-09-10): la ciudad es la frontera norte del imperio; Jeshuco y los refugiados viven fuera, en la llanura, y por eso no conocen la ciudad ni las banderas del sol. La capital queda más adentro, en la sierra. Trazado esquemático por el pie de los Andes; cruza el río en la ciudad.",
+        "fuente": "Igor (2026-09-10)",
+        "placeholder": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "gran-rio-norte",
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -359,20 +390,20 @@
         ]
       },
       "properties": {
-        "tipo": "frontera",
+        "tipo": "gran-rio",
         "escala": "local",
-        "faccion": "imperio",
+        "faccion": null,
         "nombre": {
-          "es": "La frontera del imperio",
-          "en": "The empire’s frontier",
-          "eu": "Inperioaren muga",
+          "es": "El gran río del norte",
+          "en": "The great river of the north",
+          "eu": "Iparraldeko ibai handia",
           "qu": null
         },
         "lengua": "es",
         "descripcion": {
-          "es": "El gran río que cierra el mundo por el norte es la raya del imperio: en la otra orilla empiezan las tierras de los hispanohablantes. El poblado de Jeshuco está en su misma orilla, junto a la desembocadura del río grande, y por ahí entran los barcos que comercian con el imperio.",
-          "en": "The great river that closes the world to the north is the empire’s line: on the other bank begin the lands of the Spanish speakers. Jeshuco’s village stands on this same bank, by the mouth of the big river, and that is where the ships that trade with the empire come in.",
-          "eu": "Mundua iparraldetik ixten duen ibai handia inperioaren marra da: beste ertzean gaztelaniadunen lurrak hasten dira. Jeshucoren herrixka ertz berean dago, ibai handiaren bokalearen ondoan, eta hortik sartzen dira inperioarekin merkataritzan aritzen diren ontziak."
+          "es": "El gran río que cierra el mundo por el norte. En la otra orilla empiezan las tierras de los hispanohablantes; en esta, la llanura kukama. El poblado de Jeshuco está junto a la desembocadura del río grande, y por ahí entran los barcos que suben a comerciar con el imperio.",
+          "en": "The great river that closes the world to the north. On the other bank begin the lands of the Spanish speakers; on this one, the Kukama floodplain. Jeshuco’s village stands by the mouth of the big river, and that is where the ships that go up to trade with the empire come in.",
+          "eu": "Mundua iparraldetik ixten duen ibai handia. Beste ertzean gaztelaniadunen lurrak hasten dira; honetan, kukama lautada. Jeshucoren herrixka ibai handiaren bokalearen ondoan dago, eta hortik sartzen dira inperioarekin merkataritzan aritzera igotzen diren ontziak."
         },
         "apariciones": [
           {
@@ -385,15 +416,15 @@
           }
         ],
         "estacion": "ambas",
-        "notas": "Trazado esquemático sobre el curso real del Marañón. Igor (2026-09-09): «la frontera puede ser el río Marañón, así la reserva entra dentro del imperio». Nombre en pantalla: «La frontera del imperio» (Igor, 2026-09-10).",
-        "fuente": "Igor (2026-09-09); UCRONIA_INTEGRACION.md §Premisa",
+        "notas": "Trazado esquemático sobre el Marañón. Fue la frontera del imperio hasta el 2026-09-10; Igor: la frontera es la ciudad, y Jeshuco vive fuera del imperio. Sin nombre en la obra.",
+        "fuente": "Igor (2026-09-09, 2026-09-10)",
         "placeholder": false,
         "rango": "principal"
       }
     },
     {
       "type": "Feature",
-      "id": "frontera-este",
+      "id": "gran-rio-este",
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -436,24 +467,24 @@
         ]
       },
       "properties": {
-        "tipo": "frontera",
+        "tipo": "gran-rio",
         "escala": "local",
-        "faccion": "imperio",
+        "faccion": null,
         "nombre": {
-          "es": "La frontera del imperio",
-          "en": "The empire’s frontier",
-          "eu": "Inperioaren muga",
+          "es": "El gran río del este",
+          "en": "The great river of the east",
+          "eu": "Ekialdeko ibai handia",
           "qu": null
         },
         "lengua": "es",
         "descripcion": {
-          "es": "El otro gran río, el que cierra el mundo por el este, es también raya del imperio: aguas abajo se junta con el río de la frontera norte, y más allá de los dos empiezan las tierras de los hispanohablantes. Jeshuco nunca llega a verlo.",
-          "en": "The other great river, the one that closes the world to the east, is also the empire’s line: downstream it joins the river of the northern frontier, and beyond them both begin the lands of the Spanish speakers. Jeshuco never gets to see it.",
-          "eu": "Beste ibai handia, mundua ekialdetik ixten duena, inperioaren marra da baita ere: ibaian behera iparraldeko mugako ibaiarekin elkartzen da, eta bien haratago gaztelaniadunen lurrak hasten dira. Jeshucok ez du inoiz ikusten."
+          "es": "El otro gran río, el que cierra el mundo por el este: aguas abajo se junta con el del norte, y más allá de los dos empiezan las tierras de los hispanohablantes. Jeshuco nunca llega a verlo.",
+          "en": "The other great river, the one that closes the world to the east: downstream it joins the one of the north, and beyond them both begin the lands of the Spanish speakers. Jeshuco never gets to see it.",
+          "eu": "Beste ibai handia, mundua ekialdetik ixten duena: ibaian behera iparraldekoarekin elkartzen da, eta bien haratago gaztelaniadunen lurrak hasten dira. Jeshucok ez du inoiz ikusten."
         },
         "apariciones": [],
         "estacion": "ambas",
-        "notas": "Trazado esquemático sobre el Ucayali, pegado al borde oriental del mundo para que el humo del final quede dentro del imperio. Igor (2026-09-10): «Ucayali como frontera».",
+        "notas": "Trazado esquemático sobre el Ucayali, pegado al borde oriental del mundo. Igor (2026-09-10): «Ucayali como frontera» fue la primera idea; después la frontera pasó a la ciudad. Sin nombre en la obra.",
         "fuente": "Igor (2026-09-10)",
         "placeholder": false,
         "rango": "principal"

@@ -121,25 +121,22 @@ export function crearCapaFiccion({ id, nombre, icono, geojson, color, alSeleccio
             scaleByDistance: new Cesium.NearFarScalar(20_000, 1.0, 400_000, 0.7),
           },
         });
-      } else if (g.type === 'LineString' && props.tipo === 'frontera') {
-        // La raya del imperio: tumbaga, discontinua, siempre visible de cerca.
+      } else if (g.type === 'LineString' && (props.tipo === 'frontera' || props.tipo === 'gran-rio')) {
+        // Los grandes ríos que cierran el mundo: agua ancha. La raya del imperio: tumbaga, discontinua, por tierra.
         const positions = Cesium.Cartesian3.fromDegreesArray(g.coordinates.flat());
         const condicion = new Cesium.DistanceDisplayCondition(0, 900_000);
-        // Primero el agua del gran río, encima la raya del imperio.
-        dataSource.entities.add({
-          id: `${id}:${f.id}:agua`,
-          properties: { capa: id, fid: f.id },
-          polyline: { positions, width: 6, material: Cesium.Color.fromCssColorString(COLOR_AGUA).withAlpha(0.95), clampToGround: true, distanceDisplayCondition: condicion },
-        });
+        const esRio = props.tipo === 'gran-rio';
         entidad = dataSource.entities.add({
           ...base,
-          polyline: {
-            positions,
-            width: 3,
-            material: new Cesium.PolylineDashMaterialProperty({ color: c.withAlpha(0.95), gapColor: Cesium.Color.TRANSPARENT, dashLength: 24 }),
-            clampToGround: true,
-            distanceDisplayCondition: condicion,
-          },
+          polyline: esRio
+            ? { positions, width: 6, material: Cesium.Color.fromCssColorString(COLOR_AGUA).withAlpha(0.95), clampToGround: true, distanceDisplayCondition: condicion }
+            : {
+              positions,
+              width: 3,
+              material: new Cesium.PolylineDashMaterialProperty({ color: c.withAlpha(0.95), gapColor: Cesium.Color.TRANSPARENT, dashLength: 24 }),
+              clampToGround: true,
+              distanceDisplayCondition: condicion,
+            },
         });
         const medio = g.coordinates[Math.floor(g.coordinates.length / 2)];
         dataSource.entities.add({

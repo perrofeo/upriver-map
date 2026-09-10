@@ -23,9 +23,9 @@
         },
         "lengua": "es",
         "descripcion": {
-          "es": "Barco mercante que comercia con el imperio. Su tripulación habla castellano: no son del imperio. Fondeado en el río grande, donde lo encuentra Jeshuco al salir de los túneles. Reaparece atracado en el puerto de la ciudad.",
-          "en": "A merchant ship that trades with the empire. Its crew speaks Spanish: they are not from the empire. Anchored in the big river, where Jeshuco finds it when he comes out of the tunnels. It reappears moored in the city’s port.",
-          "eu": "Inperioarekin merkataritzan aritzen den merkataritza-ontzia. Tripulazioak gaztelaniaz hitz egiten du: ez dira inperiokoak. Ibai handian ainguratuta, Jeshucok tuneletatik irtetean aurkitzen duen lekuan. Hiriko portuan atrakatuta berragertzen da."
+          "es": "Barco mercante de los hispanohablantes que sube el río a comerciar con el imperio. Su tripulación no es del imperio ni kukama. Fondeado en el río grande, donde lo encuentra Jeshuco al salir de los túneles. Reaparece atracado en el puerto de la ciudad.",
+          "en": "A Spanish-speaking merchant ship that goes up the river to trade with the empire. Its crew is neither from the empire nor Kukama. Anchored in the big river, where Jeshuco finds it when he comes out of the tunnels. It reappears moored in the city’s port.",
+          "eu": "Gaztelaniadunen merkataritza-ontzia, ibaian gora inperioarekin merkataritzan aritzera doana. Tripulazioa ez da inperiokoa, ez kukama. Ibai handian ainguratuta, Jeshucok tuneletatik irtetean aurkitzen duen lekuan. Hiriko portuan atrakatuta berragertzen da."
         },
         "apariciones": [
           {
@@ -263,9 +263,9 @@
         },
         "lengua": "es",
         "descripcion": {
-          "es": "Las columnas de humo del plano final, muy al sur, en tierras que Jeshuco no conoce: el imperio tiene más chimeneas que las de la ciudad, y en la dirección contraria a su viaje.",
-          "en": "The columns of smoke in the final shot, far to the south, in lands Jeshuco does not know: the empire has more chimneys than the city’s, and in the opposite direction to his journey.",
-          "eu": "Azken planoko ke-zutabeak, hegoaldean urrun, Jeshucok ezagutzen ez dituen lurretan: inperioak hiriko tximiniak baino gehiago ditu, eta bere bidaiaren kontrako norabidean."
+          "es": "Las columnas de humo del plano final, lejos al sureste, en tierras que Jeshuco no conoce: el imperio ya está también allí, con más chimeneas que las de la puerta, lejos de su camino.",
+          "en": "The columns of smoke in the final shot, far to the south-east, in lands Jeshuco does not know: the empire is already there too, with more chimneys than those of the gate, far from his route.",
+          "eu": "Azken planoko ke-zutabeak, hego-ekialdean urrun, Jeshucok ezagutzen ez dituen lurretan: inperioa han ere badago jada, ateko hiriak baino tximinia gehiagorekin, bere bidetik urrun."
         },
         "apariciones": [
           {
@@ -287,7 +287,7 @@
         ],
         "estacion": "ambas",
         "orden": 8,
-        "notas": "No es un lugar visitado: es lo que se ve desde el palafito mirando al sudeste. Igor (2026-09-09): «lo pondría más al sudeste, en un lugar que no conoce Jeshuco». Qué humea ahí no lo dice la obra.",
+        "notas": "No es un lugar visitado: es lo que se ve desde el palafito mirando al sudeste. Igor (2026-09-09): «lo pondría más al sudeste, en un lugar que no conoce Jeshuco». Qué humea ahí no lo dice la obra. Con la frontera en la ciudad (2026-09-10), el humo del sureste queda fuera del imperio: otra incursión en la llanura, no la capital. Pendiente de Igor si prefiere moverlo al suroeste, imperio adentro.",
         "fuente": "pelicula/DOSSIER_UPRIVER.md (nota del director)",
         "placeholder": true,
         "camara": {

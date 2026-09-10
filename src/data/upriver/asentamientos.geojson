@@ -106,9 +106,9 @@
         },
         "lengua": "es",
         "descripcion": {
-          "es": "El poblado kukama donde arranca la serie, dentro del imperio pero a un paso de su frontera. El palafito del abuelo queda a sus afueras, apartado.",
-          "en": "The Kukama village where the series begins, inside the empire but a step from its frontier. The grandfather’s stilt house stands apart on its outskirts.",
-          "eu": "Seriea hasten den herrixka kukama, inperioaren barruan baina mugatik urrats batera. Aitonaren palafitoa kanpoaldean dago, aparte."
+          "es": "El poblado kukama donde arranca la serie, en la llanura, fuera del imperio: el imperio queda río arriba, más allá de la ciudad, aunque sus barcos y sus máquinas ya llegan hasta aquí. El palafito del abuelo queda a sus afueras, apartado.",
+          "en": "The Kukama village where the series begins, on the floodplain, outside the empire: the empire lies upriver, beyond the city, though its ships and machines already reach this far. The grandfather’s stilt house stands apart on its outskirts.",
+          "eu": "Seriea hasten den herrixka kukama, lautadan, inperiotik kanpo: inperioa ibaian gora dago, hiritik haratago, nahiz eta bere ontziak eta makinak honaino iristen diren jada. Aitonaren palafitoa kanpoaldean dago, aparte."
         },
         "apariciones": [
           {
@@ -172,9 +172,9 @@
         },
         "lengua": "es",
         "descripcion": {
-          "es": "Asentamiento de desplazados amazónicos en la orilla del río grande, río arriba de Las Tres Gargantas, donde el río ya es más estrecho y turbio.",
-          "en": "A settlement of displaced Amazonians on the bank of the big river, upstream from the Three Gorges, where the river is already narrower and murkier.",
-          "eu": "Amazoniako desplazatuen kokalekua ibai handiaren ertzean, Hiru Arroiletatik ibaian gora, ibaia jada estuagoa eta uherragoa den lekuan."
+          "es": "Asentamiento de desplazados amazónicos en la orilla del río grande, río arriba de Las Tres Gargantas, en tierra kukama, donde el río ya es más estrecho y turbio. Las máquinas del imperio los echaron de su sitio.",
+          "en": "A settlement of displaced Amazonians on the bank of the big river, upstream from the Three Gorges, on Kukama land, where the river is already narrower and murkier. The empire’s machines drove them from their home.",
+          "eu": "Amazoniako desplazatuen kokalekua ibai handiaren ertzean, Hiru Arroiletatik ibaian gora, kukama lurrean, ibaia jada estuagoa eta uherragoa den lekuan. Inperioaren makinek beren lekutik bota zituzten."
         },
         "apariciones": [
           {
@@ -239,9 +239,9 @@
         },
         "lengua": "qu",
         "descripcion": {
-          "es": "Capital inca-industrial, ciudad-puerto en tres estratos donde el río grande sale de las colinas de los Andes. Destino del viaje, en el corazón del imperio.",
-          "en": "Inca-industrial capital, a port city in three tiers where the big river comes out of the Andean foothills. The journey’s destination, in the heart of the empire.",
-          "eu": "Hiriburu inka-industriala, hiru mailatako portu-hiria, ibai handia Andeetako muinoetatik ateratzen den lekuan. Bidaiaren helmuga, inperioaren bihotzean."
+          "es": "Ciudad-puerto inca-industrial en tres estratos, donde el río grande sale de las colinas de los Andes: la puerta del imperio y su aduana sobre el río. La capital queda más adentro, en la sierra. Destino del viaje.",
+          "en": "An Inca-industrial port city in three tiers, where the big river comes out of the Andean foothills: the gate of the empire and its customs house on the river. The capital lies further in, up in the highlands. The journey’s destination.",
+          "eu": "Hiru mailatako portu-hiri inka-industriala, ibai handia Andeetako muinoetatik ateratzen den lekuan: inperioaren atea eta ibaiaren gaineko aduana. Hiriburua barrurago dago, mendialdean. Bidaiaren helmuga."
         },
         "apariciones": [
           {
@@ -294,7 +294,7 @@
         ],
         "estacion": "ambas",
         "orden": 6,
-        "notas": "«Chimor Yaku» («agua de Chimor») procede de la biblia (03_PERSONAJES.md, UCRONIA_INTEGRACION.md) y nunca se pronuncia en pantalla. Se muestra en quechua, sin traducir, siguiendo la regla de la obra: el quechua es la lengua del imperio.",
+        "notas": "«Chimor Yaku» («agua de Chimor») procede de la biblia (03_PERSONAJES.md, UCRONIA_INTEGRACION.md) y nunca se pronuncia en pantalla. Se muestra en quechua, sin traducir, siguiendo la regla de la obra: el quechua es la lengua del imperio. Igor (2026-09-10): la ciudad es la frontera norte del imperio, su puerta; la capital está más adentro.",
         "fuente": "UCRONIA_INTEGRACION.md; GUION_EPISODIO_08",
         "placeholder": true
       }
@@ -338,9 +338,9 @@
             },
             "medido": "fotogramas del máster publicado del EP08 cada 5 s (2026-09-09)",
             "historia": {
-              "es": "Templos de tumbaga sobre la pirámide. El Sapa Inca, con su séquito, mira el río como un dios que civiliza la selva.",
-              "en": "Tumbaga temples on top of the pyramid. The Sapa Inca, with his retinue, looks at the river like a god civilising the jungle.",
-              "eu": "Tunbagazko tenpluak piramidearen gainean. Sapa Inkak, bere segizioarekin, ibaiari begiratzen dio oihana zibilizatzen duen jainko baten gisa."
+              "es": "Templos de tumbaga sobre la pirámide. El Sapa Inca, llegado de la capital con su séquito, mira el río como un dios que civiliza la selva.",
+              "en": "Tumbaga temples on top of the pyramid. The Sapa Inca, come from the capital with his retinue, looks at the river like a god civilising the jungle.",
+              "eu": "Tunbagazko tenpluak piramidearen gainean. Sapa Inkak, hiriburutik etorrita bere segizioarekin, ibaiari begiratzen dio oihana zibilizatzen duen jainko baten gisa."
             }
           }
         ],
