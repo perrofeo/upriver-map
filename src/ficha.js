@@ -64,7 +64,7 @@ export class Ficha {
     const faccion = etiquetaFaccion(props.faccion);
     const chips = [etiquetaTipo(props.tipo)];
     if (faccion && faccion !== '—') chips.push(faccion);
-    if (props.estacion && props.estacion !== 'ambas') chips.push(tr('ficha.soloEn', { estacion: t(`estacion.${props.estacion}`).toLowerCase() }));
+    if (props.estacion && props.estacion !== 'ambas') chips.push(tr('ficha.soloEn', { estacion: tr(`estacion.${props.estacion}`).toLowerCase() }));
     if (props.placeholder && this.modoAutor) chips.push(tr('ficha.provisional'));
     for (const c of chips) {
       const s = document.createElement('span');
