@@ -22,7 +22,8 @@ const POSE_POR_TIPO = {
   accidente: { alt: 10000, pitch: -40, heading: RUMBO },
   localizacion: { alt: 12000, pitch: -44, heading: RUMBO },
   territorio: { alt: 60000, pitch: -60, heading: RUMBO },
-  ruta: { alt: 60000, pitch: -60, heading: RUMBO },
+  // Un tramo de río o un caño como parada: a la altura de un lugar, no de un territorio.
+  ruta: { alt: 12000, pitch: -44, heading: RUMBO },
 };
 
 /** mm:ss (o h:mm:ss) a partir de segundos. */
