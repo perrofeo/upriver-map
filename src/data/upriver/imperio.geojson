@@ -11,30 +11,30 @@
           [
             [
               -77.5,
-              -5.5
+              -5.32
             ],
             [
               -77.35,
-              -5.63
+              -5.4888
             ],
             [
               -77.2,
-              -5.76
+              -5.6575
             ],
             [
-              -77.08,
-              -5.9
+              -77.05,
+              -5.8263
             ],
             [
-              -76.97316,
-              -6.01256
+              -76.89949,
+              -5.99558
             ],
             [
-              -76.85,
-              -6.22
+              -76.75,
+              -6.1638
             ],
             [
-              -76.7,
+              -76.54,
               -6.4
             ],
             [
@@ -43,7 +43,7 @@
             ],
             [
               -77.5,
-              -5.5
+              -5.32
             ]
           ]
         ]
@@ -174,18 +174,18 @@
             ],
             [
               -77.5,
-              -5.5
+              -5.32
             ],
             [
               -77.2,
-              -5.76
+              -5.6575
             ],
             [
-              -76.97316,
-              -6.01256
+              -76.89949,
+              -5.99558
             ],
             [
-              -76.7,
+              -76.54,
               -6.4
             ],
             [
@@ -270,30 +270,30 @@
         "coordinates": [
           [
             -77.5,
-            -5.5
+            -5.32
           ],
           [
             -77.35,
-            -5.63
+            -5.4888
           ],
           [
             -77.2,
-            -5.76
+            -5.6575
           ],
           [
-            -77.08,
-            -5.9
+            -77.05,
+            -5.8263
           ],
           [
-            -76.97316,
-            -6.01256
+            -76.89949,
+            -5.99558
           ],
           [
-            -76.85,
-            -6.22
+            -76.75,
+            -6.1638
           ],
           [
-            -76.7,
+            -76.54,
             -6.4
           ]
         ]
@@ -328,7 +328,7 @@
             }
           }
         ],
-        "notas": "Decisión de Igor (2026-09-10): la ciudad es la frontera norte del imperio; Jeshuco y los refugiados viven fuera, en la llanura, y por eso no conocen la ciudad ni las banderas del sol. La capital queda más adentro, en la sierra. Trazado esquemático por el pie de los Andes; cruza el río en la ciudad.",
+        "notas": "Decisión de Igor (2026-09-10): la ciudad es la frontera norte del imperio; Jeshuco y los refugiados viven fuera, en la llanura, y por eso no conocen la ciudad ni las banderas del sol. La capital queda más adentro, en la sierra. Trazado esquemático por el pie de los Andes; cruza el río aguas abajo del puerto, a la salida de la ciudad, para que Hanan, Chaupin y Urin queden dentro (aviso de Igor, 2026-09-10).",
         "fuente": "Igor (2026-09-10)",
         "placeholder": false
       }
