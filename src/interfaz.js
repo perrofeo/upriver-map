@@ -13,6 +13,7 @@ import { Ficha } from './ficha.js';
 import { LineaTiempo } from './tiempo.js';
 import { MUNDO } from './mundo.js';
 import { rectanguloMundo } from './basemap.js';
+import { avisar, avisoRebotado } from './telemetria.js';
 
 function aviso(texto, ms = 1800) {
   const toast = document.getElementById('toast');
@@ -102,8 +103,16 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
   }
 
   // ── Estación ──────────────────────────────────────────────────────────
+  // El deslizador dispara en cada píxel: a la web se le cuenta sólo dónde se
+  // ha quedado, y en tres cubos, que es lo que significa algo (¿la gente mira
+  // el mundo seco, el inundado, o se queda a medias?).
+  const cuboEstacion = (v) => (v < 0.2 ? 'vaciante' : v > 0.8 ? 'creciente' : 'media');
+  const avisarEstacion = avisoRebotado();
   const slider = document.getElementById('estacion-slider');
-  slider.addEventListener('input', () => interfaz.setEstacion(Number(slider.value) / 100));
+  slider.addEventListener('input', () => {
+    interfaz.setEstacion(Number(slider.value) / 100);
+    avisarEstacion('mapa_estacion', { estacion: cuboEstacion(basemap.estacion) });
+  });
 
   // ── Estilos ───────────────────────────────────────────────────────────
   const botones = document.getElementById('estilo-botones');
@@ -121,7 +130,12 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
       b.className = 'estilo-btn' + (estilos.activeStyle === nombre ? ' activo' : '');
       b.dataset.estilo = nombre;
       b.textContent = t(`estilo.${nombre}`);
-      b.addEventListener('click', () => { estilos.setStyle(nombre); pintarEstilos(); pintarParams(); });
+      b.addEventListener('click', () => {
+        estilos.setStyle(nombre);
+        pintarEstilos();
+        pintarParams();
+        avisar('mapa_estilo', { estilo: nombre });
+      });
       botones.append(b);
     }
   }
@@ -177,7 +191,14 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
 
   // ── Capas ─────────────────────────────────────────────────────────────
   capas.buildTogglePanel(document.getElementById('capas-toggles'));
-  capas.onChange(() => enlace.programar());
+  capas.onChange((evento) => {
+    enlace.programar();
+    // Sólo el interruptor tocado a mano: el encendido del arranque y el de un
+    // enlace compartido llegan con su propio `origin` y no son un gesto.
+    if (evento?.type === 'visibility' && evento.origin === 'user') {
+      avisar('mapa_capa', { capa: evento.id, estado: evento.enabled ? 'on' : 'off' });
+    }
+  });
 
   // ── Ficha y línea de tiempo ───────────────────────────────────────────
   const ficha = new Ficha(document.getElementById('ficha'), {
@@ -210,7 +231,14 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
   interfaz.lineaTiempo = lineaTiempo;
   interfaz.ficha = ficha;
   const seleccionarManual = interfaz.seleccionar;
-  interfaz.seleccionar = (fid, opciones) => { interfaz.seleccionAutomatica = false; return seleccionarManual(fid, opciones); };
+  interfaz.seleccionar = (fid, opciones) => {
+    interfaz.seleccionAutomatica = false;
+    const abierta = seleccionarManual(fid, opciones);
+    // La ficha que abre sola el recorrido no cuenta: aquí sólo el lugar que
+    // alguien ha decidido mirar.
+    if (abierta) avisar('mapa_lugar', { lugar: fid });
+    return abierta;
+  };
 
   // ── Selección en el globo ─────────────────────────────────────────────
   const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
@@ -252,12 +280,20 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
   }
 
   // ── Vistas ────────────────────────────────────────────────────────────
-  document.getElementById('btn-imperio').addEventListener('click', () => interfaz.verImperio());
-  document.getElementById('btn-mundo').addEventListener('click', () => interfaz.verMundo());
+  document.getElementById('btn-imperio').addEventListener('click', () => {
+    interfaz.verImperio();
+    avisar('mapa_vista', { vista: 'imperio' });
+  });
+  document.getElementById('btn-mundo').addEventListener('click', () => {
+    interfaz.verMundo();
+    avisar('mapa_vista', { vista: 'rio' });
+  });
 
   // ── Enlace ────────────────────────────────────────────────────────────
   document.getElementById('btn-compartir').addEventListener('click', async () => {
-    aviso((await enlace.copiar()) ? t('enlace.copiado') : t('enlace.fallo'));
+    const copiado = await enlace.copiar();
+    aviso(copiado ? t('enlace.copiado') : t('enlace.fallo'));
+    avisar('mapa_enlace', { resultado: copiado ? 'copiado' : 'fallo' });
   });
 
   return interfaz;

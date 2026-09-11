@@ -19,6 +19,7 @@ import { montarInterfaz } from './interfaz.js';
 import { crearCapaFiccion } from './capas/ficcion.js';
 import { montarAutor } from './autor.js';
 import { aplicarDom, t } from './i18n.js';
+import { crearTelemetria, instalarTelemetria, avisar } from './telemetria.js';
 import episodiosJson from './data/upriver/episodios.json';
 import poses from './data/upriver/poses.json';
 import asentamientosRaw from './data/upriver/asentamientos.geojson?raw';
@@ -49,6 +50,14 @@ function describirError(error) {
 
 async function init() {
   aplicarDom();
+  // Lo primero: el canal con la web que nos embebe. Fuera del iframe queda
+  // mudo y todos los `avisar()` del resto de módulos son un no-op.
+  instalarTelemetria(crearTelemetria({
+    ventana: window,
+    padre: window.parent,
+    referrer: document.referrer,
+  }));
+  const arranque = performance.now();
   const carga = document.getElementById('carga');
   const estado = carga.querySelector('.carga-estado');
   const parametros = new URLSearchParams(window.location.search);
@@ -181,6 +190,10 @@ async function init() {
     visibilidad();
 
     carga.classList.add('oculto');
+    // Cuánta gente llega a ver el globo de verdad. El pageview de la web dice
+    // quién abrió la página; esto dice quién esperó a que montara, que en un
+    // build de Cesium no es lo mismo.
+    avisar('mapa_listo', { ms: String(Math.round(performance.now() - arranque)) });
 
     window.__upriver = {
       viewer, basemap, estilos, capas, enlace, director, interfaz, MUNDO, autor, Cesium,

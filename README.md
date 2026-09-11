@@ -45,11 +45,24 @@ npm run peso        # tamaño del build por partes
 | `src/estilos.js` | motor de estilos GLSL extraído de gods-eye-view |
 | `src/capas/` | gestor de capas y capas de ficción |
 | `src/enlace.js` | enlaces compartibles (hash de la URL) |
+| `src/telemetria.js` | lo que el mapa le cuenta por `postMessage` a la web que lo embebe |
 | `src/data/upriver/` | datos de ficción (GeoJSON) y tabla de episodios; esquema en su README |
 | `src/scenes/` | director de escenas (gods-eye-view, sin cambios salvo `recipes.js`) |
 | `scripts/` | cortador de teselas, placeholder, peso del build |
 | `mapas/` | imágenes fuente del mapa por estación |
 | `docs/` | desmontaje, mapa y coordenadas, identidad visual, despliegue |
+
+## Analítica
+
+El mapa **no carga ningún script de analítica**: sigue sin claves y sin terceros. Lo que hace
+`src/telemetria.js` es emitir un `postMessage` por cada gesto del visitante —qué vista, qué capa,
+qué estación, qué lugar, qué episodio— y es la web que lo embebe la que decide si eso se mide.
+Se manda el gesto, nunca al visitante: ni identificadores, ni cámara, ni URL.
+
+Fuera del iframe el emisor queda mudo, y el `targetOrigin` nunca es `*`: sale del referrer y se
+contrasta con `ORIGENES`. El vocabulario de eventos (`EVENTOS`) está cerrado y duplicado en el
+oyente de la web (`the-rendered-channel/web/pages/upriver/map.vue`): **un evento nuevo hay que
+darlo de alta en los dos sitios** o no llega.
 
 ## Publicación
 

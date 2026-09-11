@@ -10,6 +10,7 @@
 import { nombreMostrado } from './capas/ficcion.js';
 import { enlaceYoutube, formatearTiempo, tramosDeEntidad } from './recorrido.js';
 import { t as tr, texto } from './i18n.js';
+import { avisar } from './telemetria.js';
 
 const etiquetaTipo = (tipo) => tr(`tipo.${tipo}`);
 const etiquetaFaccion = (f) => (f === 'ninguna' ? '—' : tr(`faccion.${f}`));
@@ -115,6 +116,9 @@ export class Ficha {
           a.rel = 'noopener';
           a.textContent = tr('ficha.ver');
           a.title = tr('ficha.ver.titulo');
+          // La salida a YouTube desde la ficha de un lugar: es el mapa
+          // devolviendo gente a la serie, que es para lo que está.
+          a.addEventListener('click', () => avisar('mapa_ver_episodio', { episodio: String(tramo.episodio), origen: 'ficha' }));
           fila.append(a);
         }
         if (tramo.historia) {

@@ -11,6 +11,7 @@ import * as Cesium from 'cesium';
 import { construirRecorrido, enlaceYoutube, episodioEn, formatearTiempo, poseEn, segundoEnEpisodio } from './recorrido.js';
 import { nombreMostrado } from './capas/ficcion.js';
 import { t as tr, texto } from './i18n.js';
+import { avisar, avisoRebotado } from './telemetria.js';
 
 const VELOCIDADES = [1, 5, 10, 30];
 
@@ -42,6 +43,8 @@ export class LineaTiempo {
     this._raf = null;
     this._ultimoTick = 0;
     this._paradaId = null;
+    this._epActual = null;
+    this._avisarEpisodio = avisoRebotado(500);
     this._construirDom();
     this._pausarConGesto();
   }
@@ -58,7 +61,11 @@ export class LineaTiempo {
     this._btnPlay.type = 'button';
     this._btnPlay.className = 'quipu-play';
     this._btnPlay.setAttribute('aria-label', tr('quipu.play'));
-    this._btnPlay.addEventListener('click', () => (this.reproduciendo ? this.pausar() : this.reproducir()));
+    this._btnPlay.addEventListener('click', () => {
+      const reproducir = !this.reproduciendo;
+      if (reproducir) this.reproducir(); else this.pausar();
+      avisar('mapa_recorrido', { accion: reproducir ? 'play' : 'pausa' });
+    });
 
     const cuerda = document.createElement('div');
     cuerda.className = 'quipu-cuerda';
@@ -106,6 +113,9 @@ export class LineaTiempo {
     this._verEnYoutube.rel = 'noopener';
     this._verEnYoutube.textContent = tr('quipu.ver');
     this._verEnYoutube.title = tr('quipu.ver.titulo');
+    this._verEnYoutube.addEventListener('click', () => {
+      avisar('mapa_ver_episodio', { episodio: String(this._epActual ?? ''), origen: 'quipu' });
+    });
     this._lectura.append(this._lecturaTiempo, this._lecturaEpisodio, this._lecturaLugar, this._verEnYoutube);
 
     this._velocidad = document.createElement('select');
@@ -173,6 +183,13 @@ export class LineaTiempo {
     this._verEnYoutube.hidden = !url;
     if (url) this._verEnYoutube.href = url;
     this._pintarCabezal();
+    // El episodio en el que está el recorrido. Se avisa con rebote: arrastrar
+    // el quipu cruza seis episodios en un gesto y sólo cuenta dónde se queda;
+    // reproduciendo, cada episodio dura lo bastante para que salga el suyo.
+    if (ep?.n !== this._epActual) {
+      this._epActual = ep?.n;
+      if (ep) this._avisarEpisodio('mapa_episodio', { episodio: String(ep.n) });
+    }
     const paradaId = parada?.id || null;
     if (paradaId !== this._paradaId) {
       this._paradaId = paradaId;
