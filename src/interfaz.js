@@ -11,9 +11,21 @@ import { ESTILOS } from './estilos.js';
 import { IDIOMAS, idioma, t, urlEnIdioma } from './i18n.js';
 import { Ficha } from './ficha.js';
 import { LineaTiempo } from './tiempo.js';
-import { MUNDO } from './mundo.js';
+import { MUNDO, vistaVertical } from './mundo.js';
 import { rectanguloMundo } from './basemap.js';
 import { avisar, avisoRebotado } from './telemetria.js';
+
+/**
+ * Cuándo el mapa usa la disposición de móvil: el panel plegado en su botón y la ficha como hoja
+ * plegable. No es sólo el móvil de pie: también la tablet de pie (hasta 900 de ancho) y el móvil
+ * tumbado (menos de 500 de alto), que con la de escritorio abrían panel y ficha a la vez y tapaban
+ * el mapa (revisión del 2026-09-11). La misma consulta está en style.css: cambiarlas juntas.
+ */
+const PANTALLA_ESTRECHA = '(max-width: 900px), (max-height: 500px)';
+const pantallaEstrecha = () => window.matchMedia(PANTALLA_ESTRECHA).matches;
+
+/** Lo que tapa el globo en la disposición de móvil: la cabecera arriba; la línea de tiempo y la ficha plegada abajo. */
+const RESERVA_MOVIL = { arriba: 56, abajo: 160 };
 
 function aviso(texto, ms = 1800) {
   const toast = document.getElementById('toast');
@@ -59,7 +71,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
       ficha.mostrar(hallazgo.feature);
       interfaz.alSeleccionar?.(fid);
         // En móvil la ficha aparece plegada: solo el nombre, y se abre tocándolo.
-      document.getElementById('ficha').classList.toggle('plegada', window.matchMedia('(max-width: 760px)').matches);
+      document.getElementById('ficha').classList.toggle('plegada', pantallaEstrecha());
       if (volar) {
         const entidad = hallazgo.capa.entidadDe(fid);
         if (entidad) viewer.flyTo(entidad, { duration: 1.6, offset: new Cesium.HeadingPitchRange(0, Cesium.Math.toRadians(-45), 12_000) });
@@ -86,11 +98,20 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
       if (duracion <= 0) viewer.camera.setView(vista);
       else viewer.camera.flyTo({ ...vista, duration: duracion, easingFunction: Cesium.EasingFunction.CUBIC_IN_OUT });
     },
-    /** Vista del mundo del río entero. */
+    /** Vista del mundo del río entero. En una pantalla vertical, girada: el imperio arriba (mundo.js, vistaVertical). */
     verMundo({ duracion = 2.5 } = {}) {
-      const destination = rectanguloMundo(MUNDO);
-      if (duracion <= 0) viewer.camera.setView({ destination });
-      else viewer.camera.flyTo({ destination, duration: duracion, easingFunction: Cesium.EasingFunction.CUBIC_IN_OUT });
+      const { clientWidth: anchoPx, clientHeight: altoPx } = viewer.scene.canvas;
+      let vista = { destination: rectanguloMundo(MUNDO) };
+      if (anchoPx > 0 && altoPx > anchoPx) {
+        const reserva = pantallaEstrecha() ? RESERVA_MOVIL : { arriba: 0, abajo: 0 };
+        const v = vistaVertical({ anchoPx, altoPx, fov: viewer.camera.frustum.fov, reservaArriba: reserva.arriba, reservaAbajo: reserva.abajo });
+        vista = {
+          destination: Cesium.Cartesian3.fromDegrees(v.lon, v.lat, v.altura),
+          orientation: { heading: Cesium.Math.toRadians(v.rumbo), pitch: Cesium.Math.toRadians(-90), roll: 0 },
+        };
+      }
+      if (duracion <= 0) viewer.camera.setView(vista);
+      else viewer.camera.flyTo({ ...vista, duration: duracion, easingFunction: Cesium.EasingFunction.CUBIC_IN_OUT });
     },
   };
 
@@ -223,7 +244,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
         interfaz.seleccion = parada.id;
         capas.resaltar(parada.id);
         ficha.mostrar(parada.feature);
-        document.getElementById('ficha').classList.toggle('plegada', window.matchMedia('(max-width: 760px)').matches);
+        document.getElementById('ficha').classList.toggle('plegada', pantallaEstrecha());
       }
     },
     alCambiar: () => enlace.programar(),
@@ -262,7 +283,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
   const fichaEl = document.getElementById('ficha');
   fichaEl.addEventListener('click', (e) => {
     if (!e.target.closest('.ficha-cabecera') || e.target.closest('.ficha-cerrar')) return;
-    if (window.matchMedia('(max-width: 760px)').matches) fichaEl.classList.toggle('plegada');
+    if (pantallaEstrecha()) fichaEl.classList.toggle('plegada');
   });
 
   // ── Idioma ────────────────────────────────────────────────────────────

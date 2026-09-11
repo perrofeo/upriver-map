@@ -175,8 +175,10 @@ body.modo-grabacion #panel-lateral, body.modo-grabacion #cabecera, body.modo-gra
 .carga-estado.error { color: #d98c6a; font-style: normal; }
 
 /* ── Pantallas estrechas ─────────────────────────────────────────────────── */
+/* No sólo el móvil de pie: también la tablet de pie y el móvil tumbado. La consulta es la
+   PANTALLA_ESTRECHA de src/interfaz.js: cambiarlas juntas. */
 .solo-movil { display: none; }
-@media (max-width: 760px) {
+@media (max-width: 900px), (max-height: 500px) {
   .solo-movil { display: block; }
   #cabecera { top: 10px; left: 12px; }
   #cabecera h1 { font-size: 22px; }
@@ -186,8 +188,9 @@ body.modo-grabacion #panel-lateral, body.modo-grabacion #cabecera, body.modo-gra
   #panel-lateral { display: none; top: 0; left: 0; right: 0; bottom: 0; width: auto; max-height: none; padding: 44px 16px 24px; z-index: 6; }
   #panel-lateral.abierto { display: block; }
   #btn-cerrar-panel { position: absolute; top: 8px; right: 12px; background: transparent; border: 0; color: var(--hollin); font-size: 26px; line-height: 1; }
-  /* La ficha es una hoja sobre el quipu; se pliega tocando el título. */
-  #ficha { top: auto; bottom: 104px; right: 8px; left: 8px; width: auto; max-height: 42vh; padding: 10px 14px 12px; }
+  /* La ficha es una hoja sobre el quipu; se pliega tocando el título. En el móvil de pie
+     ocupa el ancho; en la tablet se queda en 420 y deja ver el mapa. */
+  #ficha { top: auto; bottom: 104px; right: auto; left: 8px; width: min(420px, calc(100% - 16px)); max-height: 42vh; padding: 10px 14px 12px; }
   #ficha.plegada { max-height: none; overflow: hidden; }
   #ficha.plegada > :not(.ficha-cabecera):not(.ficha-secundario) { display: none; }
   .ficha-cabecera { cursor: pointer; }
@@ -198,6 +201,12 @@ body.modo-grabacion #panel-lateral, body.modo-grabacion #cabecera, body.modo-gra
   .quipu-episodio { overflow: hidden; text-overflow: ellipsis; }
   .quipu-ver { display: none; }
   #panel-autor { top: 52px; left: 8px; right: 8px; width: auto; }
+}
+/* Móvil tumbado: con 390 de alto, la ficha sobre la línea de tiempo se comía media pantalla.
+   Sube arriba a la derecha, bajo el botón del panel, y la línea de tiempo se estrecha. */
+@media (max-height: 500px) {
+  #ficha { top: 52px; bottom: auto; left: auto; right: 12px; width: min(300px, calc(100% - 24px)); max-height: calc(100% - 52px - 96px); }
+  #linea-tiempo { width: min(640px, calc(100% - 16px)); }
 }
 
 @media (prefers-reduced-motion: reduce) {

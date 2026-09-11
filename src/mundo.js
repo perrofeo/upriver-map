@@ -122,3 +122,42 @@ export function dimensionesNivel(z, mundo = MUNDO) {
 export function aspectoEsperado(mundo = MUNDO) {
   return anchoGrados(mundo) / altoGrados(mundo);
 }
+
+/**
+ * Vista del mundo entero en una pantalla vertical (el móvil, la tablet de pie).
+ *
+ * El mundo es apaisado (2:1): con el norte arriba, en vertical queda una franja en medio de la
+ * pantalla y arriba y abajo se ve el borde borroso de fuera del mapa. Con la cámara girada 90°
+ * —el oeste arriba— lo llena de arriba abajo: el imperio arriba y el poblado abajo, río arriba como
+ * en el Short 14 (Igor, 2026-09-11). Y se centra en el hueco libre, no en la pantalla: arriba va la
+ * cabecera y abajo la línea de tiempo con la ficha plegada.
+ *
+ * Cámara cenital sobre un plano: a 500 km la curvatura encoge poco los bordes y el margen lo cubre.
+ * En Cesium el `fov` es el ángulo del lado largo de la pantalla; en vertical, el del alto.
+ * @param {{anchoPx: number, altoPx: number, fov: number, reservaArriba?: number, reservaAbajo?: number, margen?: number}} pantalla
+ *   `fov` en radianes; las reservas, en píxeles de interfaz que tapan el globo
+ * @returns {{lon: number, lat: number, altura: number, rumbo: number}} grados, metros y rumbo en grados (270 = el oeste arriba)
+ */
+export function vistaVertical({ anchoPx, altoPx, fov, reservaArriba = 0, reservaAbajo = 0, margen = 1.04 }, mundo = MUNDO) {
+  const m = metrosPorGrado(mundo);
+  const largo = anchoGrados(mundo) * m.lon; // este-oeste: va de arriba abajo
+  const corto = altoGrados(mundo) * m.lat; // norte-sur: va de lado a lado
+  const tanAlto = Math.tan(fov / 2);
+  const tanAncho = tanAlto * (anchoPx / altoPx);
+  // Nunca menos de la mitad de la pantalla: con una interfaz enorme, mejor que tape un poco.
+  const altoLibre = Math.max(altoPx - reservaArriba - reservaAbajo, altoPx / 2);
+  const altura = Math.max(
+    (largo / 2 / tanAlto) * (altoPx / altoLibre),
+    corto / 2 / tanAncho,
+  ) * margen;
+  // Del centro de la pantalla al centro del hueco libre. Con el oeste arriba, subir el mundo en la
+  // pantalla es llevar la cámara al este.
+  const metrosPorPx = (2 * altura * tanAlto) / altoPx;
+  const subida = ((reservaAbajo - reservaArriba) / 2) * metrosPorPx;
+  return {
+    lon: (mundo.oeste + mundo.este) / 2 + subida / m.lon,
+    lat: (mundo.norte + mundo.sur) / 2,
+    altura,
+    rumbo: 270,
+  };
+}

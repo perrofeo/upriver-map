@@ -8,6 +8,7 @@ import {
   dimensionesNivel,
   nivelMaximo,
   pixelACoordenada,
+  vistaVertical,
 } from './mundo.js';
 
 test('el bbox es 2:1 y la rejilla del nivel 0 lo respeta', () => {
@@ -37,4 +38,28 @@ test('nivel máximo cubre la resolución de la imagen', () => {
 test('dentroDelMundo', () => {
   assert.ok(dentroDelMundo(-74.7, -4.9));
   assert.ok(!dentroDelMundo(-70, -4.9));
+});
+
+test('la vista vertical mete el mundo entero en el hueco libre del móvil', () => {
+  const fov = Math.PI / 3; // el de Cesium por defecto
+  const pantalla = { anchoPx: 390, altoPx: 844, fov, reservaArriba: 56, reservaAbajo: 150, margen: 1 };
+  const v = vistaVertical(pantalla);
+  const latMedia = ((MUNDO.norte + MUNDO.sur) / 2) * (Math.PI / 180);
+  const largo = (MUNDO.este - MUNDO.oeste) * 111_320 * Math.cos(latMedia);
+  const corto = (MUNDO.norte - MUNDO.sur) * 110_574;
+  const metrosPorPx = (2 * v.altura * Math.tan(fov / 2)) / 844;
+  // El largo (este-oeste) cabe entre la cabecera y la línea de tiempo; el corto, de lado a lado.
+  assert.ok(largo / metrosPorPx <= 844 - 56 - 150 + 1e-6);
+  assert.ok(corto / metrosPorPx <= 390 + 1e-6);
+  // Y una de las dos medidas es la que manda: justo, sin sobrar.
+  assert.ok(Math.abs(largo / metrosPorPx - (844 - 56 - 150)) < 1e-6 || Math.abs(corto / metrosPorPx - 390) < 1e-6);
+  assert.equal(v.rumbo, 270);
+  // Hay más interfaz abajo que arriba: la cámara se va al este para que el mundo suba.
+  assert.ok(v.lon > (MUNDO.oeste + MUNDO.este) / 2);
+  assert.equal(v.lat, (MUNDO.norte + MUNDO.sur) / 2);
+});
+
+test('sin interfaz, la vista vertical se centra en el mundo', () => {
+  const v = vistaVertical({ anchoPx: 768, altoPx: 1024, fov: Math.PI / 3 });
+  assert.equal(v.lon, (MUNDO.oeste + MUNDO.este) / 2);
 });
