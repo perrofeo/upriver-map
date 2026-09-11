@@ -24,6 +24,13 @@ import { avisar, avisoRebotado } from './telemetria.js';
 const PANTALLA_ESTRECHA = '(max-width: 900px), (max-height: 500px)';
 const pantallaEstrecha = () => window.matchMedia(PANTALLA_ESTRECHA).matches;
 
+/** Pliega o abre la ficha y se lo dice a los lectores de pantalla por la flecha. */
+function plegarFicha(plegada) {
+  const el = document.getElementById('ficha');
+  el.classList.toggle('plegada', plegada);
+  el.querySelector('.ficha-plegar')?.setAttribute('aria-expanded', String(!plegada));
+}
+
 /** Lo que tapa el globo en la disposición de móvil: la cabecera arriba; la línea de tiempo y la ficha plegada abajo. */
 const RESERVA_MOVIL = { arriba: 56, abajo: 160 };
 
@@ -71,7 +78,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
       ficha.mostrar(hallazgo.feature);
       interfaz.alSeleccionar?.(fid);
         // En móvil la ficha aparece plegada: solo el nombre, y se abre tocándolo.
-      document.getElementById('ficha').classList.toggle('plegada', pantallaEstrecha());
+      plegarFicha(pantallaEstrecha());
       if (volar) {
         const entidad = hallazgo.capa.entidadDe(fid);
         if (entidad) viewer.flyTo(entidad, { duration: 1.6, offset: new Cesium.HeadingPitchRange(0, Cesium.Math.toRadians(-45), 12_000) });
@@ -244,7 +251,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
         interfaz.seleccion = parada.id;
         capas.resaltar(parada.id);
         ficha.mostrar(parada.feature);
-        document.getElementById('ficha').classList.toggle('plegada', pantallaEstrecha());
+        plegarFicha(pantallaEstrecha());
       }
     },
     alCambiar: () => enlace.programar(),
@@ -283,7 +290,7 @@ export function montarInterfaz({ viewer, basemap, estilos, capas, enlace, direct
   const fichaEl = document.getElementById('ficha');
   fichaEl.addEventListener('click', (e) => {
     if (!e.target.closest('.ficha-cabecera') || e.target.closest('.ficha-cerrar')) return;
-    if (pantallaEstrecha()) fichaEl.classList.toggle('plegada');
+    if (pantallaEstrecha()) plegarFicha(!fichaEl.classList.contains('plegada'));
   });
 
   // ── Idioma ────────────────────────────────────────────────────────────

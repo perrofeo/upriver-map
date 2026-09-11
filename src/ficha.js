@@ -43,7 +43,21 @@ export class Ficha {
     const h = document.createElement('h2');
     h.textContent = principal;
     if (props.lengua === 'qu') h.lang = 'qu';
-    cabecera.append(h);
+    // En la disposición de móvil la ficha llega plegada, y un nombre con una × no dice que se
+    // abre (Igor, 2026-09-11): la pista bajo el nombre y la flecha lo dicen. En escritorio, ocultas.
+    const pista = document.createElement('span');
+    pista.className = 'ficha-pista';
+    pista.textContent = tr('ficha.abrir');
+    const titulo = document.createElement('div');
+    titulo.className = 'ficha-titulo';
+    titulo.append(h, pista);
+    cabecera.append(titulo);
+    const plegar = document.createElement('button');
+    plegar.type = 'button';
+    plegar.className = 'ficha-plegar';
+    plegar.setAttribute('aria-label', tr('ficha.plegar'));
+    plegar.setAttribute('aria-expanded', 'true');
+    cabecera.append(plegar);
     const cerrar = document.createElement('button');
     cerrar.type = 'button';
     cerrar.className = 'ficha-cerrar';

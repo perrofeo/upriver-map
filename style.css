@@ -97,6 +97,13 @@ input[type=range] { width: 100%; margin: 6px 0 2px; accent-color: var(--tumbaga)
 .ficha-cabecera h2 { margin: 0; font-size: 24px; line-height: 1.1; font-weight: 700; }
 .ficha-cabecera h2[lang=qu] { color: var(--tumbaga); }
 .ficha-cerrar { padding: 0 8px; font-size: 20px; line-height: 1.3; color: var(--hollin); }
+.ficha-titulo { flex: 1; min-width: 0; }
+/* Pista y flecha de la ficha plegada: sólo en la disposición de móvil (ver abajo). */
+.ficha-pista, .ficha-plegar { display: none; }
+.ficha-pista { margin-top: 4px; width: fit-content; font-size: 13px; color: var(--tumbaga); border-bottom: 1px solid var(--tumbaga-suave); }
+.ficha-plegar { position: relative; flex: none; width: 32px; height: 26px; padding: 0; border: 1px solid transparent; background: var(--adobe-claro); }
+.ficha-plegar:hover { border-color: var(--tumbaga); }
+.ficha-plegar::before { content: ''; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; margin: -2px 0 0 -4.5px; border-right: 2px solid var(--hueso); border-bottom: 2px solid var(--hueso); transform: rotate(-135deg); }
 .ficha-secundario { font-style: italic; font-size: 16px; color: var(--hollin); margin-top: 2px; }
 .ficha-meta { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 8px 0 4px; font-size: 13px; color: var(--hollin); }
 .ficha-chip::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 6px; background: var(--tumbaga-suave); vertical-align: 1px; }
@@ -193,6 +200,10 @@ body.modo-grabacion #panel-lateral, body.modo-grabacion #cabecera, body.modo-gra
   #ficha { top: auto; bottom: 104px; right: auto; left: 8px; width: min(420px, calc(100% - 16px)); max-height: 42vh; padding: 10px 14px 12px; }
   #ficha.plegada { max-height: none; overflow: hidden; }
   #ficha.plegada > :not(.ficha-cabecera):not(.ficha-secundario) { display: none; }
+  .ficha-plegar { display: block; }
+  #ficha.plegada .ficha-pista { display: block; }
+  /* La hoja crece hacia arriba: plegada, la flecha apunta arriba; abierta, abajo. */
+  #ficha:not(.plegada) .ficha-plegar::before { transform: rotate(45deg); margin-top: -6px; }
   .ficha-cabecera { cursor: pointer; }
   .ficha-cabecera h2 { font-size: 20px; }
   #linea-tiempo { bottom: 8px; width: calc(100% - 16px); grid-template-columns: 40px 1fr; column-gap: 10px; padding: 8px 10px 6px; }
@@ -206,6 +217,9 @@ body.modo-grabacion #panel-lateral, body.modo-grabacion #cabecera, body.modo-gra
    Sube arriba a la derecha, bajo el botón del panel, y la línea de tiempo se estrecha. */
 @media (max-height: 500px) {
   #ficha { top: 52px; bottom: auto; left: auto; right: 12px; width: min(300px, calc(100% - 24px)); max-height: calc(100% - 52px - 96px); }
+  /* Aquí la ficha cuelga del botón y crece hacia abajo: las flechas, al revés. */
+  #ficha.plegada .ficha-plegar::before { transform: rotate(45deg); margin-top: -6px; }
+  #ficha:not(.plegada) .ficha-plegar::before { transform: rotate(-135deg); margin-top: -2px; }
   #linea-tiempo { width: min(640px, calc(100% - 16px)); }
 }
 
